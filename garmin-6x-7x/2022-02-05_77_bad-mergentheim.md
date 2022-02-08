@@ -2,7 +2,7 @@
 ===========================================
 
 Noch ein weiterer Lauf in Bad Mergentheim, diesmal eine
-ganz andere Strecke und mit 7X (rechts) und 7X Sapphire (links):
+ganz andere Strecke und mit 7X (rechts, eingestellt in GarminConnect: links) und 7X Sapphire (links):
 
 ![Vergleich 7X-7XSapphire](/images/2022-02-05_2_vergleich-bad-mergentheim.png)
 
