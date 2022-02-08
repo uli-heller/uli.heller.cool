@@ -49,11 +49,18 @@ GPX-Dateien und Vergleichsbilder
 Aus irgendeinem Grund funktionieren MD-Links
 in der Tabelle nicht, wie verwenden "normale"
 HTML-Links
+
+Scheint ein bekannter Fehler von MarkedJS zu sein:
+[Reference-style links inside tables are broken since version 3](https://github.com/markedjs/marked/issues/2217)
 -->
 
-LfdNr| Datum      | 6X                                        | 7X                                        | 7X Sapphire                                        | Vergleichsbilder
------| -----------|-------------------------------------------|-------------------------------------------|----------------------------------------------------|------------------
-01   | 2022-02-03 | <a href="/data/2022-02-03_6x.gpx.xz">x</a>   | <a href="/data/2022-02-03_7x.gpx.xz">x</a>   | -                                                  | <a href="/images/2022-02-03_vergleich.png">x</a>
+[01-6x]: data/2022-02-03_6x.gpx.xz
+[01-7x]: data/2022-02-03_7x.gpx.xz
+[01-v1]: images/images/2022-02-03_vergleich.png
+
+LfdNr| Datum      | 6X         | 7X         | 7X Sapphire | Vergleichsbilder
+-----| -----------|------------|------------|-------------|------------------
+01   | 2022-02-03 | [x][01-6x] | [x][01-7x] | -           | [x][01-v1]
 02   | 2022-02-04 | <a href="/data/2022-02-04_6x.gpx.xz">x</a>   | <a href="/data/2022-02-04_7x.gpx.xz">x</a>   | -                                                  | <a href="/images/2022-02-04_vergleich-kornwestheim.png">x</a>
 03   | 2022-02-04 | <a href="/data/2022-02-04_2_6x.gpx.xz">x</a> | <a href="/data/2022-02-04_2_7x.gpx.xz">x</a> | <a href="/data/2022-02-04_2_7x-sapphire.gpx.xz">x</a> | <a href="/images/2022-02-04_vergleich-bad-mergentheim.png">1</a> <a href="/images/2022-02-04_vergleich-bad-mergentheim2.png">2</a>
 04   | 2022-02-05 | <a href="/data/2022-02-05_6x.gpx.xz">x</a>   | -                                         | <a href="/data/2022-02-05_7x-sapphire.gpx.xz">x</a>   | <a href="/images/2022-02-05_vergleich-bad-mergentheim.png">x</a>
