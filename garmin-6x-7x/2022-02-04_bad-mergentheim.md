@@ -20,6 +20,6 @@ recht kahl.
 Ergebnis für die 7X Sapphire
 auf den Serpentinen: Fast etwas schlechter als die 6X, klar schlechter als die 7X!
 
-- [GPX-Track Garmin 6X](/data/2022-02-04_2_6x.gpx)
-- [GPX-Track Garmin 7X](/data/2022-02-04_2_7x.gpx)
-- [GPX-Track Garmin 7X](/data/2022-02-04_2_7x-sapphire.gpx)
+- [GPX-Track Garmin 6X](/data/2022-02-04_2_6x.gpx.xz)
+- [GPX-Track Garmin 7X](/data/2022-02-04_2_7x.gpx.xz)
+- [GPX-Track Garmin 7X](/data/2022-02-04_2_7x-sapphire.gpx.xz)

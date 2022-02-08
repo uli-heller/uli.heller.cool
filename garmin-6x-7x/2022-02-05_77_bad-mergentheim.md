@@ -17,5 +17,5 @@ für mich ein klein wenig genauer auf dem Weg. Das sind aber wirklich Details.
 Bin dann oben rechts aus dem Bild gelaufen und knapp 10km später dann da auch wieder zurückgekommen.
 Wieder sieht man rot=rechts von blau.
 
-- [GPX-Track Garmin 7X](/data/2022-02-05_2_7x.gpx)
-- [GPX-Track Garmin 7X](/data/2022-02-05_2_7x-sapphire.gpx)
+- [GPX-Track Garmin 7X](/data/2022-02-05_2_7x.gpx.xz)
+- [GPX-Track Garmin 7X](/data/2022-02-05_2_7x-sapphire.gpx.xz)

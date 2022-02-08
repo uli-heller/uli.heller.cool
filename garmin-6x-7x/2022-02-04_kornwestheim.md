@@ -13,5 +13,5 @@ auch gelaufen bin. Die Stelle mit dem schwarzen Pfeil hat die 6X "besser" getrof
 Bei der  7X sehe ich nicht, dass ich in das Pärkchen reingelaufen bin bis zum Ende
 und wieder zurück zum "Schild". Ich denke, die 7X "rundet viel weg".
 
-- [GPX-Track Garmin 6X](/data/2022-02-04_6x.gpx)
-- [GPX-Track Garmin 7X](/data/2022-02-04_7x.gpx)
+- [GPX-Track Garmin 6X](/data/2022-02-04_6x.gpx.xz)
+- [GPX-Track Garmin 7X](/data/2022-02-04_7x.gpx.xz)
