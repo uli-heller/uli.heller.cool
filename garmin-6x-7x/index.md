@@ -11,6 +11,13 @@ GPS-Aufzeichnungen der Uhren
 Zusammenfassung
 ---------------
 
+TBD
+
+Details
+-------
+
+TBD
+
 GPX-Dateien und Vergleichsbilder
 --------------------------------
 
