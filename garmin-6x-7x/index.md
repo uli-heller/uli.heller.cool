@@ -16,7 +16,7 @@ TBD
 Details
 -------
 
-TBD
+- [2022-02-03 - Fenix 6X Pro Sapphire und Fenix 7X](2022-02-03.md)
 
 GPX-Dateien und Vergleichsbilder
 --------------------------------
