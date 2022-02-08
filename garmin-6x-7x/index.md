@@ -42,3 +42,4 @@ LfdNr| Datum      | 6X                                        | 7X              
 06   | 2022-02-05 | -                                         | <a href="/data/2022-02-05_3_7x.gpx">x</a> | <a href="/data/2022-03-05_2_7x-sapphire.gpx">x</a> | -
 07   | 2022-02-06 | -                                         | <a href="/data/2022-02-06_7x.gpx">x</a>   | <a href="/data/2022-02-06_7x-sapphire.gpx">x</a>   | <a href="/images/2022-02-06_vergleich-bad-mergentheim.png">1</a> <a href="/images/2022-02-06_vergleich-bad-mergentheim2.png">2</a>
 08   | 2022-02-07 | -                                         | <a href="/data/2022-02-07_7x.gpx">x</a>   | <a href="/data/2022-02-07_7x-sapphire.gpx">x</a>   | -
+09   | 2022-02-08 | -                                         | <a href="/data/2022-02-08_7x.gpx">x</a>   | <a href="/data/2022-02-08_7x-sapphire.gpx">x</a>   | -
