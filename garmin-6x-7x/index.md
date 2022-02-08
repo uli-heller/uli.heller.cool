@@ -19,6 +19,8 @@ Details
 - [2022-02-03 - Fenix 6X Pro Sapphire und Fenix 7X](2022-02-03.md)
 - [2022-02-04 - Fenix 6X Pro Sapphire und Fenix 7X](2022-02-04_kornwestheim.md)
 - [2022-02-04 - Fenix 6X Pro Sapphire, Fenix 7X und Fenix 7X Sapphire](2022-02-04_bad-mergentheim.md)
+- [2022-02-05 - Fenix 6X Pro Sapphire und Fenix 7X Sapphire](2022-02-05_67_bad-mergentheim.md)
+- [2022-02-05 - Fenix 7X und Fenix 7X Sapphire](2022-02-05_77_bad-mergentheim.md)
 
 GPX-Dateien und Vergleichsbilder
 --------------------------------
