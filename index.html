@@ -1,0 +1,385 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+  <head>
+  </head>
+  <body onload="initPage();" onhashchange="hashChanged();">
+    <div id="topid"></div>
+    <div id="middle"></div>
+    <div id="bottomid"></div>
+  </body>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/styles/default.min.css">
+  <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/highlight.min.js"></script>
+  <!-- and it's easy to individually load additional languages -->
+  <!--<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/languages/go.min.js"></script>-->
+
+  <!-- diff2html files -->
+  <!--
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/diff2html/dist/diff2html.min.css">
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/diff2html/dist/diff2html.min.js"></script>
+  -->
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/diff2html/bundles/css/diff2html.min.css">
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/diff2html/bundles/js/diff2html.min.js"></script>
+
+  <!-- mermaid.js -->
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+
+
+  <!--
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.26.0/themes/prism.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.26.0/components/prism-core.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.26.0/plugins/autoloader/prism-autoloader.min.js"></script>
+  -->
+  <link rel="stylesheet" href="prism-1.26.0.css">
+  <script src="prism-1.26.0.js"></script>
+
+  <script src="config.js?version=step-27"></script>
+  <script>
+    function nodeScriptIs(node) {
+       return node.tagName === 'SCRIPT';
+    }
+
+    function nodeScriptClone(node) {
+        var script  = document.createElement("script");
+        script.text = node.innerHTML;
+        var i = -1, attrs = node.attributes, attr;
+        while ( ++i < attrs.length ) {
+            script.setAttribute( (attr = attrs[i]).name, attr.value );
+        }
+        return script;
+    }
+
+    function nodeScriptReplace(node) {
+        if ( nodeScriptIs(node) === true ) {
+            node.parentNode.replaceChild( nodeScriptClone(node) , node );
+        } else {
+            var i = -1, children = node.childNodes;
+            while ( ++i < children.length ) {
+                nodeScriptReplace( children[i] );
+            }
+        }
+        return node;
+    }
+
+    /*
+     * isAbsoluteUrl
+     * Checks if the url contains something like XXX://
+     * - true ... an absolute url containing  XXX://
+     * - false ... not an absolute url
+     */
+    function isAbsoluteUrl (href) {
+        return href.indexOf('://') > 0;
+    }
+
+    /*
+     * isProtocolRelativeUrl
+     * Checks if we do have a protocol relative url starting with //
+     * - true ... we have a protocol relative url starting with //
+     * - false ... we don't have a protocol relative url
+     */
+    function isProtocolRelativeUrl (href) {
+        return href.startsWith('//');
+    }
+
+    /*
+     * isMarkdownUrl
+     * Checks if the url points to a markdown file (ending with '.md')
+     * - true ... the url points to a markdown file
+     * - false ... the url doesn't point to a markdown file
+     */
+    function isMarkdownUrl (href) {
+        return href.endsWith('.md');
+    }
+
+    const renderer = new marked.Renderer();
+    const originalRendererCode = renderer.code.bind(renderer);
+    renderer.code = (code, infostring, escaped) => {
+        if (infostring === 'diff') {
+            return Diff2Html.html(code);
+        } else if (infostring === 'mermaid') {
+            return '<div class="mermaid">' + code + '</div>';
+        }
+        return originalRendererCode(code, infostring, escaped);
+    };
+    const originalRendererLink = renderer.link.bind(renderer);
+    renderer.link = (href, title, text) => {
+        if (isAbsoluteUrl(href)) {
+            ;
+        } else if (isProtocolRelativeUrl(href)) {
+            const pathname = window.location.pathname;
+            var location = window.location.href;
+            location = location.replace(/#.*$/, '');
+            location = location.slice(0, -pathname.length);
+            href = location + href;
+            ;
+        } else if (!isMarkdownUrl(href)) {
+            ;
+        } else {
+            /* isMarkdownUrl */
+            const newFilename = newRelativeLink(href);
+            href = filenameToHash(newFilename);
+        }
+        return originalRendererLink(href, title, text);
+    };
+    const originalRendererImage = renderer.image.bind(renderer);
+    renderer.image = (href, title, text) => {
+        if (isAbsoluteUrl(href)) {
+            ;
+        } else {
+            href = newRelativeLink(href);
+        }
+        return originalRendererImage(href, title, text);
+    };
+
+    function handleNavbar (navbarElement) {
+        // Make sure the navbar contains two lists
+        var navbar_uls = navbarElement.querySelectorAll("ul");
+        while (navbar_uls.length < 2) {
+            const ul = document.createElement('ul');
+            navbarElement.appendChild(ul);
+            navbar_uls = navbarElement.querySelectorAll("ul");
+        }
+
+        const navbar_clear = navbarElement.getElementsByClassName("clear");
+        if (navbar_clear.length <= 0) {
+            const clear = document.createElement('div')
+            clear.classList.add("clear");
+            navbarElement.appendChild(clear);
+        }
+    }
+
+    async function fetchFile(filename) {
+        var contentFetcher;
+        for (const newFilename of languageFilenames(filename)) {
+            contentFetcher = await fetch(newFilename, {cache: "no-store"});
+            if (contentFetcher.ok) {
+                return contentFetcher.text();
+            }
+        }
+    }
+
+    async function load(element, filename, isNavbar) {
+        const contentText = await fetchFile(filename);
+        element.innerHTML = marked.parse(contentText, {
+            renderer: renderer,
+            highlight: function(code, lang) {
+                var language = Prism.languages[lang];
+                if (language) {
+                    return Prism.highlight(code, language, lang);
+                } else {
+                    language = hljs.getLanguage(lang) ? lang : 'plaintext';
+                    return hljs.highlight(code, { language }).value;
+                }
+            },
+        });
+        nodeScriptReplace(element);
+        if (isNavbar) {
+            handleNavbar(element);
+        }
+        mermaid.init(undefined, ".mermaid");
+    }
+
+    /*
+     * removeHash
+     * remove the leading hash sign '#'
+     *
+     * #/index.md -> /index.md
+     * #/index#   -> /index#
+     */
+    function removeHash (windowLocationHash) {
+        return windowLocationHash.replace(/^#/, "");
+    }
+
+    /*
+     * filenameToId
+     * Transforms a filename into a valid id of an html element
+     *
+     * Example:
+     *   header-02.md -> header02md
+     */
+    function filenameToId (filename) {
+        return filename.replaceAll(/[.-]/g, '');
+    }
+
+    /*
+     * dirname
+     * Asuming a filename produce the name of the
+     * parent directory
+     *
+     * /subfolder/index.md -> /subfolder
+     * /subfolder/         -> /subfolder (OK?)
+     */
+    function dirname (path) {
+        return path.replace(/\/[^\/]*$/, '');
+    }
+
+    /*
+     * normalizePath
+     * Removes various unwanted parts from a path
+     *
+     * Examples
+     *  x//y   -> x/y
+     *  /a/../ -> /
+     *  /a/..  -> /
+     *  /../   -> /
+     *  /..    -> /
+     *  //a/b  -> /a/b
+     */
+    function normalizePath (path) {
+        var this_path = '';
+        var next_path = path;
+        while (this_path != next_path) {
+            this_path = next_path;
+            next_path = next_path.replace('//', '/');
+            next_path = next_path.replace('/./', '/');
+            next_path = next_path.replace(/\/[^\/]+\/\.\.\//, '/');
+            next_path = next_path.replace(/\/[^\/]+\/\.\.$/, '/');
+            next_path = next_path.replace('/../', '/');
+            next_path = next_path.replace('/..', '/');
+            next_path = next_path.replace('../', '/');
+            next_path = next_path.replace('..', '/');
+        }
+        return next_path;
+    }
+    
+    /*
+     * hashToFilename
+     * Transforms the hash value to a filename
+     *
+     * Examples:
+     *  '/'     '#/index.md'          -> /index.md
+     *  '/smp'  '#/index.md'          -> /smp/index.md
+     *  '/'     '#index.md'           -> /index.md
+     *  '/'     ''                    -> /index.md
+     *  '/'     '#/page.md'           -> /page.md
+     *  '/'     '#/subfolder/page.md' -> /subfolder/page.md
+     *  '/smp'  '#/subfolder/page.md' -> /smp/subfolder/page.md
+     */
+    function hashToFilename (hash) {
+        var filename = removeHash(hash);
+        if (! filename) {
+            filename = '/index.md';
+        } else if (filename.endsWith('/')) {
+            filename = filename + 'index.md';
+        }
+        if (! filename.startsWith('/')) {
+            filename = '/' + filename;
+        }
+        return normalizePath(dirname(window.location.pathname) + filename);
+    }
+
+    /*
+     * filenameToHash
+     * Transforms a filename to the hash value
+     *
+     */
+    function filenameToHash (filename) {
+        var nPathname = normalizePath(dirname(window.location.pathname));
+        var nFilename = normalizePath(filename);
+        return '#'+filename.replace(nPathname, '');
+    }
+
+    function languageFilenames (filename) {
+        var result = [];
+        if (! config.multiLanguage || ! filename.endsWith('.md')) {
+            result.push(filename);
+        } else {
+            const navigatorLanguageRegion = navigator.language;
+            const navigatorLanguage = navigatorLanguageRegion.slice(0,2);
+            var basename = filename.slice(0, -3);
+            const languageRegions = basename.match(/_[a-z][a-z]-[A-Z][A-Z]$/);
+            if (languageRegions) {
+                const languageRegion = languageRegions[0];
+                basename = basename.slice(0, -languageRegion.length);
+                result.push(filename);
+                //result.push(basename + languageRegion + '.md');
+                result.push(basename + languageRegion.slice(0,3) + '.md');
+                result.push(basename + '_' + navigatorLanguageRegion  + '.md');
+                result.push(basename + '_' + navigatorLanguage  + '.md');
+                result.push(basename + '.md');
+            } else {
+                const languages = basename.match(/_[a-z][a-z]$/);
+                if (languages) {
+                    const language = languages[0];
+                    basename = basename.slice(0, -language.length);
+                    result.push(filename);
+                    result.push(basename + '_' + navigatorLanguageRegion  + '.md');
+                    result.push(basename + '_' + navigatorLanguage  + '.md');
+                    result.push(basename + '.md');
+                } else {
+                    result.push(basename + '_' + navigatorLanguageRegion  + '.md');
+                    result.push(basename + '_' + navigatorLanguage  + '.md');
+                    //result.push(basename + '.md');
+                    result.push(filename);
+                }
+            }
+        }
+        return result;
+    }
+
+    /*
+     * newRelativeLink
+     * Creates a relative link for window.location based on
+     * the current hash and the new link/filename
+     *
+     * Examples:
+     *   hash            | link        -> result
+     *   '#/'            | 'readme.md' -> '/readme.md'
+     *   '#'             | 'readme.md' -> '/readme.md'
+     *   '#/sd/index.md' | 'readme.md' -> '/sd/readme.md'
+     */
+    function newRelativeLink (href) {
+        const oldFilename = hashToFilename(window.location.hash);
+        const newFilename = href;
+        var newHash = newFilename;
+        if (newFilename.startsWith('/')) {
+            newHash = newFilename;
+        } else {
+            newHash = dirname(oldFilename) + '/' + newFilename;
+        }
+        return normalizePath(newHash);
+    }
+
+    function loadStylesheet (filename) {
+        const id = filenameToId(filename);
+        if (! document.getElementById(id)) {
+            const head = document.getElementsByTagName('head')[0];
+            const link = document.createElement('link');
+            link.id = id;
+            link.rel = 'stylesheet';
+            link.type = 'text/css';
+            link.href = filename; // + "?timestamp=" + new Date();
+            link.media = 'all';
+            head.appendChild(link);
+        }
+    }
+
+    function hashChanged () {
+        initPage();
+    }
+
+    function initPage () {
+        const middle = document.getElementById('middle');
+        if (middle) {
+            var filename=hashToFilename(window.location.hash);
+            window.location.hash = filenameToHash(filename);
+            load(middle, filename, false);
+        }
+        config.additionalElements.forEach((ae) => {
+            const element = document.getElementById(ae.insertBeforeElementId);
+            if (element) {
+                const id = ae.elementId || filenameToId(ae.filename);
+                if (! document.getElementById(id)) {
+                    const newElement = document.createElement('div');
+                    newElement.id = id;
+                    element.parentNode.insertBefore(newElement, element)
+                    load(newElement, ae.filename, ae.isNavbar);
+                }
+            }
+        });
+        config.stylesheets.forEach((s) => {
+            loadStylesheet(s);
+        });
+    }
+  </script>
+</html>

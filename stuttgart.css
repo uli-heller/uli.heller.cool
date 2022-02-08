@@ -1,0 +1,139 @@
+:root {
+    --background-color:         #fcdb00;
+    --foreground-color:         #000000;
+    --lighter-background-color: #ffff66;
+    --lighter-foreground-color: #111111;
+    --padding-header:           1em;
+    --padding-left-right:       1em;
+    --padding-top-bottom:       0.5em;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#headermd {
+    background: var(--background-color);
+    color:      var(--foreground-color);
+    padding-top: var(--padding-header);
+    padding-right: var(--padding-header);
+    padding-bottom: var(--padding-header);
+    padding-left: var(--padding-header);
+}
+
+
+#navbarmd {
+    top: 0;
+}
+
+#footermd {
+    bottom: 0;
+}
+
+#navbarmd,#footermd {
+    position: sticky;
+    background: var(--lighter-background-color);
+    color:      var(--lighter-foreground-color);
+    padding-top: var(--padding-top-bottom);
+    padding-right: var(--padding-left-right);
+    padding-bottom: var(--padding-top-bottom);
+    padding-left: var(--padding-left-right);
+}
+
+#navbarmd .clear, #footermd .clear {
+    clear: both;
+}
+
+#navbarmd h1, #footermd h1 {
+    display: none;
+}
+
+#navbarmd ul, #footermd ul {
+    display: flex;
+    list-style-type: none;    
+    margin: 0;
+    padding: 0;
+    background: var(--lighter-background-color);
+    color:      var(--lighter-foreground-color);
+}
+
+#navbarmd ul:first-of-type, #footermd ul:first-of-type {
+    float: left;
+}
+
+#navbarmd ul:last-of-type, #footermd ul:last-of-type {
+    float: right;
+}
+
+#navbarmd li a ,#footermd li a {
+    display: block;
+    padding: 8px;
+    text-decoration: none;
+    color:      var(--lighter-foreground-color);
+}
+
+#navbarmd li a:hover, #footermd li a:hover {
+    background-color: var(--lighter-background-color);
+    filter: brightness(80%);
+    border-radius: 5px;
+}
+
+#header {
+    font-size: xx-large;
+    font-weight: bold;
+}
+
+#middle {
+    padding-top: var(--padding-top-bottom);
+    padding-right: var(--padding-left-right);
+    padding-bottom: var(--padding-top-bottom);
+    padding-left: var(--padding-left-right);
+}
+
+#middle table {
+    border-collapse: collapse;
+}
+
+#middle th {
+    background: var(--background-color);
+    padding-top: var(--padding-top-bottom);
+    padding-right: var(--padding-left-right);
+    padding-bottom: var(--padding-top-bottom);
+    padding-left: var(--padding-left-right);
+}
+
+#middle th:first-child {
+    border-top-left-radius: 5px;
+}
+
+#middle th:last-child {
+    border-top-right-radius: 5px;
+}
+
+#middle tr {
+    /*border-bottom: solid 1px black;*/
+    padding-right: var(--padding-left-right);
+    padding-left: var(--padding-left-right);
+}
+
+#middle td {
+    /*border-bottom: solid 1px black;*/
+    padding-right: var(--padding-left-right);
+    padding-left: var(--padding-left-right);
+}
+
+#middle tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+#middle tr:last-child td:first-child {
+    border-bottom-left-radius: 5px;
+}
+
+#middle tr:last-child td:last-child {
+    border-bottom-right-radius: 5px;
+}
+
+div.mermaid {
+    font-family: 'trebuchet ms', verdana, arial;
+}
