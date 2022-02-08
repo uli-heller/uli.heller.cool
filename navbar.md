@@ -1,13 +1,9 @@
 - <a href="#" onclick="toggleTop(event);" id="show_hide">&Uarr;</a>
-- [README](README.md)
-- [index](index.md)
-- [Eins](eins.md)
-- [Zwei](zwei.md)
-- [Drei](drei.md)
+- [GPS-Vergleich Garmiun 6X/7X](germin6x-7x/)
 
 # Trenner
 
-- [Rechts](rechts.md)
+- [Impressum](impressum.md)
 
 <script>
  function toggleTop(e) {
