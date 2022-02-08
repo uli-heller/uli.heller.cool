@@ -1,5 +1,5 @@
 - <a href="#" onclick="toggleTop(event);" id="show_hide">&Uarr;</a>
-- [GPS-Vergleich Garmiun 6X/7X](germin6x-7x/)
+- [GPS-Vergleich Garmin 6X/7X](germin6x-7x/)
 
 # Trenner
 
