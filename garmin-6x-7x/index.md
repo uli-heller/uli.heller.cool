@@ -17,6 +17,7 @@ Details
 -------
 
 - [2022-02-03 - Fenix 6X Pro Sapphire und Fenix 7X](2022-02-03.md)
+- [2022-02-04 - Fenix 6X Pro Sapphire und Fenix 7X](2022-02-04_kornwestheim.md)
 
 GPX-Dateien und Vergleichsbilder
 --------------------------------
