@@ -56,7 +56,7 @@ Scheint ein bekannter Fehler von MarkedJS zu sein:
 
 [01-6x]: data/2022-02-03_6x.gpx.xz
 [01-7x]: data/2022-02-03_7x.gpx.xz
-[01-v1]: images/images/2022-02-03_vergleich.png
+[01-v1]: images/2022-02-03_vergleich.png
 
 LfdNr| Datum      | 6X         | 7X         | 7X Sapphire | Vergleichsbilder
 -----| -----------|------------|------------|-------------|------------------
