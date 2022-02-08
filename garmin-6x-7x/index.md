@@ -4,14 +4,33 @@ GPX-Vergleich Garmin Fenix 6X und 7X
 Hier beschreibe ich meine Erkenntnisse bezüglich der
 GPS-Aufzeichnungen der Uhren
 
-- Garmin Fenix 6X Pro Sapphire
-- Garmin Fenix 7X
-- Garmin Fenix 7X Sapphire
+- Garmin Fenix 6X Pro Sapphire (6X)
+- Garmin Fenix 7X (7X)
+- Garmin Fenix 7X Sapphire (7XSAP)
 
 Zusammenfassung
 ---------------
 
-TBD
+Mein Vergleich von den drei Uhren
+zeigt, dass die 7X ud die 7X Sapphire
+eine deutlich brauchbarere GPS-Ortung
+bieten.
+
+Die Routen sind "glatter", gefühlt entsprechen
+sie wesentlich genauer den tatsächlich gelaufenen
+Strecken. Trotz diese Glättung werden Serpentinen
+nicht abgeschnitten, daraus würde ich folgern, dass
+der GPS-Chip genauer arbeitet und nicht einfach
+nur eine aggressivere Messwertfilterung erfolgt.
+Eigentlich müßte damit auch die Laufgeschwindigkeit
+deutlich genauer und weniger schwankend gemessen
+werden. Da habe ich noch nicht drauf geachtet.
+
+Die GPS-Unterschiede zwischen der Fenix 7X und der
+Fenix 7X Sapphire sind merklich aber gering.
+Zumindest bei mir hier im Flachland. Messungen im
+Gebirge wären toll, das werde ich aber wohl nicht
+schaffen, ich muß die 7X in 2 Wochen zurückschicken.
 
 Details
 -------
