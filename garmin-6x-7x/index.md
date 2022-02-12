@@ -61,7 +61,7 @@ Scheint ein bekannter Fehler von MarkedJS zu sein:
 LfdNr| Datum      | 6X         | 7X         | 7X Sapphire | Vergleichsbilder
 -----| -----------|------------|------------|-------------|------------------
 01   | 2022-02-03 | [x][01-6x] | [x][01-7x] | -           | [x][01-v1]
-02   | 2022-02-04 | <a href="/data/2022-02-04_6x.gpx.xz">x</a>   | <a href="/data/2022-02-04_7x.gpx.xz">x</a>   | -                                                  | <a href="/images/2022-02-04_vergleich-kornwestheim.png">x</a>
+02   | 2022-02-04 | [x](data/2022-02-04_6x.gpx.xz)   | <a href="/data/2022-02-04_7x.gpx.xz">x</a>   | -                                                  | <a href="/images/2022-02-04_vergleich-kornwestheim.png">x</a>
 03   | 2022-02-04 | <a href="/data/2022-02-04_2_6x.gpx.xz">x</a> | <a href="/data/2022-02-04_2_7x.gpx.xz">x</a> | <a href="/data/2022-02-04_2_7x-sapphire.gpx.xz">x</a> | <a href="/images/2022-02-04_vergleich-bad-mergentheim.png">1</a> <a href="/images/2022-02-04_vergleich-bad-mergentheim2.png">2</a>
 04   | 2022-02-05 | <a href="/data/2022-02-05_6x.gpx.xz">x</a>   | -                                         | <a href="/data/2022-02-05_7x-sapphire.gpx.xz">x</a>   | <a href="/images/2022-02-05_vergleich-bad-mergentheim.png">x</a>
 05   | 2022-02-05 | -                                         | <a href="/data/2022-02-05_2_7x.gpx.xz">x</a> | <a href="/data/2022-02-05_2_7x-sapphire.gpx.xz">x</a> | <a href="/images/2022-02-05_2_vergleich-bad-mergentheim.png">1</a> <a href="/images/2022-02-05_2_vergleich-bad-mergentheim2.png">2</a>

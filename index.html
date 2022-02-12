@@ -34,7 +34,7 @@
   <link rel="stylesheet" href="prism-1.26.0.css">
   <script src="prism-1.26.0.js"></script>
 
-  <script src="config.js?version=step-30"></script>
+  <script src="config.js?version=step-31"></script>
   <script>
     class Site {
         constructor(siteLocation, myConfig) {
@@ -64,6 +64,7 @@
             if (this._endsWithAny([].concat(this.config.markdown,this.config.html,this.config.text), pathname)) {
                 return new URL(Site._hashHref(this.baseUrl.href, this.indexHtml, url.href));
             }
+            return(url);
         }
 
         _endsWithAny(suffixes, string) {
@@ -256,14 +257,14 @@
     };
     const originalRendererLink = renderer.link.bind(renderer);
     renderer.link = (href, title, text) => {
-        href = new URL(href, mySite.currentUrl.href);
-        href = mySite.hashUrl(href);
+        const url = new URL(href, mySite.currentUrl.href);
+        href = mySite.hashUrl(url).href;
         return originalRendererLink(href, title, text);
     };
     const originalRendererImage = renderer.image.bind(renderer);
     renderer.image = (href, title, text) => {
-        href = new URL(href, mySite.currentUrl.href);
-        return originalRendererImage(href, title, text);
+        const url = new URL(href, mySite.currentUrl.href);
+        return originalRendererImage(url.href, title, text);
     };
 
     function handleNavbar (navbarElement) {
@@ -324,8 +325,8 @@
     }
 
     function loadConfigJs(element, filename, isNavbar) {
-	const url = new URL(filename, mySite.indexHtmlUrl);
-	load(element, url.href, isNavbar);
+        const url = new URL(filename, mySite.indexHtmlUrl);
+        load(element, url.href, isNavbar);
     }
 
     function languageFilenames (filename) {
@@ -368,7 +369,7 @@
 
     function loadConfigJsStylesheet (filename) {
         const id = Site.elementId(filename);
-	const url = new URL(filename, mySite.indexHtmlUrl);
+        const url = new URL(filename, mySite.indexHtmlUrl);
         if (! document.getElementById(id)) {
             const head = document.getElementsByTagName('head')[0];
             const link = document.createElement('link');
