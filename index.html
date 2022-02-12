@@ -34,7 +34,7 @@
   <link rel="stylesheet" href="prism-1.26.0.css">
   <script src="prism-1.26.0.js"></script>
 
-  <script src="config.js?version=step-28"></script>
+  <script src="config.js?version=step-30"></script>
   <script>
     class Site {
         constructor(siteLocation, myConfig) {
@@ -74,20 +74,20 @@
             }
         }
 
-	isMarkdown (url) {
-	    const basename = Site.basename(url);
-	    return this._endsWithAny(this.config.markdown, basename);
-	}
+        isMarkdown (url) {
+            const basename = Site.basename(url);
+            return this._endsWithAny(this.config.markdown, basename);
+        }
 
-	isHtml (url) {
-	    const basename = Site.basename(url);
-	    return this._endsWithAny(this.config.html, basename);
-	}
+        isHtml (url) {
+            const basename = Site.basename(url);
+            return this._endsWithAny(this.config.html, basename);
+        }
 
-	isText (url) {
-	    const basename = Site.basename(url);
-	    return this._endsWithAny(this.config.text, basename);
-	}
+        isText (url) {
+            const basename = Site.basename(url);
+            return this._endsWithAny(this.config.text, basename);
+        }
 
         static _indexHtmlUrl(thisHref, configIndexHtml) {
             const url = new URL(thisHref);
@@ -131,17 +131,17 @@
             return Site.nonHashUrl(this.currentUrl);
         }
 
-	/*
-	 * elementId
-	 * Transforms a filename into a valid id of an html element
-	 *
-	 * Example:
-	 *   http://localhost/header-02.md -> header02md
-	 */
-	static elementId (url) {
-	    return Site.basename(url).replaceAll(/[.-]/g, '');
-	}
-	
+        /*
+         * elementId
+         * Transforms a filename into a valid id of an html element
+         *
+         * Example:
+         *   http://localhost/header-02.md -> header02md
+         */
+        static elementId (url) {
+            return Site.basename(url).replaceAll(/[.-]/g, '');
+        }
+
         /*
          * dirname
          * Asuming a filename produce the name of the
@@ -153,8 +153,8 @@
         static dirname (pathOrUrl) {
             var pathname = pathOrUrl;
             if ('object' === typeof(pathOrUrl)) {
-		const url = new URL(pathOrUrl);
-		url.hash ='';
+                const url = new URL(pathOrUrl);
+                url.hash ='';
                 pathname = url.href;
             }
             return pathname.replace(/\/[^\/]*$/, '');
@@ -298,29 +298,34 @@
 
     async function load(element, filename, isNavbar) {
         const contentText = await fetchFile(filename);
-	if (mySite.isMarkdown(filename)) {
+        if (mySite.isMarkdown(filename)) {
             element.innerHTML = marked.parse(contentText, {
-		renderer: renderer,
-		highlight: function(code, lang) {
+                renderer: renderer,
+                highlight: function(code, lang) {
                     var language = Prism.languages[lang];
                     if (language) {
-			return Prism.highlight(code, language, lang);
+                        return Prism.highlight(code, language, lang);
                     } else {
-			language = hljs.getLanguage(lang) ? lang : 'plaintext';
-			return hljs.highlight(code, { language }).value;
+                        language = hljs.getLanguage(lang) ? lang : 'plaintext';
+                        return hljs.highlight(code, { language }).value;
                     }
-		},
+                },
             });
-	} else if (mySite.isHtml(filename)) {
-	    element.innerHTML = contentText;
-	} else {
-	    element.innerText = contentText;
-	}
+        } else if (mySite.isHtml(filename)) {
+            element.innerHTML = contentText;
+        } else {
+            element.innerText = contentText;
+        }
         nodeScriptReplace(element);
         if (isNavbar) {
             handleNavbar(element);
         }
         mermaid.init(undefined, ".mermaid");
+    }
+
+    function loadConfigJs(element, filename, isNavbar) {
+	const url = new URL(filename, mySite.indexHtmlUrl);
+	load(element, url.href, isNavbar);
     }
 
     function languageFilenames (filename) {
@@ -361,15 +366,16 @@
         return result;
     }
 
-    function loadStylesheet (filename) {
+    function loadConfigJsStylesheet (filename) {
         const id = Site.elementId(filename);
+	const url = new URL(filename, mySite.indexHtmlUrl);
         if (! document.getElementById(id)) {
             const head = document.getElementsByTagName('head')[0];
             const link = document.createElement('link');
             link.id = id;
             link.rel = 'stylesheet';
             link.type = 'text/css';
-            link.href = filename; // + "?timestamp=" + new Date();
+            link.href = url.href;
             link.media = 'all';
             head.appendChild(link);
         }
@@ -383,6 +389,12 @@
 
     function initPage () {
         mySite.currentUrl = Site.nonHashUrl(new URL(window.location));
+        //if (mySite.currentUrl.pathname.endsWith('/')) {
+        //    mySite.currentUrl.pathname += mySite.config.indexHtml;
+        //}
+        if (!mySite.currentUrl.hash) {
+            mySite.currentUrl.hash = mySite.config.indexMd;
+        }
         const base = document.getElementById('base');
         if (base) {
             base.href = mySite.currentUrl;
@@ -400,12 +412,12 @@
                     const newElement = document.createElement('div');
                     newElement.id = id;
                     element.parentNode.insertBefore(newElement, element)
-                    load(newElement, ae.filename, ae.isNavbar);
+                    loadConfigJs(newElement, ae.filename, ae.isNavbar);
                 }
             }
         });
         config.stylesheets.forEach((s) => {
-            loadStylesheet(s);
+            loadConfigJsStylesheet(s);
         });
     }
   </script>
