@@ -1,9 +1,9 @@
 - <a href="#" onclick="toggleTop(event);" id="show_hide">&Uarr;</a>
-- [GPS-Vergleich Garmin 6X/7X](garmin-6x-7x/index.md)
+- [GPS-Vergleich Garmin 6X/7X](/garmin-6x-7x/index.md)
 
 # Trenner
 
-- [Impressum](impressum.md)
+- [Impressum](/impressum.md)
 
 <script>
  function toggleTop(e) {

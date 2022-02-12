@@ -1,6 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html>
   <head>
+    <base id="base" />
   </head>
   <body onload="initPage();" onhashchange="hashChanged();">
     <div id="topid"></div>
@@ -33,8 +34,190 @@
   <link rel="stylesheet" href="prism-1.26.0.css">
   <script src="prism-1.26.0.js"></script>
 
-  <script src="config.js?version=step-27"></script>
+  <script src="config.js?version=step-28"></script>
   <script>
+    class Site {
+        constructor(siteLocation, myConfig) {
+            this.location = siteLocation;
+            this.config = myConfig;
+            this.href = siteLocation.href;
+            this.url = new URL(this.href);                                          // typically something like http://localhost:3000/index.html#index.md
+            this.indexHtmlUrl = Site._indexHtmlUrl(this.href, myConfig.indexHtml);
+            this.indexHtml = Site.basename(this.indexHtmlUrl);
+            this.baseUrl = this._baseUrl(this.indexHtmlUrl);                        // typically something like http://localhost:3000 - used to transform regular urls to hash_urls/
+            this.protocol = siteLocation.protocol;
+            this.host = siteLocation.host; // hostname:port
+            this.pathname = siteLocation.pathname;
+            this.hash = siteLocation.hash;
+            this.currentUrl = Site.nonHashUrl(this.url);                            // typically something like http://localhost:3000/index.md
+            this.currentHref = this.currentUrl.href;
+        }
+
+        _baseUrl (indexHtmlUrl) {
+            var baseUrl = new URL('..', indexHtmlUrl);
+            baseUrl.hash='';
+            return baseUrl;
+        }
+
+        hashUrl (url) {
+            const pathname = url.pathname;
+            if (this._endsWithAny([].concat(this.config.markdown,this.config.html,this.config.text), pathname)) {
+                return new URL(Site._hashHref(this.baseUrl.href, this.indexHtml, url.href));
+            }
+        }
+
+        _endsWithAny(suffixes, string) {
+            for (let suffix of suffixes) {
+                if (string.endsWith(suffix)) {
+                    return true;
+                }
+            }
+        }
+
+	isMarkdown (url) {
+	    const basename = Site.basename(url);
+	    return this._endsWithAny(this.config.markdown, basename);
+	}
+
+	isHtml (url) {
+	    const basename = Site.basename(url);
+	    return this._endsWithAny(this.config.html, basename);
+	}
+
+	isText (url) {
+	    const basename = Site.basename(url);
+	    return this._endsWithAny(this.config.text, basename);
+	}
+
+        static _indexHtmlUrl(thisHref, configIndexHtml) {
+            const url = new URL(thisHref);
+            if (url.pathname.endsWith('/')) {
+                url.pathname += configIndexHtml;
+            }
+            return url;
+        }
+
+        static _hashHref(indexHtmlHref, indexHtml, thisHref) {
+            var result=thisHref;
+            var withoutIndexHtml = indexHtmlHref;
+            if (withoutIndexHtml.endsWith(indexHtml)) {
+                withoutIndexHtml = withoutIndexHtml.slice(0, -indexHtml.length);
+            }
+            if (withoutIndexHtml.endsWith('/')) {
+                withoutIndexHtml = withoutIndexHtml.slice(0, -1);
+            }
+            if (thisHref.startsWith(withoutIndexHtml)) {
+                const withoutLeadingPath=thisHref.slice(withoutIndexHtml.length);
+                result = withoutIndexHtml+'/'+indexHtml+'#'+withoutLeadingPath;
+            }
+            return result;
+        }
+
+        static nonHashUrl(thisUrl) {
+            const hash = thisUrl.hash;
+            const href = thisUrl.href;
+            var result;
+            if (hash) {
+                const normalizedHash = hash.replace(/^#\/*/, '');
+                result = new URL(normalizedHash, href);
+                result.hash = '';
+            } else {
+                result = new URL(href);
+            }
+            return result;
+        }
+
+        nonHashUrl() {
+            return Site.nonHashUrl(this.currentUrl);
+        }
+
+	/*
+	 * elementId
+	 * Transforms a filename into a valid id of an html element
+	 *
+	 * Example:
+	 *   http://localhost/header-02.md -> header02md
+	 */
+	static elementId (url) {
+	    return Site.basename(url).replaceAll(/[.-]/g, '');
+	}
+	
+        /*
+         * dirname
+         * Asuming a filename produce the name of the
+         * parent directory
+         *
+         * /subfolder/index.md -> /subfolder
+         * /subfolder/         -> /subfolder (OK?)
+         */
+        static dirname (pathOrUrl) {
+            var pathname = pathOrUrl;
+            if ('object' === typeof(pathOrUrl)) {
+		const url = new URL(pathOrUrl);
+		url.hash ='';
+                pathname = url.href;
+            }
+            return pathname.replace(/\/[^\/]*$/, '');
+        }
+
+        static basename (pathOrUrl) {
+            var pathname = pathOrUrl;
+            if ('object' === typeof(pathOrUrl)) {
+                pathname = pathOrUrl.pathname;
+            }
+            const index = pathname.lastIndexOf('/');
+            return pathname.slice(index+1);
+        }
+
+    }
+
+    const nonHashUrlTests = [
+        { href: 'http://localhost/',                        result: 'http://localhost/' },
+        { href: 'http://localhost',                         result: 'http://localhost/' },
+        { href: 'http://localhost:3000/',                   result: 'http://localhost:3000/' },
+        { href: 'http://localhost:3000',                    result: 'http://localhost:3000/' },
+        { href: 'http://localhost/hugo',                    result: 'http://localhost/hugo' },
+        { href: 'http://localhost/index.html',              result: 'http://localhost/index.html' },
+        { href: 'http://localhost/index.html#/index.md',    result: 'http://localhost/index.md' },
+        { href: 'http://localhost/index.html#index.md',     result: 'http://localhost/index.md' },
+        { href: 'http://localhost/#index.md',               result: 'http://localhost/index.md' },
+        { href: 'http://localhost/smp/#/index.md',          result: 'http://localhost/smp/index.md' },
+        { href: 'http://localhost/#/page.md',               result: 'http://localhost/page.md'},
+        { href: 'http://localhost/#/subfolder/page.md',     result: 'http://localhost/subfolder/page.md'},
+        { href: 'http://localhost/smp/#/subfolder/page.md', result: 'http://localhost/smp/subfolder/page.md' },
+    ];
+
+    nonHashUrlTests.forEach((tt) => {
+        const result = Site.nonHashUrl(new URL(tt.href)).href;
+        console.assert(result === tt.result, "Site.nonHashUrl(%s)->%s === %s", tt.href, result, tt.result);
+    });
+
+    const basenameTests = [
+        { pathOrUrl: '/',           result: '' },
+        { pathOrUrl: '/README.md',  result: 'README.md' },
+        { pathOrUrl: 'README.md',   result: 'README.md' },
+        { pathOrUrl: 'http://localhost/a/b/README.md',   result: 'README.md' },
+        { pathOrUrl: new URL('http://localhost/a/b/README.md'),   result: 'README.md' },
+    ];
+
+    basenameTests.forEach((at) => {
+        const result = Site.basename(at.pathOrUrl);
+        console.assert(result === at.result, "Site.basename(%s)->%s === %s", at.pathOrUrl, result, at.result);
+    });
+
+    const hashHrefTests = [
+        //{ indexHref: '', thisHref: '', result: ''},
+        { indexHref: 'http://localhost:3000/index.html',        thisHref: 'http://localhost:3000/markdown.md',        result: 'http://localhost:3000/index.html#/markdown.md'},
+        { indexHref: 'http://localhost:3000/index.html',        thisHref: 'http://localhost:3000/subdir/markdown.md', result: 'http://localhost:3000/index.html#/subdir/markdown.md'},
+        { indexHref: 'http://localhost:3000/subdir/index.html', thisHref: 'http://localhost:3000/subdir/markdown.md', result: 'http://localhost:3000/subdir/index.html#/markdown.md'},
+        { indexHref: 'http://localhost:3000/index.html',        thisHref: 'http://localhost:3001/markdown.md',        result: 'http://localhost:3001/markdown.md'},
+    ];
+
+    hashHrefTests.forEach((hht) => {
+        const result = Site._hashHref(hht.indexHref, 'index.html', hht.thisHref);
+        console.assert(result === hht.result, "Site._hashHref(%s,%s,%s)->%s === %s", hht.indexHref, 'index.html', hht.thisHref, result, hht.result);
+    });
+
     function nodeScriptIs(node) {
        return node.tagName === 'SCRIPT';
     }
@@ -61,36 +244,6 @@
         return node;
     }
 
-    /*
-     * isAbsoluteUrl
-     * Checks if the url contains something like XXX://
-     * - true ... an absolute url containing  XXX://
-     * - false ... not an absolute url
-     */
-    function isAbsoluteUrl (href) {
-        return href.indexOf('://') > 0;
-    }
-
-    /*
-     * isProtocolRelativeUrl
-     * Checks if we do have a protocol relative url starting with //
-     * - true ... we have a protocol relative url starting with //
-     * - false ... we don't have a protocol relative url
-     */
-    function isProtocolRelativeUrl (href) {
-        return href.startsWith('//');
-    }
-
-    /*
-     * isMarkdownUrl
-     * Checks if the url points to a markdown file (ending with '.md')
-     * - true ... the url points to a markdown file
-     * - false ... the url doesn't point to a markdown file
-     */
-    function isMarkdownUrl (href) {
-        return href.endsWith('.md');
-    }
-
     const renderer = new marked.Renderer();
     const originalRendererCode = renderer.code.bind(renderer);
     renderer.code = (code, infostring, escaped) => {
@@ -103,35 +256,20 @@
     };
     const originalRendererLink = renderer.link.bind(renderer);
     renderer.link = (href, title, text) => {
-        if (isAbsoluteUrl(href)) {
-            ;
-        } else if (isProtocolRelativeUrl(href)) {
-            const pathname = window.location.pathname;
-            var location = window.location.href;
-            location = location.replace(/#.*$/, '');
-            location = location.slice(0, -pathname.length);
-            href = location + href;
-            ;
-        } else if (!isMarkdownUrl(href)) {
-            ;
-        } else {
-            /* isMarkdownUrl */
-            const newFilename = newRelativeLink(href);
-            href = filenameToHash(newFilename);
-        }
+        href = new URL(href, mySite.currentUrl.href);
+        href = mySite.hashUrl(href);
         return originalRendererLink(href, title, text);
     };
     const originalRendererImage = renderer.image.bind(renderer);
     renderer.image = (href, title, text) => {
-        if (isAbsoluteUrl(href)) {
-            ;
-        } else {
-            href = newRelativeLink(href);
-        }
+        href = new URL(href, mySite.currentUrl.href);
         return originalRendererImage(href, title, text);
     };
 
     function handleNavbar (navbarElement) {
+        if (!navbarElement.classList.contains(config.navbarClass)) {
+            navbarElement.classList.add(config.navbarClass);
+        }
         // Make sure the navbar contains two lists
         var navbar_uls = navbarElement.querySelectorAll("ul");
         while (navbar_uls.length < 2) {
@@ -160,123 +298,29 @@
 
     async function load(element, filename, isNavbar) {
         const contentText = await fetchFile(filename);
-        element.innerHTML = marked.parse(contentText, {
-            renderer: renderer,
-            highlight: function(code, lang) {
-                var language = Prism.languages[lang];
-                if (language) {
-                    return Prism.highlight(code, language, lang);
-                } else {
-                    language = hljs.getLanguage(lang) ? lang : 'plaintext';
-                    return hljs.highlight(code, { language }).value;
-                }
-            },
-        });
+	if (mySite.isMarkdown(filename)) {
+            element.innerHTML = marked.parse(contentText, {
+		renderer: renderer,
+		highlight: function(code, lang) {
+                    var language = Prism.languages[lang];
+                    if (language) {
+			return Prism.highlight(code, language, lang);
+                    } else {
+			language = hljs.getLanguage(lang) ? lang : 'plaintext';
+			return hljs.highlight(code, { language }).value;
+                    }
+		},
+            });
+	} else if (mySite.isHtml(filename)) {
+	    element.innerHTML = contentText;
+	} else {
+	    element.innerText = contentText;
+	}
         nodeScriptReplace(element);
         if (isNavbar) {
             handleNavbar(element);
         }
         mermaid.init(undefined, ".mermaid");
-    }
-
-    /*
-     * removeHash
-     * remove the leading hash sign '#'
-     *
-     * #/index.md -> /index.md
-     * #/index#   -> /index#
-     */
-    function removeHash (windowLocationHash) {
-        return windowLocationHash.replace(/^#/, "");
-    }
-
-    /*
-     * filenameToId
-     * Transforms a filename into a valid id of an html element
-     *
-     * Example:
-     *   header-02.md -> header02md
-     */
-    function filenameToId (filename) {
-        return filename.replaceAll(/[.-]/g, '');
-    }
-
-    /*
-     * dirname
-     * Asuming a filename produce the name of the
-     * parent directory
-     *
-     * /subfolder/index.md -> /subfolder
-     * /subfolder/         -> /subfolder (OK?)
-     */
-    function dirname (path) {
-        return path.replace(/\/[^\/]*$/, '');
-    }
-
-    /*
-     * normalizePath
-     * Removes various unwanted parts from a path
-     *
-     * Examples
-     *  x//y   -> x/y
-     *  /a/../ -> /
-     *  /a/..  -> /
-     *  /../   -> /
-     *  /..    -> /
-     *  //a/b  -> /a/b
-     */
-    function normalizePath (path) {
-        var this_path = '';
-        var next_path = path;
-        while (this_path != next_path) {
-            this_path = next_path;
-            next_path = next_path.replace('//', '/');
-            next_path = next_path.replace('/./', '/');
-            next_path = next_path.replace(/\/[^\/]+\/\.\.\//, '/');
-            next_path = next_path.replace(/\/[^\/]+\/\.\.$/, '/');
-            next_path = next_path.replace('/../', '/');
-            next_path = next_path.replace('/..', '/');
-            next_path = next_path.replace('../', '/');
-            next_path = next_path.replace('..', '/');
-        }
-        return next_path;
-    }
-    
-    /*
-     * hashToFilename
-     * Transforms the hash value to a filename
-     *
-     * Examples:
-     *  '/'     '#/index.md'          -> /index.md
-     *  '/smp'  '#/index.md'          -> /smp/index.md
-     *  '/'     '#index.md'           -> /index.md
-     *  '/'     ''                    -> /index.md
-     *  '/'     '#/page.md'           -> /page.md
-     *  '/'     '#/subfolder/page.md' -> /subfolder/page.md
-     *  '/smp'  '#/subfolder/page.md' -> /smp/subfolder/page.md
-     */
-    function hashToFilename (hash) {
-        var filename = removeHash(hash);
-        if (! filename) {
-            filename = '/index.md';
-        } else if (filename.endsWith('/')) {
-            filename = filename + 'index.md';
-        }
-        if (! filename.startsWith('/')) {
-            filename = '/' + filename;
-        }
-        return normalizePath(dirname(window.location.pathname) + filename);
-    }
-
-    /*
-     * filenameToHash
-     * Transforms a filename to the hash value
-     *
-     */
-    function filenameToHash (filename) {
-        var nPathname = normalizePath(dirname(window.location.pathname));
-        var nFilename = normalizePath(filename);
-        return '#'+filename.replace(nPathname, '');
     }
 
     function languageFilenames (filename) {
@@ -317,31 +361,8 @@
         return result;
     }
 
-    /*
-     * newRelativeLink
-     * Creates a relative link for window.location based on
-     * the current hash and the new link/filename
-     *
-     * Examples:
-     *   hash            | link        -> result
-     *   '#/'            | 'readme.md' -> '/readme.md'
-     *   '#'             | 'readme.md' -> '/readme.md'
-     *   '#/sd/index.md' | 'readme.md' -> '/sd/readme.md'
-     */
-    function newRelativeLink (href) {
-        const oldFilename = hashToFilename(window.location.hash);
-        const newFilename = href;
-        var newHash = newFilename;
-        if (newFilename.startsWith('/')) {
-            newHash = newFilename;
-        } else {
-            newHash = dirname(oldFilename) + '/' + newFilename;
-        }
-        return normalizePath(newHash);
-    }
-
     function loadStylesheet (filename) {
-        const id = filenameToId(filename);
+        const id = Site.elementId(filename);
         if (! document.getElementById(id)) {
             const head = document.getElementsByTagName('head')[0];
             const link = document.createElement('link');
@@ -358,17 +379,23 @@
         initPage();
     }
 
+    const mySite = new Site(window.location, config);
+
     function initPage () {
+        mySite.currentUrl = Site.nonHashUrl(new URL(window.location));
+        const base = document.getElementById('base');
+        if (base) {
+            base.href = mySite.currentUrl;
+        }
         const middle = document.getElementById('middle');
         if (middle) {
-            var filename=hashToFilename(window.location.hash);
-            window.location.hash = filenameToHash(filename);
-            load(middle, filename, false);
+            const nonHashUrl = mySite.nonHashUrl();
+            load(middle, nonHashUrl.href, false);
         }
         config.additionalElements.forEach((ae) => {
             const element = document.getElementById(ae.insertBeforeElementId);
             if (element) {
-                const id = ae.elementId || filenameToId(ae.filename);
+                const id = ae.elementId || Site.elementId(ae.filename);
                 if (! document.getElementById(id)) {
                     const newElement = document.createElement('div');
                     newElement.id = id;
