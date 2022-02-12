@@ -25,3 +25,14 @@ und diverse Werkzeuge mit öffentlichem Quelltext und sorge damit dafür,
 dass die üblicherweise von GitHub-Mechanismen übernommenen Aufgaben
 vom Browser erledigt werden. Idealerweise merkst Du als
 Nutzer/Leser davon nichts!
+
+Wieso sollte Dich die Technik ein klein wenig interessieren?
+============================================================
+
+"Eigentlich" muß Dich die Technik garnicht interessieren. Außer,
+Du legst hohen Wert auf Deine Privatsphäre. Da mußt Du Dir drüber
+im Klaren sein, dass alle Abfragen dieser Webpräsenz bei  [GitHub](https://github.com)
+landen und dort eventuell auch mitprotokolliert werden. Stand 2022 ist GitHub
+ein Tochterunternehmen von Microsoft und unterliegt dem US-Recht - was auch
+immer das heißt. Falls Du Bedenken hast, dann mach' Dich am besten selbst
+schlau und nutze diese Webpräsenz lieber nicht!
