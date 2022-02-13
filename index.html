@@ -393,7 +393,7 @@
         //if (mySite.currentUrl.pathname.endsWith('/')) {
         //    mySite.currentUrl.pathname += mySite.config.indexHtml;
         //}
-        if (!mySite.currentUrl.hash) {
+        if (!window.location.hash) {
             mySite.currentUrl.hash = mySite.config.indexMd;
         }
         const base = document.getElementById('base');
