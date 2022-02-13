@@ -114,9 +114,9 @@ LfdNr| Datum      | Länge | 6X         | 7X         | 7X Sapphire   | Vergleich
 08   | 2022-02-07 | 13km  | -          | [x][08-7x] | [x][08-7xsap] | -                     |
 09   | 2022-02-08 | 13km  | -          | [x][09-7x] | [x][09-7xsap] | [1][09-v1] [2][09-v2] | 7xsap links, 7x rechts
 10   | 2022-02-09 | 15km  | -          | [x][10-7x] | [x][10-7xsap] | [1][10-v1]            | 7x links, 7xsap rechts
-11   | 2022-02-10 | ?     | -          | [x][11-7x] | [x][11-7xsap] | [1][11-v1]            | Parco d'Amore - beide ähnlich
-12   | 2022-02-11 | ?     | -          | [x][12-7x] | [x][12-7xsap] | [1][12-v1]            | Unterführung - 7X besser
-13   | 2022-02-12 | ?     | -          | [x][13-7x] | [x][13-7xsap] | [1][13-v1]            | Serpentinen - beide ähnlich
+11   | 2022-02-10 |  6km  | -          | [x][11-7x] | [x][11-7xsap] | [1][11-v1]            | Parco d'Amore - beide ähnlich
+12   | 2022-02-11 |  6km  | -          | [x][12-7x] | [x][12-7xsap] | [1][12-v1]            | Unterführung - 7X besser
+13   | 2022-02-12 | 14km  | -          | [x][13-7x] | [x][13-7xsap] | [1][13-v1]            | Serpentinen - beide ähnlich
 
 Anmerkungen:
 
