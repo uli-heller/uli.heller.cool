@@ -41,7 +41,7 @@ Details
 - [2022-02-05 - Fenix 6X Pro Sapphire und Fenix 7X Sapphire](2022-02-05_67_bad-mergentheim.md) - GPS der 7X Sapphire mit Firmware 7.20 super
 - [2022-02-05 - Fenix 7X und Fenix 7X Sapphire](2022-02-05_77_bad-mergentheim.md) - 7X Sapphire auf dem Rückweg "deckungsgenau"
 - [2022-02-06 - Fenix 7X und Fenix 7X Sapphire](2022-02-06_bad-mergentheim.md) - 7X zeitweise zu weit rechts
-- [2022-02-08 - Fenix 7X und Fenix 7X Sapphire](2022-02-08_kornwestheim.md) - Stichwort 7X auf rechts umgestellt
+- [2022-02-08 - Fenix 7X und Fenix 7X Sapphire](2022-02-08_kornwestheim.md) - 7X auf rechts umgestellt, beide Uhren quasi gleichwertig
 - [2022-02-09 - Fenix 7X und Fenix 7X Sapphire](2022-02-09_kornwestheim.md) - Stichwort 7X links, 7XSAP rechts
 
 GPX-Dateien und Vergleichsbilder
