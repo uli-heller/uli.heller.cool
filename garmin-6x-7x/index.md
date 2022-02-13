@@ -74,6 +74,14 @@ Scheint ein bekannter Fehler von MarkedJS zu sein:
 [05-v2]: images/2022-02-05_2_vergleich_bad-mergentheim2.png
 [06-7x]: data/2022-02-05_3_7x.gpx.xz
 [06-7xs]: data/2022-02-05_3_7x-sapphire.gpx.xz
+[07-7x]: data/2022-02-06_7x.gpx.xz
+[07-7xs]: data/2022-02-06_7x-sapphire.gpx.xz
+[07-v1]: images/2022-02-06_vergleich_bad-mergentheim.png
+[07-v2]: images/2022-02-06_vergleich_bad-mergentheim2.png
+[08-7x]: data/2022-02-07_7x.gpx.xz
+[08-7xs]: data/2022-02-07_7x-sapphire.gpx.xz
+[09-7x]: data/2022-02-08_7x.gpx.xz
+[09-7xs]: data/2022-02-08_7x-sapphire.gpx.xz
 
 LfdNr| Datum      | 6X         | 7X         | 7X Sapphire | Vergleichsbilder
 -----| -----------|------------|------------|-------------|------------------
@@ -83,6 +91,6 @@ LfdNr| Datum      | 6X         | 7X         | 7X Sapphire | Vergleichsbilder
 04   | 2022-02-05 | [x][04-6x] | -          | [x][04-7xs] | [x][04-v1]
 05   | 2022-02-05 | -          | [x][05-7x] | [x][05-7xs] | [1][05-v1] [2][05-v2]
 06   | 2022-02-05 | -          | [x][06-7x] | [x][06-7xs] | -
-07   | 2022-02-06 | -                                         | <a href="/data/2022-02-06_7x.gpx.xz">x</a>   | <a href="/data/2022-02-06_7x-sapphire.gpx.xz">x</a>   | <a href="/images/2022-02-06_vergleich-bad-mergentheim.png">1</a> <a href="/images/2022-02-06_vergleich-bad-mergentheim2.png">2</a>
-08   | 2022-02-07 | -                                         | <a href="/data/2022-02-07_7x.gpx.xz">x</a>   | <a href="/data/2022-02-07_7x-sapphire.gpx.xz">x</a>   | -
-09   | 2022-02-08 | -                                         | <a href="/data/2022-02-08_7x.gpx.xz">x</a>   | <a href="/data/2022-02-08_7x-sapphire.gpx.xz">x</a>   | -
+07   | 2022-02-06 | -          | [x][07-7x] | [x][07-7xs] | [1][07-v1] [2][07-v2]
+08   | 2022-02-07 | -          | [x][08-7x] | [x][08-7xs] | -
+09   | 2022-02-08 | -          | [x][09-7x] | [x][09-7xs] | -
