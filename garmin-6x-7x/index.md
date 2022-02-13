@@ -104,10 +104,10 @@ Scheint ein bekannter Fehler von MarkedJS zu sein:
 
 LfdNr| Datum      | Länge | 6X         | 7X         | 7X Sapphire   | Vergleichsbilder      | Anmerkung
 -----| -----------|-------|------------|------------|---------------|-----------------------|------------------------------------
-01   | 2022-02-03 | 11km  | [x][01-6x] | [x][01-7x] | -             | [x][01-v1]            | 7x links, 6x rechts(*)
-02   | 2022-02-04 |  6km  | [x][02-6x] | [x][02-7x] | -             | [x][02-v1]            | 7x links, 6x rechts(*)
+01   | 2022-02-03 | 11km  | [x][01-6x] | [x][01-7x] | -             | [1][01-v1]            | 7x links, 6x rechts(*)
+02   | 2022-02-04 |  6km  | [x][02-6x] | [x][02-7x] | -             | [1][02-v1]            | 7x links, 6x rechts(*)
 03   | 2022-02-04 | 12km  | [x][03-6x] | [x][03-7x] | [x][03-7xsap] | [1][03-v1] [2][03-v2] | 7x und 7xsap links, 6x rechts(*)
-04   | 2022-02-05 |  4km  | [x][04-6x] | -          | [x][04-7xsap] | [x][04-v1]            | 7xsap links, 6x rechts(*)
+04   | 2022-02-05 |  4km  | [x][04-6x] | -          | [x][04-7xsap] | [1][04-v1]            | 7xsap links, 6x rechts(*)
 05   | 2022-02-05 | 12km  | -          | [x][05-7x] | [x][05-7xsap] | [1][05-v1] [2][05-v2] | 7xsap links, 7x rechts(*)
 06   | 2022-02-05 |  1km  | -          | [x][06-7x] | [x][06-7xsap] | -                     | 7xsap links, 7x rechts(*)
 07   | 2022-02-06 |  6km  | -          | [x][07-7x] | [x][07-7xsap] | [1][07-v1] [2][07-v2] | 7xsap links, 7x rechts(*)
