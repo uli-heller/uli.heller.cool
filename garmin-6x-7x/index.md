@@ -43,6 +43,9 @@ Details
 - [2022-02-06 - Fenix 7X und Fenix 7X Sapphire](2022-02-06_bad-mergentheim.md) - 7X zeitweise zu weit rechts
 - [2022-02-08 - Fenix 7X und Fenix 7X Sapphire](2022-02-08_kornwestheim.md) - 7X auf rechts umgestellt, beide Uhren quasi gleichwertig
 - [2022-02-09 - Fenix 7X und Fenix 7X Sapphire](2022-02-09_kornwestheim.md) - 7X links, 7XSAP rechts, beide Uhren quasi gleichwertig
+- [2022-02-10 - Fenix 7X und Fenix 7X Sapphire](2022-02-10_kornwestheim.md) - ?
+- [2022-02-11 - Fenix 7X und Fenix 7X Sapphire](2022-02-11_kornwestheim.md) - ?
+- [2022-02-12 - Fenix 7X und Fenix 7X Sapphire](2022-02-12_kornwestheim.md) - ?
 
 GPX-Dateien und Vergleichsbilder
 --------------------------------
@@ -89,6 +92,15 @@ Scheint ein bekannter Fehler von MarkedJS zu sein:
 [10-7x]:    data/2022-02-09_7x.gpx.xz
 [10-7xsap]: data/2022-02-09_7x-sapphire.gpx.xz
 [10-v1]:    images/2022-02-09_vergleich-kornwestheim.png
+[11-7x]:    data/2022-02-10_7x.gpx.xz
+[11-7xsap]: data/2022-02-10_7x-sapphire.gpx.xz
+[11-v1]:    images/2022-02-10_vergleich-kornwestheim.png
+[12-7x]:    data/2022-02-11_7x.gpx.xz
+[12-7xsap]: data/2022-02-11_7x-sapphire.gpx.xz
+[12-v1]:    images/2022-02-11_vergleich-kornwestheim.png
+[13-7x]:    data/2022-02-12_7x.gpx.xz
+[13-7xsap]: data/2022-02-12_7x-sapphire.gpx.xz
+[13-v1]:    images/2022-02-12_vergleich-kornwestheim.png
 
 LfdNr| Datum      | Länge | 6X         | 7X         | 7X Sapphire   | Vergleichsbilder      | Anmerkung
 -----| -----------|-------|------------|------------|---------------|-----------------------|------------------------------------
@@ -102,6 +114,9 @@ LfdNr| Datum      | Länge | 6X         | 7X         | 7X Sapphire   | Vergleich
 08   | 2022-02-07 | 13km  | -          | [x][08-7x] | [x][08-7xsap] | -                     |
 09   | 2022-02-08 | 13km  | -          | [x][09-7x] | [x][09-7xsap] | [1][09-v1] [2][09-v2] | 7xsap links, 7x rechts
 10   | 2022-02-09 | 15km  | -          | [x][10-7x] | [x][10-7xsap] | [1][10-v1]            | 7x links, 7xsap rechts
+11   | 2022-02-10 | ?     | -          | [x][11-7x] | [x][11-7xsap] | [1][11-v1]            | ?
+12   | 2022-02-11 | ?     | -          | [x][12-7x] | [x][12-7xsap] | [1][12-v1]            | ?
+13   | 2022-02-12 | ?     | -          | [x][13-7x] | [x][13-7xsap] | [1][13-v1]            | ?
 
 Anmerkungen:
 
