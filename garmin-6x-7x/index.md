@@ -57,12 +57,21 @@ Scheint ein bekannter Fehler von MarkedJS zu sein:
 [01-6x]: data/2022-02-03_6x.gpx.xz
 [01-7x]: data/2022-02-03_7x.gpx.xz
 [01-v1]: images/2022-02-03_vergleich.png
+[02-6x]: data/2022-02-04_6x.gpx.xz
+[02-7x]: data/2022-02-04_7x.gpx.xz
+[02-v1]: images/2022-02-04_vergleich-kornwestheim.png
+[03-6x]: data/2022-02-04_2_6x.gpx.xz
+[03-7x]: data/2022-02-04_2_7x.gpx.xz
+[03-7xs]: data/2022-02-04_2_7x-sapphire.gpx.xz
+[03-v1]: images/2022-02-04_vergleich-bad-mergentheim.png
+[03-v2]: images/2022-02-04_vergleich-bad-mergentheim2.png
+
 
 LfdNr| Datum      | 6X         | 7X         | 7X Sapphire | Vergleichsbilder
 -----| -----------|------------|------------|-------------|------------------
 01   | 2022-02-03 | [x][01-6x] | [x][01-7x] | -           | [x][01-v1]
-02   | 2022-02-04 | [x](data/2022-02-04_6x.gpx.xz)   | <a href="/data/2022-02-04_7x.gpx.xz">x</a>   | -                                                  | <a href="/images/2022-02-04_vergleich-kornwestheim.png">x</a>
-03   | 2022-02-04 | <a href="/data/2022-02-04_2_6x.gpx.xz">x</a> | <a href="/data/2022-02-04_2_7x.gpx.xz">x</a> | <a href="/data/2022-02-04_2_7x-sapphire.gpx.xz">x</a> | <a href="/images/2022-02-04_vergleich-bad-mergentheim.png">1</a> <a href="/images/2022-02-04_vergleich-bad-mergentheim2.png">2</a>
+02   | 2022-02-04 | [x][02-6x] | [x][02-7x] | -           | [x][02-v1]
+03   | 2022-02-04 | [x][03-6x] | [x][03-7x] | [x}[03-7xs] | [1][03-v1] [1][03-v2]
 04   | 2022-02-05 | <a href="/data/2022-02-05_6x.gpx.xz">x</a>   | -                                         | <a href="/data/2022-02-05_7x-sapphire.gpx.xz">x</a>   | <a href="/images/2022-02-05_vergleich-bad-mergentheim.png">x</a>
 05   | 2022-02-05 | -                                         | <a href="/data/2022-02-05_2_7x.gpx.xz">x</a> | <a href="/data/2022-02-05_2_7x-sapphire.gpx.xz">x</a> | <a href="/images/2022-02-05_2_vergleich-bad-mergentheim.png">1</a> <a href="/images/2022-02-05_2_vergleich-bad-mergentheim2.png">2</a>
 06   | 2022-02-05 | -                                         | <a href="/data/2022-02-05_3_7x.gpx.xz">x</a> | <a href="/data/2022-03-05_2_7x-sapphire.gpx.xz">x</a> | -
