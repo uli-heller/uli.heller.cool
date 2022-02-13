@@ -41,6 +41,8 @@ Details
 - [2022-02-05 - Fenix 6X Pro Sapphire und Fenix 7X Sapphire](2022-02-05_67_bad-mergentheim.md)
 - [2022-02-05 - Fenix 7X und Fenix 7X Sapphire](2022-02-05_77_bad-mergentheim.md)
 - [2022-02-06 - Fenix 7X und Fenix 7X Sapphire](2022-02-06_bad-mergentheim.md)
+- [2022-02-08 - Fenix 7X und Fenix 7X Sapphire](2022-02-08_kornwestheim.md) - Stichwort 7X auf rechts umgestellt
+- [2022-02-09 - Fenix 7X und Fenix 7X Sapphire](2022-02-09_kornwestheim.md) - Stichwort 7X links, 7XSAP rechts
 
 GPX-Dateien und Vergleichsbilder
 --------------------------------
@@ -82,15 +84,25 @@ Scheint ein bekannter Fehler von MarkedJS zu sein:
 [08-7xsap]: data/2022-02-07_7x-sapphire.gpx.xz
 [09-7x]:    data/2022-02-08_7x.gpx.xz
 [09-7xsap]: data/2022-02-08_7x-sapphire.gpx.xz
+[09-v1]:    images/2022-02-08_vergleich-kornwestheim.png
+[09-v2]:    images/2022-02-08_vergleich-kornwestheim2.png
+[10-7x]:    data/2022-02-09_7x.gpx.xz
+[10-7xsap]: data/2022-02-09_7x-sapphire.gpx.xz
+[10-v1]:    images/2022-02-09_vergleich-kornwestheim.png
 
-LfdNr| Datum      | 6X         | 7X         | 7X Sapphire   | Vergleichsbilder
------| -----------|------------|------------|---------------|------------------
-01   | 2022-02-03 | [x][01-6x] | [x][01-7x] | -             | [x][01-v1]
-02   | 2022-02-04 | [x][02-6x] | [x][02-7x] | -             | [x][02-v1]
-03   | 2022-02-04 | [x][03-6x] | [x][03-7x] | [x][03-7xsap] | [1][03-v1] [2][03-v2]
-04   | 2022-02-05 | [x][04-6x] | -          | [x][04-7xsap] | [x][04-v1]
-05   | 2022-02-05 | -          | [x][05-7x] | [x][05-7xsap] | [1][05-v1] [2][05-v2]
-06   | 2022-02-05 | -          | [x][06-7x] | [x][06-7xsap] | -
-07   | 2022-02-06 | -          | [x][07-7x] | [x][07-7xsap] | [1][07-v1] [2][07-v2]
-08   | 2022-02-07 | -          | [x][08-7x] | [x][08-7xsap] | -
-09   | 2022-02-08 | -          | [x][09-7x] | [x][09-7xsap] | -
+LfdNr| Datum      | Länge | 6X         | 7X         | 7X Sapphire   | Vergleichsbilder      | Anmerkung
+-----| -----------|-------|------------|------------|---------------|-----------------------|------------------------------------
+01   | 2022-02-03 | 11km  | [x][01-6x] | [x][01-7x] | -             | [x][01-v1]            | 7x links, 6x rechts(*)
+02   | 2022-02-04 |  6km  | [x][02-6x] | [x][02-7x] | -             | [x][02-v1]            | 7x links, 6x rechts(*)
+03   | 2022-02-04 | 12km  | [x][03-6x] | [x][03-7x] | [x][03-7xsap] | [1][03-v1] [2][03-v2] | 7x und 7xsap links, 6x rechts(*)
+04   | 2022-02-05 |  4km  | [x][04-6x] | -          | [x][04-7xsap] | [x][04-v1]            | 7xsap links, 6x rechts(*)
+05   | 2022-02-05 | 12km  | -          | [x][05-7x] | [x][05-7xsap] | [1][05-v1] [2][05-v2] | 7xsap links, 7x rechts(*)
+06   | 2022-02-05 |  1km  | -          | [x][06-7x] | [x][06-7xsap] | -                     | 7xsap links, 7x rechts(*)
+07   | 2022-02-06 |  6km  | -          | [x][07-7x] | [x][07-7xsap] | [1][07-v1] [2][07-v2] | 7xsap links, 7x rechts(*)
+08   | 2022-02-07 | 13km  | -          | [x][08-7x] | [x][08-7xsap] | -                     |
+09   | 2022-02-08 | 13km  | -          | [x][09-7x] | [x][09-7xsap] | [1][09-v1] [2][09-v2] | 7xsap links, 7x rechts
+10   | 2022-02-09 | 15km  | -          | [x][10-7x] | [x][10-7xsap] | [1][10-v1]            | 7x links, 7xsap rechts
+
+Anmerkungen:
+
+- (*) ... Einstellung in Garmin Connect auf falschem Arm
