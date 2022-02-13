@@ -94,13 +94,13 @@ Scheint ein bekannter Fehler von MarkedJS zu sein:
 [10-v1]:    images/2022-02-09_vergleich-kornwestheim.png
 [11-7x]:    data/2022-02-10_7x.gpx.xz
 [11-7xsap]: data/2022-02-10_7x-sapphire.gpx.xz
-[11-v1]:    images/2022-02-10_vergleich-kornwestheim.png
+[11-v1]:    images/2022-02-10_kornwestheim-parco-damore.png
 [12-7x]:    data/2022-02-11_7x.gpx.xz
 [12-7xsap]: data/2022-02-11_7x-sapphire.gpx.xz
-[12-v1]:    images/2022-02-11_vergleich-kornwestheim.png
+[12-v1]:    images/2022-02-11_kornwestheim-eisenbahnunterfuehrung.png
 [13-7x]:    data/2022-02-12_7x.gpx.xz
 [13-7xsap]: data/2022-02-12_7x-sapphire.gpx.xz
-[13-v1]:    images/2022-02-12_vergleich-kornwestheim.png
+[13-v1]:    images/2022-02-12_ludwigsburg-serpentinen.png
 
 LfdNr| Datum      | Länge | 6X         | 7X         | 7X Sapphire   | Vergleichsbilder      | Anmerkung
 -----| -----------|-------|------------|------------|---------------|-----------------------|------------------------------------
