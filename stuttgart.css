@@ -28,6 +28,7 @@ body {
 
 #footermd {
     bottom: 0;
+    font-size: small;
 }
 
 #navbarmd,#footermd {

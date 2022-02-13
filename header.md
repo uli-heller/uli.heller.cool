@@ -1,7 +1,7 @@
 <table>
   <tr>
     <td>
-      <img src="stuttgart.svg" width="70" />
+      <img src="/kornwestheim.svg" width="70" />
     </td>
     <td>
       <div id="header">Uli Heller</div>
