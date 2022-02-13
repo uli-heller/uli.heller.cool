@@ -42,10 +42,10 @@ Details
 - [2022-02-05 - Fenix 7X und Fenix 7X Sapphire](2022-02-05_77_bad-mergentheim.md) - 7X Sapphire auf dem Rückweg "deckungsgenau"
 - [2022-02-06 - Fenix 7X und Fenix 7X Sapphire](2022-02-06_bad-mergentheim.md) - 7X zeitweise zu weit rechts
 - [2022-02-08 - Fenix 7X und Fenix 7X Sapphire](2022-02-08_kornwestheim.md) - 7X auf rechts umgestellt, beide Uhren quasi gleichwertig
-- [2022-02-09 - Fenix 7X und Fenix 7X Sapphire](2022-02-09_kornwestheim.md) - 7X links, 7XSAP rechts, beide Uhren quasi gleichwertig
-- [2022-02-10 - Fenix 7X und Fenix 7X Sapphire](2022-02-10_kornwestheim.md) - ?
-- [2022-02-11 - Fenix 7X und Fenix 7X Sapphire](2022-02-11_kornwestheim.md) - ?
-- [2022-02-12 - Fenix 7X und Fenix 7X Sapphire](2022-02-12_kornwestheim.md) - ?
+- [2022-02-09 - Fenix 7X und Fenix 7X Sapphire](2022-02-09_kornwestheim.md) - 7X links, 7X Sapphire rechts, beide Uhren quasi gleichwertig
+- [2022-02-10 - Fenix 7X und Fenix 7X Sapphire](2022-02-10_kornwestheim-parco-damore.md) - 7X Sapphire linke, 7X rechts, Parco d'Amore - beide super
+- [2022-02-11 - Fenix 7X und Fenix 7X Sapphire](2022-02-11_kornwestheim-eisenbahnunterfuehrung.md) - Eisenbahnunterführung - 7X deutlich besser!
+- [2022-02-12 - Fenix 7X und Fenix 7X Sapphire](2022-02-12_ludwigsburg-serpentinen.md) - Serpentinen - beide gleichwertig
 
 GPX-Dateien und Vergleichsbilder
 --------------------------------
