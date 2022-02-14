@@ -116,7 +116,7 @@ LfdNr| Datum      | Länge | 6X         | 7X         | 7X Sapphire   | Vergleich
 10   | 2022-02-09 | 15km  | -          | [x][10-7x] | [x][10-7xsap] | [1][10-v1]            | 7x links, 7xsap rechts
 11   | 2022-02-10 |  6km  | -          | [x][11-7x] | [x][11-7xsap] | [1][11-v1]            | Parco d'Amore - beide ähnlich
 12   | 2022-02-11 |  6km  | -          | [x][12-7x] | [x][12-7xsap] | [1][12-v1]            | Unterführung - 7X besser
-13   | 2022-02-12 | 14km  | -          | [x][13-7x] | [x][13-7xsap] | [1][13-v1]            | Serpentinen - beide ähnlich
+13   | 2022-02-12 | 14km  | -          | [x][13-7x] | [x][13-7xsap] | [1][13-v1]            | Serpentinen - beide ähnlich, Firmware 7.24
 
 Anmerkungen:
 

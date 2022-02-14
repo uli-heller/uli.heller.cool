@@ -34,7 +34,7 @@
   <link rel="stylesheet" href="prism-1.26.0.css">
   <script src="prism-1.26.0.js"></script>
 
-  <script src="config.js?version=step-33"></script>
+  <script src="config.js?timestamp=20220214080000"></script>
   <script>
     class Site {
         constructor(siteLocation, myConfig) {
@@ -376,7 +376,7 @@
             link.id = id;
             link.rel = 'stylesheet';
             link.type = 'text/css';
-            link.href = url.href;
+            link.href = url.href + '?timestamp=20220214080000';
             link.media = 'all';
             head.appendChild(link);
         }
