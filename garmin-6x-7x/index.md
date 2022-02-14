@@ -46,7 +46,7 @@ Details
 - [2022-02-10 - Fenix 7X und Fenix 7X Sapphire](2022-02-10_kornwestheim-parco-damore.md) - 7X Sapphire linke, 7X rechts, Parco d'Amore - beide super
 - [2022-02-11 - Fenix 7X und Fenix 7X Sapphire](2022-02-11_kornwestheim-eisenbahnunterfuehrung.md) - Eisenbahnunterführung - 7X deutlich besser!
 - [2022-02-12 - Fenix 7X und Fenix 7X Sapphire](2022-02-12_ludwigsburg-serpentinen.md) - Serpentinen - beide gleichwertig
-- [2022-02-13 - Fenix 7X und Fenix 7X Sapphire](2022-02-13_kornwestheim-eisenbahnunterführung.md) - Eisenbahnunterführung - beide schlecht
+- [2022-02-13 - Fenix 7X und Fenix 7X Sapphire](2022-02-13_kornwestheim-eisenbahnunterfuehrung.md) - Eisenbahnunterführung - beide schlecht
 
 GPX-Dateien und Vergleichsbilder
 --------------------------------
