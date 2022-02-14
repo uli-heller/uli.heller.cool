@@ -7,7 +7,7 @@ und die 6X rechts am Arm. Sicher bin ich aber nicht.
 
 Die 7X Sapphire hatte noch die Original-Firmware (6.58?) drauf
 und war leider auf "intelligente Aufzeichnung" eingestellt (=also
-weniger Streckenpunkte). Multi-GPS war aktiv.
+weniger Streckenpunkte). Multiband war aktiv.
 
 Auf jeden Fall habe ich mit eine Serpentinenstrecke rausgesucht, die
 auch etwas bewaldet ist. Hauptsächlich Laubwald, also jetzt im Winter
