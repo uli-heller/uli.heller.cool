@@ -102,6 +102,10 @@ Scheint ein bekannter Fehler von MarkedJS zu sein:
 [13-7x]:    data/2022-02-12_7x.gpx.xz
 [13-7xsap]: data/2022-02-12_7x-sapphire.gpx.xz
 [13-v1]:    images/2022-02-12_ludwigsburg-serpentinen.png
+[13-61]:    images/2021-10-08_6x_ludwigsburg-serpentinen.png
+[13-62]:    images/2021-10-14_6x_ludwigsburg-serpentinen.png
+[13-c1]:    images/2021-10-08_vertix2_ludwigsburg-serpentinen.png
+[13-c2]:    images/2021-10-14_vertix2_ludwigsburg-serpentinen.png
 [14-7x]:    data/2022-02-13_7x.gpx.xz
 [14-7xsap]: data/2022-02-13_7x-sapphire.gpx.xz
 [14-v1]:    images/2022-02-13_kornwestheim-eisenbahnunterfuehrung.png
@@ -120,7 +124,7 @@ LfdNr| Datum      | Länge | 6X         | 7X         | 7X Sapphire   | Vergleich
 10   | 2022-02-09 | 15km  | -          | [x][10-7x] | [x][10-7xsap] | [1][10-v1]            | 7x links, 7xsap rechts
 11   | 2022-02-10 |  6km  | -          | [x][11-7x] | [x][11-7xsap] | [1][11-v1]            | Parco d'Amore - beide ähnlich
 12   | 2022-02-11 |  6km  | -          | [x][12-7x] | [x][12-7xsap] | [1][12-v1]            | Unterführung - 7X besser
-13   | 2022-02-12 | 14km  | -          | [x][13-7x] | [x][13-7xsap] | [1][13-v1]            | Serpentinen - beide ähnlich, Firmware 7.24
+13   | 2022-02-12 | 14km  | -          | [x][13-7x] | [x][13-7xsap] | [1][13-v1] [6x-1][13-61] [6x-2][13-62] [vertix2-1][13-c1] [vertix2-2][13-c2] | Serpentinen - beide ähnlich, Firmware 7.24
 14   | 2022-02-13 | 12km  | -          | [x][14-7x] | [x][14-7xsap] | [1][14-v1]            | Unterführungen - beide schlecht
 
 Anmerkungen:
