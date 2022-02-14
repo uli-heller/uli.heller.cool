@@ -34,10 +34,13 @@
   <link rel="stylesheet" href="prism-1.26.0.css">
   <script src="prism-1.26.0.js"></script>
 
-  <script src="config.js?timestamp=20220214080000"></script>
+  <script id="configjs" src="config.js?timestamp=20220214170000"></script>
+
   <script>
     class Site {
         constructor(siteLocation, myConfig) {
+            this.initInProgress = false;
+            this.promises       = [];
             this.location = siteLocation;
             this.config = myConfig;
             this.href = siteLocation.href;
@@ -300,6 +303,7 @@
     async function load(element, filename, isNavbar) {
         const contentText = await fetchFile(filename);
         if (mySite.isMarkdown(filename)) {
+            element.innerHTML = '';
             element.innerHTML = marked.parse(contentText, {
                 renderer: renderer,
                 highlight: function(code, lang) {
@@ -313,8 +317,10 @@
                 },
             });
         } else if (mySite.isHtml(filename)) {
+            element.innerHTML = '';
             element.innerHTML = contentText;
         } else {
+            element.innerText = '';
             element.innerText = contentText;
         }
         nodeScriptReplace(element);
@@ -324,9 +330,9 @@
         mermaid.init(undefined, ".mermaid");
     }
 
-    function loadConfigJs(element, filename, isNavbar) {
+    async function loadConfigJs(element, filename, isNavbar) {
         const url = new URL(filename, mySite.indexHtmlUrl);
-        load(element, url.href, isNavbar);
+        return load(element, url.href, isNavbar);
     }
 
     function languageFilenames (filename) {
@@ -369,26 +375,38 @@
 
     function loadConfigJsStylesheet (filename) {
         const id = Site.elementId(filename);
-        const url = new URL(filename, mySite.indexHtmlUrl);
+        const url = new URL(filename+"?timestamp=202202141700", mySite.indexHtmlUrl);
         if (! document.getElementById(id)) {
             const head = document.getElementsByTagName('head')[0];
             const link = document.createElement('link');
             link.id = id;
             link.rel = 'stylesheet';
             link.type = 'text/css';
-            link.href = url.href + '?timestamp=20220214080000';
+            link.href = url.href;
             link.media = 'all';
             head.appendChild(link);
         }
     }
 
-    function hashChanged () {
-        initPage();
-    }
-
     const mySite = new Site(window.location, config);
 
-    function initPage () {
+    async function initPageAsync () {
+        if (mySite.initInProgress) {
+            return false;
+        }
+        mySite.initInProgress = true;
+        //
+        // load config.js
+        //
+        const configJsUrl = new URL('config.js', mySite.indexHtmlUrl);
+        const configJsText = await fetchFile(configJsUrl.href);
+        //console.log(configJsText);
+        {
+            eval(configJsText); // eval is evil
+            mySite.config = config;
+        }
+        //console.log(mySite);
+
         mySite.currentUrl = Site.nonHashUrl(new URL(window.location));
         //if (mySite.currentUrl.pathname.endsWith('/')) {
         //    mySite.currentUrl.pathname += mySite.config.indexHtml;
@@ -403,7 +421,7 @@
         const middle = document.getElementById('middle');
         if (middle) {
             const nonHashUrl = mySite.nonHashUrl();
-            load(middle, nonHashUrl.href, false);
+            mySite.promises.push(load(middle, nonHashUrl.href, false));
         }
         config.additionalElements.forEach((ae) => {
             const element = document.getElementById(ae.insertBeforeElementId);
@@ -413,13 +431,25 @@
                     const newElement = document.createElement('div');
                     newElement.id = id;
                     element.parentNode.insertBefore(newElement, element)
-                    loadConfigJs(newElement, ae.filename, ae.isNavbar);
+                    mySite.promises.push(loadConfigJs(newElement, ae.filename, ae.isNavbar));
                 }
             }
         });
         config.stylesheets.forEach((s) => {
             loadConfigJsStylesheet(s);
         });
+        Promise.all(mySite.promises);
+        mySite.promises = [];
+        mySite.initInProgress = false;
     }
+
+    function hashChanged () {
+        initPage();
+    }
+
+    function initPage () {
+        initPageAsync();
+    }
+
   </script>
 </html>

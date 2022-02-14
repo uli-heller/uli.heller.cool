@@ -46,6 +46,7 @@ Details
 - [2022-02-10 - Fenix 7X und Fenix 7X Sapphire](2022-02-10_kornwestheim-parco-damore.md) - 7X Sapphire linke, 7X rechts, Parco d'Amore - beide super
 - [2022-02-11 - Fenix 7X und Fenix 7X Sapphire](2022-02-11_kornwestheim-eisenbahnunterfuehrung.md) - Eisenbahnunterführung - 7X deutlich besser!
 - [2022-02-12 - Fenix 7X und Fenix 7X Sapphire](2022-02-12_ludwigsburg-serpentinen.md) - Serpentinen - beide gleichwertig
+- [2022-02-13 - Fenix 7X und Fenix 7X Sapphire](2022-02-13_kornwestheim-eisenbahnunterführung.md) - Eisenbahnunterführung - beide schlecht
 
 GPX-Dateien und Vergleichsbilder
 --------------------------------
@@ -101,6 +102,9 @@ Scheint ein bekannter Fehler von MarkedJS zu sein:
 [13-7x]:    data/2022-02-12_7x.gpx.xz
 [13-7xsap]: data/2022-02-12_7x-sapphire.gpx.xz
 [13-v1]:    images/2022-02-12_ludwigsburg-serpentinen.png
+[14-7x]:    data/2022-02-13_7x.gpx.xz
+[14-7xsap]: data/2022-02-13_7x-sapphire.gpx.xz
+[14-v1]:    images/2022-02-13_kornwestheim-eisenbahnunterfuehrung.png
 
 LfdNr| Datum      | Länge | 6X         | 7X         | 7X Sapphire   | Vergleichsbilder      | Anmerkung
 -----| -----------|-------|------------|------------|---------------|-----------------------|------------------------------------
@@ -117,6 +121,7 @@ LfdNr| Datum      | Länge | 6X         | 7X         | 7X Sapphire   | Vergleich
 11   | 2022-02-10 |  6km  | -          | [x][11-7x] | [x][11-7xsap] | [1][11-v1]            | Parco d'Amore - beide ähnlich
 12   | 2022-02-11 |  6km  | -          | [x][12-7x] | [x][12-7xsap] | [1][12-v1]            | Unterführung - 7X besser
 13   | 2022-02-12 | 14km  | -          | [x][13-7x] | [x][13-7xsap] | [1][13-v1]            | Serpentinen - beide ähnlich, Firmware 7.24
+14   | 2022-02-13 | 12km  | -          | [x][14-7x] | [x][14-7xsap] | [1][14-v1]            | Unterführungen - beide schlecht
 
 Anmerkungen:
 
