@@ -23,18 +23,17 @@ trap cleanUp 0 1 2 3 4 5 6 7 8 9 10 12 13 14 15
 mkdir "${TMPDIR}"
 
 #
-# Oben links:   48.871654 - 9.182696
-# Unten rechts: 48.867844 - 9.189369
+# Deaktivierte Bereinigungen
+#   -d "/_:gpx/_:trk/_:type" \
+#   -u "/_:gpx/@creator" -v "gpx-clean" \
 #
 xmlstarlet ed \
   -d "//_:extensions" \
   -d "/_:gpx/_:metadata/_:time" \
-  -d "/_:gpx/_:trk/_:type" \
   -d "//_:trkpt/_:time" \
   -d "//_:trkpt/_:hdop" \
   -d "//_:trkpt/_:vdop" \
   -d "//_:trkpt/_:pdop" \
-  -u "/_:gpx/@creator" -v "gpx-clean" \
   "$1" \
   | xmlstarlet tr "${DD}/etc/remove-unused-namespaces.xslt" - \
   | xmlstarlet ed -u "/_:gpx/@xsi:schemaLocation" -v "http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd" \
