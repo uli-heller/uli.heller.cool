@@ -44,10 +44,10 @@ grep -v "^\s*#" "${DD}/etc/gpx-clean.conf"\
       lat_max="$(echo "${lat}"|cut -d"-" -f2)"
       lon_min="$(echo "${lon}"|cut -d"-" -f1)"
       lon_max="$(echo "${lon}"|cut -d"-" -f2)"
-      xmlstarlet ed -d "//_:trkpt[@lat>${lat_min} and @lat<${lat_max} and @lon>${lon_min} and @lon<${lon_max}]" "${TMPDIR}/clean.gpx" >"${TMPDIR}/clean-pos.gpx"
+      xmlstarlet ed -d "//_:trkpt[@lat>${lat_min} and @lat<${lat_max} and @lon>${lon_min} and @lon<${lon_max}]" "${TMPDIR}/clean.gpx" >"${TMPDIR}/clean-pos.gpx"||exit 1
       mv "${TMPDIR}/clean-pos.gpx" "${TMPDIR}/clean.gpx"
     done
 RC=$?
 
-cat "${TMPDIR}/clean.gpx"
+test "${RC}" -eq 0 && cat "${TMPDIR}/clean.gpx"
 cleanUp
