@@ -2,6 +2,8 @@
 #
 # https://oleb.net/2020/sanitizing-gpx/
 #
+# find . -name "*gpx.xz"|while read f; do b="$(echo "$f"|sed -e 's/.xz$//')"; xz -d "${f}"; ./bin/gpx-clean.sh "${b}" >"${b}~"; mv "${b}~" "${b}"; xz -9 "${b}"; done
+#
 D="$(dirname "$0")"
 D="$(cd "${D}" && pwd)"
 DD="$(dirname "${D}")"
