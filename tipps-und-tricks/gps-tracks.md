@@ -61,6 +61,10 @@ ermittelt werden!
 
 ### bin/gpx-clean.sh
 
+Hier ein erster halbwegs funtionierender Stand
+meines Aufräum-Skriptes. Die aktuelle Version
+liegt [zum Herunterladen](/bin/gpx-clean.sh) bereit.
+
 ```shell
 #!/bin/sh
 #
@@ -103,7 +107,7 @@ xmlstarlet ed \
   | xmlstarlet ed -u "/_:gpx/@xsi:schemaLocation" -v "http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd" \
   | xmllint --c14n11 --pretty 2 - >"${TMPDIR}/clean.gpx"
 
-grep -v "^\s*#" "${DD}/etc/gpx-clean.conf"\
+grep -v "^\s*#" "${DD}/etc/gpx-clean-regions.conf"\
     |while IFS=":" read lat lon; do
       lat_min="$(echo "${lat}"|cut -d"-" -f1)"
       lat_max="$(echo "${lat}"|cut -d"-" -f2)"
@@ -118,7 +122,11 @@ test "${RC}" -eq 0 && cat "${TMPDIR}/clean.gpx"
 cleanUp
 ```
 
-### etc/gpx-clean.conf
+### etc/gpx-clean-regions.conf
+
+Hier eine erste Version der Regionsdatei.
+Sie dient primär dem "Verstecken" meines Wohnorts.
+Die aktuelle Version liegt [zum Herunterladen](/etc/gpx-clean-regions.sh) bereit.
 
 ```
 #

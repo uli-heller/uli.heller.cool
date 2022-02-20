@@ -39,7 +39,7 @@ xmlstarlet ed \
   | xmlstarlet ed -u "/_:gpx/@xsi:schemaLocation" -v "http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd" \
   | xmllint --c14n11 --pretty 2 - >"${TMPDIR}/clean.gpx"
 
-grep -v "^\s*#" "${DD}/etc/gpx-clean.conf"\
+grep -v "^\s*#" "${DD}/etc/gpx-clean-regions.conf"\
     |while IFS=":" read lat lon; do
       lat_min="$(echo "${lat}"|cut -d"-" -f1)"
       lat_max="$(echo "${lat}"|cut -d"-" -f2)"
