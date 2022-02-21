@@ -1,4 +1,12 @@
 #!/bin/sh
+###
+### gpx-clean.sh
+###
+### Beispiele:
+###  gpx-clean.sh <source.gpx >clean.gpx
+###  gpx-clean.sh 2022-01-12_7x.gpx 2022-01-13_7x.gpx
+###  gpx-clean.sh 2022-01-21_7x.gpx.xz
+###
 #
 # https://oleb.net/2020/sanitizing-gpx/
 #
