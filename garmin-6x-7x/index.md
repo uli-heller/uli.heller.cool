@@ -113,6 +113,20 @@ Scheint ein bekannter Fehler von MarkedJS zu sein:
 [15-5xp]:   data/2022-02-14_5x-plus.gpx.xz
 [15-7xsap]: data/2022-02-14_7x-sapphire.gpx.xz
 [15-v1]:    images/2022-02-14_ludwigsburg-serpentinen.png
+[16-7x]:    data/2022-02-15_7x.gpx.xz
+[16-7xsap]: data/2022-02-15_7x-sapphire.gpx.xz
+[17-7x]:    data/2022-02-16_7x.gpx.xz
+[17-7xsap]: data/2022-02-16_7x-sapphire.gpx.xz
+[18-7x]:    data/2022-02-17_7x.gpx.xz
+[18-7xsap]: data/2022-02-17_7x-sapphire.gpx.xz
+[19-7x]:    data/2022-02-18_7x.gpx.xz
+[19-7xsap]: data/2022-02-18_7x-sapphire.gpx.xz
+[20-7x]:    data/2022-02-19_7x.gpx.xz
+[20-7xsap]: data/2022-02-19_7x-sapphire.gpx.xz
+[21-7x]:    data/2022-02-20_7x.gpx.xz
+[21-7xsap]: data/2022-02-20_7x-sapphire.gpx.xz
+[22-7x]:    data/2022-02-21_7x.gpx.xz
+[22-7xsap]: data/2022-02-21_7x-sapphire.gpx.xz
 
 LfdNr| Datum      | Länge | 5X Plus    | 6X         | 7X         | 7X Sapphire   | Vergleichsbilder      | Anmerkung
 -----| -----------|-------|------------|------------|------------|---------------|-----------------------|------------------------------------
@@ -131,6 +145,13 @@ LfdNr| Datum      | Länge | 5X Plus    | 6X         | 7X         | 7X Sapphire 
 13   | 2022-02-12 | 14km  | -          | -          | [x][13-7x] | [x][13-7xsap] | [1][13-v1] [6x-1][13-61] [6x-2][13-62] [vertix2-1][13-c1] [vertix2-2][13-c2] | Serpentinen - beide ähnlich, Firmware 7.24
 14   | 2022-02-13 | 12km  | -          | -          | [x][14-7x] | [x][14-7xsap] | [1][14-v1]            | Unterführungen - beide schlecht
 15   | 2022-02-14 | 12km  | [x][15-5xp]| -          | -          | [x][15-7xsap] | [1][15-v1]            | Serpentinen - 5x plus sehr schlecht
+16   | 2022-02-15 | 13km  | -          | -          | [x][16-7x] | [x][16-7xsap] | -                     |
+17   | 2022-02-16 | 13km  | -          | -          | [x][17-7x] | [x][17-7xsap] | -                     |
+18   | 2022-02-17 | 13km  | -          | -          | [x][18-7x] | [x][18-7xsap] | -                     |
+19   | 2022-02-18 | 13km  | -          | -          | [x][19-7x] | [x][19-7xsap] | -                     |
+20   | 2022-02-19 | 13km  | -          | -          | [x][20-7x] | [x][20-7xsap] | -                     |
+21   | 2022-02-20 | 13km  | -          | -          | [x][21-7x] | [x][21-7xsap] | -                     | 7xsap links, 7x rechts
+22   | 2022-02-21 | 13km  | -          | -          | [x][22-7x] | [x][22-7xsap] | -                     | 7x links, 7xsap rechts
 
 Anmerkungen:
 
