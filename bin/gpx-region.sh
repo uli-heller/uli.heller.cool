@@ -149,15 +149,15 @@ while [ $# -gt 0 ]; do
 	cp "${GPX_FILE}" "${TMPDIR}/source.gpx"
     fi
     cp "${TMPDIR}/source.gpx" "${TMPDIR}/result.gpx"
-    test -n "${EXCLUDE}" && include "${EXCLUDE}" "${TMPDIR}/result.gpx"
+    test -n "${EXCLUDE}" && exclude "${EXCLUDE}" "${TMPDIR}/result.gpx"
     test -n "${INCLUDE}" && include "${INCLUDE}" "${TMPDIR}/result.gpx"
-    cmp "${TMPDIR}/source.gpx" "${TMPDIR}/result.gpx" >/dev/null 2>&1 || MODIFIED=y    
+    cmp "${TMPDIR}/source.gpx" "${TMPDIR}/result.gpx" >/dev/null 2>&1 || MODIFIED=y
     test -n "${MODIFIED}" && {
 	if [ -n "${XZ}" ]; then
 	    xz -c9 "${TMPDIR}/result.gpx" >"${GPX_FILE}"
 	else
 	    cp "${TMPDIR}/result.gpx" "${GPX_FILE}"
-	fi	
+	fi
     }
     shift
 done
