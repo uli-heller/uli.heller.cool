@@ -28,7 +28,7 @@ mkdir "${TMPDIR}"
 #   -u "/_:gpx/@creator" -v "gpx-clean" \
 #
 xmlstarlet ed \
-  -d "//_:extensions" \
+  -d "//_:trkpt/_:extensions" \
   -d "/_:gpx/_:metadata/_:time" \
   -d "//_:trkpt/_:time" \
   -d "//_:trkpt/_:hdop" \

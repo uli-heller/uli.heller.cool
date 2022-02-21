@@ -6,7 +6,7 @@ Vorbereitungen
 
 Kommandozeile:
 
-```sh
+```shell
 sudo apt install gpsbabel
 sudo apt install xmlstarlet
 sudo apt install libxml2-utils
@@ -126,7 +126,7 @@ cleanUp
 
 Hier eine erste Version der Regionsdatei.
 Sie dient primär dem "Verstecken" meines Wohnorts.
-Die aktuelle Version liegt [zum Herunterladen](/etc/gpx-clean-regions.sh) bereit.
+Die aktuelle Version liegt [zum Herunterladen](/etc/gpx-clean-regions.conf) bereit.
 
 ```
 #
