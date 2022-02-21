@@ -136,6 +136,56 @@ Die aktuelle Version liegt [zum Herunterladen](/etc/gpx-clean-regions.conf) bere
 48.86784-48.871654:9.182696-9.189369
 ```
 
+### bin/gpx-color.sh
+
+[bin/gpx-color.sh](/bin/gpx-color.sh)
+
+Farbe für den GPS-Track. Die Farbe wird entweder ermittelt
+aus dem Dateinamen oder via Aufrufoption `--color FARBE`.
+
+Hier die Farbtabelle für die Dateinamen:
+
+Name            | Farbe
+----------------|-------
+7x.gpx          | Red
+7x-sapphire.gpx | Blue
+6x.gpx          | Black
+5x-plus.gpx     | Green
+vertix2.gpx     | Magenta
+
+### etc/gpx-color.conf
+
+[etc/gpx-color.conf](/etc/gpx-color.conf):
+
+```
+x.gpx=Red
+7x-sapphire.gpx=Blue
+6x.gpx=Black
+5x-plus.gpx=Green
+vertix2.gpx=Magenta
+```
+
+### bin/gpx-region.sh
+
+[bin/gpx-region.sh](/bin/gpx-region.sh)
+
+Skript für diePositionsbereinigung.
+Du gibst einen rechteckigen Bereich vor mit
+
+- Minimal- und Maximalwert für LAT
+- Minimal- und Maximalwert für LON
+
+und alle Streckenpunkte in diesem Bereich werden entfernt (--exclude)
+oder nur Streckenpunkte innerhalb des Bereichs bleiben erhalten (--include).
+Das verwende ich beispielsweise, um meine Heimadresse zu verschleiern.
+Damit möchte ich vermeiden, dass jemand weiß, wo **genau** ich wohne
+und Abwesenheit für einen Einbruch nutzen kann.
+
+Klar: Die Adresse sollte möglichst nicht genau in der Mitte des
+Bereinigungsbereichs liegen. Das wäre sehr naheliegend und
+die Mitte des Bereichs kann bei Vorlage mehrerer Tracks leicht
+ermittelt werden!
+
 Anzeigen
 --------
 
