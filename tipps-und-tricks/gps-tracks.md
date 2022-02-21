@@ -158,7 +158,7 @@ vertix2.gpx     | Magenta
 [etc/gpx-color.conf](/etc/gpx-color.conf):
 
 ```
-x.gpx=Red
+7x.gpx=Red
 7x-sapphire.gpx=Blue
 6x.gpx=Black
 5x-plus.gpx=Green
