@@ -48,6 +48,8 @@ Details
 - [2022-02-12 - Fenix 7X, Fenix 7X Sapphire und ältere Aufzeichnungen von Fenix 6X und Coros Vertix 2](2022-02-12_ludwigsburg-serpentinen.md) - Serpentinen - beide gleichwertig und besser als 6X/Vertix2
 - [2022-02-13 - Fenix 7X und Fenix 7X Sapphire](2022-02-13_kornwestheim-eisenbahnunterfuehrung.md) - Eisenbahnunterführung - beide schlecht
 - [2022-02-14 - Fenix 5X Plus und Fenix 7X Sapphire](2022-02-14_ludwigsburg-serpentinen.md) - Serpentinen - 5X Plus sieht sehr schlecht aus!
+- [Ludwigsburger Allee](ludwigsburger-allee.md)
+- [Ludwigsburger Serpentinen](ludwigsburger-serpentinen.md)
 
 GPX-Dateien und Vergleichsbilder
 --------------------------------
