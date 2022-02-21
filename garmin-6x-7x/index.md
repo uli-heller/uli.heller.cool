@@ -147,13 +147,13 @@ LfdNr| Datum      | Länge | 5X Plus    | 6X         | 7X         | 7X Sapphire 
 13   | 2022-02-12 | 14km  | -          | -          | [x][13-7x] | [x][13-7xsap] | [1][13-v1] [6x-1][13-61] [6x-2][13-62] [vertix2-1][13-c1] [vertix2-2][13-c2] | Serpentinen - beide ähnlich, Firmware 7.24
 14   | 2022-02-13 | 12km  | -          | -          | [x][14-7x] | [x][14-7xsap] | [1][14-v1]            | Unterführungen - beide schlecht
 15   | 2022-02-14 | 12km  | [x][15-5xp]| -          | -          | [x][15-7xsap] | [1][15-v1]            | Serpentinen - 5x plus sehr schlecht
-16   | 2022-02-15 | 13km  | -          | -          | [x][16-7x] | [x][16-7xsap] | -                     |
-17   | 2022-02-16 | 13km  | -          | -          | [x][17-7x] | [x][17-7xsap] | -                     |
-18   | 2022-02-17 | 13km  | -          | -          | [x][18-7x] | [x][18-7xsap] | -                     |
-19   | 2022-02-18 | 13km  | -          | -          | [x][19-7x] | [x][19-7xsap] | -                     |
-20   | 2022-02-19 | 13km  | -          | -          | [x][20-7x] | [x][20-7xsap] | -                     |
-21   | 2022-02-20 | 13km  | -          | -          | [x][21-7x] | [x][21-7xsap] | -                     | 7xsap links, 7x rechts
-22   | 2022-02-21 | 13km  | -          | -          | [x][22-7x] | [x][22-7xsap] | -                     | 7x links, 7xsap rechts
+16   | 2022-02-15 | 10km  | -          | -          | [x][16-7x] | [x][16-7xsap] | -                     |
+17   | 2022-02-16 |  9km  | -          | -          | [x][17-7x] | [x][17-7xsap] | -                     |
+18   | 2022-02-17 |  6km  | -          | -          | [x][18-7x] | [x][18-7xsap] | -                     |
+19   | 2022-02-18 | 12km  | -          | -          | [x][19-7x] | [x][19-7xsap] | -                     |
+20   | 2022-02-19 | 20km  | -          | -          | [x][20-7x] | [x][20-7xsap] | -                     |
+21   | 2022-02-20 | 15km  | -          | -          | [x][21-7x] | [x][21-7xsap] | -                     | 7xsap links, 7x rechts
+22   | 2022-02-21 |  6km  | -          | -          | [x][22-7x] | [x][22-7xsap] | -                     | 7x links, 7xsap rechts
 
 Anmerkungen:
 
