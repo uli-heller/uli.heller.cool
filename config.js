@@ -1,12 +1,15 @@
-
 const config = {
     additionalElements: [
         { filename: "header.md", elementId: "headermd", insertBeforeElementId: "topid" },
         { filename: "navbar.md", elementId: "navbarmd", insertBeforeElementId: "topid",    isNavbar: true },
         { filename: "footer.md", elementId: "footermd", insertBeforeElementId: "bottomid", isNavbar: false },
     ],
+    javascripts: [
+//        "prism-1.26.0.js",
+    ],
     stylesheets: [
-	"stuttgart.css",
+        "stuttgart.css",
+//        "prism-1.26.0.css",
     ],
     multiLanguage: false,
     navbarClass:   'navbar',
@@ -15,5 +18,5 @@ const config = {
     markdown:      [ '.md',   '.markdown' ],
     html:          [ '.html', '.htm' ],
     text:          [ '.txt' ],
-    timestamp:     '2022-02-14 17:00:00',
+    timestamp:     '2022-02-22 07:00:01',
 }

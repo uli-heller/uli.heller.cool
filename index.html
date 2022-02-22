@@ -25,16 +25,7 @@
   <!-- mermaid.js -->
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
 
-
-  <!--
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.26.0/themes/prism.min.css">
-  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.26.0/components/prism-core.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.26.0/plugins/autoloader/prism-autoloader.min.js"></script>
-  -->
-  <link rel="stylesheet" href="prism-1.26.0.css">
-  <script src="prism-1.26.0.js"></script>
-
-  <script id="configjs" src="config.js?timestamp=20220214170000"></script>
+  <script id="configjs" src="config.js?timestamp=20220222070000"></script>
 
   <script>
     class Site {
@@ -307,13 +298,15 @@
             element.innerHTML = marked.parse(contentText, {
                 renderer: renderer,
                 highlight: function(code, lang) {
-                    var language = Prism.languages[lang];
-                    if (language) {
-                        return Prism.highlight(code, language, lang);
-                    } else {
-                        language = hljs.getLanguage(lang) ? lang : 'plaintext';
-                        return hljs.highlight(code, { language }).value;
+                    var language;
+                    if (typeof Prism !== 'undefined') {
+                        language = Prism.languages[lang];
+                        if (language) {
+                            return Prism.highlight(code, language, lang);
+                        }
                     }
+                    language = hljs.getLanguage(lang) ? lang : 'plaintext';
+                    return hljs.highlight(code, { language }).value;
                 },
             });
         } else if (mySite.isHtml(filename)) {
@@ -396,21 +389,29 @@
         }
         mySite.initInProgress = true;
         //
-        // load config.js
+        // Load all javascript files multiple times,
+        // since there could be a change in 'config.js'
+        // that adds another javascript file
         //
-        const configJsUrl = new URL('config.js', mySite.indexHtmlUrl);
-        const configJsText = await fetchFile(configJsUrl.href);
-        //console.log(configJsText);
-        {
-            eval(configJsText); // eval is evil
+        const loadedJavascripts = {};
+        var loadCount = -1;
+        while (loadCount != 0) {
+            loadCount = 0;
+            const javascripts = config.javascripts.slice();
+            javascripts.unshift('config.js');
+            for (var js of javascripts) {
+                if (! loadedJavascripts[js]) {
+                    loadedJavascripts[js] = true;
+                    ++loadCount;
+                    const url = new URL(js,  mySite.indexHtmlUrl);
+                    const text = await fetchFile(url.href);
+                    eval(text);
+                }
+            }
             mySite.config = config;
         }
-        //console.log(mySite);
 
         mySite.currentUrl = Site.nonHashUrl(new URL(window.location));
-        //if (mySite.currentUrl.pathname.endsWith('/')) {
-        //    mySite.currentUrl.pathname += mySite.config.indexHtml;
-        //}
         if (!window.location.hash) {
             mySite.currentUrl.hash = mySite.config.indexMd;
         }
