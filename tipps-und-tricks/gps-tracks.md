@@ -196,15 +196,6 @@ Interaktiv bearbeiten
 JGPSTrackEdit-1.7.1.jar
 java -jar ~/Software/JGPSTrackEdit-1.7.1.jar  2022-02-14*gpx
 
-Bereinigen
-----------
-
-https://oleb.net/2020/sanitizing-gpx/
-http://www.gpsbabel.org/htmldoc-development/filter_position.html
-
-xmlstarlet sel -t -c "//_:trkpt" garmin-6x-7x/images/2022-02-14_7x-sapphire.gpx
-xml ed -L -d "//configuration/folder[@id=\"$foldername\"]" config.xml
-
 Links
 -----
 
