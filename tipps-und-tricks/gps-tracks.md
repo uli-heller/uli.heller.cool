@@ -6,7 +6,7 @@ Vorbereitungen
 
 Kommandozeile:
 
-```shell
+```sh
 sudo apt install gpsbabel
 sudo apt install xmlstarlet
 sudo apt install libxml2-utils
@@ -27,7 +27,7 @@ mich im Wesentlichen an [dieser Anleitung von Ole Begemann][OLEB].
 Analog der Beschreibung werden diese Daten entfernt/bereinigt:
 
 - Elemente vom Typ `<extensions>` - diese Elemente enthalten Temperatur, Herzfrequenz und Schrittfrequenz.
-    ```
+    ```xml
         <extensions>
           <ns3:TrackPointExtension>
             <ns3:atemp>27.0</ns3:atemp>
@@ -65,7 +65,7 @@ Hier ein erster halbwegs funtionierender Stand
 meines Aufräum-Skriptes. Die aktuelle Version
 liegt [zum Herunterladen](/bin/gpx-clean.sh) bereit.
 
-```shell
+```sh
 #!/bin/sh
 #
 # https://oleb.net/2020/sanitizing-gpx/
