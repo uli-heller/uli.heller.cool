@@ -11,11 +11,11 @@
 ###  beschränkt den GPX-Track auf die angegebene Region (--include)
 ###
 ### Optionen:
-###  -h|--help ................... Hilfe anzeigen (dieser Text)
-###  -e|--exclude region ......... Region, die ausgeklammert werden soll
-###  -E|--exclude region-datei ... Datei mit Regionen, die ausgeklammert werden sollen
-###  -i|--include region ......... Region, auf die der Track beschränkt werden soll
-###  -I|--include region-datei ... Datei mit Region, auf die der Track beschränkt werden soll
+###  -h|--help ........................ Hilfe anzeigen (dieser Text)
+###  -e|--exclude region .............. Region, die ausgeklammert werden soll
+###  -E|--exclude-file region-datei ... Datei mit Regionen, die ausgeklammert werden sollen
+###  -i|--include region .............. Region, auf die der Track beschränkt werden soll
+###  -I|--include-file region-datei ... Datei mit Region, auf die der Track beschränkt werden soll
 ###
 ### Region:
 ###  min_latitude-max_latitude:min_longitude-max_longitude

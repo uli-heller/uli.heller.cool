@@ -68,10 +68,7 @@ while [ $# -gt 0 ]; do
 	| xmlstarlet ed -u "/_:gpx/@xsi:schemaLocation" -v "http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd" \
 	| xmllint --c14n11 --pretty 2 - >"${TMPDIR}/${GPX_BASE_WITHOUT_XZ}"
     "${D}/gpx-color.sh" "${TMPDIR}/${GPX_BASE_WITHOUT_XZ}"
-    grep -v "^\s*#" "${DD}/etc/gpx-clean-regions.conf"\
-    |while read line; do
-	  "${D}/gpx-region.sh" --exclude "${line}" "${TMPDIR}/${GPX_BASE_WITHOUT_XZ}"
-    done
+    "${D}/gpx-region.sh" --exclude-file "${DD}/etc/gpx-clean-regions.conf" "${TMPDIR}/${GPX_BASE_WITHOUT_XZ}"
     cmp "${TMPDIR}/source.gpx" "${TMPDIR}/${GPX_BASE_WITHOUT_XZ}" >/dev/null 2>&1 || MODIFIED=y    
     test -n "${MODIFIED}" && {
 	if [ -n "${XZ}" ]; then
