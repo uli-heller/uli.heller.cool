@@ -11,12 +11,18 @@
 ###  beschränkt den GPX-Track auf die angegebene Region (--include)
 ###
 ### Optionen:
-###  -h|--help ............. Hilfe anzeigen (dieser Text)
-###  -e|--exclude region ... Region, die ausgeklammert werden soll
-###  -i|--include region ... Region, auf die der Track beschränkt werden soll
+###  -h|--help ................... Hilfe anzeigen (dieser Text)
+###  -e|--exclude region ......... Region, die ausgeklammert werden soll
+###  -E|--exclude region-datei ... Datei mit Regionen, die ausgeklammert werden sollen
+###  -i|--include region ......... Region, auf die der Track beschränkt werden soll
+###  -I|--include region-datei ... Datei mit Region, auf die der Track beschränkt werden soll
 ###
 ### Region:
 ###  min_latitude-max_latitude:min_longitude-max_longitude
+###
+### Region-Datei:
+###  Datei mit Zeilen im Format "Region". Die Ausklammer-Datei kann dabei mehrere
+###  Regionen enthalten, die Beschränkungsdatei kann nur eine Region enthalten
 ###
 ### Beispiele:
 ###  gpx-region.sh --exclude 48.86784-48.871654:9.182696-9.189369 <source.gpx >with-color.gpx
@@ -43,15 +49,17 @@ if [ "${TEMP}" != " --long --" ]; then
   echo >&2 "${BN}: Please install GNU getopt - terminating..."
   exit 1
 fi
-TEMP="$(getopt -o he:i: --long help,exclude:,include: -- "$@")"
+TEMP="$(getopt -o he:E:i:I: --long help,exclude:,exclude-file:,include:,include-file: -- "$@")"
 if [ $? != 0 ] ; then usage >&2; echo "Terminating..." >&2 ; exit 1 ; fi
 
 eval set -- "${TEMP}"
 
 USAGE=
 HELP=
-INCLUDE=
 EXCLUDE=
+INCLUDE=
+EXCLUDE_FILE=
+INCLUDE_FILE=
 
 while true; do
   case "$1" in
@@ -62,8 +70,16 @@ while true; do
       EXCLUDE="$2"
       shift
       ;;
+    -E|--exclude-file)
+      EXCLUDE_FILE="$2"
+      shift
+      ;;
     -i|--include)
       INCLUDE="$2"
+      shift
+      ;;
+    -I|--include-file)
+      INCLUDE_FILE="$2"
       shift
       ;;
     \?)
@@ -135,6 +151,31 @@ include () {
     )
 }
 
+test -n "${INCLUDE_FILE}" && {
+    INCLUDE="$(grep -v "^\s*#" "${INCLUDE_FILE}")"
+    INCLUDE_CNT="$(echo "${INCLUDE}"|wc -l)"
+    test "${INCLUDE_CNT}" -ne 1 && {
+	echo >&2 "${BN}: Die Beschränkungsdatei '${INCLUDE_FILE}' enthält nicht genau eine Region (${INCLUDE_CNT})"
+	help >&2
+	RC=1
+	cleanUp
+	exit $RC
+    }
+}
+
+test -n "${EXCLUDE_FILE}" && {
+    EXCLUDE_N="$(grep -v "^\s*#" "${EXCLUDE_FILE}")"
+    EXCLUDE_CNT="$(echo "${EXCLUDE_N}"|wc -l)"
+    test "${EXCLUDE_CNT}" -ne 1 && {
+	echo >&2 "${BN}: Die Ausklammerdatei '${EXCLUDE_FILE}' enthält nicht mindestens eine Region (${EXCLUDE_CNT})"
+	help >&2
+	RC=1
+	cleanUp
+	exit $RC
+    }
+    EXCLUDE="$(echo -e "${EXCLUDE}\n${EXCLUDE_N}")"
+}
+
 while [ $# -gt 0 ]; do
     GPX_FILE="$1"
     GPX_BASE="$(basename "${GPX_FILE}")"
@@ -149,7 +190,11 @@ while [ $# -gt 0 ]; do
 	cp "${GPX_FILE}" "${TMPDIR}/source.gpx"
     fi
     cp "${TMPDIR}/source.gpx" "${TMPDIR}/result.gpx"
-    test -n "${EXCLUDE}" && exclude "${EXCLUDE}" "${TMPDIR}/result.gpx"
+    test -n "${EXCLUDE}" && {
+	echo "${EXCLUDE}"|grep -v "^\s*$"|while read e; do
+	    exclude "${e}" "${TMPDIR}/result.gpx"
+	done
+    }
     test -n "${INCLUDE}" && include "${INCLUDE}" "${TMPDIR}/result.gpx"
     cmp "${TMPDIR}/source.gpx" "${TMPDIR}/result.gpx" >/dev/null 2>&1 || MODIFIED=y
     test -n "${MODIFIED}" && {
