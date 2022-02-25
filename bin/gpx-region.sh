@@ -3,8 +3,9 @@
 ### gpx-region.sh
 ###
 ### Aufruf:
-###  gpx-region.sh --exclude 48.86784-48.871654:9.182696-9.189369 <source.gpx >with-color.gpx
-###  gpx-region.sh --include 48.86942-48.890733:9.140969-9.191738 <source.gpx >with-color.gpx
+###  gpx-region.sh [-h|--help] [-e|--exclude region] [-E|--exclude-file region-file]
+###     [-i|--include region] [-I|--include-file region-file]
+###     [-d|--destination folder [-u|--uncompress]]
 ###
 ### Beschreibung:
 ###  Dieses Skript klammert eine Region aus einem GPX-Track aus (--exclude) oder
@@ -12,6 +13,8 @@
 ###
 ### Optionen:
 ###  -h|--help ........................ Hilfe anzeigen (dieser Text)
+###  -d|--destination folder .......... Zielordner für gefilterte Dateien
+###  -u|--uncompress .................. Gefilterte Dateien nicht komprimieren
 ###  -e|--exclude region .............. Region, die ausgeklammert werden soll
 ###  -E|--exclude-file region-datei ... Datei mit Regionen, die ausgeklammert werden sollen
 ###  -i|--include region .............. Region, auf die der Track beschränkt werden soll
@@ -49,13 +52,15 @@ if [ "${TEMP}" != " --long --" ]; then
   echo >&2 "${BN}: Please install GNU getopt - terminating..."
   exit 1
 fi
-TEMP="$(getopt -o he:E:i:I: --long help,exclude:,exclude-file:,include:,include-file: -- "$@")"
+TEMP="$(getopt -o hd:e:E:i:I:u --long help,destination:,exclude:,exclude-file:,include:,include-file:,uncompress -- "$@")"
 if [ $? != 0 ] ; then usage >&2; echo "Terminating..." >&2 ; exit 1 ; fi
 
 eval set -- "${TEMP}"
 
 USAGE=
 HELP=
+DESTINATION=
+UNCOMPRESS=
 EXCLUDE=
 INCLUDE=
 EXCLUDE_FILE=
@@ -65,6 +70,10 @@ while true; do
   case "$1" in
     -h|--help)
       HELP=y
+      ;;
+    -d|--destination)
+      DESTINATION="$2"
+      shift
       ;;
     -e|--exclude)
       EXCLUDE="$2"
@@ -81,6 +90,9 @@ while true; do
     -I|--include-file)
       INCLUDE_FILE="$2"
       shift
+      ;;
+    -u|--uncompress)
+      UNCOMPRESS=y
       ;;
     \?)
       echo >&2 "Invalid option: -${OPTARG}"
@@ -106,6 +118,12 @@ if [ -n "${HELP}" ]; then
   help
   exit 0
 fi
+
+test -n "${UNCOMPRESS}" -a -z "${DESTINATION}" && {
+    echo >&2 "${BN}: Die Option '--uncompress' darf nur zusammen mit '--destination' verwendet werden!"
+    RC=1
+    exit $RC
+}
 
 RC=0
 
@@ -176,6 +194,10 @@ test -n "${EXCLUDE_FILE}" && {
     EXCLUDE="$(echo -e "${EXCLUDE}\n${EXCLUDE_N}")"
 }
 
+test -n "${DESTINATION}" && {
+    test -d "${DESTINATION}" || mkdir -p "${DESTINATION}"
+}
+
 while [ $# -gt 0 ]; do
     GPX_FILE="$1"
     GPX_BASE="$(basename "${GPX_FILE}")"
@@ -183,7 +205,7 @@ while [ $# -gt 0 ]; do
     MODIFIED=
     GPX_BASE_WITHOUT_XZ="$(basename "${GPX_BASE}" .xz)"
     if [ "${GPX_BASE}" != "${GPX_BASE_WITHOUT_XZ}" ]; then
-	XZ=y
+	test -z "${UNCOMPRESS]" && XZ=y
 	xz -cd "${GPX_FILE}" >"${TMPDIR}/source.gpx"
     else
 	XZ=
@@ -197,11 +219,17 @@ while [ $# -gt 0 ]; do
     }
     test -n "${INCLUDE}" && include "${INCLUDE}" "${TMPDIR}/result.gpx"
     cmp "${TMPDIR}/source.gpx" "${TMPDIR}/result.gpx" >/dev/null 2>&1 || MODIFIED=y
-    test -n "${MODIFIED}" && {
+    TRACKPOINTS="$(xmlstarlet sel -T -t -v "//_:trkpt" "${TMPDIR}/result.gpx" |cut -c-10)"
+    test -n "${MODIFIED}" -a -n "${TRACKPOINTS}" && {
+	DESTINATION_FILE="${GPX_FILE}"
+	test -n "${DESTINATION}" && {
+	    DESTINATION_FILE="${DESTINATION}/${GPX_BASE}"
+	    test -n "${XZ}" && DESTINATION_FILE="${DESTINATION}/${GPX_BASE_WITHOUT_XZ}"
+	}
 	if [ -n "${XZ}" ]; then
-	    xz -c9 "${TMPDIR}/result.gpx" >"${GPX_FILE}"
+	    xz -c9 "${TMPDIR}/result.gpx" >"${DESTINATION_FILE}"
 	else
-	    cp "${TMPDIR}/result.gpx" "${GPX_FILE}"
+	    cp "${TMPDIR}/result.gpx" "${DESTINATION_FILE}"
 	fi
     }
     shift
