@@ -30,6 +30,7 @@
 ### Beispiele:
 ###  gpx-region.sh --exclude 48.86784-48.871654:9.182696-9.189369 <source.gpx >with-color.gpx
 ###  gpx-region.sh --include 48.86942-48.890733:9.140969-9.191738 <source.gpx >with-color.gpx
+###  gpx-region.sh -I etc/gpx-region-lb-bruecke.conf -d lb-bruecke -u garmin-6x-7x/data/*xz
 ###
 #
 D="$(dirname "$0")"
