@@ -205,7 +205,7 @@ while [ $# -gt 0 ]; do
     MODIFIED=
     GPX_BASE_WITHOUT_XZ="$(basename "${GPX_BASE}" .xz)"
     if [ "${GPX_BASE}" != "${GPX_BASE_WITHOUT_XZ}" ]; then
-	test -z "${UNCOMPRESS]" && XZ=y
+	test -z "${UNCOMPRESS}" && XZ=y
 	xz -cd "${GPX_FILE}" >"${TMPDIR}/source.gpx"
     else
 	XZ=
@@ -224,7 +224,7 @@ while [ $# -gt 0 ]; do
 	DESTINATION_FILE="${GPX_FILE}"
 	test -n "${DESTINATION}" && {
 	    DESTINATION_FILE="${DESTINATION}/${GPX_BASE}"
-	    test -n "${XZ}" && DESTINATION_FILE="${DESTINATION}/${GPX_BASE_WITHOUT_XZ}"
+	    test -z "${XZ}" && DESTINATION_FILE="${DESTINATION}/${GPX_BASE_WITHOUT_XZ}"
 	}
 	if [ -n "${XZ}" ]; then
 	    xz -c9 "${TMPDIR}/result.gpx" >"${DESTINATION_FILE}"
