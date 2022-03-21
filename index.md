@@ -42,3 +42,9 @@ kommt von [GitHub][GITHUB]. Ich verarbeite keinerlei Daten von Dir,
 das macht alles [GitHub][GITHUB]!
 
 [GITHUB]: https://github.com
+
+Artikel
+=======
+
+- [Akku-Tabelle](akku-tabelle.md) ... wahrscheinlich nur für mich interessant - eine Liste mit den Akkus, die ich verwende
+
