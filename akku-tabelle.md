@@ -3,12 +3,20 @@ Akku-Tabellen
 
 ## AA
 
-LNr | Marke  | Farbe   | Kapazität | Datum      | mAh  | Min | Volt
-----|--------|---------|-----------|------------|------|-----|-------
-01  | Amazon | Schwarz | 2000 mAh  | 2022-03-20 | 1978 | 295 | 1.42
-02  | Amazon | Schwarz | 2000 mAh  | 2022-03-20 | 2056 | 307 | 1.43
-03  | Amazon | Schwarz | 2000 mAh  | 2022-03-20 | 2050 | 306 | 1.44
-04  | Amazon | Schwarz | 2000 mAh  | 2022-03-20 | 2051 | 306 | 1.44
+LNr | Marke   | Farbe   | Kapazität | Datum      | mAh  | Min | Volt
+----|---------|---------|-----------|------------|------|-----|-------
+01  | Amazon  | Schwarz | 2000 mAh  | 2022-03-20 | 1978 | 295 | 1.42
+02  | Amazon  | Schwarz | 2000 mAh  | 2022-03-20 | 2056 | 307 | 1.43
+03  | Amazon  | Schwarz | 2000 mAh  | 2022-03-20 | 2050 | 306 | 1.44
+04  | Amazon  | Schwarz | 2000 mAh  | 2022-03-20 | 2051 | 306 | 1.44
+05  | Ansmann | Silber  | 2100 mAh  |            |      |     |
+06  | Ansmann | Silber  | 2100 mAh  |            |      |     |
+07  | Ansmann | Silber  | 2100 mAh  |            |      |     |
+08  | Varta   | Grün    | 2000 mAh  |            |      |     |
+09  | Amazon  | Schwarz | 2000 mAh  |            |      |     |
+10  | Amazon  | Schwarz | 2000 mAh  |            |      |     |
+11  | Amazon  | Schwarz | 2000 mAh  |            |      |     |
+12  | Amazon  | Schwarz | 2000 mAh  |            |      |     |
 
 ## AAA
 
@@ -18,3 +26,9 @@ LNr | Marke  | Farbe   | Kapazität | Datum      | mAh  | Min | Volt
 02  | Amazon | Schwarz |  800 mAh  | 2022-03-21 |      |     |
 03  | Amazon | Schwarz |  800 mAh  | 2022-03-21 |      |     |
 04  | Amazon | Schwarz |  800 mAh  | 2022-03-21 |      |     |
+05  | Amazon | Schwarz |  800 mAh  |            |      |     |
+06  | Amazon | Schwarz |  800 mAh  |            |      |     |
+07  | Amazon | Weiß    |  750 mAh  |            |      |     |
+08  | Amazon | Weiß    |  750 mAh  |            |      |     |
+09  | Varta  | Grün    |  800 mAh  |            |      |     |
+10  | Varta  | Grün    |  800 mAh  |            |      |     |
