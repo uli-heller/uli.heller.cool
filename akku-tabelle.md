@@ -22,13 +22,13 @@ LNr | Marke   | Farbe   | Kapazität | Datum      | mAh  | Min | Volt
 
 LNr | Marke  | Farbe   | Kapazität | Datum      | mAh  | Min | Volt
 ----|--------|---------|-----------|------------|------|-----|-------
-01  | Amazon | Schwarz |  800 mAh  | 2022-03-21 |      |     |
-02  | Amazon | Schwarz |  800 mAh  | 2022-03-21 |      |     |
-03  | Amazon | Schwarz |  800 mAh  | 2022-03-21 |      |     |
-04  | Amazon | Schwarz |  800 mAh  | 2022-03-21 |      |     |
-05  | Amazon | Schwarz |  800 mAh  |            |      |     |
-06  | Amazon | Schwarz |  800 mAh  |            |      |     |
-07  | Amazon | Weiß    |  750 mAh  |            |      |     |
-08  | Amazon | Weiß    |  750 mAh  |            |      |     |
+01  | Amazon | Schwarz |  800 mAh  | 2022-03-21 | 780  | 289 | 1.45
+02  | Amazon | Schwarz |  800 mAh  | 2022-03-21 | 696  | 258 | 1.48
+03  | Amazon | Schwarz |  800 mAh  | 2022-03-21 | 718  | 266 | 1.49
+04  | Amazon | Schwarz |  800 mAh  | 2022-03-21 | 785  | 292 | 1.49
+05  | Amazon | Schwarz |  800 mAh  | 2022-03-23 |      |     |
+06  | Amazon | Schwarz |  800 mAh  | 2022-03-23 |      |     |
+07  | Amazon | Weiß    |  750 mAh  | 2022-03-23 |      |     |
+08  | Amazon | Weiß    |  750 mAh  | 2022-03-23 |      |     |
 09  | Varta  | Grün    |  800 mAh  |            |      |     |
 10  | Varta  | Grün    |  800 mAh  |            |      |     |
