@@ -3,20 +3,20 @@ Akku-Tabellen
 
 ## AA
 
-LNr | Marke   | Farbe   | Kapazität | Datum      | mAh  | Min | Volt
-----|---------|---------|-----------|------------|------|-----|-------
-01  | Amazon  | Schwarz | 2000 mAh  | 2022-03-20 | 1978 | 295 | 1.42
-02  | Amazon  | Schwarz | 2000 mAh  | 2022-03-20 | 2056 | 307 | 1.43
-03  | Amazon  | Schwarz | 2000 mAh  | 2022-03-20 | 2050 | 306 | 1.44
-04  | Amazon  | Schwarz | 2000 mAh  | 2022-03-20 | 2051 | 306 | 1.44
-05  | Ansmann | Silber  | 2100 mAh  | 2022-03-28 |      |     |
-06  | Ansmann | Silber  | 2100 mAh  | 2022-03-28 |      |     |
-07  | Ansmann | Silber  | 2100 mAh  | 2022-03-28 |      |     |
-08  | Varta   | Grün    | 2000 mAh  | 2022-03-28 |      |     |
-09  | Amazon  | Schwarz | 2000 mAh  |            |      |     |
-10  | Amazon  | Schwarz | 2000 mAh  |            |      |     |
-11  | Amazon  | Schwarz | 2000 mAh  |            |      |     |
-12  | Amazon  | Schwarz | 2000 mAh  |            |      |     |
+LNr | Marke   | Farbe   | Kapazität | Datum      | mAh  | Min | Volt | Anmerkung
+----|---------|---------|-----------|------------|------|-----|------|-----------
+01  | Amazon  | Schwarz | 2000 mAh  | 2022-03-20 | 1978 | 295 | 1.42 |
+02  | Amazon  | Schwarz | 2000 mAh  | 2022-03-20 | 2056 | 307 | 1.43 |
+03  | Amazon  | Schwarz | 2000 mAh  | 2022-03-20 | 2050 | 306 | 1.44 |
+04  | Amazon  | Schwarz | 2000 mAh  | 2022-03-20 | 2051 | 306 | 1.44 |
+05  | Ansmann | Silber  | 2100 mAh  | 2022-03-28 |      |     |      |
+06  | Ansmann | Silber  | 2100 mAh  | 2022-03-28 |      |     |      |
+07  | Ansmann | Silber  | 2100 mAh  | 2022-03-28 |      |     |      |
+08  | Varta   | Grün    | 2000 mAh  | 2022-03-28 |      |     |      | KAPUTT
+09  | Amazon  | Schwarz | 2000 mAh  |            |      |     |      |
+10  | Amazon  | Schwarz | 2000 mAh  |            |      |     |      |
+11  | Amazon  | Schwarz | 2000 mAh  |            |      |     |      |
+12  | Amazon  | Schwarz | 2000 mAh  |            |      |     |      |
 
 ## AAA
 
