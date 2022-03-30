@@ -9,14 +9,18 @@ LNr | Marke   | Farbe   | Kapazität | Datum      | mAh  | Min | Volt | Anmerkun
 02  | Amazon  | Schwarz | 2000 mAh  | 2022-03-20 | 2056 | 307 | 1.43 |
 03  | Amazon  | Schwarz | 2000 mAh  | 2022-03-20 | 2050 | 306 | 1.44 |
 04  | Amazon  | Schwarz | 2000 mAh  | 2022-03-20 | 2051 | 306 | 1.44 |
-05  | Ansmann | Silber  | 2100 mAh  | 2022-03-28 |      |     |      |
-06  | Ansmann | Silber  | 2100 mAh  | 2022-03-28 |      |     |      |
-07  | Ansmann | Silber  | 2100 mAh  | 2022-03-28 |      |     |      |
-08  | Varta   | Grün    | 2000 mAh  | 2022-03-28 |      |     |      | KAPUTT
+05  | Ansmann | Silber  | 2100 mAh  | 2022-03-28 |  202 |  28 | 1.31 |
+    |         |         |           | 2022-03-30 |      |     |      |
+06  | Ansmann | Silber  | 2100 mAh  | 2022-03-28 |  239 |  33 | 1.32 |
+    |         |         |           | 2022-03-30 |      |     |      |
+07  | Ansmann | Silber  | 2100 mAh  | 2022-03-28 | 1618 | 229 | 1.43 |
+    |         |         |           | 2022-03-30 |      |     |      |
+08  | Varta   | Grün    | 2000 mAh  | 2022-03-28 |      |     |      | KAPUTT -> verschrottet
 09  | Amazon  | Schwarz | 2000 mAh  |            |      |     |      |
 10  | Amazon  | Schwarz | 2000 mAh  |            |      |     |      |
 11  | Amazon  | Schwarz | 2000 mAh  |            |      |     |      |
 12  | Amazon  | Schwarz | 2000 mAh  |            |      |     |      |
+    |         |         |           |            |      |     |      |
 
 ## AAA
 
