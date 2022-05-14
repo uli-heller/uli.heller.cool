@@ -31,6 +31,8 @@ LNr | Marke   | Farbe   | Kapazität | Datum      | mAh  | Min | Volt | Anmerkun
 
 ## AAA
 
+### OK
+
 LNr | Marke  | Farbe   | Kapazität | Datum      | mAh  | Min | Volt
 ----|--------|---------|-----------|------------|------|-----|-------
 01  | Amazon | Schwarz |  800 mAh  | 2022-03-21 | 780  | 289 | 1.45
@@ -43,3 +45,10 @@ LNr | Marke  | Farbe   | Kapazität | Datum      | mAh  | Min | Volt
 08  | Amazon | Weiß    |  750 mAh  | 2022-03-23 | 776  | 289 | 1.49
 09  | Varta  | Grün    |  800 mAh  | 2022-03-28 | 755  | 279 | 1.48
 10  | Varta  | Grün    |  800 mAh  | 2022-03-28 | 646  | 239 | 1.46
+11  | Ansmann| Silber  |  800 mAh  | 2022-05-14 | 787  | 291 | 1.51
+
+### Schrott
+
+LNr | Marke   | Farbe   | Kapazität | Datum      | mAh  | Min | Volt | Anmerkung
+----|---------|---------|-----------|------------|------|-----|------|-------------
+?   | Ansmann | Silber  |  800 mAh  | 2022-05-12 | ?    | ?   | ?    | Anzeige HIGH
