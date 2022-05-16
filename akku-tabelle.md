@@ -15,6 +15,7 @@ LNr | Marke   | Farbe   | Kapazität | Datum      | mAh  | Min | Volt | Anmerkun
 10  | Amazon  | Schwarz | 2000 mAh  | 2022-04-01 | 2139 | 319 | 1.43 |
 11  | Amazon  | Schwarz | 2000 mAh  | 2022-04-01 | 2115 | 315 | 1.42 |
 12  | Amazon  | Schwarz | 2000 mAh  | 2022-04-01 | 2110 | 315 | 1.45 |
+13  | Amazon  | Grau    | 2400 mAh  | 2022-05-16 | 2389 | 295 | 1.46 |
     |         |         |           |            |      |     |      |
 
 ### Schrott
