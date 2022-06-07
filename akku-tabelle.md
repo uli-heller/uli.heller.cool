@@ -51,6 +51,8 @@ LNr | Marke  | Farbe   | Kapazität | Datum      | mAh  | Min | Volt
 09  | Varta  | Grün    |  800 mAh  | 2022-03-28 | 755  | 279 | 1.48
 10  | Varta  | Grün    |  800 mAh  | 2022-03-28 | 646  | 239 | 1.46
 11  | Ansmann| Silber  |  800 mAh  | 2022-05-14 | 787  | 291 | 1.51
+12  | Varta  | Grün    |  800 mAh  | 2022-06-07 | 799  | 296 | 1.48
+13  | Varta  | Grün    |  800 mAh  | 2022-06-07 | 769  | 285 | 1.47
 
 ### Schrott
 
