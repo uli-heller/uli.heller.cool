@@ -12,9 +12,13 @@ LNr | Marke   | Farbe   | Kapazität | Datum      | mAh  | Min | Volt | Anmerkun
 03  | Amazon  | Schwarz | 2000 mAh  | 2022-03-20 | 2050 | 306 | 1.44 |
 04  | Amazon  | Schwarz | 2000 mAh  | 2022-03-20 | 2051 | 306 | 1.44 |
 09  | Amazon  | Schwarz | 2000 mAh  | 2022-04-01 | 2058 | 307 | 1.45 |
+    | Amazon  | Schwarz | 2000 mAh  | 2022-07-04 | 2065 | 308 | 1.45 |
 10  | Amazon  | Schwarz | 2000 mAh  | 2022-04-01 | 2139 | 319 | 1.43 |
+    | Amazon  | Schwarz | 2000 mAh  | 2022-07-04 | 2120 | 316 | 1.43 |
 11  | Amazon  | Schwarz | 2000 mAh  | 2022-04-01 | 2115 | 315 | 1.42 |
+    | Amazon  | Schwarz | 2000 mAh  | 2022-07-04 | 2085 | 311 | 1.43 |
 12  | Amazon  | Schwarz | 2000 mAh  | 2022-04-01 | 2110 | 315 | 1.45 |
+    | Amazon  | Schwarz | 2000 mAh  | 2022-07-04 | 2096 | 313 | 1.45 |
 13  | Amazon  | Grau    | 2400 mAh  | 2022-05-16 | 2389 | 295 | 1.46 |
 14  | Amazon  | Schwarz | 2000 mAh  | 2022-05-24 | 2049 | 306 | 1.45 |
 15  | Amazon  | Schwarz | 2000 mAh  | 2022-05-24 | 2110 | 315 | 1.44 |
