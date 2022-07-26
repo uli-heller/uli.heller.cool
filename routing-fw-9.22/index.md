@@ -31,9 +31,26 @@ jeweils so aus:
 
 ![Erste Näherung 1-2](images/f7x-12.png)
 
+Bei der ersten Näherung sieht man die Kreuzung
+mit allen einmündenden Wegen. Alle Wege liegen
+auf der geplanten Route und sind deshalb
+in der Farbe Magenta eingefärbt.
+
+Die Soll-Strecke erkennt man nur "unten" am Pfeil -
+es geht also nach rechts. Unklar ist, welcher der
+rechten Wege genommen werden soll!
+
 ![Zweite Näherung 3-4](images/f7x-34.png)
 
+Die zweite Näherung sieht ähnlich aus wie die erste.
+Einige Wege der Kreuzung sind rot eingefärbt, weil
+ich die schon abgegangen bin. Es geht wieder nach rechts.
+
 ![Dritte Näherung 5-6](images/f7x-56.png)
+
+Bei der dritten Näherung sind 4 Wege rot eingefärbt.
+Wieder geht es rechts weiter auf dem Magenta-Weg, den
+ich noch nicht abgelaufen bin.
 
 Firmware-9.22 - Epix2
 ---------------------
@@ -43,6 +60,26 @@ jeweils so aus:
 
 ![Erste Näherung 1-2](images/epix2-12.png)
 
+Bei der ersten Näherung sieht man wieder die Kreuzung
+mit allen einmündenden Wegen. Alle Wege liegen
+auf der geplanten Route und sind deshalb
+in der Farbe Magenta eingefärbt.
+
+Die Soll-Strecke erkennt man "unten" am Pfeil
+und an den kleinen weißen Pfeilen in der Karte.
+Es geht also nach rechts. Es ist klar, dass
+"scharf rechts" gemeint ist!
+
 ![Zweite Näherung 3-4](images/epix2-34.png)
 
+Bei der zweiten Näherung sieht man sehr gut:
+
+- die bereits abgelaufenen Wege (rot)
+- die noch nicht abgelaufenen Wege (magenta)
+- die aktuell "anstehenden" Wege (magenta mit weißen Pfeilen)
+
 ![Dritte Näherung 5-6](images/epix2-56.png)
+
+Die dritte Näherung wird ähnlich perfekt angezeigt wie
+die zweite. Es ist zweifelsfrei klar, welcher Streckenteil
+gerade ansteht.
