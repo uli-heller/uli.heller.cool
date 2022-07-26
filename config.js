@@ -18,5 +18,5 @@ const config = {
     markdown:      [ '.md',   '.markdown' ],
     html:          [ '.html', '.htm' ],
     text:          [ '.txt' ],
-    timestamp:     '2022-02-22 07:00:01',
+    timestamp:     '2022-07-26 07:00:01',
 }
