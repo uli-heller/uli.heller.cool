@@ -23,10 +23,10 @@ Die Strecke habe ich in meine beiden aktuellen Garmin-Uhren geladen:
 
 Ich bin die Strecke dann mit beiden Uhren abgelaufen.
 
-Fenix 7X Sapphire
------------------
+Firmware-8.37 - Fenix 7X Sapphire
+----------------------------------
 
-Mit der Fenix 7X Sapphire sieht die kritische Kreuzung bei Näherungen
+Mit der Firmware-8.37 auf der Fenix 7X Sapphire sieht die kritische Kreuzung bei Näherungen
 jeweils so aus:
 
 ![Erste Näherung 1-2](images/f7x-12.png)
@@ -34,3 +34,15 @@ jeweils so aus:
 ![Zweite Näherung 3-4](images/f7x-34.png)
 
 ![Dritte Näherung 5-6](images/f7x-56.png)
+
+Firmware-9.22 - Epix2
+---------------------
+
+Mit der Firmware-9.22 auf der Epix2 sieht die kritische Kreuzung bei Näherungen
+jeweils so aus:
+
+![Erste Näherung 1-2](images/epix2-12.png)
+
+![Zweite Näherung 3-4](images/epix2-34.png)
+
+![Dritte Näherung 5-6](images/epix2-56.png)
