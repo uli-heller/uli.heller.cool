@@ -83,3 +83,25 @@ Bei der zweiten Näherung sieht man sehr gut:
 Die dritte Näherung wird ähnlich perfekt angezeigt wie
 die zweite. Es ist zweifelsfrei klar, welcher Streckenteil
 gerade ansteht.
+
+Firmware-9.22 - Kurze Schleifen
+-------------------------------
+
+Die neue Routen-Darstellung kommt an ihre Grenzen, wenn die
+Schleifen zu kurz sind.
+
+![Erste Näherung](images/epix2-ko-1.png)
+
+Bei der ersten Annäherung ist alles OK, die Darstellung ist perfekt.
+
+![Zweite Näherung](images/epix2-ko-2.png)
+
+Grob 4km nach der ersten Annäherung erfolgt die zweite Annäherung.
+Man sieht vorab bereits die (noch) irrelevanten Routen der dritten
+Annäherung. Die Darstellung ist nicht sonderlich aufgschlussreich, vermutlich weil
+die dritte Annäherung bereits 500m später erfolgt!
+
+![Dritte Näherung](images/epix2-ko-3.png)
+
+Nach grob 4.5km erfolgt die dritte Annäherung.
+Man sieht auch noch die veralteten Routen der zweiten Annäherung.
