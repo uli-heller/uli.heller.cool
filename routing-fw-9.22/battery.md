@@ -16,3 +16,4 @@ verwende!
 |2022-07-30 07:30| 64%     | 87%      |Lauf 90 Minuten ohne Navigation |
 |2022-07-31 19:00| 30%     | 78%      |Lauf/Gehen Epix2 120 Minuten    |
 |2022-08-01 06:30| 21%     | 74%      |Lauf 1 Stunde ohne Navigation   |
+|Epix2 58 Minuten, 208mAh 84%|
