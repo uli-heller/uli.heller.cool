@@ -13,3 +13,6 @@ verwende!
 |2022-07-28 18:30| 92%     | 98%      |Tagsüber getragen               |
 |2022-07-29 06:30| 84%     | 94%      |Lauf 1 Stunde ohne Navigation   |
 |2022-07-29 07:30| 82%     | 94%      |Epix2 -> 9.24                   |
+|2022-07-30 07:30| 64%     | 87%      |Lauf 90 Minuten ohne Navigation |
+|2022-07-31 19:00| 30%     | 78%      |Lauf/Gehen Epix2 120 Minuten    |
+|2022-08-01 06:30| 21%     | 74%      |Lauf 1 Stunde ohne Navigation   |
