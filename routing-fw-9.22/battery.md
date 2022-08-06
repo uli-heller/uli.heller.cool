@@ -24,3 +24,4 @@ verwende!
 |2022-08-05 06:30|  0%      | 26%     |Epix2 ausgegangen, 3 Stunden Navigation|
 |2022-08-05 09:00|100%      | 26%     |Epix2 2h 22Minuten, 314 mAh, 100%      |
 |2022-08-05 14:00| 99%      |100%     |F7XSS 2h 39Minuten, 396 mAh, 100%      |
+|2022-08-06 09:00| 89%      | 94%     |Lauf 30 Minuten                        |
