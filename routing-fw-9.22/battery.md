@@ -26,3 +26,4 @@ verwende!
 |2022-08-05 14:00| 99%      |100%     |F7XSS 2h 39Minuten, 396 mAh, 100%        |
 |2022-08-06 09:00| 89%      | 94%     |Lauf 30 Minuten                          |
 |2022-08-07 07:00| 61%      | 81%     |Laufen/Wandern 300 Minuten, Epix2 -> 9.28|
+|2022-08-07 23:00| 48%      | 77%     |Lauf 30 Minuten                          |
