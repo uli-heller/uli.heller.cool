@@ -61,6 +61,10 @@ LNr | Marke  | Farbe   | Kapazität | Datum      | mAh  | Min | Volt
 13  | Varta  | Grün    |  800 mAh  | 2022-06-07 | 769  | 285 | 1.47
 14  | EBL    | Weiß    | 1100 mAh  | 2022-09-04 |1008  | 270 | 1.46
 15  | EBL    | Weiß    | 1100 mAh  | 2022-09-04 | 989  | 265 | 1.45
+16  | Amazon | Schwarz |  800 mAh  | 
+17  | Amazon | Schwarz |  800 mAh  | 
+18  | Varta  | Grün    |  800 mAh  |
+19  | Varta  | Grün    |  800 mAh  |
 
 ### Schrott
 
