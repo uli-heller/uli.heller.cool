@@ -129,3 +129,4 @@ verwende!
 |2022-09-27 07:30| 37%      | -       |Lauf 60 Minuten                          |
 |2022-09-27 20:30| 23%      | -       |Lauf 30 Minuten                          |
 |2022-09-28 07:00|100%      | -       |Epix2, 2h 10Minuten, 247mAh, 100%        |
+|2022-09-29 07:00| 79%      | -       |Lauf/Gehen 240 Minuten                   |
