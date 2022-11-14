@@ -149,3 +149,4 @@ verwende!
 |2022-11-09 10:00|100%      | -       |Epix2, 2h 21 Minuten, 257mAh, 100%       |
 |2022-11-10 10:00| 83%      | -       |Epix2 aktualisiert auf 10.42             |
 |2022-11-14 10:00| 17%      | -       |Epix2 aktualisiert auf 10.43             |
+|2022-11-14 18:30| 96%      | -       |Epix2, 3h 34 Minuten, 261mAh, 96%        |
