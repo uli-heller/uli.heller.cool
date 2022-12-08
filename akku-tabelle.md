@@ -67,6 +67,8 @@ LNr | Marke  | Farbe   | Kapazität | Datum      | mAh  | Min | Volt
 17  | Amazon | Schwarz |  800 mAh  | 
 18  | Varta  | Grün    |  800 mAh  |
 19  | Varta  | Grün    |  800 mAh  |
+20  | Amazon | Schwarz |  800 mAh  | 2022-12-08 | 752  | 278 | 1.47 
+21  | Amazon | Schwarz |  800 mAh  | 2022-12-08 | 782  | 290 | 1.46
 
 ### Schrott
 
