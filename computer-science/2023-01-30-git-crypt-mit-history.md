@@ -36,7 +36,7 @@ TLDR
 - Verschlüssele alle Altversionen mit:
     ```
     cp .gitattributes /tmp/gitattributes.uli
-    git filter-branch --tree-filter "cp /tmp/gitattributes.uli /.gitattributes" --tag-name-filter cat -- --all
+    git filter-branch --tree-filter "cp /tmp/gitattributes.uli .gitattributes" --tag-name-filter cat -- --all
     rm -f /tmp/gitattributes.uli
     git -c gc.reflogExpire=now -c gc.pruneExpire=now gc --aggressive --prune=now
     ```
@@ -253,4 +253,4 @@ Links
 Änderungen
 ----------
 
-* 2023-01-31: Erste Version auf uli.heller.cool
+* 2023-01-30: Erste Version auf uli.heller.cool
