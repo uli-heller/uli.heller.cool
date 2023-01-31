@@ -172,6 +172,7 @@ Alle Versionen verschlüsseln
 
 ```
 git filter-branch --tree-filter 'echo "*KEY filter=git-crypt diff=git-crypt" >.gitattributes'  --tag-name-filter cat -- --all
+git -c gc.reflogExpire=now -c gc.pruneExpire=now gc --aggressive --prune=now
 ```
 
 Nochmalige Sichtung
@@ -215,6 +216,8 @@ WARNING: Ref 'refs/heads/main' is unchanged
 WARNING: Ref 'refs/tags/Erste-Markierung-ohne-Beschreibung' is unchanged
 WARNING: Ref 'refs/tags/Zweite-Markierung-mit-Beschreibung' is unchanged
 ```
+
+Dieser finale Stand liegt ab unter [data/git-crypt-test_komplett-verschluesselung.tar.xz](data/git-crypt-test_komplett-verschluesselung.tar.xz).
 
 Unklarheiten
 ------------
