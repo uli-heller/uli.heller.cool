@@ -36,9 +36,8 @@ TLDR
 - Verschlüssele alle Altversionen mit:
     ```
     cp .gitattributes /tmp/gitattributes.uli
-    git filter-branch --tree-filter "cp /tmp/gitattributes.uli /.gitattributes" -- --all
+    git filter-branch --tree-filter "cp /tmp/gitattributes.uli /.gitattributes" --tag-name-filter cat -- --all
     rm -f /tmp/gitattributes.uli
-    # Tags manuell anpassen
     git -c gc.reflogExpire=now -c gc.pruneExpire=now gc --aggressive --prune=now
     ```
 
@@ -181,34 +180,30 @@ Nochmalige Sichtung
 ```
 FILTER_BRANCH_SQUELCH_WARNING=1 git filter-branch -f --tree-filter "echo && git crypt status" -- --all`
 # liefert die nachfolgende Ausgabe:
-Rewrite 7c681523345accc045945fd2b22630c27cd322ee (1/8) (0 seconds passed, remaining 0 predicted)    
-Rewrite b0b660c2a2acb91f498334db779457d5cfa0d0d2 (2/8) (0 seconds passed, remaining 0 predicted)    
-not encrypted: ein-kennwort.KEY
-not encrypted: eine-datei.txt
-Rewrite 8339223ffbe6eb50298329d30a2dc50d3685f5f1 (3/8) (0 seconds passed, remaining 0 predicted)    
+Rewrite 8339223ffbe6eb50298329d30a2dc50d3685f5f1 (1/6) (0 seconds passed, remaining 0 predicted)
 not encrypted: .gitattributes
-Rewrite e27065622f342886a63eb38110a8eb12797145fc (4/8) (0 seconds passed, remaining 0 predicted)    
+Rewrite e27065622f342886a63eb38110a8eb12797145fc (2/6) (0 seconds passed, remaining 0 predicted)
 not encrypted: .gitattributes
     encrypted: ein-kennwort.KEY
 not encrypted: eine-datei.txt
-Rewrite 0dcb8c19c04efaeeb1a096597308abd812a88edc (5/8) (0 seconds passed, remaining 0 predicted)    
+Rewrite 0dcb8c19c04efaeeb1a096597308abd812a88edc (3/6) (0 seconds passed, remaining 0 predicted)
 not encrypted: .gitattributes
     encrypted: ein-kennwort.KEY
 not encrypted: eine-datei.txt
 not encrypted: zweig-datei.txt
     encrypted: zweig-kennwort.KEY
-Rewrite 11f119af388012e4aa738d30dda0222f7e2638ef (6/8) (0 seconds passed, remaining 0 predicted)    
+Rewrite 11f119af388012e4aa738d30dda0222f7e2638ef (4/6) (0 seconds passed, remaining 0 predicted)
 not encrypted: .gitattributes
     encrypted: ein-kennwort.KEY
 not encrypted: eine-datei.txt
     encrypted: noch-ein-kennwort.KEY
-Rewrite 5d9d00d862155ea8e9f93822487c83490a13e0f3 (7/8) (1 seconds passed, remaining 0 predicted)    
+Rewrite 5d9d00d862155ea8e9f93822487c83490a13e0f3 (5/6) (0 seconds passed, remaining 0 predicted)
 not encrypted: .gitattributes
     encrypted: ein-kennwort.KEY
 not encrypted: eine-datei.txt
     encrypted: noch-ein-kennwort.KEY
     encrypted: super-geheim.KEY
-Rewrite 24d68f71f423c416a1280262e031aa72c230620a (7/8) (1 seconds passed, remaining 0 predicted)    
+Rewrite 24d68f71f423c416a1280262e031aa72c230620a (6/6) (0 seconds passed, remaining 0 predicted)
 not encrypted: .gitattributes
     encrypted: ein-kennwort.KEY
 not encrypted: eine-datei.txt
@@ -218,49 +213,7 @@ not encrypted: eine-datei.txt
 WARNING: Ref 'refs/heads/Verzweigung' is unchanged
 WARNING: Ref 'refs/heads/main' is unchanged
 WARNING: Ref 'refs/tags/Erste-Markierung-ohne-Beschreibung' is unchanged
-Ref 'refs/tags/Zweite-Markierung-mit-Beschreibung' was rewritten
-WARNING: You said to rewrite tagged commits, but not the corresponding tag.
-WARNING: Perhaps use '--tag-name-filter cat' to rewrite the tag.
-```
-
-Irritierend ist die erste Zeile mit einer KEY-Datei:
-
-```
-Rewrite b0b660c2a2acb91f498334db779457d5cfa0d0d2 (2/8) (0 seconds passed, remaining 0 predicted)    
-not encrypted: ein-kennwort.KEY
-```
-
-Untersuchung mit `git log b0b660c2a2a` zeigt, dass das mit der Markierung (dem Tag) zusammenhängt:
-
-```
-git log b0b660c2a2a
-# ... liefert die nachfolgende Ausgabe:
-commit b0b660c2a2acb91f498334db779457d5cfa0d0d2 (tag: Zweite-Markierung-mit-Beschreibung)
-Author: Uli Heller <uli.heller@daemons-point.com>
-Date:   Tue Jan 31 09:47:26 2023 +0100
-
-    Erste Dateien aufgenommen
-
-commit 7c681523345accc045945fd2b22630c27cd322ee
-Author: Uli Heller <uli.heller@daemons-point.com>
-Date:   Tue Jan 31 09:45:55 2023 +0100
-
-    Erster Commit
-```
-
-Also: Markierung/Tag verschieben:
-
-```
-git log
-# e27065622f ist der passende Commit
-git tag -f Zweite-Markierung-mit-Beschreibung e27065622f
-```
-
-Nun:
-
-```
-FILTER_BRANCH_SQUELCH_WARNING=1 git filter-branch -f --tree-filter "echo && git crypt status" -- --all|grep KEY
-# ... alle mit "encrypted"
+WARNING: Ref 'refs/tags/Zweite-Markierung-mit-Beschreibung' is unchanged
 ```
 
 Unklarheiten
