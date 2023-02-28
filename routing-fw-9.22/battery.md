@@ -193,7 +193,7 @@ Meistens ungenutzt
 
 |Datum     |Ladestand   |Lademenge|Ladedauer|Anmerkung |
 |----------|------------|---------|---------|----------|
-|2022-02-28|06% -> 100% |xxxmAh   |?        |          |
+|2022-02-28|06% -> 100% |278mAh   |96min    |Ladegerät |
 
 Marq2
 -----
