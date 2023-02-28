@@ -186,10 +186,19 @@ verwende!
 |2023-02-12 16:30| 13%      | -       |-                                        |
 |2023-02-12 19:30|100%      | -       |Epix2, 1h 30 Minuten, 254mAh, 13%->100%, Ladegerät |
 
+Epix2
+-----
+
+Meistens ungenutzt
+
+|Datum     |Ladestand   |Lademenge|Ladedauer|Anmerkung |
+|----------|------------|---------|---------|----------|
+|2022-02-28|06% -> 100% |xxxmAh   |?        |          |
+
 Marq2
 -----
 
 |Datum     |Ladestand   |Lademenge|Ladedauer|Anmerkung |
 |----------|------------|---------|---------|----------|
 |2022-02-xx|xx% -> 100% |286mAh   |?        |          |
-|2023-02-23|20%         |         |         |PC - USB-A|
+|2023-02-23|20% -> 100% |244mAh   |95min    |PC - USB-A|
