@@ -198,7 +198,8 @@ Meistens ungenutzt
 Marq2
 -----
 
-|Datum     |Ladestand   |Lademenge|Ladedauer|Anmerkung |
-|----------|------------|---------|---------|----------|
-|2022-02-xx|xx% -> 100% |286mAh   |?        |          |
-|2023-02-23|20% -> 100% |244mAh   |95min    |PC - USB-A|
+|Datum     |Ladestand   |Lademenge|Ladedauer|Anmerkung  |
+|----------|------------|---------|---------|-----------|
+|2022-02-xx|xx% -> 100% |286mAh   |?        |           |
+|2023-02-23|20% -> 100% |244mAh   |95min    |PC - USB-A |
+|2023-03-02|16% -> 100% |252mAh   |90min    |Brick-USB-A|
