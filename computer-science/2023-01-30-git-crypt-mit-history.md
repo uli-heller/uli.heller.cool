@@ -41,13 +41,6 @@ TLDR
     git -c gc.reflogExpire=now -c gc.pruneExpire=now gc --aggressive --prune=now
     ```
 
-Man kann auf ähnliche Art und Weise die Verschlüsselung auch
-komplett entfernen:
-
-```
-git filter-branch --tree-filter "rm -f /.gitattributes" -- --all
-```
-
 Vorbereitungen
 --------------
 
@@ -224,7 +217,16 @@ Unklarheiten
 
 ### Offene Unklarheiten
 
-Keine offenen Unklarheiten!
+#### Wie kann man die Verschlüsselung entfernen?
+
+Man kann auf ähnliche Art und Weise die Verschlüsselung auch
+komplett entfernen:
+
+```
+git filter-branch --tree-filter "rm -f /.gitattributes" -- --all
+```
+
+**Funktioniert nicht!**
 
 ### Geklärte Unklarheiten
 
@@ -253,4 +255,5 @@ Links
 Änderungen
 ----------
 
+* 2023-03-13: Entfernen der Verschlüsselung unklar
 * 2023-01-30: Erste Version auf uli.heller.cool
