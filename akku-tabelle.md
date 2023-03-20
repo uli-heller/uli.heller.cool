@@ -26,9 +26,9 @@ LNr | Marke   | Farbe   | Kapazität | Datum      | mAh  | Min | Volt | Anmerkun
 17  | Amazon  | Schwarz | 2000 mAh  | 2022-05-24 | 2075 | 311 | 1.45 |
 18  | Amazon  | Schwarz | 2000 mAh  | 2023-03-17 | 2077 | 310 | 1.46 |
 19  | Amazon  | Schwarz | 2000 mAh  | 2023-03-17 | 2167 | 323 | 1.46 |
-20  | Amazon  | Schwarz | 2000 mAh  |            |      |     |      |
-21  | Eneloop | Weiß    | 1900 mAh  |            |      |     |      |
-22  | Eneloop | Lila    | 1900 mAh  |            |      |     |      |
+20  | Amazon  | Schwarz | 2000 mAh  | 2023-03-20 | 1936 | 289 | 1.44 |
+21  | Eneloop | Weiß    | 1900 mAh  | 2023-03-20 | 1990 | 310 | 1.49 |
+22  | Eneloop | Lila    | 1900 mAh  | 2023-03-20 | 2053 | 320 | 1.49 |
     |         |         |           |            |      |     |      |
 
 ### Schrott
