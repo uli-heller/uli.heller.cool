@@ -19,6 +19,10 @@ dem Edge 1040 Solar stark ab. Heute bin ich beispielsweise
 60 km weit geradelt. Die Marq2 meint es waren grob 600 Höhenmeter,
 das Edge 1040 Solar hingegen gibt grob 700 Höhenmeter an.
 
+Etwas mehr Details zur Tour sowie die "Höhenlinien-Kurven"
+finden sich unten. Aus meiner Sicht sehen die Kurven ziemlich
+gleichartig aus, die Abweichung von 15% ist dort nicht zu erkennen!
+
 Hat jemand eine Idee, woran das liegen könnte? Die Uhr hatte
 ich am Arm (oft unter dem Jackenärmel), das Edge 1040 war
 am Lenker montiert.
