@@ -46,5 +46,8 @@ das macht alles [GitHub][GITHUB]!
 Artikel
 =======
 
+- [2023-03-25 - Höhenmeter-Abweichung zwischen Marq2 und Edge 1040](marq2-vs-edge1040/index.md)
+- [2022-07-26 - Routing-Verbesserungen mit Firmware 9.22](routing-fw-9.22/index.md)
+- [2022-02-28 - GPX-Vergleich Garmin 6X/7X](garmin-6x-7x/index.md)
 - [Akku-Tabelle](akku-tabelle.md) ... wahrscheinlich nur für mich interessant - eine Liste mit den Akkus, die ich verwende
 

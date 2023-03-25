@@ -1,5 +1,5 @@
-Vergleich Streckenaufzeichnung zwischen Marq2 und Edge 1040
-===========================================================
+Höhenmeter-Abweichung zwischen Marq2 und Edge 1040
+==================================================
 
 Seit ein paar Wochen nutze ich als primäre Uhr eine Marq2.
 Kürzlich habe ich wieder mit dem Radeln begonnen. Erste Touren

@@ -1,5 +1,5 @@
-GPX-Vergleich Garmin Fenix 6X und 7X
-====================================
+GPX-Vergleich Garmin 6X/7X
+==========================
 
 Hier beschreibe ich meine Erkenntnisse bezüglich der
 GPS-Aufzeichnungen der Uhren

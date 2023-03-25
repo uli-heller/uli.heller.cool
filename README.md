@@ -19,9 +19,13 @@ Technisches
    - `git commit ...`
    - `git push`
 3. Sichte die Änderungen
+   - `python3 -m http.server 8000 -d .`
+   - Browser starten mit [http://localhost:8000][LOCALHOST]
 4. Überführe die Änderungen in den "gh-pages"-Zweig
    - `git checkout gh-pages`
    - `git rebase main`
    - `git push`
 5. Warte grob 15 Minuten
 6. Sichte die Änderungen auf [https://uli.heller.cool](https://uli.heller.cool)
+
+[LOCALHOST]: http://localhost:8000
