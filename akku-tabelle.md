@@ -51,6 +51,7 @@ LNr | Marke  | Farbe   | Kapazität | Datum      | mAh  | Min | Volt
 01  | Amazon | Schwarz |  800 mAh  | 2022-03-21 | 780  | 289 | 1.45
 .   | Amazon | Schwarz |  800 mAh  | 2022-08-30 | 782  | 288 | 1.47
 .   | Amazon | Schwarz |  800 mAh  | 2022-12-24 | 762  | 289 | 1.46
+.   | Amazon | Schwarz |  800 mAh  | 2023-03-25 | 761  | 282 | 1.47
 03  | Amazon | Schwarz |  800 mAh  | 2022-03-21 | 718  | 266 | 1.49
 04  | Amazon | Schwarz |  800 mAh  | 2022-03-21 | 785  | 292 | 1.49
 05  | Amazon | Schwarz |  800 mAh  | 2022-03-23 | 778  | 288 | 1.46
