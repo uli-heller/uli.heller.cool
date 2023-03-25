@@ -8,7 +8,7 @@ const config = {
 //        "prism-1.26.0.js",
     ],
     stylesheets: [
-        "stuttgart.css",
+        "kornwestheim.css",
 //        "prism-1.26.0.css",
     ],
     multiLanguage: false,
@@ -18,5 +18,5 @@ const config = {
     markdown:      [ '.md',   '.markdown' ],
     html:          [ '.html', '.htm' ],
     text:          [ '.txt' ],
-    timestamp:     '2022-07-26 07:00:01',
+    timestamp:     '2023-03-25 17:00:01',
 }
