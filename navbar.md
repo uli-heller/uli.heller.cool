@@ -1,5 +1,6 @@
 - <a href="#" onclick="toggleTop(event);" id="show_hide">&Uarr;</a>
 - [Über mich](/index.md)
+- [Höhenmeter-Abweichung Marq2 vs. Edge1040](/marq2-vs-edge1040/index.md)
 - [GPS-Vergleich Garmin 6X/7X](/garmin-6x-7x/index.md)
 - [Routing mit Version 9.22](/routing-fw-9.22/index.md)
 
