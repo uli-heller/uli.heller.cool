@@ -27,6 +27,18 @@ Hat jemand eine Idee, woran das liegen könnte? Die Uhr hatte
 ich am Arm (oft unter dem Jackenärmel), das Edge 1040 war
 am Lenker montiert.
 
+----------
+
+Gestern nochmal geradelt, grob 50km. Marq2 ist nun bei "Datenaufzeichnung" geändert von "intelligent" auf "1 Sekunde". Für mich sieht es insgesamt OK aus:
+
+- 2023-03-25: 60km - Marq2(intelligent): 628.3m Edge1040: 720m
+- 2023-03-27: 50km - Marq2(1Sekunde): 439.6m Edge1040: 407m
+
+Also: Grob 8% Abweichung in die andere Richtung.
+
+Die Abweichung mit Komoot scheint sich auch zu klären: Wenn ich mir heute die Touren vom 25. ansehe, dann stimmen
+die Komoot-Höhenmeter ziemlich genau mit den Garmin-Höhenmetern überein. Meine Vermutung wäre, dass Komoot erstmal nur Schätzwerte anzeigt und die dann später genauer nachrechnet.
+
 2023-03-25
 ----------
 
