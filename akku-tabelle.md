@@ -64,6 +64,8 @@ LNr | Marke  | Farbe   | Kapazität | Datum      | mAh  | Min | Volt
 08  | Amazon | Weiß    |  750 mAh  | 2022-03-23 | 776  | 289 | 1.49
 09  | Varta  | Grün    |  800 mAh  | 2022-03-28 | 755  | 279 | 1.48
 .   | Varta  | Grün    |  800 mAh  | 2023-03-28 | HIGH | HIGH| HIGH -> RefreshAnalyze
+.   | Varta  | Grün    |  800 mAh  | 2023-03-30 | 602  |  44 | 1.47 -> RefreshAnalyze
+.   | Varta  | Grün    |  800 mAh  | 2023-04-01 | .    | .   | 1.   -> Break-In
 10  | Varta  | Grün    |  800 mAh  | 2022-03-28 | 646  | 239 | 1.46
 .   | Varta  | Grün    |  800 mAh  | 2023-03-29 | 647  | 239 | 1.47
 11  | Ansmann| Silber  |  800 mAh  | 2022-05-14 | 787  | 291 | 1.51
