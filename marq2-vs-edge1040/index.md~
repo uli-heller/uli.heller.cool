@@ -113,3 +113,26 @@ die Komoot-Höhenmeter ziemlich genau mit den Garmin-Höhenmetern überein. Mein
   - Maximale Höhe: 527.8 m
 
 ![Höhenlinie Edge1040](e1040-2023-04-02_hoehe.png)
+
+2023-04-04
+----------
+
+### Marq2
+
+Etwas zu spät gestartet!
+
+- Distanz: 59.10 km
+- Höhe
+  - Anstieg gesamt: 799.3 m
+  - Abstieg gesamt: 776.9 m
+  - Minimale Höhe: 207.8 m
+  - Maximale Höhe: 492.8 m
+
+### Edge 1040 Solar
+
+- Distanz: 60.33 km
+- Höhe
+  - Anstieg gesamt: 845.0 m
+  - Abstieg gesamt: 848.0 m
+  - Minimale Höhe: 211.6 m
+  - Maximale Höhe: 503.4 m
