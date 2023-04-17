@@ -178,3 +178,24 @@ Etwas zu spät gestartet!
   - Abstieg gesamt: 1261.0.0 m
   - Minimale Höhe: 193.0 m
   - Maximale Höhe: 483.8 m
+
+2023-04-16
+----------
+
+### Marq2
+
+- Distanz: 97.34 km
+- Höhe
+  - Anstieg gesamt: 1109.6 m
+  - Abstieg gesamt: 904.8 m
+  - Minimale Höhe: 286.8 m
+  - Maximale Höhe: 600.6 m
+
+### Edge 1040 Solar
+
+- Distanz: 101.81 km
+- Höhe
+  - Anstieg gesamt: 1086.0 m
+  - Abstieg gesamt: 893.0 m
+  - Minimale Höhe: 287.4 m
+  - Maximale Höhe: 604.2 m
