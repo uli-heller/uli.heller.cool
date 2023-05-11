@@ -216,3 +216,4 @@ Marq2
 |2023-04-28| 4% -> 100% |294mAh   |157min   |PC - USB-A |
 |2023-05-02|20% -> 100% |248mAh   |131min   |PC - USB-A |
 |2023-05-07|22% -> 100% |243mAh   |117min   |PC - USB-A; 2023-05-03: Aktualisiert auf 13.15 |
+|2023-05-11|21% -> xxx% |xxxmAh   |xxxmin   |PC - USB-A; 13.16 -> 13.17 |
