@@ -46,6 +46,7 @@ das macht alles [GitHub][GITHUB]!
 Artikel
 =======
 
+- [2023-05-21 - Grundeinrichtung Garmin Marq2](garmin-marq2/grundeinrichtung.md)
 - [2023-03-26 - Windows-Produkt-Schlüssel aus BIOS auslesen](computer-science/2023-03-26-windows-produkt-schluessel.md)
 - [2023-03-25 - Höhenmeter-Abweichung zwischen Marq2 und Edge 1040](marq2-vs-edge1040/index.md)
 - [2022-07-26 - Routing-Verbesserungen mit Firmware 9.22](routing-fw-9.22/index.md)
