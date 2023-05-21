@@ -8,6 +8,9 @@ wieder aufzuspielen. Dabei gehen alle Einstellungen
 der Uhr verloren - eine gute Gelegenheit zu beschreiben,
 welche Anpassungen ich brauche!
 
+Die Touch-Probleme habe ich [im Garmin-Forum][GARMIN-FORUM]
+und [in diesem Fehlerbericht][GARMIN-BUGREPORT] beschrieben.
+
 Erststart
 ---------
 
@@ -54,3 +57,6 @@ Datenaufzeichnung jede Sekunde und HFV speichern
 - Rechts - oben -> Frequenz: Intelligent - Jede Sekunde
 - Links - Unten - mehrfach kurz -> HFV speichern - EIN
 - Rechts - unten - mehrfach kurz drücken -> Uhr wird angezeigt
+
+[GARMIN-FORUM]: https://forums.garmin.com/outdoor-recreation/outdoor-recreation/f/marq-gen-2/330910/marq2-button-issue-start-gets-pressed-automagically
+[GARMIN-BUGREPORT]: https://forums.garmin.com/beta-program/fenix-7-series/public-beta-reports/i/public-beta-13-xx/touch-issue-on-marq2---upper-right-button-gets-activated-automagically
