@@ -58,5 +58,54 @@ Datenaufzeichnung jede Sekunde und HFV speichern
 - Links - Unten - mehrfach kurz -> HFV speichern - EIN
 - Rechts - unten - mehrfach kurz drücken -> Uhr wird angezeigt
 
+WLAN
+----
+
+- Konfigurations-Menü
+- Konnektivität
+- WLAN
+- etc
+
+WLAN-Kennwort wird am Handy eingegeben!
+
+Anzeige beim Laufen
+-------------------
+
+- Konfigurations-Menü
+- Aktivitäten und Apps
+- Laufen
+- Laufen-Einstellungen
+- Datenseiten
+- Anpassen
+- Layout
+- 8 Felder
+  - Herzfrequenz
+  - Distanz
+  - Timer
+  - Pace
+  - Stamina
+  - Uhrzeit
+  - Temperatur
+  - Anstieg
+
+Anzeige beim Laufen mit Navigation
+----------------------------------
+
+- Konfigurations-Menü
+- Aktivitäten und Apps
+- Navigieren
+- Navigieren-Einstellungen
+- Datenseiten
+- Anpassen
+- 8 Felder
+  - Herzfrequenz
+  - Distanz
+  - Timer
+  - Pace
+  - Verbleibende Distanz
+  - Uhrzeit
+  - Temperatur
+  - Anstieg
+
 [GARMIN-FORUM]: https://forums.garmin.com/outdoor-recreation/outdoor-recreation/f/marq-gen-2/330910/marq2-button-issue-start-gets-pressed-automagically
 [GARMIN-BUGREPORT]: https://forums.garmin.com/beta-program/fenix-7-series/public-beta-reports/i/public-beta-13-xx/touch-issue-on-marq2---upper-right-button-gets-activated-automagically
