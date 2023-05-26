@@ -107,5 +107,33 @@ Anzeige beim Laufen mit Navigation
   - Temperatur
   - Anstieg
 
+Aktivitäten
+-----------
+
+Soll:
+
+- Laufen
+- Radfahren
+- Gehen
+
+Dafür:
+
+- Konfigurations-Menü
+- Aktivitäten und Apps
+- Laufband
+  - Aus Favoriten entfernen
+- Indoor Rad
+  - Aus Favoriten entfernen
+- Schwimmbad
+  - Aus Favoriten entfernen
+- Freiwasser
+  - Aus Favoriten entfernen
+- Triathlon
+  - Aus Favoriten entfernen
+- Aktivitäten und Apps
+- Hinzufügen
+  - Laufen
+    - Gehen
+
 [GARMIN-FORUM]: https://forums.garmin.com/outdoor-recreation/outdoor-recreation/f/marq-gen-2/330910/marq2-button-issue-start-gets-pressed-automagically
 [GARMIN-BUGREPORT]: https://forums.garmin.com/beta-program/fenix-7-series/public-beta-reports/i/public-beta-13-xx/touch-issue-on-marq2---upper-right-button-gets-activated-automagically
