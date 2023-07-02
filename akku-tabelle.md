@@ -9,7 +9,7 @@ LNr | Marke   | Farbe   | Kapazität | Datum      | mAh  | Min | Volt | Anmerkun
 ----|---------|---------|-----------|------------|------|-----|------|-----------
 01  | Amazon  | Schwarz | 2000 mAh  | 2022-03-20 | 1978 | 295 | 1.42 |
 02  | Amazon  | Schwarz | 2000 mAh  | 2022-03-20 | 2056 | 307 | 1.43 |
--   | Amazon  | Schwarz | 2000 mAh  | 2023-06-18 |      |     |      |Refresh Analyze - Lade: 800mA - Entlade: 800mA
+-   | Amazon  | Schwarz | 2000 mAh  | 2023-06-18 | 1935 | 143 | 1.43 |Refresh Analyze - Lade: 800mA - Entlade: 800mA
 03  | Amazon  | Schwarz | 2000 mAh  | 2022-03-20 | 2050 | 306 | 1.44 |
 04  | Amazon  | Schwarz | 2000 mAh  | 2022-03-20 | 2051 | 306 | 1.44 |
 09  | Amazon  | Schwarz | 2000 mAh  | 2022-04-01 | 2058 | 307 | 1.45 |
@@ -30,11 +30,11 @@ LNr | Marke   | Farbe   | Kapazität | Datum      | mAh  | Min | Volt | Anmerkun
 16  | Amazon  | Schwarz | 2000 mAh  | 2022-05-24 | 2055 | 307 | 1.44 |
 17  | Amazon  | Schwarz | 2000 mAh  | 2022-05-24 | 2075 | 311 | 1.45 |
 18  | Amazon  | Schwarz | 2000 mAh  | 2023-03-17 | 2077 | 310 | 1.46 |
--   | Amazon  | Schwarz | 2000 mAh  | 2023-06-18 |      |     |      |Refresh Analyze - Lade: 800mA - Entlade: 800mA
+-   | Amazon  | Schwarz | 2000 mAh  | 2023-06-18 | 1994 | 148 | 1.45 |Refresh Analyze - Lade: 800mA - Entlade: 800mA
 19  | Amazon  | Schwarz | 2000 mAh  | 2023-03-17 | 2167 | 323 | 1.46 |
--   | Amazon  | Schwarz | 2000 mAh  | 2023-06-18 |      |     |      |Refresh Analyze - Lade: 800mA - Entlade: 800mA
+-   | Amazon  | Schwarz | 2000 mAh  | 2023-06-18 | 2071 | 153 | 1.45 |Refresh Analyze - Lade: 800mA - Entlade: 800mA
 20  | Amazon  | Schwarz | 2000 mAh  | 2023-03-20 | 1936 | 289 | 1.44 |
--   | Amazon  | Schwarz | 2000 mAh  | 2023-06-18 |      |     |      |Refresh Analyze - Lade: 800mA - Entlade: 800mA
+-   | Amazon  | Schwarz | 2000 mAh  | 2023-06-18 | 1864 | 139 | 1.45 |Refresh Analyze - Lade: 800mA - Entlade: 800mA
 21  | Eneloop | Weiß    | 1900 mAh  | 2023-03-20 | 1990 | 310 | 1.49 |
 22  | Eneloop | Lila    | 1900 mAh  | 2023-03-20 | 2053 | 320 | 1.49 |
 
@@ -54,8 +54,8 @@ LNr | Marke   | Farbe   | Kapazität | Datum      | mAh  | Min | Volt | Anmerkun
 
 ### OK
 
-LNr | Marke  | Farbe   | Kapazität | Datum      | mAh  | Min | Volt
-----|--------|---------|-----------|------------|------|-----|-------
+LNr | Marke  | Farbe   | Kapazität | Datum      | mAh  | Min | Volt | Anmerkung
+----|--------|---------|-----------|------------|------|-----|------|-----------
 01  | Amazon | Schwarz |  800 mAh  | 2022-03-21 | 780  | 289 | 1.45
 .   | Amazon | Schwarz |  800 mAh  | 2022-08-30 | 782  | 288 | 1.47
 .   | Amazon | Schwarz |  800 mAh  | 2022-12-24 | 762  | 289 | 1.46
@@ -65,15 +65,17 @@ LNr | Marke  | Farbe   | Kapazität | Datum      | mAh  | Min | Volt
 05  | Amazon | Schwarz |  800 mAh  | 2022-03-23 | 778  | 288 | 1.46
 .   | Amazon | Schwarz |  800 mAh  | 2022-11-16 | 742  | 274 | 1.48
 .   | Amazon | Schwarz |  800 mAh  | 2022-12-27 | 730  | 270 | 1.47
+.   | Amazon | Schwarz |  800 mAh  | 2023-07-02 |      |     |      |Refresh Analyze - Lade: 800mA - Entlade: 800mA
 06  | Amazon | Schwarz |  800 mAh  | 2022-03-23 | 772  | 286 | 1.48
 .   | Amazon | Schwarz |  800 mAh  | 2022-11-16 | 746  | 276 | 1.50
 .   | Amazon | Schwarz |  800 mAh  | 2022-12-27 | 731  | 269 | 1.48
+.   | Amazon | Schwarz |  800 mAh  | 2023-07-02 |      |     |      |Refresh Analyze - Lade: 800mA - Entlade: 800mA
 07  | Amazon | Weiß    |  750 mAh  | 2022-03-28 | 781  | 289 | 1.49
 08  | Amazon | Weiß    |  750 mAh  | 2022-03-23 | 776  | 289 | 1.49
 09  | Varta  | Grün    |  800 mAh  | 2022-03-28 | 755  | 279 | 1.48
-.   | Varta  | Grün    |  800 mAh  | 2023-03-28 | HIGH | HIGH| HIGH -> RefreshAnalyze
-.   | Varta  | Grün    |  800 mAh  | 2023-03-30 | 602  |  44 | 1.47 -> RefreshAnalyze
-.   | Varta  | Grün    |  800 mAh  | 2023-04-01 | 745  | 276 | 1.47 -> Break-In
+.   | Varta  | Grün    |  800 mAh  | 2023-03-28 | HIGH | HIGH| HIGH |RefreshAnalyze
+.   | Varta  | Grün    |  800 mAh  | 2023-03-30 | 602  |  44 | 1.47 |RefreshAnalyze
+.   | Varta  | Grün    |  800 mAh  | 2023-04-01 | 745  | 276 | 1.47 |Break-In
 10  | Varta  | Grün    |  800 mAh  | 2022-03-28 | 646  | 239 | 1.46
 .   | Varta  | Grün    |  800 mAh  | 2023-03-29 | 647  | 239 | 1.47
 11  | Ansmann| Silber  |  800 mAh  | 2022-05-14 | 787  | 291 | 1.51
