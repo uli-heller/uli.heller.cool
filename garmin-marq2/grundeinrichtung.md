@@ -68,6 +68,14 @@ WLAN
 
 WLAN-Kennwort wird am Handy eingegeben!
 
+24-Stunden-Anzeige für die Uhrzeit
+------------------
+
+- Konfigurations-Menü
+- System
+- Zeit
+- Zeitformat: 12 Stunden -> 24 Stunden
+
 Anzeige beim Laufen
 -------------------
 
