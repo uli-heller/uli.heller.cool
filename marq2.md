@@ -13,4 +13,4 @@ Datum     |Ereignis         |Massnahme|Neuer Stand|Lademenge|Ladedauer|Anschluss
 2023-07-15|Touch-Problem    |Putzen   |Problem weg|         |         |          |
 2023-07-16|Touch-Problem    |Putzen   |Problem weg|         |         |          |
 2023-07-17|Touch-Problem    |Neustart |Problem weg|         |         |          |
-2023-07-17|Ladestand niedrig|Laden    |30% -> xxx%|xxxmAh   |xxxmin   |PC - USB-A|
+2023-07-17|Ladestand niedrig|Laden    |30% -> 100%|210mAh   |146min   |PC - USB-A|
