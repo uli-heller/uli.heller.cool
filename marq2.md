@@ -27,4 +27,4 @@ Datum     |Ereignis         |Massnahme  |Neuer Stand|Lademenge|Ladedauer|Anschlu
 2023-08-04|Beta 14.27       |Eingespielt|14.27      |         |         |          |
 2023-08-07|Ladestand niedrig|Laden      |20% -> 100%|235mAh   |173min   |PC - USB-A|
 2023-08-10|Beta 14.28       |Eingespielt|14.28      |         |         |          |
-2023-08-11|Ladestand niedrig|Laden      |22% ->  xx%|mAh   |min   |PC - USB-A|
+2023-08-11|Ladestand niedrig|Laden      |22% -> 100%|230mAh   |132min   |PC - USB-A|
