@@ -10,3 +10,4 @@ Datum     |Status|mAh   |Dauer
 2023-08-01|low   |??    |??
 2023-08-06|aus   |134mAh|48min
 2023-08-13|low   |113mAh|46min
+2023-09-05|low   |110mAh|42min
