@@ -51,3 +51,5 @@ Datum     |Ereignis         |Massnahme  |Neuer Stand|Lademenge|Ladedauer|Anschlu
 2023-11-12|Ladestand niedrig|Laden      |24% -> 100%|215mAh   |134min   |PC - USB-A|
 2023-11-17|Ladestand niedrig|Laden      |12% -> 100%|252mAh   |146min   |PC - USB-A|
 2021-11-22|Ladestand niedrig|Laden      |25% ->  45%| 62mAh   | 20min   |PC - USB-A|
+2023-11-22|15.74            |Eingespielt|15.74      |         |         |          |
+2021-11-22|Ladestand niedrig|Laden      |44% ->  45%| 62mAh   | 20min   |PC - USB-A|
