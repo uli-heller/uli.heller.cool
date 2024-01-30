@@ -73,4 +73,4 @@ Datum     |Ereignis         |Massnahme  |Neuer Stand|Lademenge|Ladedauer|Anschlu
 2024-01-19|Ladestand niedrig|Laden      |23% -> 100%|219mAh   |167min   |PC - USB-A|
 2024-01-23|16.13            |Eingespielt|16.13      |         |         |          |
 2024-01-23|Ladestand niedrig|Laden      |14% -> 100%|249mAh   |138min   |PC - USB-A|
-2024-01-29|Ladestand niedrig|Laden      | 3% -> 100%|249mAh   |138min   |PC - USB-A|
+2024-01-29|Ladestand niedrig|Laden      | 3% -> 100%|282mAh   |162min   |PC - USB-A|
