@@ -22,3 +22,4 @@ Datum     |Status|mAh   |Dauer
 2024-02-16|low   |119mAh|47min
 2024-02-25|aus   |119mAh|46min
 2024-03-05|low   |114mAh|60min
+2024-03-17|low   |107mAh|44min
