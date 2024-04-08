@@ -70,14 +70,6 @@ LNr | Marke  | Farbe   | Kapazität | Datum      | mAh  | Min | Volt | Anmerkung
 .   | Amazon | Schwarz |  800 mAh  | 2023-03-25 | 761  | 282 | 1.47
 03  | Amazon | Schwarz |  800 mAh  | 2022-03-21 | 718  | 266 | 1.49
 04  | Amazon | Schwarz |  800 mAh  | 2022-03-21 | 785  | 292 | 1.49
-05  | Amazon | Schwarz |  800 mAh  | 2022-03-23 | 778  | 288 | 1.46
-.   | Amazon | Schwarz |  800 mAh  | 2022-11-16 | 742  | 274 | 1.48
-.   | Amazon | Schwarz |  800 mAh  | 2022-12-27 | 730  | 270 | 1.47
-.   | Amazon | Schwarz |  800 mAh  | 2023-07-02 |      |     |      |Refresh Analyze - Lade: 800mA - Entlade: 800mA
-06  | Amazon | Schwarz |  800 mAh  | 2022-03-23 | 772  | 286 | 1.48
-.   | Amazon | Schwarz |  800 mAh  | 2022-11-16 | 746  | 276 | 1.50
-.   | Amazon | Schwarz |  800 mAh  | 2022-12-27 | 731  | 269 | 1.48
-.   | Amazon | Schwarz |  800 mAh  | 2023-07-02 |      |     |      |Refresh Analyze - Lade: 800mA - Entlade: 800mA
 07  | Amazon | Weiß    |  750 mAh  | 2022-03-28 | 781  | 289 | 1.49
 08  | Amazon | Weiß    |  750 mAh  | 2022-03-23 | 776  | 289 | 1.49
 09  | Varta  | Grün    |  800 mAh  | 2022-03-28 | 755  | 279 | 1.48
@@ -96,7 +88,9 @@ LNr | Marke  | Farbe   | Kapazität | Datum      | mAh  | Min | Volt | Anmerkung
 18  | Varta  | Grün    |  800 mAh  |
 19  | Varta  | Grün    |  800 mAh  |
 20  | Amazon | Schwarz |  800 mAh  | 2022-12-08 | 752  | 278 | 1.47 
+.   | Amazon | Schwarz |  800 mAh  | 2022-04-08 | 749  | 279 | 1.48
 21  | Amazon | Schwarz |  800 mAh  | 2022-12-08 | 782  | 290 | 1.46
+.   | Amazon | Schwarz |  800 mAh  | 2024-04-08 | 767  | 286 | 1.47 
 
 
 ### Schrott
@@ -108,3 +102,12 @@ LNr | Marke   | Farbe   | Kapazität | Datum      | mAh  | Min | Volt | Anmerkun
 ?   | Amazon  | Schwarz |  800 mAh  | 2022-08-30 | 673  | 249 | 1.46 |
 ?   | Amazon  | Schwarz |  800 mAh  | 2022-12-24 | 681  | 252 | 1.49 |
 ?   | Amazon  | Schwarz |  800 mAh  | 2023-03-20 | -    | -   | -    | Anzeige HIGH
+05  | Amazon | Schwarz |  800 mAh  | 2022-03-23 | 778  | 288 | 1.46
+.   | Amazon | Schwarz |  800 mAh  | 2022-11-16 | 742  | 274 | 1.48
+.   | Amazon | Schwarz |  800 mAh  | 2022-12-27 | 730  | 270 | 1.47
+.   | Amazon | Schwarz |  800 mAh  | 2023-07-02 |      |     |      |Refresh Analyze - Lade: 800mA - Entlade: 800mA
+.   | Amazon | Schwarz |  800 mAh  | 2024-04-08 | 686  |     |      |Refresh Analyze - Lade: 800mA - Entlade: 800mA
+06  | Amazon | Schwarz |  800 mAh  | 2022-03-23 | 772  | 286 | 1.48
+.   | Amazon | Schwarz |  800 mAh  | 2022-11-16 | 746  | 276 | 1.50
+.   | Amazon | Schwarz |  800 mAh  | 2022-12-27 | 731  | 269 | 1.48
+.   | Amazon | Schwarz |  800 mAh  | 2023-07-02 |      |     |      |Refresh Analyze - Lade: 800mA - Entlade: 800mA
