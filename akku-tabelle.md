@@ -31,9 +31,13 @@ LNr | Marke   | Farbe   | Kapazität | Datum      | mAh  | Min | Volt | Anmerkun
 .   | Amazon  | Schwarz | 2000 mAh  | 2023-10-17 | 2113 | 317 | 1.48 |Break In
 13  | Amazon  | Grau    | 2400 mAh  | 2022-05-16 | 2389 | 295 | 1.46 |
 14  | Amazon  | Schwarz | 2000 mAh  | 2022-05-24 | 2049 | 306 | 1.45 |
+-   | Amazon  | Schwarz | 2000 mAh  | 2024-04-12 | 2120 | 316 | 1.48 |
 15  | Amazon  | Schwarz | 2000 mAh  | 2022-05-24 | 2110 | 315 | 1.44 |
+-   | Amazon  | Schwarz | 2000 mAh  | 2024-04-12 | 2125 | 318 | 1.46 |
 16  | Amazon  | Schwarz | 2000 mAh  | 2022-05-24 | 2055 | 307 | 1.44 |
+-   | Amazon  | Schwarz | 2000 mAh  | 2024-04-12 | 2145 | 320 | 1.47 |
 17  | Amazon  | Schwarz | 2000 mAh  | 2022-05-24 | 2075 | 311 | 1.45 |
+-   | Amazon  | Schwarz | 2000 mAh  | 2024-04-12 | 2164 | 325 | 1.48 |
 18  | Amazon  | Schwarz | 2000 mAh  | 2023-03-17 | 2077 | 310 | 1.46 |
 -   | Amazon  | Schwarz | 2000 mAh  | 2023-06-18 | 1994 | 148 | 1.45 |Refresh Analyze - Lade: 800mA - Entlade: 800mA
 -   | Amazon  | Schwarz | 2000 mAh  | 2023-10-25 | 2052 | 306 | 1.45 |Break In
