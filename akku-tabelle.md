@@ -1,4 +1,4 @@
-Akku-Tabellen
+0Akku-Tabellen
 =============
 
 ## AA
@@ -11,6 +11,7 @@ LNr | Marke   | Farbe   | Kapazität | Datum      | mAh  | Min | Volt | Anmerkun
 02  | Amazon  | Schwarz | 2000 mAh  | 2022-03-20 | 2056 | 307 | 1.43 |
 -   | Amazon  | Schwarz | 2000 mAh  | 2023-06-18 | 1935 | 143 | 1.43 |Refresh Analyze - Lade: 800mA - Entlade: 800mA
 -   | Amazon  | Schwarz | 2000 mAh  | 2023-10-25 | 1966 | 293 | 1.43 |Break In
+02  | Amazon  | Schwarz | 2000 mAh  | 2024-04-22 | 2019 | 301 | 1.43 |
 03  | Amazon  | Schwarz | 2000 mAh  | 2022-03-20 | 2050 | 306 | 1.44 |
 04  | Amazon  | Schwarz | 2000 mAh  | 2022-03-20 | 2051 | 306 | 1.44 |
 09  | Amazon  | Schwarz | 2000 mAh  | 2022-04-01 | 2058 | 307 | 1.45 |
@@ -41,12 +42,15 @@ LNr | Marke   | Farbe   | Kapazität | Datum      | mAh  | Min | Volt | Anmerkun
 18  | Amazon  | Schwarz | 2000 mAh  | 2023-03-17 | 2077 | 310 | 1.46 |
 -   | Amazon  | Schwarz | 2000 mAh  | 2023-06-18 | 1994 | 148 | 1.45 |Refresh Analyze - Lade: 800mA - Entlade: 800mA
 -   | Amazon  | Schwarz | 2000 mAh  | 2023-10-25 | 2052 | 306 | 1.45 |Break In
+18  | Amazon  | Schwarz | 2000 mAh  | 2024-04-22 | 2092 | 313 | 1.45 |
 19  | Amazon  | Schwarz | 2000 mAh  | 2023-03-17 | 2167 | 323 | 1.46 |
 -   | Amazon  | Schwarz | 2000 mAh  | 2023-06-18 | 2071 | 153 | 1.45 |Refresh Analyze - Lade: 800mA - Entlade: 800mA
 -   | Amazon  | Schwarz | 2000 mAh  | 2023-10-25 | 2091 | 313 | 1.46 |Break In
+19  | Amazon  | Schwarz | 2000 mAh  | 2024-04-22 | 2138 | 319 | 1.43 |
 20  | Amazon  | Schwarz | 2000 mAh  | 2023-03-20 | 1936 | 289 | 1.44 |
 -   | Amazon  | Schwarz | 2000 mAh  | 2023-06-18 | 1864 | 139 | 1.45 |Refresh Analyze - Lade: 800mA - Entlade: 800mA
 -   | Amazon  | Schwarz | 2000 mAh  | 2023-10-25 | 1928 | 289 | 1.44 |Break In
+20  | Amazon  | Schwarz | 2000 mAh  | 2024-04-22 | 1875 | 281 | 1.44 |
 21  | Eneloop | Weiß    | 1900 mAh  | 2023-03-20 | 1990 | 310 | 1.49 |
 22  | Eneloop | Lila    | 1900 mAh  | 2023-03-20 | 2053 | 320 | 1.49 |
 
