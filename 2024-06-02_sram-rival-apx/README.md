@@ -18,3 +18,8 @@ Während der Tour habe ich erstmals Störungen festgestellt:
 Ich hoffe, das liegt am leeren Akku! Mehr dann demnächst,
 meine nächste Tour geht dann mit vollem Akku!
 
+Nachtrag 2024-06-02: Heute mit vollem Akku - leider besteht das Problem
+immer noch. Entweder ich bekomme kurzfristig einen Wartungstermin
+beim Fahrradhändler oder ich muß mich selbst um's Einstellen der
+Schaltung kümmern. "Eigentlich" dachte ich, dass sich eine elektrische
+Schaltung nicht verstellen kann. So kann man sich täuschen!
