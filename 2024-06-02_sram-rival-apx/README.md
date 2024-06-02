@@ -23,3 +23,7 @@ immer noch. Entweder ich bekomme kurzfristig einen Wartungstermin
 beim Fahrradhändler oder ich muß mich selbst um's Einstellen der
 Schaltung kümmern. "Eigentlich" dachte ich, dass sich eine elektrische
 Schaltung nicht verstellen kann. So kann man sich täuschen!
+
+- [Online-Handbuch](https://docs.sram.com/de-DE/publications/2bJvdvYz3DCAfCZVNeUucG/UM%20-%20eTap%20AXS?models=rd-riv1-e-d1#hashItem=abschlie%C3%9Fende-pr%C3%BCfung-des-schaltwerks)
+- [Lokale Kopie](eTap-AXS_SRAM.pdf)
+- Anscheinend geht's auch via APP!
