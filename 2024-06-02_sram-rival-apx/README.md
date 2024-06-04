@@ -27,3 +27,8 @@ Schaltung nicht verstellen kann. So kann man sich täuschen!
 - [Online-Handbuch](https://docs.sram.com/de-DE/publications/2bJvdvYz3DCAfCZVNeUucG/UM%20-%20eTap%20AXS?models=rd-riv1-e-d1#hashItem=abschlie%C3%9Fende-pr%C3%BCfung-des-schaltwerks)
 - [Lokale Kopie](eTap-AXS_SRAM.pdf)
 - Anscheinend geht's auch via APP!
+
+Nachtrag 2024-06-03: Ich war beim Fahrradhändler. Der Techniker fuhr gefühlt
+2 Minuten mit meinem Rad durch die Gegend und hat die Schaltung dabei
+mittels Micro-Adjustments justiert (= AXS-Taste + Gangwechsel). Jetzt klappt
+es wieder perfekt!
