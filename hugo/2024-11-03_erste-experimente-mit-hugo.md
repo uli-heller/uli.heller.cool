@@ -57,11 +57,28 @@ Press Ctrl+C to stop
 Wenn ich danach den [angegebenen Link](http://localhost:1313/)
 im Browser öffne, dann erscheint ein Grundgerüst einer Webseite.
 
+![ananke](images/hugo-theme-ananke.png)
+
 Zusatzhinweise:
 
 - Ohne "Theme" erscheint nur eine Fehlermeldung
 - In der Anleitung [Hugo - Getting started - Quick start](https://gohugo.io/getting-started/quick-start/) wird das "Theme" als Git-Submodule eingespielt. Ich mach das per `git clone`!
 - Leider unterstützt Github nicht direkt den Aufruf von `git archive ...`, deshalb der Umweg über `git clone ...`!
+
+Umstellung auf DPSG
+-------------------
+
+```
+git clone --depth=1 https://github.com/pfadfinder-konstanz/hugo-dpsg quickstart/themes/hugo-dpsg.clone
+mkdir quickstart/themes/hugo-dpsg
+git archive --remote file://$(pwd)/quickstart/themes/hugo-dpsg.clone HEAD|(cd quickstart/themes/hugo-dpsg && tar xf -)
+rm -rf quickstart/themes/hugo-dpsg.clone
+sed -i -e "/^\s*theme\s*=/ d" quickstart/hugo.toml
+echo "theme = 'hugo-dpsg'" >>quickstart/hugo.toml
+hugo --source quickstart server
+```
+
+![dpsg](images/hugo-theme-dpsg.png)
 
 ### Notizen
 
