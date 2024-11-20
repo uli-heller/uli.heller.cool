@@ -170,7 +170,7 @@ tags:
 menu: main # Optional, add page to a menu. Options: main, side, footer
 
 # Theme-Defined params
-thumbnail: "img/placeholder.jpg" # Thumbnail image
+thumbnail: "img/placeholder.png" # Thumbnail image
 thumbnail_alt: "Thumbnail" # alt text for thumbnail image, be screen reader friendly!
 thumbnail_hide_post: false # Hide thumbnail on single post view
 lead: "Example lead - highlighted near the title" # Lead text
