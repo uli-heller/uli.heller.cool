@@ -65,6 +65,19 @@ Zusatzhinweise:
 - In der Anleitung [Hugo - Getting started - Quick start](https://gohugo.io/getting-started/quick-start/) wird das "Theme" als Git-Submodule eingespielt. Ich mach das per `git clone`!
 - Leider unterstützt Github nicht direkt den Aufruf von `git archive ...`, deshalb der Umweg über `git clone ...`!
 
+Aktivieren der Beispielkonfiguration:
+
+```
+cp quickstart/themes/ananke/exampleSite/config.toml quickstart/hugo.toml
+# quickstart/hugo.toml: Zeile mit theme anpassen
+hugo --source quickstart server
+```
+
+Danach sieht die Seite so aus:
+
+![ananke mit config.toml](images/hugo-theme-ananke-config-toml.png)
+
+
 Umstellung auf DPSG
 -------------------
 
@@ -78,7 +91,23 @@ echo "theme = 'hugo-dpsg'" >>quickstart/hugo.toml
 hugo --source quickstart server
 ```
 
+Danach sieht die Seite so aus:
+
 ![dpsg](images/hugo-theme-dpsg.png)
+
+Relativ schlicht!
+
+Zusätzlich: "config.toml" aus DPSG einspielen
+
+```
+cp quickstart/themes/hugo-dpsg/exampleSite/config.toml quickstart/hugo.toml
+hugo --source quickstart server
+# ... bricht ab mit Fehlermeldungen -> schnell korrigiert, siehe Notizen
+```
+
+Mit den Korrekturen erhält man:
+
+![dpsg mit config.toml](images/hugo-theme-dpsg-config-toml.png)
 
 ### Notizen
 
@@ -151,12 +180,62 @@ Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
 Press Ctrl+C to stop
 ```
 
+#### Probleme mit dpgs/config.toml
+
+Nach `cp quickstart/themes/hugo-dpsg/exampleSite/config.toml quickstart/hugo.tom`
+kann Hugo nicht mehr gestartet werden:
+
+```
+uli@ulicsl:~/git/github/uli-heller/uli.heller.cool/hugo$ hugo --source quickstart server
+WARN  deprecated: site config key paginate was deprecated in Hugo v0.128.0 and will be removed in a future release. Use pagination.pagerSize instead.
+Watching for changes in /home/uli/git/github/uli-heller/uli.heller.cool/hugo/quickstart/{archetypes,assets,content,data,i18n,layouts,static,themes}
+Watching for config changes in /home/uli/git/github/uli-heller/uli.heller.cool/hugo/quickstart/hugo.toml
+Start building sites … 
+hugo v0.136.5-46cccb021bc6425455f4eec093f5cc4a32f1d12c+extended linux/amd64 BuildDate=2024-10-24T12:26:27Z VendorInfo=gohugoio
+
+ERROR deprecated: .Site.IsMultiLingual was deprecated in Hugo v0.124.0 and will be removed in Hugo 0.137.0. Use hugo.IsMultilingual instead.
+Built in 23 ms
+Error: error building site: logged 1 error(s)
+```
+
+Korrektur:
+
+```
+diff --git a/hugo/quickstart/hugo.toml b/hugo/quickstart/hugo.toml
+index e521dc6..4ea94a5 100644
+--- a/hugo/quickstart/hugo.toml
++++ b/hugo/quickstart/hugo.toml
+@@ -2,7 +2,7 @@ baseurl = "https://example.com"
+ title = "Hugo DPSG"
+ languageCode = "de"
+ DefaultContentLanguage = "de"
+-paginate = "10" # Number of posts per page
++pagination.pagerSize = "10" # Number of posts per page
+ theme = "hugo-dpsg"
+ 
+ [Params]
+diff --git a/hugo/quickstart/themes/hugo-dpsg/layouts/partials/widgets/languages.html b/hugo/quickstart/themes/hugo-dpsg/layouts/partials/widgets/languages.html
+index e54adb1..3c20ab1 100644
+--- a/hugo/quickstart/themes/hugo-dpsg/layouts/partials/widgets/languages.html
++++ b/hugo/quickstart/themes/hugo-dpsg/layouts/partials/widgets/languages.html
+@@ -1,5 +1,5 @@
+ {{- $translations := .Site.Home.AllTranslations }}
+-{{- if and .Site.IsMultiLingual (gt (len $translations) 0) }}
++{{- if and hugo.IsMultilingual (gt (len $translations) 0) }}
+ <div class="widget-languages widget">
+        <h4 class="widget__title">{{ T "languages_title" }}</h4>
+        <div class="widget__content">
+```
+
 Links
 -----
 
 - [Hugo - Getting started - Quick start](https://gohugo.io/getting-started/quick-start/)
 - [Hugo - Installation](https://gohugo.io/installation/linux/)
   - [Hugo - Downloads](https://github.com/gohugoio/hugo/releases/latest)
+- Themes
+  - [Ananke](https://themes.gohugo.io/themes/gohugo-theme-ananke/)
+  - [DSGO](https://themes.gohugo.io/themes/hugo-dpsg/)
   
 Historie
 --------
