@@ -1,21 +1,21 @@
 ---
 # Common-Defined params
-title: "TITLE: Mein erster Blog-Artikel"
-date: "2024-11-20"
-description: "DESCRIPTION: Beschreibung von meinem ersten Blog-Artikel"
+title: "TITLE-0: Mein nullter Blog-Artikel"
+date: "2024-11-19"
+description: "DESCRIPTION-0: Beschreibung von meinem ersten Blog-Artikel"
 categories:
   - "CATEGORIES: Category 1"
   - "CATEGORIES: Category 2"
 tags:
   - "TAGS: Test"
   - "TAGS: Another test"
-menu: main # Optional, add page to a menu. Options: main, side, footer
+#menu: main # Optional, add page to a menu. Options: main, side, footer
 
 # Theme-Defined params
 thumbnail: "img/placeholder.png" # Thumbnail image
 thumbnail_alt: "Thumbnail" # alt text for thumbnail image, be screen reader friendly!
 thumbnail_hide_post: false # Hide thumbnail on single post view
-lead: "LEAD: Keine Ahnung, was der Unterschied zwischen LEAD und DESCRIPTION ist..." # Lead text
+lead: "LEAD-0: Keine Ahnung, was der Unterschied zwischen LEAD und DESCRIPTION ist..." # Lead text
 authorbox: true # Enable authorbox for specific page
 pager: true # Enable pager navigation (prev/next) for specific page
 toc: true # Enable Table of Contents for specific page
@@ -31,9 +31,9 @@ scripts_body: # optional: include some literal html just before <body/> tag, e.g
   - "<!-- -->"
 ---
 
-## Ein erster Blog-Eintrag
+## Ein nullter Blog-Eintrag
 
-Dies ist mein erster Blog-Eintrag!
+Dies ist mein nullter Blog-Eintrag!
 
 ### Absatz 1
 
