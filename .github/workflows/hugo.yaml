@@ -60,11 +60,12 @@ jobs:
           hugo \
             --gc \
             --minify \
+            --source my-hugo-site\
             --baseURL "${{ steps.pages.outputs.base_url }}/"          
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./public
+          path: ./my-hugo-site/public
 
   # Deployment job
   deploy:
