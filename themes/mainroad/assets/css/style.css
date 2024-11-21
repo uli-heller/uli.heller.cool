@@ -90,7 +90,8 @@ body {
 }
 
 .sidebar {
-	-webkit-flex: 1 0 31.66%;
+        -webkit-flex: 1 0 31.66%;
+        max-width: 270px;
 	flex: 1 0 31.66%;
 	-webkit-order: 2;
 	order: 2;
