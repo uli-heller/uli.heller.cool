@@ -80,7 +80,7 @@ Use only the parameters that you need. The Mainroad theme contains required defa
 the configuration parameters to run the theme for the first time. Before adding any theme-specific parameters, make
 sure to edit the `theme` param inside the config file and check that the theme works.
 
-For information about common customization settings, see [Customization page]({{< relref "/docs/customization.md" >}} "Mainroad theme customization").
+For information about common customization settings, see [Customization page]({{< relref "/hugo-docs/customization.md" >}} "Mainroad theme customization").
 To view our example configuration, visit [demo config](https://github.com/vimux/mainroad/blob/master/exampleSite/config.toml).
 
 [Edit this page on GitHub](https://github.com/vimux/mainroad/blob/master/exampleSite/content/docs/getting-started.md)

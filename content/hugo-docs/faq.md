@@ -27,7 +27,7 @@ The answers have been categorized into two groups:
 ### Do I need to have prior experience before proceeding with the Mainroad theme?
 
 **Yes.** You'll need to be familiar with Hugo before proceeding.
-[Our docs section]({{< ref "/docs/_index.md" >}} "Mainroad theme documentation") is intended for intermediate to
+[Our docs section]({{< ref "/hugo-docs/_index.md" >}} "Mainroad theme documentation") is intended for intermediate to
 advanced users and developers. Our documentation may still be helpful to users with minimal experience, but are not
 comprehensive.
 
