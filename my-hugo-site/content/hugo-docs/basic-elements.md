@@ -1,13 +1,13 @@
 ---
-title: Basic HTML Elements
+title: Basic Markdown/HTML Elements
 description: Example test article that contains basic HTML elements for text formatting on the Web.
 date: 2018-04-16
 categories:
-  - "Development"
-tags:
-  - "HTML"
-  - "CSS"
-  - "Basic Elements"
+  - "Markdown"
+#tags:
+#  - "HTML"
+#  - "CSS"
+#  - "Basic Elements"
 #menu:
 #  main:
 #    name: Basic Elements
