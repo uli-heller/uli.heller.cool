@@ -1,5 +1,5 @@
 baseurl = "/"
-title = "Mainroad"
+title = "Ulis Welt"
 languageCode = "de-DE"        # Klappt irgendwie nicht, Datum immer noch auf Englisch
 defaultContentLanguage = "de" # So geht's!
 pagination.pageSize = "10" # Number of posts per page
