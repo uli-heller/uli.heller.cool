@@ -29,3 +29,8 @@ auf meiner privaten Seite zu veröffentlichen. Falls jemand
 "Firmengeheimnisse" oder ähnliches entdeckt, so bin ich für
 eine Meldung sehr dankbar! Deren Veröffentlichung ist definitiv
 hier nicht geplant!
+
+Auf ein Impressum verzichte ich. Aus meiner Sicht
+handelt es sich hier um eine rein private Seite.
+Falls jemand anderer Ansicht ist, bitte ich um kurze Info.
+Dann kann ich das Impressum gerne ergänzen!
