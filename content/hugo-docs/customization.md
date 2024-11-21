@@ -14,6 +14,8 @@ sidebar: false
 pager: false
 weight: 2
 #menu: main
+categories:
+  - Hugo
 ---
 
 Customization page describes common Mainroad configuration parameters which can be specified via configuration file or

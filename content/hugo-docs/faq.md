@@ -7,6 +7,8 @@ authorbox: false
 sidebar: false
 pager: false
 weight: 3
+categories:
+  - Hugo
 #menu:
 #  main:
 #    name: FAQ
