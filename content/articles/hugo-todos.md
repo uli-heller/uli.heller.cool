@@ -34,10 +34,13 @@ Offen
 - 2024-11-21_04 - Klären: Was hat es mit den "Categories" und "Tags" auf
   sich?
 
-- 2024-11-21_06 - Reihenfolge in Menü und im Recent-Widget unklar
-
 Erledigt
 --------
+
+- 2024-11-21_06 - Reihenfolge in Menü und im Recent-Widget unklar
+
+  - Menü-Reihenfolge: weight
+  - Recent-Reihenfolge: Neueste zuerst
 
 - 2024-11-21_05 - Klären: Wie passe ich das Menü an? Was erscheint dort? Was
   nicht?
