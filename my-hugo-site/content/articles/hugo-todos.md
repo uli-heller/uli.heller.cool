@@ -1,6 +1,6 @@
 ---
 date: 2024-11-21
-draft: true
+draft: false
 title: Störende Details bei Hugo
 categories:
  - Hugo
