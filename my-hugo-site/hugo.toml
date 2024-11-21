@@ -1,12 +1,12 @@
 baseurl = "/"
 title = "Mainroad"
 languageCode = "en-us"
-paginate = "10" # Number of posts per page
+pagination.pageSize = "10" # Number of posts per page
 theme = "mainroad"
 disqusShortname = "" # Enable comments by entering your Disqus shortname
 googleAnalytics = "" # Enable Google Analytics by entering your tracking id
 
-[Author]
+[Params.author]
   name = "John Doe"
   bio = "John Doe's true identity is unknown. Maybe he is a successful blogger or writer. Nobody knows it."
   avatar = "img/avatar.png"
