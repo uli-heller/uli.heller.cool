@@ -320,7 +320,7 @@ To use a different search engine, first of all, check that the search widget is 
 
 Note that Google PSE requires additional steps to work correctly.
 See [Creating a Programmable Search Engine](https://developers.google.com/custom-search/docs/tutorial/creatingcse) and
-especially our [FAQ]({{< relref "/docs/faq.md" >}} "Mainroad FAQ") for more instructions.
+especially our [FAQ]({{< relref "/hugo-docs/faq.md" >}} "Mainroad FAQ") for more instructions.
 
 ### Menus
 
