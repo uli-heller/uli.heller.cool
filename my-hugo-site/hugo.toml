@@ -1,6 +1,6 @@
 baseurl = "/"
 title = "Mainroad"
-languageCode = "en-us"
+languageCode = "de-DE"     # Klappt irgendwie nicht, Datum immer noch auf Englisch
 pagination.pageSize = "10" # Number of posts per page
 theme = "mainroad"
 disqusShortname = "" # Enable comments by entering your Disqus shortname
