@@ -1,7 +1,7 @@
 +++
 date = '2024-11-20T19:08:37+01:00'
 draft = true
-title = '2024 11 20_start Mit Hugo'
+title = 'Mein Start mit Hugo'
 +++
 
 Mein Start mit Hugo
