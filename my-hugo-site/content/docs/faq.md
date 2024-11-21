@@ -7,9 +7,9 @@ authorbox: false
 sidebar: false
 pager: false
 weight: 3
-menu:
-  main:
-    name: FAQ
+#menu:
+#  main:
+#    name: FAQ
 ---
 
 Browse this FAQ page to find answers to frequently asked questions that have not been covered elsewhere
