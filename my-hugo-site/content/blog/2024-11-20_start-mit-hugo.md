@@ -181,3 +181,9 @@ Komprimiere Objekte: 100% (118/118), fertig.
 Schreibe Objekte: 100% (150/150), 235.24 KiB | 2.24 MiB/s, fertig.
 ...
 ```
+
+Historie
+--------
+
+- 2024-11-21: Viele Ergänzungen
+- 2024-11-20: Erste Version
