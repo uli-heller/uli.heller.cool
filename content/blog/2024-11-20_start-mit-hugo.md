@@ -4,11 +4,15 @@ draft = true
 title = 'Mein Start mit Hugo'
 +++
 
+<!--
 Mein Start mit Hugo
 ===================
+-->
 
+<!--
 Motivation
 ----------
+-->
 
 Bislang habe ich Octopress benutzt, um meine Artikel und Hinweise
 zu veröffentlichen. Octopress war mal "der heiße Scheiß", ist
@@ -22,6 +26,8 @@ super motivierend, weil
 
 Hugo scheint sehr einfach zu sein, wird sehr aktiv weiterentwickelt
 und von vielen Leuten genutzt. Warum nicht?
+
+<!--more-->
 
 Ablauf
 ------
