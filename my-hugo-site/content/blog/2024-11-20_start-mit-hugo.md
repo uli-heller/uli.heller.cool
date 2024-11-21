@@ -1,6 +1,6 @@
 +++
 date = '2024-11-20T19:08:37+01:00'
-draft = true
+draft = false
 title = 'Mein Start mit Hugo'
 +++
 
