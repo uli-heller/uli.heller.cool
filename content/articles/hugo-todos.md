@@ -1,15 +1,19 @@
-+++
-date = '2024-11-21'
-draft = true
-title = 'Störende Details bei Hugo'
-+++
+---
+date: 2024-11-21
+draft: true
+title: Störende Details bei Hugo
+categories:
+ - Hugo
+---
 
-Störende Details bei Hugo
-=========================
+<!--Störende Details bei Hugo-->
+<!--=========================-->
 
 Ich verwende Hugo mit dem Theme "mainroad".
 Einige Dinge stören mich. Diese sammle
 ich hier, idealerweise mit Lösungen.
+
+<!--more-->
 
 Offen
 -----
