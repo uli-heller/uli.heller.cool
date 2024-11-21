@@ -34,13 +34,28 @@ Offen
 - 2024-11-21_04 - Klären: Was hat es mit den "Categories" und "Tags" auf
   sich?
 
-- 2024-11-21_05 - Klären: Wie passe ich das Menü an? Was erscheint dort? Was
-  nicht?
+- 2024-11-21_06 - Reihenfolge in Menü und im Recent-Widget unklar
 
 Erledigt
 --------
 
-Noch nix!
+- 2024-11-21_05 - Klären: Wie passe ich das Menü an? Was erscheint dort? Was
+  nicht?
+
+  Das geht via "Front Matter" in einem Betrag:
+
+  ```
+  menu:
+    main:
+      name: FAQ
+  #
+  # oder
+  #
+  title: Getting started
+  menu: main
+  ```
+
+  Geht auch via "_index.md" in einem Verzeichnis!
 
 Historie
 --------
