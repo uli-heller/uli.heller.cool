@@ -64,7 +64,7 @@ Ablauf
 
    - `find . -type d -empty|xargs -I{} touch {}/.gitkeep`
    - `git add .`
-   - `git commit -m "Hugo - neu - mainroad`
+   - `git commit -m "Hugo - neu - mainroad" .`
    - `git push`
 
 Notizen
@@ -174,4 +174,10 @@ uli@ulicsl:~/git/github/uli-heller/uli.heller.cool/my-hugo-site$ git commit -m "
 ...
 
 uli@ulicsl:~/git/github/uli-heller/uli.heller.cool/my-hugo-site$ git push
+Objekte aufzählen: 151, fertig.
+Zähle Objekte: 100% (151/151), fertig.
+Delta-Kompression verwendet bis zu 16 Threads.
+Komprimiere Objekte: 100% (118/118), fertig.
+Schreibe Objekte: 100% (150/150), 235.24 KiB | 2.24 MiB/s, fertig.
+...
 ```
