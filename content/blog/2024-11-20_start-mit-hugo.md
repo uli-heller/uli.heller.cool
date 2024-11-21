@@ -1,3 +1,9 @@
++++
+date = '2024-11-20T19:08:37+01:00'
+draft = true
+title = '2024 11 20_start Mit Hugo'
++++
+
 Mein Start mit Hugo
 ===================
 
@@ -50,6 +56,16 @@ Ablauf
 
    [Browser: http://localhost:1313](http://localhost:1313) -> sieht etwas
    besser aus!
+
+7. Ersten Artikel anlegen: `hugo new content blog/2024-11-20_start-mit-hugo.md`
+   Danach: Artikel erweitern!
+
+8. Alles in GIT abspeichern - leere Verzeichnisse erfordern besondere Aufmerksamkeit!
+
+   - `find . -type d -empty|xargs -I{} touch {}/.gitkeep`
+   - `git add .`
+   - `git commit -m "Hugo - neu - mainroad`
+   - `git push`
 
 Notizen
 -------
@@ -133,4 +149,29 @@ diff -u themes/mainroad/exampleSite/config.toml hugo.toml
    name = "John Doe"
    bio = "John Doe's true identity is unknown. Maybe he is a successful blogger or writer. Nobody knows it."
    avatar = "img/avatar.png"
+```
+
+### Ersten Artikel anlegen
+
+```
+uli@ulicsl:~/git/github/uli-heller/uli.heller.cool/my-hugo-site$ hugo new content blog/2024-11-20_start-mit-hugo.md 
+Content "/home/uli/git/github/uli-heller/uli.heller.cool/my-hugo-site/content/blog/2024-11-20_start-mit-hugo.md" created
+```
+
+### Alles in GIT abspeichern
+
+```
+uli@ulicsl:~/git/github/uli-heller/uli.heller.cool/my-hugo-site$ find . -type d -empty|xargs -I{} touch {}/.gitkeep
+
+uli@ulicsl:~/git/github/uli-heller/uli.heller.cool/my-hugo-site$ git add .
+
+uli@ulicsl:~/git/github/uli-heller/uli.heller.cool/my-hugo-site$ git commit -m "Hugo - neu - mainroad" .
+[hugo-mainroad e89c5c4] Hugo - neu - mainroad
+ 9 files changed, 8 insertions(+)
+ create mode 100644 my-hugo-site/archetypes/default.md
+ create mode 100644 my-hugo-site/assets/.gitkeep
+ create mode 100644 my-hugo-site/content/.gitkeep
+...
+
+uli@ulicsl:~/git/github/uli-heller/uli.heller.cool/my-hugo-site$ git push
 ```
