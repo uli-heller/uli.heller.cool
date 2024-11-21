@@ -22,7 +22,9 @@ googleAnalytics = "" # Enable Google Analytics by entering your tracking id
   mainSections = ["blog", "post", "docs"]
 
 [Params.logo]
-  subtitle = "Just another site" # Logo subtitle
+  image = "images/stuttgart.svg"
+  title = "Ulis Welt"
+  subtitle = "Was ich halt so treibe..." # Logo subtitle
 
 [Params.sidebar]
   home = "right"   # Configure layout for home page
