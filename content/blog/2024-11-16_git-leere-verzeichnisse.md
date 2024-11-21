@@ -1,6 +1,6 @@
 +++
 date = '2024-11-16'
-draft = true
+draft = false
 title = 'Git: Leere Verzeichnisse'
 categories = [ 'Git', 'Hugo' ]
 +++
