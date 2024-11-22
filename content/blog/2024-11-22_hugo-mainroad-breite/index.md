@@ -36,7 +36,7 @@ der Text zunächst auch breiter. Ab einem bestimmten Punkt
 friert dessen Breite aber ein und es werden links und
 rechts leere Bereiche eingefügt:
 
-![breit](images/breit-mit-rand-schrift.png)
+![breit-mit-rand](images/breit-mit-rand-schrift.png)
 
 Ich bin mir durchaus bewußt, dass das dem übliche Vorgehen
 entspricht. Mir persönlich gefällt es aber überhaupt nicht.
@@ -63,6 +63,18 @@ index 651a2c7..a64bc86 100644
  	margin: 0 auto;
  }
 ```
+
+Damit erfolgt die Darstellung dann ohne Rand links und rechts:
+
+![breit-ohne-rand](images/breit-ohne-rand.png)
+
+Versionen
+---------
+
+Getestet mit
+
+- hugo v0.136.5-46cc...
+- Theme: mainroad, main, commit:13e04b3694ea2d20a68cfbfaea42a8c565079809
 
 Historie
 --------
