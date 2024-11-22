@@ -29,6 +29,9 @@ Offen
 - 2024-11-21_04 - Klären: Was hat es mit den "Categories" und "Tags" auf
   sich?
 
+Erledigt
+--------
+
 - 2024-11-22_01 - Bilder in den Übersichtseiten nicht sichtbar.
   Beispiel: "Hugo: Breitenlimitierung aufheben"
 
@@ -43,9 +46,6 @@ Offen
 
   - [Übersicht](/tests) - Bilder fehlen
   - [Detailseite](/tests/2024-11-22_01-relative-links-to-images) - Bilder sind sichtbar
-
-Erledigt
---------
 
 - 2024-11-21_02 - Breite: Wenn ich das Browser-Fenster sehr breit ziehe, dann
   erscheint rechts und links ein zunehmend breiter Rahmen.
