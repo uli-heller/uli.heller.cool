@@ -39,6 +39,11 @@ Offen
     - Legt nahe, dass die URL keinen Pfad enthalten darf
     - Klappt leider nicht!
 
+  Hier gibt es ein paar Testseiten:
+
+  - [Übersicht](/tests) - Bilder fehlen
+  - [Detailseite](/tests/2024-11-22_01-relative-links-to-images) - Bilder sind sichtbar
+
 Erledigt
 --------
 
