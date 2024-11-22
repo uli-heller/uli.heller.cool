@@ -1,0 +1,31 @@
+---
+date: 2024-11-22
+draft: true
+title: 'Tipps und Tricks mit PNG-Dateien'
+categories:
+ - Bildchen
+tags:
+ - png
+ - imagemagick
+---
+
+<!--Tipps und Tricks mit PNG-Dateien-->
+<!--=========================-->
+
+Ich muß immer mal wieder mit PNG-Dateien
+arbeiten. Die muß ich dann oft bearbeiten, bspw.
+die Größe anpassen. Gefühlt muß ich jedes mal
+wieder auf's neue "googlen", wie das funktioniert.
+Hier sammle ich Tipps für solche Tätigkeiten.
+
+<!--more-->
+
+Größe halbieren
+---------------
+
+`convert -resize 50% (alt).png (neu).png`
+
+Historie
+--------
+
+- 2024-11-22: Erste Version
