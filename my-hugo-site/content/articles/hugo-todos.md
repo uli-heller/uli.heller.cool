@@ -34,6 +34,10 @@ Offen
 
   - [Relative linking in Hugo](https://nick.groenen.me/notes/relative-linking-in-hugo/)
     - https://github.com/zoni/obsidian-export/issues/8#issuecomment-774521792
+  - [Hugo - relative paths in page bundles](https://stackoverflow.com/questions/53464336/hugo-relative-paths-in-page-bundles)
+  - [Image processing](https://gohugo.io/content-management/image-processing/)
+    - Legt nahe, dass die URL keinen Pfad enthalten darf
+    - Klappt leider nicht!
 
 Erledigt
 --------
