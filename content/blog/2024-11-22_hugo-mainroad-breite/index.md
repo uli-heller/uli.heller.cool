@@ -15,7 +15,7 @@ wenn man das Browserfenster verbreitert. Es wird dann links
 und rechts ein leerer Bereich eingeblendet. Der Nutztext
 bleibt schmal, links und rechts gibt es einen leeren Bereich.
 
-![breit](breit-mit-rand-schrift-30.png)
+![breit](images/breit-mit-rand-schrift-30.png)
 
 <!--more-->
 
@@ -26,7 +26,7 @@ Bei einem verhältnismässig schmalen Browserfenster passt
 die Darstellung halbwegs: Außen rum ein schmaler Rand, Text
 nimmt fast das gesamte Browser-Fenster ein:
 
-![schmal](schmal-ohne-rand-schrift.png)
+![schmal](images/schmal-ohne-rand-schrift.png)
 
 Anzeige in einem breiten Browserfenster
 ---------------------------------------
@@ -36,7 +36,7 @@ der Text zunächst auch breiter. Ab einem bestimmten Punkt
 friert dessen Breite aber ein und es werden links und
 rechts leere Bereiche eingefügt:
 
-![breit-mit-rand](breit-mit-rand-schrift.png)
+![breit-mit-rand](images/breit-mit-rand-schrift.png)
 
 Ich bin mir durchaus bewußt, dass das dem übliche Vorgehen
 entspricht. Mir persönlich gefällt es aber überhaupt nicht.
@@ -66,7 +66,7 @@ index 651a2c7..a64bc86 100644
 
 Damit erfolgt die Darstellung dann ohne Rand links und rechts:
 
-![breit-ohne-rand](breit-ohne-rand.png)
+![breit-ohne-rand](images/breit-ohne-rand.png)
 
 Versionen
 ---------
