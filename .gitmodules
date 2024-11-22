@@ -1,0 +1,3 @@
+[submodule "my-hugo-site/themes/mainroad.orig"]
+	path = my-hugo-site/themes/mainroad.orig
+	url = https://github.com/vimux/mainroad.git
