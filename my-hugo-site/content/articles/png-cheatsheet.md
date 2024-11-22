@@ -25,7 +25,18 @@ Größe halbieren
 
 `convert -resize 50% (alt).png (neu).png`
 
+Auf Breite skalieren
+--------------------
+
+`convert -resize 1024x (alt).png (neu).png`
+
+Auf Höhe skalieren
+------------------
+
+`convert -resize x240 (alt).png (neu).png`
+
 Historie
 --------
 
+- 2024-11-22: Skalieren auf Breite und Höhe
 - 2024-11-22: Erste Version
