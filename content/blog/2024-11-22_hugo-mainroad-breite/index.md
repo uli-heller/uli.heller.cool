@@ -1,6 +1,6 @@
 +++
 date = '2024-11-22'
-draft = true
+draft = false
 title = 'Hugo: Breitenlimitierung aufheben'
 categories = [ "Hugo" ]
 +++
