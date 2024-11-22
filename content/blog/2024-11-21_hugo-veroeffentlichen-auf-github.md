@@ -2,6 +2,8 @@
 date = '2024-11-21'
 draft = false
 title = 'Hugo: Veröffentlichen auf Github'
+categories = [ "Hugo", "Git" ]
+tags       = [ "Github" ]
 +++
 
 <!--
