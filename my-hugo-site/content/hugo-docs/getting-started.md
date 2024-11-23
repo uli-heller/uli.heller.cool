@@ -6,6 +6,8 @@ lead: This article helps you get started with the Mainroad theme, including inst
 date: 2022-01-24T14:00:00.000Z
 categories:
   - Hugo
+tags:
+  - hugo
 #tags:
 #  - "Installation"
 authorbox: false

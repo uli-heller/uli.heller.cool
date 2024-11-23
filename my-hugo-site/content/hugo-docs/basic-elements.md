@@ -4,6 +4,9 @@ description: Example test article that contains basic HTML elements for text for
 date: 2018-04-16
 categories:
   - "Markdown"
+tags:
+  - hugo
+  - markdown
 #tags:
 #  - "HTML"
 #  - "CSS"

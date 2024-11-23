@@ -3,7 +3,9 @@ date: 2024-11-21
 draft: false
 title: 'Hugo: Tipps und Tricks'
 categories:
- - Hugo
+  - Hugo
+tags:
+  - hugo
 ---
 
 <!--Hugo: Tipps und Tricks-->

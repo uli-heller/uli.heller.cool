@@ -2,7 +2,8 @@
 date = '2024-11-23'
 draft = false
 title = 'Hugo: Bilder bei Page Bundles'
-categories = [ "Hugo" ]
+categories = [ 'Hugo' ]
+tags = [ 'hugo' ]
 +++
 
 <!--

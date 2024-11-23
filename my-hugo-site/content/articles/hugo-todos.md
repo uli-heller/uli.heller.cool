@@ -4,6 +4,8 @@ draft: false
 title: Störende Details bei Hugo
 categories:
  - Hugo
+tags:
+ - hugo
 ---
 
 <!--Störende Details bei Hugo-->

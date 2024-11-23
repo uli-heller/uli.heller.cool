@@ -2,7 +2,8 @@
 date = '2024-11-22'
 draft = false
 title = 'Hugo: Breitenlimitierung aufheben'
-categories = [ "Hugo" ]
+categories = [ 'Hugo' ]
+tags = [ 'hugo' ]
 +++
 
 <!--

@@ -1,15 +1,17 @@
 ---
 title: Getting Started with Hugo
 date: 2014-04-02
+categories:
+ - Hugo
+#  - "Development"
+#  - "golang"
+tags:
+  - hugo
 #tags:
 #  - "go"
 #  - "golang"
 #  - "hugo"
 #  - "development"
-categories:
- - Hugo
-#  - "Development"
-#  - "golang"
 ---
 
 ## Step 1. Install Hugo

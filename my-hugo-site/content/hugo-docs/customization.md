@@ -16,6 +16,8 @@ weight: 2
 #menu: main
 categories:
   - Hugo
+tags:
+  - hugo
 ---
 
 Customization page describes common Mainroad configuration parameters which can be specified via configuration file or

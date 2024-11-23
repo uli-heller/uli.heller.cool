@@ -9,6 +9,8 @@ pager: false
 weight: 3
 categories:
   - Hugo
+tags:
+  - hugo
 #menu:
 #  main:
 #    name: FAQ
