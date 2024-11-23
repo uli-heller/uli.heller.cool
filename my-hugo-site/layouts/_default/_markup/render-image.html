@@ -14,7 +14,7 @@
 {{- end -}}
 
 {{- $params := $u.Query -}}
-{{- $width := default "" ($params.Get "width" | strings.TrimSuffix "px") }}
+{{- $width := default "" ($params.Get "width") }}
 
 {{- $attributes := merge .Attributes
     (dict "alt" .Text "src" $src "title" (.Title | transform.HTMLEscape))
