@@ -1,6 +1,6 @@
 ---
 date: 2024-11-22
-draft: true
+draft: false
 title: 'Tipps und Tricks mit PNG-Dateien'
 categories:
  - Bildchen
@@ -17,6 +17,8 @@ arbeiten. Die muß ich dann oft bearbeiten, bspw.
 die Größe anpassen. Gefühlt muß ich jedes mal
 wieder auf's neue "googlen", wie das funktioniert.
 Hier sammle ich Tipps für solche Tätigkeiten.
+Im Moment ist die Sammlung noch recht überschaubar,
+sie wird wachsen!
 
 <!--more-->
 

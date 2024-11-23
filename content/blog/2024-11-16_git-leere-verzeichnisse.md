@@ -3,6 +3,7 @@ date = '2024-11-16'
 draft = false
 title = 'Git: Leere Verzeichnisse'
 categories = [ 'Git', 'Hugo' ]
+tags = [ 'git', 'hugo' ]
 +++
 
 <!--

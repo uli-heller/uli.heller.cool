@@ -3,6 +3,7 @@ date = '2024-11-22'
 draft = false
 title = 'Git: Mecker über fehlenden Commit'
 categories = [ 'Git' ]
+tags = [ 'git' ]
 +++
 
 <!--
