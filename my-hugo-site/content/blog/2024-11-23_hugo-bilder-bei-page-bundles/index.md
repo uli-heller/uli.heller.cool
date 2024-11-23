@@ -19,12 +19,13 @@ Leider stellt sich heraus, dass es Probleme mit Bildern gibt.
 Wenn eine Seite auf dem Page Bundle auf ein Bild innerhalb des Bundles
 verweist, dann funktioniert das Einblenden des Bildes in
 der Detailansicht problemlos. In der Dokumenten-Übersicht
-wird das Bild aber nicht dargestellt.
+wird das Bild aber nicht dargestellt. Das sieht dann so wie hier aus:
 
-![Testbild](google.png)
+![Nicht angezeigtes Testbild](testbild-gibt-es-nicht.png)
 
 Damit das Bild in der Dokumenten-Übersicht angezeigt wird, muß es auf jeden
-Fall oberhalb von "\<\!--more--\>" stehen!
+Fall oberhalb von "\<\!--more--\>" stehen! Obiges Bild ist bewusst "kaputt".
+Es wird **immer** als kaputt angezeigt!
 
 <!--more-->
 
