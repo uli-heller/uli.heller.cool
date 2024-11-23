@@ -1,0 +1,12 @@
+Notizen - Hugo: Bilder mit Breite
+=================================
+
+## https://huanlin.cc/blog/2024/07/10/hugo-image-render-hook-width-param/
+
+I've also tried [HugoMods Images](https://images.hugomods.com/) module. Its image render hook supports URL query parameters such as width and height. However, it has the following catches:
+  - Paths starting with ".", such as "./images/...", are not recognized. Images written in this way will not be displayed (directly skipped by the image render hook).
+  - Although you can use the URL query parameter "width" to specify the image size, it actually shrinks the image, and users cannot click on the image to view the original size image.
+  - When generating a web page, an additional new image file (default is .webp) will be generated, occupying additional disk space (such as the following example).
+    - Anmerkung Uli: Kann unterdrückt werden! [Konfiguration](https://images.hugomods.com/docs/configuration/#modern_format)
+
+## https://images.hugomods.com/
