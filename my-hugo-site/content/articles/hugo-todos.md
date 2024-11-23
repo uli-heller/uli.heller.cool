@@ -29,6 +29,10 @@ Offen
 - 2024-11-21_04 - Klären: Was hat es mit den "Categories" und "Tags" auf
   sich?
 
+  - Stand 2024-11-23 gibt es diese "Categories": Git, Hugo, Markdown
+  - Stand 2024-11-23 gibt es diese "Tags": Github
+  - Sollte "Tags" eine Obermenge von "Categories" sein?
+
 Erledigt
 --------
 
