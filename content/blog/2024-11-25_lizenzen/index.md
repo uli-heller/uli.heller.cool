@@ -36,6 +36,71 @@ Für mich ist klar, dass ich
 Ob jemand mit der Verwendung Geld verdient oder nicht
 ist mir persönlich erstmal egal!
 
+Künstliche Intelligenz
+----------------------
+
+Etwas problematisch finde ich die Nutzung meiner Texte für's
+Anlernen von KI-Modellen oder ähnlichem sowie den daran anschliessenden
+Folgenutzungen. KI-Modelle erzeugen aus den angelernten Daten
+für den Nutzer der Modelle neue Daten. Diese basieren auf den
+für's Anlernen genutzten Quellen, also im Zweifel auf meinen
+Texten. Der Nutzer kann dies aber nicht erkennen. Also kann
+er auch den von mir gewünschten Quellverweis nicht erstellen.
+
+Zur Vermeidung von "Unstimmigkeiten" möchte ich
+die Verwendung für's Anlernen von KI-Modellen
+ausschliessen! Mir geht es bei dem Ausschluss nicht um den
+konkreten Ablauf des Anlernens oder um Begrifflichkeiten.
+
+Was möchte ich zulassen?
+
+- Verwendung in "Suchmaschinen". "Suchmaschinen" sind für mich
+  in diesem Zusammenhang Einrichtungen, die meine Texte und/oder Bilder
+  auswerten und ihren menschliche Nutzern präsentieren mit Hinweisen
+  und Verweisen auf die Quellen
+
+- Stand 2024 gibt es mehrere dieser "Suchmaschinen". Man gibt
+  als menschlicher Nutzer Schlagworte ein und bekommt Auszüge aus Webseiten
+  angezeigt samt Verweis auf die Webseite. Der menschliche Nutzer
+  bewertet die erlangte Information und nutzt sie entsprechend den
+  dahinterliegenden Lizenen. Diese Art der Nutzung
+  finde ich absolut in Ordnung!
+
+Was möchte ich nicht zulassen?
+
+- Verwendung in "Wissenswolken". "Wissenswolken" sind für mich
+  in diesem Zusammenhang Einrichtungen, die meine Texte und/oder Bilder
+  auswerten, optional mit anderen Inhalten vermischen und
+  ihren Nutzern präsentieren ohne sinnvollen Hinweisen
+  auf die Quellen
+
+- Stand 2024 gibt es mehrere dieser "Wissenswolken". Die aktuell
+  bekannteste "Wissenswolke" ist wohl ChatGPT. Als Nutzer der "Wissenswolke"
+  präsentiere ich eine Fragestellung und erhalte als Ergebnis eine
+  Vermischung aus den Eingangsdaten der "Wissenswolke". Der Nutzer
+  kann am Ergebnis die Quellen nicht mehr erkennen. Er kann also die
+  dahinterliegenden Lizenzen auch nicht einhalten. Diese Art der Nutzung
+  möchte ich ausschliessen!
+
+Im Artikel
+[The future is now: Künstliche Intelligenz und das Urheberrecht](https://www.haufe.de/recht/weitere-rechtsgebiete/kuenstliche-intelligenz-und-das-urheberrecht_216_588912.html)
+wird darauf hingewiesen, dass Einschränkungen der oben genannten Art
+nur zulässig sind, wenn sie in maschinenlesbarer Form bereitgestellt werden.
+Die maschinenlesbare Form findet sich hier: [search-yes-ai-no.json](/search-yes-ai-no.json).
+
+Für Techniker:
+
+```json
+{
+  "search": true,
+  "ai":     false
+}
+```
+
+"search" und "ai" entsprechen dabei den vorgenannten Bereichen "Suchmaschine"
+und "Wissenswolke". 'true' bedeutet, dass die entsprechende Nutzung zugelassen ist,
+'false' schliesst die Nutzung aus!
+
 Entscheidungshilfen
 -------------------
 
@@ -91,6 +156,7 @@ Links
 - [Github](https://github.com)
 - [Gitlab](https://gitlab.com)
 - [Software Freedom Conservancy - Give Up Github!](https://sfconservancy.org/GiveUpGitHub/)
+- [The future is now: Künstliche Intelligenz und das Urheberrecht](https://www.haufe.de/recht/weitere-rechtsgebiete/kuenstliche-intelligenz-und-das-urheberrecht_216_588912.html)
 
 Historie
 --------
