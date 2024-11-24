@@ -143,19 +143,22 @@ Ergebnis:
 Noch zu erledigen
 -----------------
 
-Jetzt muß ich die ausgewählte Lizenz noch in
-die Fußzeile einbauen!
+- Klären: Wie "verkuddle" ich die CC-BY-SA mit meinen KI-Ausschlüssen?
+  - Ist das überhaupt möglich?
+  - Ich habe den Eindruck, dass bei CC dieses Themengebiet aktuell in Arbeit ist,
+    vermutlich werde ich mich an deren Ergebnissen orientieren
+- Klären: Geht der KI-Ausschluss, wenn ich Github verwende?
+  - Github-Nutzungsbedingungen lesen
+  - Eventuell wechseln auf ein anderes Code-Repo
+- Fußzeile entsprechend erweitern!
+- Lizenzseite erstellen!
 
 Links
 -----
- [Creative Commons](https://creativecommons.org/licenses/by-nc-nd/4.0/)
- https://creativecommons.org/licenses/by-sa/4.0/deed.de
- https://creativecommons.org/licenses/by-sa/3.0/de/deed.de
- ["Lizenz-Wähler"](https://chooser-beta.creativecommons.org/) 
-- [Codeberg](https://codeberg.org)
-- [Github](https://github.com)
-- [Gitlab](https://gitlab.com)
-- [Software Freedom Conservancy - Give Up Github!](https://sfconservancy.org/GiveUpGitHub/)
+- [Creative Commons](https://creativecommons.org/licenses/by-nc-nd/4.0/)
+  - [CC-BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/deed.de)
+  - [CC-BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/de/deed.de)
+  - ["Lizenz-Wähler"](https://chooser-beta.creativecommons.org/)
 - [The future is now: Künstliche Intelligenz und das Urheberrecht](https://www.haufe.de/recht/weitere-rechtsgebiete/kuenstliche-intelligenz-und-das-urheberrecht_216_588912.html)
 
 Historie
