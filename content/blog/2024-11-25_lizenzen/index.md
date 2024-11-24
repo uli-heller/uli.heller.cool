@@ -86,7 +86,7 @@ Im Artikel
 [The future is now: Künstliche Intelligenz und das Urheberrecht](https://www.haufe.de/recht/weitere-rechtsgebiete/kuenstliche-intelligenz-und-das-urheberrecht_216_588912.html)
 wird darauf hingewiesen, dass Einschränkungen der oben genannten Art
 nur zulässig sind, wenn sie in maschinenlesbarer Form bereitgestellt werden.
-Die maschinenlesbare Form findet sich hier: [search-yes-ai-no.json](/search-yes-ai-no.json).
+Die maschinenlesbare Form findet sich hier: [robots.json](/robots.json).
 
 Für Techniker:
 
