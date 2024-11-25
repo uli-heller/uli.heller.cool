@@ -37,8 +37,14 @@ Auf Höhe skalieren
 
 `convert -resize x240 (alt).png (neu).png`
 
+Dateigröße reduzieren
+---------------------
+
+`pngquant -o (neu).png 32 (alt).png`
+
 Historie
 --------
 
+- 2024-11-25: Dateigröße reduzieren
 - 2024-11-22: Skalieren auf Breite und Höhe
 - 2024-11-22: Erste Version
