@@ -1,6 +1,6 @@
 ---
-title: Neuigkeiten
-description: Kürzere Beiträge die meistens einen Kniff oder Trick erklären
+title: Blog
+description: Kürzere Beiträge, die meistens einen Kniff oder Trick erklären
 menu: main
 weight: 1
 ---
