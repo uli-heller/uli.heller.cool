@@ -22,7 +22,7 @@ Korrektur
 ---------
 
 ```diff
-uli@uliip5:~/git/github/uli-heller/uli.heller.cool/my-hugo-site/content/blog/2024-11-27_hugo-mainroad-rand$ git diff 'volle-hoehe~1..volle-hoehe'
+uli@uliip5:~/git/github/uli-heller/uli.heller.cool/my-hugo-site/content/blog/2024-11-27_hugo-mainroad-rand$ git diff 'kein-rand~1..kein-rand'
 diff --git a/my-hugo-site/themes/mainroad/assets/css/style.css b/my-hugo-site/themes/mainroad/assets/css/style.css
 index a64bc86..b2f024d 100644
 --- a/my-hugo-site/themes/mainroad/assets/css/style.css
