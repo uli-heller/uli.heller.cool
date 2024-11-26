@@ -81,6 +81,29 @@ also zweimal dasselbe Datum:
 
 ![gleiches-datum](images/gleiches-datum.png?width=300)
 
+Das Problem löse ich durch Überarbeitung der Abfragebedingung
+in "date.html":
+
+```diff
+diff --git a/my-hugo-site/themes/mainroad/layouts/partials/post_meta/date.html b/my-hugo-site/themes/mainroad/layouts/partials/post_meta/date.html
+index 33055a5..f9bdd8d 100644
+--- a/my-hugo-site/themes/mainroad/layouts/partials/post_meta/date.html
++++ b/my-hugo-site/themes/mainroad/layouts/partials/post_meta/date.html
+@@ -4,7 +4,7 @@
+        <time class="meta__text" datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">
+                {{- .Date | dateFormat (.Site.Params.dateformat | default "January 02, 2006") -}}
+        </time>
+-       {{- if ne .Date .Lastmod }}
++	{{- if ge (sub .Lastmod.Unix .Date.Unix) 86400 }}
+        <time class="meta__text" datetime="{{ .Lastmod.Format "2006-01-02T15:04:05Z07:00" }}">(
+                {{- T "meta_lastmod" }}: {{ .Lastmod | dateFormat (.Site.Params.dateformat | default "January 02, 2006") -}}
+        )</time>
+```
+
+### Ursprüngliche Variante
+
+**OBSOLET**, es gibt eine bessere Lösung!
+
 Das Problem kann man sicherlich irgendwie über Anpassungen am Mainroad-Theme
 lösen. Mein pragmatischer Ansatz besteht im richtigen Setzen des Veröffentlichungsdatums:
 
