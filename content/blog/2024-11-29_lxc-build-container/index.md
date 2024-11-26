@@ -217,6 +217,31 @@ dpkg-buildpackage: info: source changed by Leonidas Da Silva Barbosa...
 ...
 ```
 
+Aktualisieren
+-------------
+
+```
+ubuntu@build-2404:~/build/git/git-2.43.0$ uupdate -u ../git-2.47.1.tar.xz 
+Command 'uupdate' not found, but can be installed with:
+
+sudo apt install devscripts
+sudo apt install joe
+
+ubuntu@build-2404:~/build/git/git-2.43.0$ uupdate -u ../git-2.47.1.tar.xz 
+
+ubuntu@build-2404:~/build/git/git-2.43.0$ cd ../git-2.47.1
+ubuntu@build-2404:~/build/git/git-2.47.1$ jmacs debian/changelog
+ubuntu@build-2404:~/build/git/git-2.47.1$ head debian/changelog
+git (1:2.47.1-0dp11~1noble7.1) noble; urgency=medium
+
+  * New upstream release.
+
+ -- Uli Heller <uli.heller@daemons-point.com>  Tue, 26 Nov 2024 22:52:42 +0000
+
+ubuntu@build-2404:~/build/git/git-2.47.1$ jmacs debian/patches/series
+ubuntu@build-2404:~/build/git/git-2.47.1$ dpkg-buildpackage
+```
+
 Offen
 -----
 
