@@ -71,6 +71,33 @@ index 33055a5..f9bdd8d 100644
         )</time>
 ```
 
+"Zuletzt geändert" am Datum der Erstveröffentlichung
+----------------------------------------------------
+
+Wenn ich einen Artikel veröffentliche und dann am selben
+Tag noch Änderungen vornehme, dann erscheint manchmal
+die Anzeige "November 23, 2024 (Zuletzt geändert: November 23, 2024)",
+also zweimal dasselbe Datum:
+
+![gleiches-datum](images/gleiches-datum.png?width=300)
+
+Das Problem kann man sicherlich irgendwie über Anpassungen am Mainroad-Theme
+lösen. Mein pragmatischer Ansatz besteht im richtigen Setzen des Veröffentlichungsdatums:
+
+```diff
+diff --git a/my-hugo-site/content/blog/2024-11-23_github-oder-codeberg/index.md b/my-hugo-site/content/blog/2024-11-23_github-oder-codeberg/index.md
+index e5ddcc1..0ed0230 100644
+--- a/my-hugo-site/content/blog/2024-11-23_github-oder-codeberg/index.md
++++ b/my-hugo-site/content/blog/2024-11-23_github-oder-codeberg/index.md
+@@ -1,5 +1,5 @@
+ +++
+-date = '2024-11-23'
++date = '2024-11-23T22:00:00'
+ draft = false
+ title = 'Github oder Codeberg oder ???'
+ categories = [ 'Github' ]
+```
+
 Versionen
 ---------
 
