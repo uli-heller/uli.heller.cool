@@ -1,6 +1,6 @@
 +++
 date = '2024-11-24'
-draft = true
+draft = false
 title = 'Hugo: Bilder mit Breite'
 categories = [ 'Hugo' ]
 tags = [ 'hugo' ]
