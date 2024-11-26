@@ -1,6 +1,6 @@
 +++
 date = '2024-11-28'
-draft = true
+draft = false
 title = 'Hugo: Letzte Änderung anzeigen'
 categories = [ 'Hugo' ]
 tags = [ 'hugo', 'mainroad' ]
