@@ -275,6 +275,13 @@ root@build-2404:~# nc -z -v -w5 google.com 443
 Connection to google.com (142.250.185.78) 443 port [tcp/https] succeeded!
 ```
 
+Versionen
+---------
+
+- Getestet mit Ubuntu 22.04.5 LTS auf dem Host
+- Getestet mit LXC-6.1, snap version
+- Getestet mit Ubuntu 24.04.1 LTS im Container
+
 Historie
 --------
 
