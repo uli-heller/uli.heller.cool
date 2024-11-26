@@ -1,6 +1,6 @@
 +++
 date = '2024-11-27'
-draft = true
+draft = false
 title = 'Hugo: Ränder entfernen'
 categories = [ 'Hugo' ]
 tags = [ 'hugo', 'mainroad' ]
