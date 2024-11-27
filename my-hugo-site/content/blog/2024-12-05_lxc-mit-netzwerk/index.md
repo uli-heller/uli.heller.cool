@@ -1,22 +1,33 @@
 +++
-date = '2024-12-01'
+date = '2024-12-05'
 draft = true
-title = 'LXC: Erzeugen eines Build-Containers'
+title = 'LXC/LXD: Grundeinrichtung mit Netzwerk'
 categories = [ 'LXC/LXD' ]
 tags = [ 'lxc', 'lxd', 'linux', 'ubuntu', 'debian' ]
 +++
 
 <!--
-LXC: Erzeugen eines Build-Containers
-====================================
+LXC/LXD: Grundeinrichtung mit Netzwerk
+======================================
 -->
 
-Hier beschreibe ich, wie ich einen Container anlege,
-in dem ich Ubuntu-Pakete bauen kann. Die Beschreibung
-verwendet einen Container für Ubuntu-24.04 (noble)
-und erstellt das Paket "git".
+Hier beschreibe ich, wie ich
+LXC/LXD auf meinem Ubuntu-Rechner einrichte.
+
+Ziele:
+
+- Abgeschottete Container
+- Container wahlweise mit und ohne Zugriff in's Internet
+- Container netzwerktechnisch erreichbar via Containername (.lxd)
 
 <!--more-->
+
+LXD installieren
+----------------
+
+```
+$ sudo snap install lxd
+```
 
 LXC/LXD-Grundinitialisierung
 ----------------------------
@@ -96,7 +107,12 @@ profiles:
   name: default
 projects: []
 cluster: null
+```
 
+Netzwerkbrücken
+---------------
+
+```
   # Network
 $ lxc network create lxdhostonly ipv4.address=10.2.210.1/24 ipv4.nat=false ipv6.address=none
 Network lxdhostonly created
@@ -123,156 +139,63 @@ $ lxc network list
 +-------------+----------+---------+----------------+------+-------------+---------+---------+
 ```
 
-Basiscontainer
+Testcontainer
 --------------
 
 ```
-$ lxc launch ubuntu:24.04 build-2404
-Creating build-2404
-Starting build-2404
+$ lxc launch ubuntu:24.04 ubuntu-2404
+Creating ubuntu-2404
+Starting ubuntu-2404
 
-$ lxc exec build-2404 bash
-root@build-2404:~# apt update
+$ lxc exec ubuntu-2404 bash
+root@ubuntu-2404:~# apt update
 ...
-root@build-2404:~# apt upgrade
+root@ubuntu-2404:~# apt upgrade
 ...
-root@build-2404:~# exit
+root@ubuntu-2404:~# exit
 
-uli@uliip5:~$ lxc exec build-2404 -- sudo -u ubuntu -i
+uli@uliip5:~$ lxc exec ubuntu-2404 -- sudo -u ubuntu -i
 To run a command as administrator (user "root"), use "sudo <command>".
 See "man sudo_root" for details.
 
-ubuntu@build-2404:~$ exit
+ubuntu@ubuntu-2404:~$ exit
 ```
 
-Quelltext-Repos aktivieren
---------------------------
+Namensauflösung - erste Tests
+-----------------------------
+
+Aktuelle Anleitung (basierend auf INCUS): [How to integrate with systemd-resolved](https://linuxcontainers.org/incus/docs/main/howto/network_bridge_resolved/)
+
+Basierend auf vorgenannter Anleitung mit Anpassung INCUS -> LXD und
+unter ausschliesslicher Berücksichtigung von IPV4:
 
 ```
-$ lxc exec build-2404 bash
-root@build-2404:~# ed -e "s/:\s*deb/: deb-src/" </etc/apt/sources.list.d/ubuntu.sources >/etc/apt/sources.list.d/deb-src.sources
+$ lxc network get lxdnat ipv4.address
+10.38.231.1/24
+$ lxc network get lxdhostonly ipv4.address
+10.2.210.1/24
 
-root@build-2404:~# apt update
+$ lxc network get lxdnat dns.domain
+$ lxc network get lxdhostonly dns.domain
+  # If this option is not set, the default domain name is lxd
+
+$ sudo resolvectl dns lxdnat 10.38.231.1
+$ sudo resolvectl domain lxdnat '~lxd'
+$ sudo resolvectl dns lxdhostonly 10.2.210.1
+$ sudo resolvectl domain lxdhostonly '~lxd'
 ```
 
-Hilfsprogramme
---------------
+Kurztest:
 
 ```
-$ lxc exec build-2404 -- sudo -u ubuntu -i
-To run a command as administrator (user "root"), use "sudo <command>".
-See "man sudo_root" for details.
-
-ubuntu@build-2404:~$ mkdir -p build/git
-ubuntu@build-2404:~$ cd build/git
-
-ubuntu@build-2404:~$ apt source git
-Reading package lists... Done
-NOTICE: 'git' packaging is maintained in the 'Git' version control system at:
-https://repo.or.cz/r/git/debian.git/
-...
-Fetched 8159 kB in 5s (1634 kB/s)
-sh: 1: dpkg-source: not found
-E: Unpack command 'dpkg-source --no-check -x git_2.43.0-1ubuntu7.1.dsc' failed.
-N: Check if the 'dpkg-dev' package is installed.
-
-ubuntu@build-2404:~$ sudo apt install dpkg-dev
-...
-
-ubuntu@build-2404:~/build/git$ apt source git
-Reading package lists... Done
-NOTICE: 'git' packaging is maintained in the 'Git' version control system at:
-https://repo.or.cz/r/git/debian.git/
-...
-dpkg-source: info: applying CVE-2024-32020.patch
-dpkg-source: info: applying CVE-2024-32021.patch
-dpkg-source: info: applying CVE-2024-32465.patch
-
-ubuntu@build-2404:~/build/git$ sudo apt build-dep git
-Reading package lists... Done
-Reading package lists... Done
-...
-```
-
-Bauen
------
-
-```
-$ lxc exec build-2404 -- sudo -u ubuntu -i
-To run a command as administrator (user "root"), use "sudo <command>".
-See "man sudo_root" for details.
-
-ubuntu@build-2404:~$ mkdir -p build/git
-ubuntu@build-2404:~$ cd build/git
-
-ubuntu@build-2404:~/build/git$ apt source git
-
-ubuntu@build-2404:~/build/git$ cd git-2.43.0
-
-ubuntu@build-2404:~/build/git/git-2.43.0$ dpkg-buildpackage
-dpkg-buildpackage: info: source package git
-dpkg-buildpackage: info: source version 1:2.43.0-1ubuntu7.1
-dpkg-buildpackage: info: source distribution noble-security
-dpkg-buildpackage: info: source changed by Leonidas Da Silva Barbosa...
-...
-```
-
-Aktualisieren
--------------
-
-```
-ubuntu@build-2404:~/build/git/git-2.43.0$ uupdate -u ../git-2.47.1.tar.xz 
-Command 'uupdate' not found, but can be installed with:
-
-sudo apt install devscripts
-sudo apt install joe
-
-ubuntu@build-2404:~/build/git/git-2.43.0$ uupdate -u ../git-2.47.1.tar.xz 
-
-ubuntu@build-2404:~/build/git/git-2.43.0$ cd ../git-2.47.1
-ubuntu@build-2404:~/build/git/git-2.47.1$ jmacs debian/changelog
-ubuntu@build-2404:~/build/git/git-2.47.1$ head debian/changelog
-git (1:2.47.1-0dp11~1noble7.1) noble; urgency=medium
-
-  * New upstream release.
-
- -- Uli Heller <uli.heller@daemons-point.com>  Tue, 26 Nov 2024 22:52:42 +0000
-
-ubuntu@build-2404:~/build/git/git-2.47.1$ jmacs debian/patches/series
-ubuntu@build-2404:~/build/git/git-2.47.1$ dpkg-buildpackage
-```
-
-Offen
------
-
-- Namensauflösung
-- Nutzertrennung
-
-Probleme
---------
-
-### Kein Zugriff auf's Internet vom Container aus
-
-Der Container hat keinen Zugriff auf's Internet.
-Dies äußert sich bspw. so:
-
-```
-$ lxc exec build-2404 bash
-root@build-2404:~# nc -z -v -w5 google.com 443
-nc: connect to google.com (142.250.185.78) port 443 (tcp) timed out: Operation now in progress
-nc: connect to google.com (2a00:1450:4001:810::200e) port 443 (tcp) failed: Network is unreachable
-```
-
-Gelöst habe ich es mit:
-
-- Löschen von Docker: `sudo apt purge docker.io`
-- Neustart: `sudo reboot` (ohne ging es nicht)
-
-Danach klappt es:
-
-```
-root@build-2404:~# nc -z -v -w5 google.com 443
-Connection to google.com (142.250.185.78) 443 port [tcp/https] succeeded!
+$ ping ubuntu-2404.lxd
+PING ubuntu-2404.lxd (10.38.231.56) 56(84) bytes of data.
+64 bytes from ubuntu-2404.lxd (10.38.231.56): icmp_seq=1 ttl=64 time=0.044 ms
+64 bytes from ubuntu-2404.lxd (10.38.231.56): icmp_seq=2 ttl=64 time=0.068 ms
+^C
+--- ubuntu-2404.lxd ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1007ms
+rtt min/avg/max/mdev = 0.044/0.056/0.068/0.012 ms
 ```
 
 Versionen
@@ -285,4 +208,4 @@ Versionen
 Historie
 --------
 
-- 2024-12-01: Erste Version
+- 2024-12-05: Erste Version
