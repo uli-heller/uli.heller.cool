@@ -7,11 +7,12 @@ menu: main
 ---
 
 Ich bin Uli Heller, männlich und Jahrgang 1965.
-Ich arbeite im IT-Umfeld und interessiere mich dort für alles,
+Ich lebe im Raum Stuttgart, arbeite im IT-Umfeld und interessiere
+mich dort für alles,
 was mit Kommunikation zu tun hat. Nutzeroberflächen finde
 ich eher uninteressant.
 
-Privat Jogge ich gerne und Fahrradfahren
+Privat jogge ich gerne und fahrradfahren
 gefällt mir auch!
 
 Diese Seite habe ich aufgebaut mit [Hugo](https://gohugo.io/) und
@@ -34,3 +35,9 @@ Auf ein Impressum verzichte ich. Aus meiner Sicht
 handelt es sich hier um eine rein private Seite.
 Falls jemand anderer Ansicht ist, bitte ich um kurze Info.
 Dann kann ich das Impressum gerne ergänzen!
+
+Historie
+--------
+
+- 2024-11-27: Tippfehler korrigiert und Hinweis auf Region Stuttgart
+- 2024-11-21: Erste Version
