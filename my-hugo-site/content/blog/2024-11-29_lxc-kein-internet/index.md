@@ -1,14 +1,14 @@
 +++
 date = '2024-11-29'
-draft = true
-title = 'LXC: Kein Zugriff auf\'s Internet'
+draft = false
+title = 'LXC: Kein Zugriff auf das Internet'
 categories = [ 'LXC/LXD' ]
 tags = [ 'lxc', 'lxd', 'linux', 'ubuntu', 'debian' ]
 +++
 
 <!--
-LXC: Kein Zugriff auf's Internet
-================================
+LXC: Kein Zugriff auf das Internet
+==================================
 -->
 
 Heute habe ich auf meinem Laptop
@@ -153,6 +153,57 @@ RETURN     all  --  anywhere             anywhere
 
 Korrekturversuch - Reboot
 -------------------------
+
+Nach einem Reboot passen die Regeln:
+
+```
+$ sudo iptables -L
+[sudo] Passwort für uli: 
+# Warning: iptables-legacy tables present, use iptables-legacy to see them
+Chain INPUT (policy ACCEPT)
+target     prot opt source               destination         
+
+Chain FORWARD (policy ACCEPT)
+target     prot opt source               destination         
+
+Chain OUTPUT (policy ACCEPT)
+target     prot opt source               destination
+```
+
+Leider klappt der Internet-Zugriff noch immer nicht:
+
+```
+$ lxc exec build-2404 -- nc -z -w5 -v google.com 443
+Connection to google.com (142.250.186.110) 443 port [tcp/https] succeeded!
+```
+
+Aktualisierung klappt auch:
+
+```
+$ lxc exec build-2404 apt update
+Hit:1 http://archive.ubuntu.com/ubuntu noble InRelease                       
+Get:2 http://archive.ubuntu.com/ubuntu noble-updates InRelease [126 kB]      
+Get:3 http://security.ubuntu.com/ubuntu noble-security InRelease [126 kB]
+Reading state information... Done
+1 package can be upgraded. Run 'apt list --upgradable' to see it.
+
+$ lxc exec build-2404 apt upgrade
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+Calculating upgrade... Done
+#
+# Patches available for the local privilege escalation issue in needrestart
+# tracked by CVE-2024-48990, CVE-2024-48991, CVE-2024-48992, and CVE-2024-10224
+# For more see: https://ubuntu.com/blog/needrestart-local-privilege-escalation
+#
+The following upgrades have been deferred due to phasing:
+  snapd
+0 upgraded, 0 newly installed, 0 to remove and 1 not upgraded.
+```
+
+Damit bin ich erstmal zufrieden.
+Docker brauche ich vorerst nicht.
 
 Versionen
 ---------
