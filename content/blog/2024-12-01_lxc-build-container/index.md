@@ -285,4 +285,4 @@ Versionen
 Historie
 --------
 
-- 2024-11-29: Erste Version
+- 2024-12-01: Erste Version
