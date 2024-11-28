@@ -134,6 +134,16 @@ sudo apt install devscripts
 sudo apt install joe
 
 ubuntu@build-2404:~/build/git/git-2.43.0$ uupdate -u ../git-2.47.1.tar.xz 
+uupdate: New Release will be 1:2.47.1-0ubuntu1.
+Symlinking to pristine source from git_2.47.1.orig.tar.xz...
+uupdate: Untarring the new sourcecode archive ../git-2.47.1.tar.xz
+uupdate: Unpacking the debian/ directory from version 1:2.43.0-1ubuntu7.1 worked fine.
+debchange warning: neither DEBEMAIL nor EMAIL environment variable is set
+debchange warning: building email address from username and FQDN
+debchange: Did you see those 2 warnings?  Press RETURN to continue...
+
+uupdate: Remember: Your current directory is the OLD sourcearchive!
+uupdate: Do a "cd ../git-2.47.1" to see the new package
 
 ubuntu@build-2404:~/build/git/git-2.43.0$ cd ../git-2.47.1
 ubuntu@build-2404:~/build/git/git-2.47.1$ jmacs debian/changelog
