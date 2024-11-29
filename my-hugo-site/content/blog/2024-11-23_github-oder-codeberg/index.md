@@ -3,7 +3,7 @@ date = '2024-11-23'
 draft = false
 title = 'Github oder Codeberg oder ???'
 categories = [ 'Github' ]
-tags = [ 'codeberg', 'git', 'github' ]
+tags = [ 'codeberg', 'git', 'github', 'datenschutz', 'dsgvo' ]
 +++
 
 <!--
@@ -59,4 +59,5 @@ Links
 Historie
 --------
 
+- 2024-11-29: Zusatzmarkierungen: Datenschutz, DSGVO
 - 2024-11-23: Erste Version
