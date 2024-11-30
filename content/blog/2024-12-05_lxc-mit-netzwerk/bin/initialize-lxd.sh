@@ -2,6 +2,18 @@
 #
 
 #
+# Isolierten Benutzerkennungen
+#
+for es in /etc/subuid /etc/subgid; do
+  for u in lxd root; do
+    grep "^${u}:" "${es}" >/dev/null 2>&1 || {
+      echo "${u}:100000:1000000000" >>"${es}"
+    }
+  done
+done
+systemctl restart "$(systemctl |grep -o '[\s][^\s]*lxd\.daemon\.service')"
+
+#
 # Netzwerk-Brücken
 #
 lxc network create lxdhostonly ipv4.address=10.2.210.1/24 ipv4.nat=false ipv6.address=none
