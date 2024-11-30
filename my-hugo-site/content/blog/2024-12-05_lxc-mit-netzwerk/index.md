@@ -1,6 +1,6 @@
 +++
 date = '2024-12-05'
-draft = true
+draft = false
 title = 'LXC/LXD: Grundeinrichtung mit Netzwerk'
 categories = [ 'LXC/LXD' ]
 tags = [ 'lxc', 'lxd', 'linux', 'ubuntu', 'debian' ]
@@ -198,10 +198,65 @@ PING ubuntu-2404.lxd (10.38.231.56) 56(84) bytes of data.
 rtt min/avg/max/mdev = 0.044/0.056/0.068/0.012 ms
 ```
 
-Initialisierungsskript
-----------------------
+Namensauflösung - dauerhafte Einrichtung
+----------------------------------------
 
-[initialize-lxd.sh](bin/initialize-lxd.sh)
+Aktuelle Anleitung (basierend auf INCUS): [How to integrate with systemd-resolved](https://linuxcontainers.org/incus/docs/main/howto/network_bridge_resolved/)
+
+Basierend auf vorgenannter Anleitung mit Anpassung INCUS -> LXD und
+unter ausschliesslicher Berücksichtigung von IPV4 sind diese Schritte notwendig:
+
+Netzwerkbrücken einrichten (wie zuvor):
+
+```
+#!/bin/bash
+#
+
+#
+# Netzwerk-Brücken
+#
+lxc network create lxdhostonly ipv4.address=10.2.210.1/24 ipv4.nat=false ipv6.address=none
+lxc network create lxdnat ipv4.address=10.38.231.1/24 ipv4.nat=true ipv6.address=none
+```
+
+Standardcontainer auf Nutzung von "lxdnat" festlegen:
+
+```
+lxc profile device set default eth0 network=lxdnat
+```
+
+DNS dauerhaft aktivieren für beide Netzwerkbrücken:
+
+```
+#
+# DNS
+#
+for bridge in lxdhostonly lxdnat; do
+ipaddress="$(lxc network get ${bridge} ipv4.address)"
+cat >/etc/systemd/system/lxd-dns-${bridge}.service <<EOF
+[Unit]
+Description=LXD per-link DNS configuration for ${bridge}
+BindsTo=sys-subsystem-net-devices-${bridge}.device
+After=sys-subsystem-net-devices-${bridge}.device
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/resolvectl dns ${bridge} ${ipaddress}
+ExecStart=/usr/bin/resolvectl domain ${bridge} ~lxd
+ExecStart=/usr/bin/resolvectl dnssec ${bridge} off
+ExecStart=/usr/bin/resolvectl dnsovertls ${bridge} off
+ExecStopPost=/usr/bin/resolvectl revert ${bridge}
+RemainAfterExit=yes
+
+[Install]
+WantedBy=sys-subsystem-net-devices-${bridge}.device
+EOF
+systemctl daemon-reload
+systemctl enable --now lxd-dns-${bridge}
+done
+```
+
+Initialisierungsskript: [initialize-lxd.sh](bin/initialize-lxd.sh)
 
 Versionen
 ---------

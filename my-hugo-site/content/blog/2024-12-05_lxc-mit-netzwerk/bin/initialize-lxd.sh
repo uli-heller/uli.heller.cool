@@ -11,3 +11,26 @@ lxc profile device set default eth0 network=lxdnat
 #
 # DNS
 #
+for bridge in lxdhostonly lxdnat; do
+ipaddress="$(lxc network get ${bridge} ipv4.address)"
+cat >/etc/systemd/system/lxd-dns-${bridge}.service <<EOF
+[Unit]
+Description=LXD per-link DNS configuration for ${bridge}
+BindsTo=sys-subsystem-net-devices-${bridge}.device
+After=sys-subsystem-net-devices-${bridge}.device
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/resolvectl dns ${bridge} ${ipaddress}
+ExecStart=/usr/bin/resolvectl domain ${bridge} ~lxd
+ExecStart=/usr/bin/resolvectl dnssec ${bridge} off
+ExecStart=/usr/bin/resolvectl dnsovertls ${bridge} off
+ExecStopPost=/usr/bin/resolvectl revert ${bridge}
+RemainAfterExit=yes
+
+[Install]
+WantedBy=sys-subsystem-net-devices-${bridge}.device
+EOF
+systemctl daemon-reload
+systemctl enable --now lxd-dns-${bridge}
+done
