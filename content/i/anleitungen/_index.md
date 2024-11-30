@@ -10,3 +10,8 @@ Bose Ultra Open Earbuds
 
 - [Bedienungsanleitung (deutsch) 2024-11](889371_OG_ULT-HEADPHONEOPN_de.pdf)
 - [Kurzanleitung (mehrsprachig) 2024-11](886741_QSG_CMWB-ULT-CASEPWR_ml.pdf)
+
+Openshokz Openrun Pro 2
+-----------------------
+
+- [Bedienungsanleitung (deutsch) 2024-11](OpenRun_Pro_2_Benutzerhandbuch-DE.pdf)
