@@ -198,6 +198,11 @@ PING ubuntu-2404.lxd (10.38.231.56) 56(84) bytes of data.
 rtt min/avg/max/mdev = 0.044/0.056/0.068/0.012 ms
 ```
 
+Initialisierungsskript
+----------------------
+
+[initialize-lxd.sh](bin/initialize-lxd.sh)
+
 Versionen
 ---------
 
