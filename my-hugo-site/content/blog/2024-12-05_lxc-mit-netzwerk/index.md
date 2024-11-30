@@ -110,7 +110,7 @@ cluster: null
 ```
 
 Testcontainer
---------------
+-------------
 
 ```
 $ lxc launch ubuntu:24.04 ubuntu-2404
@@ -147,6 +147,8 @@ done
 systemctl restart "$(systemctl |grep -o '[\s][^\s]*lxd\.daemon\.service')"
 ```
 
+Diese Änderung ist auch Teil des Initialisierungsskripts: [initialize-lxd.sh](bin/initialize-lxd.sh)
+
 Netzwerkbrücken
 ---------------
 
@@ -176,6 +178,8 @@ $ lxc network list
 | wlp1s0      | physical | NO      |                |      |             | 0       |         |
 +-------------+----------+---------+----------------+------+-------------+---------+---------+
 ```
+
+Diese Änderung ist auch Teil des Initialisierungsskripts: [initialize-lxd.sh](bin/initialize-lxd.sh)
 
 Namensauflösung - erste Tests
 -----------------------------
@@ -272,7 +276,7 @@ systemctl enable --now lxd-dns-${bridge}
 done
 ```
 
-Initialisierungsskript: [initialize-lxd.sh](bin/initialize-lxd.sh)
+Diese Änderung ist auch Teil des Initialisierungsskripts: [initialize-lxd.sh](bin/initialize-lxd.sh)
 
 Versionen
 ---------
