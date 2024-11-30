@@ -35,6 +35,16 @@ Offen
   - Stand 2024-11-23 gibt es diese "Tags": Github
   - Sollte "Tags" eine Obermenge von "Categories" sein?
 
+- 2024-11-30_01 - Fußzeile erweitern um Lizenz
+
+- 2024-11-30_02 - LICENSE.txt
+
+- 2024-11-30_03 - Lizenzseite
+
+- 2024-11-30_04 - Fußzeile erweitern um "Edit in Github"
+
+  - https://discourse.gohugo.io/t/hugo-v0-112-0-new-template-functions/44512
+
 Erledigt
 --------
 
@@ -84,4 +94,5 @@ Erledigt
 Historie
 --------
 
+- 2024-11-30: Mehr TODOs bzgl. Fusszeile und Lizenz
 - 2024-11-21: Erste Version
