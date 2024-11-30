@@ -109,6 +109,44 @@ projects: []
 cluster: null
 ```
 
+Testcontainer
+--------------
+
+```
+$ lxc launch ubuntu:24.04 ubuntu-2404
+Creating ubuntu-2404
+Starting ubuntu-2404
+
+$ lxc exec ubuntu-2404 bash
+root@ubuntu-2404:~# apt update
+...
+root@ubuntu-2404:~# apt upgrade
+...
+root@ubuntu-2404:~# exit
+
+uli@uliip5:~$ lxc exec ubuntu-2404 -- sudo -u ubuntu -i
+To run a command as administrator (user "root"), use "sudo <command>".
+See "man sudo_root" for details.
+
+ubuntu@ubuntu-2404:~$ exit
+```
+
+Isolierte Benutzerkennungen
+---------------------------
+
+/etc/subuid und /etc/subgid:
+
+```
+for es in /etc/subuid /etc/subgid; do
+  for u in lxd root; do
+    grep "^${u}:" "${es}" >/dev/null 2>&1 || {
+      echo "${u}:100000:1000000000" >>"${es}"
+    }
+  done
+done
+systemctl restart "$(systemctl |grep -o '[\s][^\s]*lxd\.daemon\.service')"
+```
+
 Netzwerkbrücken
 ---------------
 
@@ -137,28 +175,6 @@ $ lxc network list
 +-------------+----------+---------+----------------+------+-------------+---------+---------+
 | wlp1s0      | physical | NO      |                |      |             | 0       |         |
 +-------------+----------+---------+----------------+------+-------------+---------+---------+
-```
-
-Testcontainer
---------------
-
-```
-$ lxc launch ubuntu:24.04 ubuntu-2404
-Creating ubuntu-2404
-Starting ubuntu-2404
-
-$ lxc exec ubuntu-2404 bash
-root@ubuntu-2404:~# apt update
-...
-root@ubuntu-2404:~# apt upgrade
-...
-root@ubuntu-2404:~# exit
-
-uli@uliip5:~$ lxc exec ubuntu-2404 -- sudo -u ubuntu -i
-To run a command as administrator (user "root"), use "sudo <command>".
-See "man sudo_root" for details.
-
-ubuntu@ubuntu-2404:~$ exit
 ```
 
 Namensauflösung - erste Tests
