@@ -1197,7 +1197,7 @@ textarea {
         }
 }
 
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 9000px) {
         .container--outer {
                 width: 100%;
                 margin: 0 auto;
