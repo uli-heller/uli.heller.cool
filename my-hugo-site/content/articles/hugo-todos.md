@@ -48,6 +48,8 @@ Offen
 Erledigt
 --------
 
+- 2024-12-01_01 - Inhaltsverzeichnis
+
 - 2024-11-22_01 - Bilder in den Übersichtseiten nicht sichtbar.
   Beispiel: "Hugo: Breitenlimitierung aufheben"
 

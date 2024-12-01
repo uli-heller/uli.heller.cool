@@ -7,6 +7,7 @@ theme = "mainroad"
 disqusShortname = "" # Enable comments by entering your Disqus shortname
 googleAnalytics = "" # Enable Google Analytics by entering your tracking id
 enableGitInfo   = true
+#tableOfContents = true #  2024-12-01_01: Parameter funktioniert zumindest mit 'mainroad' nicht, siehe unten!
 
 [Params.author]
   name = "John Doe"
@@ -20,6 +21,7 @@ enableGitInfo   = true
   readmore = true # Show "Read more" button in list if true - Weiterlesen...
   authorbox = true
   pager = true
+  toc = true #  2024-12-01_01: Parameter funktioniert mit 'mainroad'
   post_meta = ["date", "categories"] # Order of post meta information
   mainSections = [ "articles", "blog" ]
 
