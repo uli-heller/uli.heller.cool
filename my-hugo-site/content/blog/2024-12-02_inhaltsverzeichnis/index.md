@@ -37,9 +37,8 @@ index 7103dfb..5ffecf8 100644
  enableGitInfo   = true
 +#tableOfContents = true #  2024-12-01_01: Parameter funktioniert zumindest mit 'mainroad' nicht, siehe unten!
  
- [Params.author]
-   name = "John Doe"
 @@ -20,6 +21,7 @@ enableGitInfo   = true
+ [Params]
    readmore = true # Show "Read more" button in list if true - Weiterlesen...
    authorbox = true
    pager = true
