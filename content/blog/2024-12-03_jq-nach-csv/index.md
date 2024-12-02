@@ -1,6 +1,6 @@
 +++
 date = '2024-12-03'
-draft = true
+draft = false
 title = 'JQ: JSON nach CSV wandeln'
 categories = [ 'JQ' ]
 tags = [ 'jq', 'json', 'csv' ]
