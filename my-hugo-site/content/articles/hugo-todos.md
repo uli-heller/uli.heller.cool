@@ -45,6 +45,8 @@ Offen
 
   - https://discourse.gohugo.io/t/hugo-v0-112-0-new-template-functions/44512
 
+- 2024-12-02_01 - Inhaltsverzeichnis ein- und ausblendbar
+
 Erledigt
 --------
 
