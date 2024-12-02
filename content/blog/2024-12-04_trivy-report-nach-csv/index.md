@@ -3,7 +3,7 @@ date = '2024-12-04'
 draft = false
 title = 'TRIVY: JSON nach CSV wandeln'
 categories = [ 'TRIVY' ]
-tags = [ 'trivy', 'jq', 'json', 'csv' ]
+tags = [ 'trivy', 'jq', 'json', 'csv', 'sqlite' ]
 +++
 
 <!--
