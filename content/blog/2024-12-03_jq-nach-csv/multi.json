@@ -1,0 +1,20 @@
+[
+  {
+    "type": "human",
+    "individuals":
+    [
+      { "Name": "Uli", "Year": 1965 },
+      { "Name": "Andrea", "Year": 1971 },
+      { "Name": "Lilly", "Year": 2002 }
+    ]
+  },
+  {
+    "type": "dog",
+    "individuals":
+    [
+      { "Name": "Rusty", "Year": 2015 },
+      { "Name": "Shadow", "Year": 2001 },
+      { "Name": "Copper", "Year": 2022 }
+    ]
+  }
+]
