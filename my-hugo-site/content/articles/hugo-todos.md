@@ -46,8 +46,6 @@ Offen
 
 - 2024-11-30_02 - LICENSE.txt
 
-- 2024-11-30_03 - Lizenzseite
-
 - 2024-11-30_04 - Fußzeile erweitern um "Edit in Github"
 
   - https://discourse.gohugo.io/t/hugo-v0-112-0-new-template-functions/44512
@@ -63,6 +61,8 @@ Offen
 
 Erledigt
 --------
+
+- 2024-11-30_03 - Lizenzseite
 
 - 2024-12-01_01 - Inhaltsverzeichnis
 
