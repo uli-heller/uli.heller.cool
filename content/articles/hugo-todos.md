@@ -37,6 +37,13 @@ Offen
 
 - 2024-11-30_01 - Fußzeile erweitern um Lizenz
 
+  - ./themes/mainroad/layouts/partials/footer_links.html
+    - Wertet Site.Menus.footer aus
+    - .URL und .Name definieren Links
+  - ./themes/mainroad/layouts/partials/footer.html
+    - Wertet Site.Params.copyright aus
+    - Und Site.Title
+
 - 2024-11-30_02 - LICENSE.txt
 
 - 2024-11-30_03 - Lizenzseite
@@ -46,6 +53,12 @@ Offen
   - https://discourse.gohugo.io/t/hugo-v0-112-0-new-template-functions/44512
 
 - 2024-12-02_01 - Inhaltsverzeichnis ein- und ausblendbar
+
+- 2024-12-03_01 - Sichten von [HugoBlox](https://docs.hugoblox.com/)
+
+- 2024-12-03_02 - Sichten von [ThomasVölkl](https://thomas-voelkl.de/hugo-website-erstellen/)
+
+  - Erstellt mit Hugo und "mainroad"
 
 Erledigt
 --------
