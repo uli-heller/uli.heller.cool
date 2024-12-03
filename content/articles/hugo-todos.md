@@ -58,7 +58,8 @@ Offen
 
 - 2024-12-03_02 - Sichten von [ThomasVölkl](https://thomas-voelkl.de/hugo-website-erstellen/)
 
-  - Erstellt mit Hugo und "mainroad"
+  - Erstellt mit Hugo und "mainroad" (zunächst)
+  - Nutzt Hugo und "clarity" (aktuell)
 
 Erledigt
 --------
