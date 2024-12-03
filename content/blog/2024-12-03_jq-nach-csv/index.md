@@ -40,6 +40,8 @@ $ jq -r '["Name","Year"],(.[]|[.Name,.Year])|@csv' <simple.json
 "Lilly",2002
 ```
 
+[simple.csv](simple.csv)
+
 Generische Wandlung mit variablen Feldern
 -----------------------------------------
 
@@ -50,6 +52,8 @@ $ jq -r '(map(keys) | add | unique) as $cols | map(. as $row | $cols | map($row[
 "Andrea",1971
 "Lilly",2002
 ```
+
+[simple.csv](simple.csv)
 
 Multi-level JSON-Datei
 ----------------------
@@ -92,6 +96,8 @@ $ jq -r '["type","Name","Year"],(.[]|.type as $type|.individuals|.[]|[$type,.Nam
 "dog","Shadow",2001
 "dog","Copper",2022
 ```
+
+[multi.csv](multi.csv)
 
 Historie
 --------
