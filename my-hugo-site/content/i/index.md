@@ -1,4 +1,5 @@
 Interner Bereich
 ================
 
-- [Anleitungen](anleitungen)
+- [Technische Anleitungen](anleitungen)
+- [Private Dokumente](privat)
