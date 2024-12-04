@@ -23,7 +23,7 @@ enableGitInfo   = true
   pager = true
   toc = true #  2024-12-01_01: Parameter funktioniert mit 'mainroad'
   post_meta = ["date", "categories"] # Order of post meta information
-  mainSections = [ "articles", "blog" ]
+  mainSections = [ "blog" ]
 
 [Params.logo]
   image = "images/stuttgart.svg"
