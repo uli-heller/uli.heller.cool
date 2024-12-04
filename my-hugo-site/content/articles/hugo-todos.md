@@ -59,6 +59,11 @@ Offen
   - Erstellt mit Hugo und "mainroad" (zunächst)
   - Nutzt Hugo und "clarity" (aktuell)
 
+- 2024-12-04_01 - Clarity
+
+  - [Change From Beautifulhugo to Clarity Theme](https://blog.euc-rt.me/post/change-from-beautifulhugo-to-clarity-theme)
+  - [Adding a floating TOC to the Hugo-Clarity theme](https://www.nodinrogers.com/post/2023-04-06-add-floating-toc-in-hugo-clarity-theme)
+
 Erledigt
 --------
 
