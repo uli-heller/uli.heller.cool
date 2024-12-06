@@ -35,7 +35,7 @@ Auf der negativen Seite sehe ich dies:
 - Was genau Github macht (Welche Daten werden erfasst? Was wird damit "angestellt"?)
   weiß ich aktuell nicht. Kann sich vermutlich auch jederzeit ändern!
 
-Bin mir och nicht 100%ig sicher, ob ich mit der "negativen Seite" wirklich
+Bin mir noch nicht 100%ig sicher, ob ich mit der "negativen Seite" wirklich
 leben kann oder ob ich eine Änderung anstreben sollte. Rückmeldung willkommen!
 
 Historie
