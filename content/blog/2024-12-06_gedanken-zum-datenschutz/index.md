@@ -4,6 +4,7 @@ draft = false
 title = 'Gedanken zum Datenschutz'
 categories = [ 'Datenschutz' ]
 tags = [ 'datenschutz', 'dsgvo' ]
+toc = false
 +++
 
 <!--
