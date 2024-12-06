@@ -63,6 +63,7 @@ Offen
 
   - [Change From Beautifulhugo to Clarity Theme](https://blog.euc-rt.me/post/change-from-beautifulhugo-to-clarity-theme)
   - [Adding a floating TOC to the Hugo-Clarity theme](https://www.nodinrogers.com/post/2023-04-06-add-floating-toc-in-hugo-clarity-theme)
+  - [Organizing page resources](https://github.com/chipzoller/hugo-clarity#organizing-page-resources)
 
 Erledigt
 --------
@@ -117,5 +118,7 @@ Erledigt
 Historie
 --------
 
+- 2024-12-06: Clarity und PageBundles
+- 2024-12-03: Clarity
 - 2024-11-30: Mehr TODOs bzgl. Fusszeile und Lizenz
 - 2024-11-21: Erste Version
