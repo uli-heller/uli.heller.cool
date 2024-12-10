@@ -4,6 +4,7 @@ draft = false
 title = 'JPG nach PDF wandeln'
 categories = [ 'Bildchen' ]
 tags = [ 'jpg', 'pdf', 'imagemagick' ]
+toc=false
 +++
 
 <!--
