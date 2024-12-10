@@ -2,7 +2,7 @@
 date = '2024-12-10'
 draft = false
 title = 'JPG nach PDF wandeln'
-categories = [ 'Graphik' ]
+categories = [ 'Bildchen' ]
 tags = [ 'jpg', 'pdf', 'imagemagick' ]
 +++
 
