@@ -65,6 +65,24 @@ Offen
   - [Adding a floating TOC to the Hugo-Clarity theme](https://www.nodinrogers.com/post/2023-04-06-add-floating-toc-in-hugo-clarity-theme)
   - [Organizing page resources](https://github.com/chipzoller/hugo-clarity#organizing-page-resources)
 
+- 2024-12-11_01 - [Michael Welford](https://its.mw/)
+
+  - [Custom code blocks in Hugo](https://its.mw/posts/custom-code-blocks-hugo/) - mit "Unterschriften" und "Copy"
+  - [More Hugo Tipps](https://its.mw/posts/more-hugo-tips-tricks/)
+    - robots.txt
+
+- 2024-12-11_02 - [Hugo Survival Guide](https://gist.github.com/janert/4e22671044ffb06ee970b04709dd7d81)
+
+  - Beschreibt viele Hugo-Konzepte
+
+- 2024-12-11_03 - [DecapCMS](https://github.com/decaporg/decap-cms)
+
+  - CMS für Hugo (und andere StaticSiteGenerators)
+
+- 2024-12-11_04 - [Tag-Cloud für Hugo](https://blog.cubieserver.de/2020/adding-a-tag-cloud-to-my-hugo-blog)
+
+- 2024-12-11_05 - [Diagramme in Hugo](https://gohugo.io/content-management/diagrams)
+
 Erledigt
 --------
 
@@ -118,6 +136,7 @@ Erledigt
 Historie
 --------
 
+- 2024-12-11: Viele neue TODOs und Links
 - 2024-12-06: Clarity und PageBundles
 - 2024-12-03: Clarity
 - 2024-11-30: Mehr TODOs bzgl. Fusszeile und Lizenz
