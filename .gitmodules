@@ -1,3 +1,6 @@
 [submodule "my-hugo-site/themes/mainroad.orig"]
 	path = my-hugo-site/themes/mainroad.orig
 	url = https://github.com/vimux/mainroad.git
+[submodule "my-hugo-site/themes/hugo-clarity.orig"]
+	path = my-hugo-site/themes/hugo-clarity.orig
+	url = https://github.com/chipzoller/hugo-clarity
