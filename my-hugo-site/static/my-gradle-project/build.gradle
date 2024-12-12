@@ -1,0 +1,22 @@
+plugins {
+  id("maven-publish")
+  id("java")
+}
+
+group = 'cool.heller'
+version = '1.0-SNAPSHOT'
+
+publishing {
+    repositories {
+        // Local repository which we can first publish in it to check artifacts
+        maven {
+            name = "LocalTestRepo"
+            url = uri("file://${buildDir}/local-repository")
+        }
+    }
+    publications {
+        mavenJava(MavenPublication) {
+            from components.java
+        }
+    }
+}
