@@ -13,16 +13,31 @@ tasks.withType(PublishToMavenRepository) {
 }
 
 publishing {
-    repositories {
-        // Local repository which we can first publish in it to check artifacts
-        maven {
-            name = "LocalTestRepo"
-            url = uri("file://${buildDir}/local-repository")
-        }
-    }
     publications {
-        mavenJava(MavenPublication) {
-            from components.java
+        java(MavenPublication) {
+          from components.java
         }
     }
+    repositories {
+      maven {
+        name 'local-registry'
+        url = uri("file://${buildDir}/local-repository")
+      } // maven
+      /*
+      maven {
+        name 'gitlab-registry'
+	// Projektname:                        uli/my-test-project   <-- geht nicht (2024-12)
+	// Projektname - urlencoded:           uli%2Fmy-test-project <-- geht nicht (2024-12)
+	// Projekt-ID (aus der Settings-Page): 123 <-------------------- geht       (2024-12)
+        url = uri("https://gitlab.heller.cool/api/v4/projects/123/packages/maven")
+        credentials(HttpHeaderCredentials) {
+                name = 'Job-Token'
+                value = System.getenv("CI_JOB_TOKEN")
+        }
+        authentication {
+                header(HttpHeaderAuthentication)
+        }
+      } // maven
+      */
+    } // repositories
 }
