@@ -16,4 +16,4 @@ User-agent: cohere-ai
 User-agent: omgili
 Disallow: /
 
-Sitemap: https://its.mw/sitemap.xml
+Sitemap: https://uli.heller.cool/sitemap.xml
