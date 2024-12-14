@@ -35,6 +35,10 @@ Gradle Wrapper aktualisieren
 ./gradlew wrapper --gradle-version latest
 ```
 
+Hinweis: Die doppelte Ausführung des gleichen Kommandos ist Absicht!
+Die erste Ausführung ersetzt nur die Versionsnummer in einer Konfigurationsdatei,
+die zweite lädt die neuen Komponenten herunter!
+
 Java-Klasse
 -----------
 
@@ -96,4 +100,5 @@ Links
 Historie
 --------
 
+- 2024-12-14: Hinweis auf Doppelausführung
 - 2024-12-13: Erste Version
