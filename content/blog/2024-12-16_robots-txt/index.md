@@ -42,6 +42,16 @@ User-agent: Bytespider
 
 Ich speichere sie in [static/robots.txt](/robots.txt).
 
+Gemäß [Custom robots.txt](https://its.mw/posts/more-hugo-tips-tricks/)
+muß ich noch meine hugo.toml überarbeiten und die Zeile
+
+```
+enableRobotsTxt = false
+```
+
+hinzufügen. Bei mir funktioniert es auch ohne. Eventuell liegt es
+am Theme? Ich verwende aktuell "mainroad".
+
 Links
 -----
 
