@@ -1,0 +1,67 @@
+plugins {
+  id("maven-publish")
+  id("java-library")
+}
+
+group = 'cool.heller'
+//version = '1.0-SNAPSHOT'
+version = '1.0.0'
+
+dependencies {
+  // org.springframework.boot:spring-boot-dependencies:3.+ declared with a Maven incompatible version notation
+  //api platform("org.springframework.boot:spring-boot-dependencies:3.+")
+  api platform("org.springframework.boot:spring-boot-dependencies:[3.0,)")
+
+  // Spring Boot
+  implementation "org.springframework.boot:spring-boot-starter-web"
+  implementation "org.springframework.boot:spring-boot-starter-actuator"
+  api 'org.springframework.boot:spring-boot-starter-validation'
+
+  // Lombok
+  annotationProcessor "org.projectlombok:lombok:1.18.36"
+  compileOnly "org.projectlombok:lombok:1.18.36"
+
+  //Jackson XML
+  compileOnly group: 'com.fasterxml.jackson.core', name: 'jackson-annotations', version: '2.11.0'
+  compileOnly group: 'com.fasterxml.jackson.dataformat', name: 'jackson-dataformat-xml', version: '2.11.0'
+}
+
+tasks.withType(PublishToMavenRepository) {
+    doFirst {
+        println("Publishing ${publication.groupId}:${publication.artifactId}:${publication.version} to ${repository.url}")
+    }
+}
+
+repositories {
+  mavenCentral()
+}
+
+publishing {
+    publications {
+        javaLibrary(MavenPublication) {
+          from components.java
+        }
+    }
+    repositories {
+      maven {
+        name 'local-registry'
+        url = uri("file://${buildDir}/local-repository")
+      } // maven
+      /*
+      maven {
+        name 'gitlab-registry'
+	// Projektname:                        uli/my-test-project   <-- geht nicht (2024-12)
+	// Projektname - urlencoded:           uli%2Fmy-test-project <-- geht nicht (2024-12)
+	// Projekt-ID (aus der Settings-Page): 123 <-------------------- geht       (2024-12)
+        url = uri("https://gitlab.heller.cool/api/v4/projects/123/packages/maven")
+        credentials(HttpHeaderCredentials) {
+                name = 'Job-Token'
+                value = System.getenv("CI_JOB_TOKEN")
+        }
+        authentication {
+                header(HttpHeaderAuthentication)
+        }
+      } // maven
+      */
+    } // repositories
+}
