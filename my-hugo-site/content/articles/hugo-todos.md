@@ -68,8 +68,6 @@ Offen
 - 2024-12-11_01 - [Michael Welford](https://its.mw/)
 
   - [Custom code blocks in Hugo](https://its.mw/posts/custom-code-blocks-hugo/) - mit "Unterschriften" und "Copy"
-  - [More Hugo Tipps](https://its.mw/posts/more-hugo-tips-tricks/)
-    - robots.txt
 
 - 2024-12-11_02 - [Hugo Survival Guide](https://gist.github.com/janert/4e22671044ffb06ee970b04709dd7d81)
 
@@ -85,6 +83,8 @@ Offen
 
 Erledigt
 --------
+
+- 2024-12-11_01 - [More Hugo Tipps](https://its.mw/posts/more-hugo-tips-tricks/), robots.txt
 
 - 2024-11-30_03 - Lizenzseite
 
@@ -136,6 +136,7 @@ Erledigt
 Historie
 --------
 
+- 2024-12-15: TODO bzgl. robots.txt erledigt
 - 2024-12-11: Viele neue TODOs und Links
 - 2024-12-06: Clarity und PageBundles
 - 2024-12-03: Clarity
