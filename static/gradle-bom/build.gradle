@@ -41,15 +41,10 @@ publishing {
         javaLibrary(MavenPublication) {
           from components.java
             pom.withXml {
-	        asNode().dependencyManagement.dependencies.each { dep ->
-		  println("  pom.dependencyManagement.dependencies: ${dep}")
-		  println("  pom.dependencyManagement.dependencies.value().dependency(): ${dep.value().last().value().last()}")
-		}
-                asNode().dependencies.dependency.each { dep ->
-		  println("  pom.dependencies: ${dep}")
-                  //if(dep.artifactId.last().value().last() in ["spring-boot-dependencies", /*"slf4j-log4j12"*/]) {
-                  //    assert dep.parent().remove(dep)
-                  //}
+                asNode().dependencyManagement.dependencies.dependency.each { dep ->
+                  if(dep.artifactId.last().value().last() in ["spring-boot-dependencies", /*"slf4j-log4j12"*/]) {
+                      assert dep.parent().remove(dep)
+                  }
                 }
             } // pom
          } // javaLibrary
@@ -62,9 +57,9 @@ publishing {
       /*
       maven {
         name 'gitlab-registry'
-	// Projektname:                        uli/my-test-project   <-- geht nicht (2024-12)
-	// Projektname - urlencoded:           uli%2Fmy-test-project <-- geht nicht (2024-12)
-	// Projekt-ID (aus der Settings-Page): 123 <-------------------- geht       (2024-12)
+        // Projektname:                        uli/my-test-project   <-- geht nicht (2024-12)
+        // Projektname - urlencoded:           uli%2Fmy-test-project <-- geht nicht (2024-12)
+        // Projekt-ID (aus der Settings-Page): 123 <-------------------- geht       (2024-12)
         url = uri("https://gitlab.heller.cool/api/v4/projects/123/packages/maven")
         credentials(HttpHeaderCredentials) {
                 name = 'Job-Token'
