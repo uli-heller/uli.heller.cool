@@ -5,7 +5,7 @@ plugins {
 
 group = 'cool.heller'
 //version = '1.0-SNAPSHOT'
-version = '1.0.0'
+version = '1.0.1'
 
 dependencies {
   // org.springframework.boot:spring-boot-dependencies:3.+ declared with a Maven incompatible version notation
@@ -40,8 +40,20 @@ publishing {
     publications {
         javaLibrary(MavenPublication) {
           from components.java
-        }
-    }
+            pom.withXml {
+	        asNode().dependencyManagement.dependencies.each { dep ->
+		  println("  pom.dependencyManagement.dependencies: ${dep}")
+		  println("  pom.dependencyManagement.dependencies.value().dependency(): ${dep.value().last().value().last()}")
+		}
+                asNode().dependencies.dependency.each { dep ->
+		  println("  pom.dependencies: ${dep}")
+                  //if(dep.artifactId.last().value().last() in ["spring-boot-dependencies", /*"slf4j-log4j12"*/]) {
+                  //    assert dep.parent().remove(dep)
+                  //}
+                }
+            } // pom
+         } // javaLibrary
+    } // publications
     repositories {
       maven {
         name 'local-registry'
