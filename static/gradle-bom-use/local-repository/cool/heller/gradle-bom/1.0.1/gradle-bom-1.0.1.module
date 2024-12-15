@@ -1,0 +1,102 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "cool.heller",
+    "module": "gradle-bom",
+    "version": "1.0.1",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "8.11.1"
+    }
+  },
+  "variants": [
+    {
+      "name": "apiElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 17,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api"
+      },
+      "dependencies": [
+        {
+          "group": "org.springframework.boot",
+          "module": "spring-boot-dependencies",
+          "version": {
+            "requires": "[3.0,)"
+          },
+          "attributes": {
+            "org.gradle.category": "platform"
+          },
+          "endorseStrictVersions": true
+        },
+        {
+          "group": "org.springframework.boot",
+          "module": "spring-boot-starter-validation"
+        }
+      ],
+      "files": [
+        {
+          "name": "gradle-bom-1.0.1.jar",
+          "url": "gradle-bom-1.0.1.jar",
+          "size": 687,
+          "sha512": "c7f8251147fdcfa8718c89f5a2cb2a3b58e17a14d5e52a934a75a4427a24aa45f5a1b0b0f8f1000cc254cc5570cbea761eb15af284b484f30e17e82491ad16e2",
+          "sha256": "fddcf8300fa678425583296987fe087ac72b131540f72b09b656e272a223becf",
+          "sha1": "718ea0fb0c1171f25bd69c5f1de2573fd558204c",
+          "md5": "51858f9b9515bdc1725394d6b03d7881"
+        }
+      ]
+    },
+    {
+      "name": "runtimeElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 17,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "org.springframework.boot",
+          "module": "spring-boot-starter-web"
+        },
+        {
+          "group": "org.springframework.boot",
+          "module": "spring-boot-starter-actuator"
+        },
+        {
+          "group": "org.springframework.boot",
+          "module": "spring-boot-dependencies",
+          "version": {
+            "requires": "[3.0,)"
+          },
+          "attributes": {
+            "org.gradle.category": "platform"
+          },
+          "endorseStrictVersions": true
+        },
+        {
+          "group": "org.springframework.boot",
+          "module": "spring-boot-starter-validation"
+        }
+      ],
+      "files": [
+        {
+          "name": "gradle-bom-1.0.1.jar",
+          "url": "gradle-bom-1.0.1.jar",
+          "size": 687,
+          "sha512": "c7f8251147fdcfa8718c89f5a2cb2a3b58e17a14d5e52a934a75a4427a24aa45f5a1b0b0f8f1000cc254cc5570cbea761eb15af284b484f30e17e82491ad16e2",
+          "sha256": "fddcf8300fa678425583296987fe087ac72b131540f72b09b656e272a223becf",
+          "sha1": "718ea0fb0c1171f25bd69c5f1de2573fd558204c",
+          "md5": "51858f9b9515bdc1725394d6b03d7881"
+        }
+      ]
+    }
+  ]
+}
