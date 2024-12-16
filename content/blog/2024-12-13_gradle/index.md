@@ -91,6 +91,13 @@ Bauen und veröffentlichen
 # Erzeugt ein Artefakt unter "build/local-repository/cool/heller/my-gradle-project/1.0-SNAPSHOT"
 ```
 
+Versionen
+---------
+
+Getestet mit
+
+- Gradle-8.11.1
+
 Links
 -----
 
