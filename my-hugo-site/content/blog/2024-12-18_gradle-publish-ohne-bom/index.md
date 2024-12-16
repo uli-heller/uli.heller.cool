@@ -184,6 +184,13 @@ Hier die "dependencies" für beide Varianten:
 
 Sehen beide super aus!
 
+Versionen
+---------
+
+Getestet mit
+
+- Gradle-8.11.1
+
 Links
 -----
 

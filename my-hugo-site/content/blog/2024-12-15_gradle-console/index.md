@@ -64,6 +64,13 @@ Drei Varianten zur Aktivierung der alten Konsolenausgabe
   +org.gradle.console=plain
   ```
 
+Versionen
+---------
+
+Getestet mit
+
+- Gradle-8.11.1
+
 Links
 -----
 
