@@ -46,6 +46,8 @@ Error: error building site: render: failed to render pages: render of "404" fail
 ...
 ```
 
+Nachtrag 2024-12-18: Für mich sieht es so aus, als gäbe es Probleme mit dem Logo.
+
 Theme aktivieren mit Zusatzdateien
 ----------------------------------
 
@@ -77,4 +79,5 @@ Links
 Historie
 --------
 
+- 2024-12-18: Kurzanalyse Logo-Probleme
 - 2024-12-12: Erste Version
