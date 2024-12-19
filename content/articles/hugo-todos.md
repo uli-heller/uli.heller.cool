@@ -81,6 +81,14 @@ Offen
 
 - 2024-12-11_05 - [Diagramme in Hugo](https://gohugo.io/content-management/diagrams)
 
+- 2024-12-19_01 - Fehlermeldungen beim Test mit `hugo -D -E -F server`
+
+  ```
+  WARN  Raw HTML omitted while rendering "/home/uli/git/github/uli-heller/uli.heller.cool/my-hugo-site/content/blog/2024-12-03_jq-nach-csv/index.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+  You can suppress this warning by adding the following to your site configuration:
+  ignoreLogs = ['warning-goldmark-raw-html']
+  ```
+
 Erledigt
 --------
 
