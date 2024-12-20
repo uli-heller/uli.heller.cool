@@ -7,8 +7,8 @@ tags = [ 'git' ]
 +++
 
 <!--
-Git: Mecker über fehlenden Commit'
-==================================
+Git: Mecker über fehlenden Commit
+=================================
 -->
 
 Wenn ich mit Git-Submodulen arbeite, dann
@@ -84,4 +84,5 @@ Submodul-Pfad 'themes/mainroad.orig': '13e04b3694ea2d20a68cfbfaea42a8c565079809'
 Historie
 --------
 
+- 2024-12-20: Tippfehler korrigiert
 - 2024-11-22: Erste Version
