@@ -145,6 +145,79 @@ Das habe ich ausprobiert an verschiedenen Stellen:
 - config/_defaults/params.toml: Klappt
 - config/_defaults/params.toml kopieren nach config/params.toml und dort anpassen: Klappt nicht!
 
+Artikel kopieren
+----------------
+
+```
+cd /tmp/new-site
+
+MY_HUGO=$HOME/private/uli.heller.cool/my-hugo-site
+cp -a $MY_HUGO/content/articles content/articles
+hugo server
+# Klappt
+
+cp -a $MY_HUGO/content/about.md content/.
+hugo server --disableFastRender
+# Klappt
+
+cp -a $MY_HUGO/content/license content/license
+hugo server --disableFastRender
+# Fehlermeldungen!
+```
+
+Es erscheinen diese Fehlermeldungen:
+
+```
+uli@uliip5:/tmp/new-site$ hugo server --disableFastRender
+Watching for changes in /tmp/new-site/{archetypes,assets,content,data,i18n,layouts,static,themes}
+Watching for config changes in /tmp/new-site/config/_default, /tmp/new-site/config/_default/menus
+Start building sites … 
+hugo v0.136.5-46cccb021bc6425455f4eec093f5cc4a32f1d12c+extended linux/amd64 BuildDate=2024-10-24T12:26:27Z VendorInfo=gohugoio
+
+ERROR [en] REF_NOT_FOUND: Ref "/blog/2024-11-25_lizenzen": "/tmp/new-site/content/license/index.md:23:46": page not found
+ERROR [en] REF_NOT_FOUND: Ref "/blog/2024-11-25_lizenzen": "/tmp/new-site/content/license/index.md:31:44": page not found
+Built in 543 ms
+Error: error building site: logged 2 error(s)
+```
+
+Korrekturversuch:
+
+```
+find content/license -type f | xargs -n1 sed -i -e "s,/blog/,/post/,"
+cp -a $MY_HUGO/content/blog/2024-11-25* content/post/.
+hugo server --disableFastRender
+# Klappt!
+```
+
+Weiter geht's:
+
+```
+cp -a $MY_HUGO/content/tests content/tests
+hugo server --disableFastRender
+# Klappt!
+
+cp -a $MY_HUGO/content/hugo-docs content/hugo-docs
+hugo server --disableFastRender
+# Viele Fehler!
+
+rm -rf content/hugo-docs
+
+cp -a $MY_HUGO/content/i content/i
+hugo server --disableFastRender
+# Klappt!
+
+cp -a $MY_HUGO/content/blog/. content/post/.
+hugo server --disableFastRender
+# Klappt!
+```
+
+Fazit
+-----
+
+Die Umstellung auf das Theme "Clarity" klappt ganz
+gut. Probleme bestehen bei den "hugo-docs". Details
+sind aktuell unklar.
+
 Links
 -----
 
