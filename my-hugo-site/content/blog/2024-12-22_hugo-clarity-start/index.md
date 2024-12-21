@@ -252,6 +252,34 @@ hugo server --disableFastRender
 # Klappt
 ```
 
+Korrektur hugo-docs/customization.md
+------------------------------------
+
+Mit dieser Korrektur klappt es auch mit der
+Datei "hugo-docs/customization.md":
+
+```diff
+diff --git a/my-hugo-site/content/hugo-docs/customization.md b/my-hugo-site/content/hugo-docs/customization.md
+index b6c6e0e..5091baf 100644
+--- a/my-hugo-site/content/hugo-docs/customization.md
++++ b/my-hugo-site/content/hugo-docs/customization.md
+@@ -5,10 +5,10 @@ description: Describes common Mainroad theme configuration parameters that can b
+ lead: Describes common Mainroad theme configuration parameters that can be adjusted via config file or via Front Matter
+   section.
+ date: 2022-01-24T14:00:00.000Z
+-thumbnail:
+-  src: "img/placeholder.png"
+-  visibility:
+-    - list
++#thumbnail:
++#  src: "img/placeholder.png"
++#  visibility:
++#    - list
+ authorbox: false
+ sidebar: false
+ pager: false
+```
+
 Fazit
 -----
 
