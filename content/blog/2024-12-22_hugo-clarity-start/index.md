@@ -284,8 +284,21 @@ Fazit
 -----
 
 Die Umstellung auf das Theme "Clarity" klappt ganz
-gut. Probleme bestehen bei den "hugo-docs/customization.md". Details
-sind aktuell unklar.
+gut. Probleme bestehen bei den "hugo-docs/customization.md",
+diese können recht einfach korrigiert werden.
+
+Offene Punkte:
+
+- Logo oben links CLARITY
+- Github-Link oben rechts
+- Menu
+  - Home
+  - Archives
+  - Links
+    - LinkedIn
+    - Twitter
+  - About
+- Fußzeile
 
 Links
 -----
