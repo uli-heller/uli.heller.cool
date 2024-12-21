@@ -211,11 +211,52 @@ hugo server --disableFastRender
 # Klappt!
 ```
 
+Probleme mit "hugo-docs"
+------------------------
+
+Einzelne Datei kopieren:
+
+```
+cd /tmp/new-site
+
+mkdir content/hugo-docs
+MY_HUGO=$HOME/private/uli.heller.cool/my-hugo-site
+cp $MY_HUGO/content/hugo-docs/_index.md content/hugo-docs/.
+hugo server --disableFastRender
+# Klappt
+
+cp $MY_HUGO/content/hugo-docs/faq.md content/hugo-docs/.
+hugo server --disableFastRender
+# Klappt
+
+cp $MY_HUGO/content/hugo-docs/basic-elements.md content/hugo-docs/.
+hugo server --disableFastRender
+# Klappt
+
+cp $MY_HUGO/content/hugo-docs/customization.md content/hugo-docs/.
+hugo server --disableFastRender
+# Fehler
+rm content/hugo-docs/customization.md
+
+cp $MY_HUGO/content/hugo-docs/getting-started.md content/hugo-docs/.
+content/hugo-docs/customization.md
+hugo server --disableFastRender
+# Klappt
+
+cp $MY_HUGO/content/hugo-docs/getting-started-with-hugo.md content/hugo-docs/.
+hugo server --disableFastRender
+# Klappt
+
+cp $MY_HUGO/content/hugo-docs/hugo-template-primer.md content/hugo-docs/.
+hugo server --disableFastRender
+# Klappt
+```
+
 Fazit
 -----
 
 Die Umstellung auf das Theme "Clarity" klappt ganz
-gut. Probleme bestehen bei den "hugo-docs". Details
+gut. Probleme bestehen bei den "hugo-docs/customization.md". Details
 sind aktuell unklar.
 
 Links
