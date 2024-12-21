@@ -299,6 +299,8 @@ Offene Punkte:
     - Twitter
   - About
 - Fußzeile
+- Sprache - Englisch + Portugisisch
+- Author oben rechts - Jane Doe
 
 Links
 -----
