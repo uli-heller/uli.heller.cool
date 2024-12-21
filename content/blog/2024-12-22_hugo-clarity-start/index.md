@@ -129,15 +129,28 @@ rm -rf content/blog
 cp -a $MY_HUGO/content/blog/2024-11-22_hugo-mainroad-breite content/post/.
 hugo server
 # Klappt! Es fehlen aber die Bilder im neu kopierten Artikel - Strg-C
-usePageBundles=true
 ```
 
+Fehlende Bilder bei PageBundles
+-------------------------------
+
+Laut [Clarity - Organizing page resources](https://github.com/chipzoller/hugo-clarity#organizing-page-resources)
+soll der Parameter `usePageBundles=true` dafür sorgen, dass die Bilder angezeigt werden.
+Das habe ich ausprobiert an verschiedenen Stellen:
+
+- Im Parameter-Bereich der Seite: Klappt!
+- config/_default/hugo.toml: Klappt nicht
+- config/hugo.toml: Klappt nicht
+- hugo.toml: Klappt nicht
+- config/_defaults/params.toml: Klappt
+- config/_defaults/params.toml kopieren nach config/params.toml und dort anpassen: Klappt nicht!
 
 Links
 -----
 
 - [Github - Hugo-Clarity](https://github.com/chipzoller/hugo-clarity)
 - [Getting Up And Running](https://github.com/chipzoller/hugo-clarity?tab=readme-ov-file#getting-up-and-running)
+- [Clarity - Organizing page resources](https://github.com/chipzoller/hugo-clarity#organizing-page-resources)
 - [Hugo: Kurztest vom Theme Clarity]({{< ref "blog/2024-12-12_hugo-clarity-kurztest" >}})
 
 Historie
