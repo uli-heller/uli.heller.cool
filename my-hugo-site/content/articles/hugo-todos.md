@@ -89,6 +89,10 @@ Offen
   ignoreLogs = ['warning-goldmark-raw-html']
   ```
 
+- 2024-12-21_01 - [Kommentare mit Utterances](https://www.softwarecraftsperson.com/posts/2024-02-04-blog-comments-using-utterances/)
+
+- 2024-12-21_02 - [Theme PaperMod](https://www.softwarecraftsperson.com/posts/2024-02-04-blog-comments-using-utterances/)
+
 Erledigt
 --------
 
