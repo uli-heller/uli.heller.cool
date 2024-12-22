@@ -96,7 +96,7 @@ Links
 Versionen
 ---------
 
-Getestet mit Ubuntu-20.04 und Trivy-v0.58.0.
+Getestet mit Ubuntu-22.04 und Trivy-v0.58.0.
 
 Historie
 --------
