@@ -209,6 +209,44 @@ BUILD SUCCESSFUL in 26s
 2 actionable tasks: 2 up-to-date
 ```
 
+Probleme mit Plugins
+--------------------
+
+- build.gradle erweitern - "3.4.1-uli" ist eine Phantasie-Version
+
+  ```diff
+  diff --git a/my-hugo-site/static/gradle-proxy/build.gradle b/my-hugo-site/static/gradle-proxy/build.gradle
+  index 18ea9d5..df317c4 100644
+  --- a/my-hugo-site/static/gradle-proxy/build.gradle
+  +++ b/my-hugo-site/static/gradle-proxy/build.gradle
+  @@ -1,6 +1,7 @@
+   plugins {
+     id("maven-publish")
+     id("java-library")
+  +  id 'org.springframework.boot' version '3.4.1-uli'
+   }
+  
+  group = 'cool.heller'
+  ```
+
+- Vorbereitung in Terminalfenster1: `nc -k -l 1234`
+
+- Build starten in Terminalfenster2: `./gradlew build`
+
+Damit Terminalfenster1:
+
+```
+uli@uliip5:~/.gradle$ nc -k -l 1234
+CONNECT plugins.gradle.org:443 HTTP/1.1
+Host: plugins.gradle.org
+User-Agent: Gradle/8.11.1 (Linux;6.8.0-49-generic;amd64) (Oracle Corporation;21.0.1;21.0.1+12-29)
+```
+
+Also: "nonProxyHosts" erweitern um "plugins.gradle.org"!
+
+Beobachtung: Ich muß die Erweiterung in $HOME/.gradle/gradle.properties vornehmen.
+In "java-projekt/gradle.properties" scheint sie nicht zu greifen!
+
 Finale Version von gradle.properties
 ------------------------------------
 
@@ -228,8 +266,8 @@ systemProp.https.proxyPort=3128
 #systemProp.https.proxyHost=localhost
 #systemProp.https.proxyPort=1234
 
-systemProp.http.nonProxyHosts=services.gradle.org|github.com|objects.githubusercontent.com|repo.maven.apache.org
-systemProp.https.nonProxyHosts=services.gradle.org|github.com|objects.githubusercontent.com|repo.maven.apache.org
+systemProp.http.nonProxyHosts=plugins.gradle.org|services.gradle.org|github.com|objects.githubusercontent.com|repo.maven.apache.org
+systemProp.https.nonProxyHosts=plugins.gradle.org|services.gradle.org|github.com|objects.githubusercontent.com|repo.maven.apache.org
 ```
 
 Sie liegt typischerweise NICHT im Projektverzeichnis, sondern
@@ -250,4 +288,5 @@ Links
 Historie
 --------
 
+- 2024-12-22: Tests mit Gradle-Plugins - nonProxyHosts erweitern um plugins.gradle.org
 - 2024-12-19: Erste Version
