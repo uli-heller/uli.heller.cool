@@ -1,15 +1,15 @@
 +++
 date = '2024-12-24'
 draft = false
-title = 'Sicherheitsscans mit Trivy'
+title = 'Sicherheitsscan einer Java-Anwendung mit Trivy'
 categories = [ 'Trivy' ]
 tags = [ 'trivy', 'sicherheit', 'java' ]
 toc = false
 +++
 
 <!--
-Sicherheitsscans mit Trivy
-==========================
+Sicherheitsscan einer Java-Anwendung mit Trivy
+==============================================
 -->
 
 Hier beschreibe ich, wie ich Java-Anwendungen
