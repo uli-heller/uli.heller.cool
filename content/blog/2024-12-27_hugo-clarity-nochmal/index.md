@@ -229,6 +229,133 @@ index 83dd678..2797713 100644
  # Enable or disable Utterances (https://github.com/utterance/utterances) Github Issue-Based Commenting
 ```
 
+### Viele Menüs ausblenden
+
+```diff
+diff --git a/my-hugo-site/config/_default/menus/menu.de.toml b/my-hugo-site/config/_default/menus/menu.de.toml
+index 9d6bc81..be39dd3 100644
+--- a/my-hugo-site/config/_default/menus/menu.de.toml
++++ b/my-hugo-site/config/_default/menus/menu.de.toml
+@@ -1,31 +1,31 @@
+-[[main]]
+-  name = "Home"
+-  url = ""
+-  weight = -110
++#[[main]]
++#  name = "Home"
++#  url = ""
++#  weight = -110
+ 
+-[[main]]
+-  name = "Archives"
+-  url = "post/rich-content/"
+-  weight = -109
++#[[main]]
++#  name = "Archives"
++#  url = "post/rich-content/"
++#  weight = -109
+ 
+ # Submenus are done this way: parent -> identifier
+-[[main]]
+-  name = "Links"
+-  identifier = "Links"
+-  weight = -108
+-[[main]]
+-  parent = "Links"
+-  name = "LinkedIn"
+-  url = "https://www.linkedin.com/"
+-[[main]]
+-  parent = "Links"
+-  name = "Twitter"
+-  url = "https://twitter.com/"
+-
+-[[main]]
+-  name = "About"
+-  url = "about/"
+-  weight = -107
++#[[main]]
++#  name = "Links"
++#  identifier = "Links"
++#  weight = -108
++#[[main]]
++#  parent = "Links"
++#  name = "LinkedIn"
++#  url = "https://www.linkedin.com/"
++#[[main]]
++#  parent = "Links"
++#  name = "Twitter"
++#  url = "https://twitter.com/"
++#
++#[[main]]
++#  name = "About"
++#  url = "about/"
++#  weight = -107
+ 
+ # social menu links
+ 
+diff --git a/my-hugo-site/config/_default/menus/menu.en.toml b/my-hugo-site/config/_default/menus/menu.en.toml
+index 9d6bc81..3b60b33 100644
+--- a/my-hugo-site/config/_default/menus/menu.en.toml
++++ b/my-hugo-site/config/_default/menus/menu.en.toml
+@@ -1,31 +1,31 @@
+-[[main]]
+-  name = "Home"
+-  url = ""
+-  weight = -110
+-
+-[[main]]
+-  name = "Archives"
+-  url = "post/rich-content/"
+-  weight = -109
++#[[main]]
++#  name = "Home"
++#  url = ""
++#  weight = -110
++#
++#[[main]]
++#  name = "Archives"
++#  url = "post/rich-content/"
++#  weight = -109
+ 
+ # Submenus are done this way: parent -> identifier
+-[[main]]
+-  name = "Links"
+-  identifier = "Links"
+-  weight = -108
+-[[main]]
+-  parent = "Links"
+-  name = "LinkedIn"
+-  url = "https://www.linkedin.com/"
+-[[main]]
+-  parent = "Links"
+-  name = "Twitter"
+-  url = "https://twitter.com/"
+-
+-[[main]]
+-  name = "About"
+-  url = "about/"
+-  weight = -107
++#[[main]]
++#  name = "Links"
++#  identifier = "Links"
++#  weight = -108
++#[[main]]
++#  parent = "Links"
++#  name = "LinkedIn"
++#  url = "https://www.linkedin.com/"
++#[[main]]
++#  parent = "Links"
++#  name = "Twitter"
++#  url = "https://twitter.com/"
++#
++#[[main]]
++#  name = "About"
++#  url = "about/"
++#  weight = -107
+ 
+ # social menu links
+```
+
 ### TODOs
 
 - Logo+Motto oben links
