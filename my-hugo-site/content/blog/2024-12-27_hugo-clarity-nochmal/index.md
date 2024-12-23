@@ -203,6 +203,32 @@ index b01eefe..740e866 100644
  theme = "hugo-clarity"
 ```
 
+### Blog-Verzeichnis
+
+```diff
+diff --git a/my-hugo-site/config/_default/params.toml b/my-hugo-site/config/_default/params.toml
+index 83dd678..2797713 100644
+--- a/my-hugo-site/config/_default/params.toml
++++ b/my-hugo-site/config/_default/params.toml
+@@ -67,7 +67,7 @@ codeLineNumbers = false
+ enableMathNotation = false
+ 
+ # directory(s) where your articles are located
+-mainSections = ["post"] # see config details here https://gohugo.io/functions/where/#mainsections
++mainSections = ["blog"] # see config details here https://gohugo.io/functions/where/#mainsections
+ 
+ # Label Non inline images on an article body
+ figurePositionShow = false # toggle on or off globally
+@@ -103,7 +103,7 @@ languageMenuName = "🌐"
+ # comments = false
+ 
+ # Activate meta ld+json for blog
+-blogDir = "post"
++blogDir = "blog"
+ 
+ # Enable or disable Utterances (https://github.com/utterance/utterances) Github Issue-Based Commenting
+```
+
 ### TODOs
 
 - Logo+Motto oben links
