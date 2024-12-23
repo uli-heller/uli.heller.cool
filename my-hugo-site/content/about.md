@@ -1,25 +1,44 @@
-+++
-title = "About"
-description = "Hugo, the world's fastest framework for building websites"
-date = "2019-02-28"
-aliases = ["about-us", "about-hugo", "contact"]
-author = "Hugo Authors"
-+++
+---
+title: Über mich
+date: 2024-11-21
+authorbox: false
+sidebar: false
+menu: main
+toc: false
+---
 
-Written in Go, Hugo is an open source static site generator available under the [Apache Licence 2.0.](https://github.com/gohugoio/hugo/blob/master/LICENSE) Hugo supports TOML, YAML and JSON data file types, Markdown and HTML content files and uses shortcodes to add rich content. Other notable features are taxonomies, multilingual mode, image processing, custom output formats, HTML/CSS/JS minification and support for Sass SCSS workflows.
+Ich bin Uli Heller, männlich und Jahrgang 1965.
+Ich lebe im Raum Stuttgart, arbeite im IT-Umfeld und interessiere
+mich dort für alles,
+was mit Kommunikation zu tun hat. Nutzeroberflächen finde
+ich eher uninteressant.
 
-Hugo makes use of a variety of open source projects including:
+Privat jogge ich gerne und fahrradfahren
+gefällt mir auch!
 
-* https://github.com/yuin/goldmark
-* https://github.com/alecthomas/chroma
-* https://github.com/muesli/smartcrop
-* https://github.com/spf13/cobra
-* https://github.com/spf13/viper
+Diese Seite habe ich aufgebaut mit [Hugo](https://gohugo.io/) und
+dem [Mainroad](https://github.com/vimux/mainroad)-Theme (keine Ahnung,
+wie man "Theme" richtig übersetzt). Früher habe ich für solche Zwecke
+OctoPress oder Nikola verwendet. Mal sehen, wie Hugo sich bewährt!
 
-Hugo is ideal for blogs, corporate websites, creative portfolios, online magazines, single page applications or even a website with thousands of pages.
+Viele meiner älteren Artikel finden sich auf
+[https://daemons-point.com](https://daemons-point.com).
+Seit ein paar Wochen veröffentliche ich dort deutlich weniger
+Artikel. Mir gefällt das 30-Jahre-Banner schlicht und ergreifend
+überhaupt nicht. Da ich meine Artikel meistens abends oder
+am Wochenende erstelle, erlaube ich mir die Freiheit, sie
+auf meiner privaten Seite zu veröffentlichen. Falls jemand
+"Firmengeheimnisse" oder ähnliches entdeckt, so bin ich für
+eine Meldung sehr dankbar! Deren Veröffentlichung ist definitiv
+hier nicht geplant!
 
-Hugo is for people who want to hand code their own website without worrying about setting up complicated runtimes, dependencies and databases.
+Auf ein Impressum verzichte ich. Aus meiner Sicht
+handelt es sich hier um eine rein private Seite.
+Falls jemand anderer Ansicht ist, bitte ich um kurze Info.
+Dann kann ich das Impressum gerne ergänzen!
 
-Websites built with Hugo are extremely fast, secure and can be deployed anywhere including, AWS, GitHub Pages, Heroku, Netlify and any other hosting provider.
+Historie
+--------
 
-Learn more and contribute on [GitHub](https://github.com/gohugoio).
+- 2024-11-27: Tippfehler korrigiert und Hinweis auf Region Stuttgart
+- 2024-11-21: Erste Version
