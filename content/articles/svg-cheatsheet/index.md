@@ -1,5 +1,18 @@
-SVG Cheatsheet
-==============
+---
+date: 2024-11-24
+draft: false
+title: 'SVG Cheatsheet'
+categories:
+ - Bildchen
+tags:
+ - svg
+ - pdf
+ - png
+ - imagemagick
+---
+
+<!--SVG Cheatsheet-->
+<!--==============-->
 
 - Quelle: [Symbol_OK.svg](https://upload.wikimedia.org/wikipedia/commons/8/80/Symbol_OK.svg)
 - Lokale Kopie: [Symbol_OK.svg](Symbol_OK.svg)
