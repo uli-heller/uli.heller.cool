@@ -116,6 +116,93 @@ index 71ebefb..483b44e 100644
 - config/_default/menus/menu.de.toml
 - config/_default/menus/menu.pt.toml ... löschen
 
+### Autor
+
+```diff
+diff --git a/my-hugo-site/config/_default/params.toml b/my-hugo-site/config/_default/params.toml
+index 3a3c661..4e02aee 100644
+--- a/my-hugo-site/config/_default/params.toml
++++ b/my-hugo-site/config/_default/params.toml
+@@ -2,9 +2,9 @@
+ enableSearch = true
+ 
+ # socials
+-twitter = "@janedoe"
++#twitter = "@janedoe"
+ largeTwitterCard = false # set to true if you want to show a large twitter card image. The default is a small twitter card image
+-introDescription = "Technologist, perpetual student, teacher, continual incremental improvement."
++introDescription = "Software-Entwicklung, Gutachten, Systemsicherheit, Datenschutz und Ausdauersport"
+ # introURL = "about/" # set the url for the 'read more' button below the introDescription, or set to false to not show the button
+ # description = "A theme based on VMware's Clarity Design System for publishing technical blogs with Hugo." # Set your site's meta tag (SEO) description here. Alternatively set this description in your home page content file e.g. content/_index.md. Whatever is set in the latter will take precedence.
+ # keywords = ["design", "clarity", "hugo theme"] # Set your site's meta tag (SEO) keywords here. Alternatively set these in your home page content file e.g. content/_index.md. Whatever is set in the latter will take precedence.
+@@ -150,7 +150,7 @@ blogDir = "post"
+ 
+ # website author
+ [author]
+-name = "Jane Doe"
++name = "Uli Heller"
+ # photo = "images/jane-doe.png" #include this if you would like to show the author photo on the sidebar
+ 
+ [plausible_analytics]
+```
+
+### Logo
+
+Konvertierung: `convert stuttgart.svg -transparent white -scale 40x stuttgart.png`
+
+```diff
+diff --git a/my-hugo-site/config/_default/params.toml b/my-hugo-site/config/_default/params.toml
+index 4e02aee..83dd678 100644
+--- a/my-hugo-site/config/_default/params.toml
++++ b/my-hugo-site/config/_default/params.toml
+@@ -52,7 +52,7 @@ fontsDir = "fonts/" # without a leading forward slash
+ fallBackOgImage = "images/thumbnail.png"
+ 
+ # Logo image
+-logo = "logos/logo.png"
++logo = "images/stuttgart.png"
+ 
+ # center logo on navbar
+ centerLogo = false # Set to "true" for centering or "false" for left aligned.
+```
+
+### Url korrigiert
+
+Unklar: Was genau sind die Auswirkungen? Anscheinend braucht man's für die "share icons"...
+
+```diff
+diff --git a/my-hugo-site/config/_default/hugo.toml b/my-hugo-site/config/_default/hugo.toml
+index bc51023..740e866 100644
+--- a/my-hugo-site/config/_default/hugo.toml
++++ b/my-hugo-site/config/_default/hugo.toml
+@@ -1,8 +1,8 @@
+ # set `baseurl` to your root domain
+ # if you set it to "/" share icons won't work properly on production
+-baseurl = "https://example.com/"  # Include trailing slash
++baseurl = "https://uli.heller.cool/"  # Include trailing slash
+ # title = "Clarity"  # Edit directly from config/_default/languages.toml # alternatively, uncomment this and remove `title` entry from the aforemention file.
+```
+
+### Fußzeile
+
+Bislang erschien "Copyright" ud "all rights reserved" mehrfach in der Fußzeile.
+
+```diff
+diff --git a/my-hugo-site/config/_default/hugo.toml b/my-hugo-site/config/_default/hugo.toml
+index b01eefe..740e866 100644
+--- a/my-hugo-site/config/_default/hugo.toml
++++ b/my-hugo-site/config/_default/hugo.toml
+@@ -2,7 +2,7 @@
+ # if you set it to "/" share icons won't work properly on production
+ baseurl = "https://uli.heller.cool/"  # Include trailing slash
+ # title = "Clarity"  # Edit directly from config/_default/languages.toml # alternatively, uncomment this and remove `title` entry from the aforemention file.
+-copyright = "Copyright © 2008–2018, Steve Francia and the Hugo Authors; all rights reserved."
++copyright = "Uli Heller"
+ # canonifyurls = true
+ 
+ theme = "hugo-clarity"
+```
+
 ### TODOs
 
 - Logo+Motto oben links
@@ -130,7 +217,8 @@ index 71ebefb..483b44e 100644
 - Twitter
 - LinkedIn
 - RSS: OK
-- JaneDoe
+- JaneDoe (rechts)
+- Neueste Artikel (rechts)
 - Fusszeile
 
 Test
