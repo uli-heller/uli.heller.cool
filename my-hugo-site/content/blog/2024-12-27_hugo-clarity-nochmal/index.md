@@ -356,6 +356,27 @@ index 9d6bc81..3b60b33 100644
  # social menu links
 ```
 
+### Hinweis auf Github
+
+```diff
+diff --git a/my-hugo-site/config/_default/params.toml b/my-hugo-site/config/_default/params.toml
+index f6e5907..c474eaa 100644
+--- a/my-hugo-site/config/_default/params.toml
++++ b/my-hugo-site/config/_default/params.toml
+@@ -89,9 +89,9 @@ enforceLightMode = false
+ # customize footer icon. see issue https://github.com/chipzoller/hugo-clarity/issues/77
+ footerLogo = "images/stuttgart.svg"
+ 
+-# Customize Sidebar Disclaimer Text
+-# sidebardisclaimer = true
+-# disclaimerText = "The opinions expressed on this site are my own personal opinions and do not represent my employer’s view in any way."
++# Customize Sidebar Disclaimer Text - es geht nur Text, kein Markdown oder HTML
++sidebardisclaimer = true
++disclaimerText = "Diese Webseite wird bereitgestellt auf und durch Github"
+ 
+ # Text for the languages menu.
+```
+
 ### TODOs
 
 - Logo+Motto oben links
