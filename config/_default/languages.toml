@@ -2,9 +2,9 @@
   title = "Ulis Welt ... da läuft was"
   LanguageName = "Deutsch"
   weight = 1
-[en]
-  title = "Uli's world ... there's something going on"
-  LanguageName = "English"
-  weight = 2
+#[en]
+#  title = "Uli's world ... there's something going on"
+#  LanguageName = "English"
+#  weight = 2
 
   # tip: assign the default language the lowest Weight
