@@ -94,7 +94,7 @@ sidebardisclaimer = true
 disclaimerText = "Diese Webseite wird bereitgestellt auf und durch Github"
 
 # Text for the languages menu.
-languageMenuName = "🌐"
+#languageMenuName = "🌐"
 
 # Title separator, default to |.
 # titleSeparator = "|"
