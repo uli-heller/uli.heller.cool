@@ -377,6 +377,43 @@ index f6e5907..c474eaa 100644
  # Text for the languages menu.
 ```
 
+### Sprachmen√º deaktivieren
+
+Bislang sieht die Seite auf Englisch sehr leer aus. Also
+deaktiviere ich das Sprachmen√º und konzentriere mich auf Deutsch:
+
+```diff
+----------------- my-hugo-site/config/_default/languages.toml -----------------
+index f9c6b7e..f27af7a 100644
+@@ -2,9 +2,9 @@
+   title = "Ulis Welt ... da l√§uft was"
+   LanguageName = "Deutsch"
+   weight = 1
+-[en]
+-  title = "Uli's world ... there's something going on"
+-  LanguageName = "English"
+-  weight = 2
++#[en]
++#  title = "Uli's world ... there's something going on"
++#  LanguageName = "English"
++#  weight = 2
+ 
+   # tip: assign the default language the lowest Weight
+\ No newline at end of file
+
+------------------- my-hugo-site/config/_default/params.toml -------------------
+index c474eaa..b4c77f1 100644
+@@ -94,7 +94,7 @@ sidebardisclaimer = true
+ disclaimerText = "Diese Webseite wird bereitgestellt auf und durch Github"
+ 
+ # Text for the languages menu.
+-languageMenuName = "Ì†ºÌºê"
++#languageMenuName = "Ì†ºÌºê"
+ 
+ # Title separator, default to |.
+ # titleSeparator = "|"
+```
+
 ### TODOs
 
 - Logo+Motto oben links
