@@ -416,8 +416,14 @@ index c474eaa..b4c77f1 100644
 
 ### TODOs
 
+#### Offen
+
 - Logo+Motto oben links
 - Home
+
+#### Erledigt
+
+- Logo+Motto oben links
 - Archives
 - Links
   - LinkedIn
