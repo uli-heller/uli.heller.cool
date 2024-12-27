@@ -422,7 +422,11 @@ index c474eaa..b4c77f1 100644
 - Home
 - Suchen
 - Bildbreite
+- Textbreite
+- Menübreite
+- Menü: Aktiven Eintrag markieren
 - Inhaltsverzeichnis
+- Copyright + Lizenz
 
 #### Erledigt
 
@@ -449,6 +453,34 @@ hugo -D -E -F server
 ```
 
 Browser: [http://localhost:1313](http://localhost:1313) öffnen
+
+Mainroad vs. Clarity
+--------------------
+
+### Mainroad
+
+![Eingangsseite - oben](images/mainroad/home-top.png)
+
+![Eingangsseite - unten](images/mainroad/home-bottom.png)
+
+![Blog](images/mainroad/blog.png)
+
+![Über mich](images/mainroad/about.png)
+
+![Inhaltsverzeichnis](images/mainroad/toc.png)
+
+![Codeblock](images/mainroad/codeblock.png)
+
+### Clarity
+
+![Eingangsseite - oben](images/clarity/home-top.png)
+
+![Eingangsseite - unten](images/clarity/home-bottom.png)
+
+![Blog](images/clarity/blog.png)
+
+![Über mich](images/clarity/about.png)
+
 
 Links
 -----
