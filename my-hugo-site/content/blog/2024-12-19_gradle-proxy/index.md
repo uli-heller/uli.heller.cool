@@ -247,6 +247,40 @@ Also: "nonProxyHosts" erweitern um "plugins.gradle.org"!
 Beobachtung: Ich muß die Erweiterung in $HOME/.gradle/gradle.properties vornehmen.
 In "java-projekt/gradle.properties" scheint sie nicht zu greifen!
 
+Nachtrag 2024-12-27 - Could not GET 'https://plugins-artifacts.gradle.org/...' ...
+----------------------------------------------------------------------------------
+
+Heute am 2024-12-27 habe ich mit dem Beispielprojekt [springboot-hello-world](/springboot-hello-world) gearbeitet.
+Dabei erschien diese Fehlermeldung:
+
+```
+uli@ulicsl:~/git/github/uli-heller/uli.heller.cool/my-hugo-site/static/springboot-hello-world$ ./gradlew --write-locks
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/8.11.1/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+A problem occurred configuring root project 'springboot-hello-world'.Could not resolve all artifacts for configuration 'classpath'.   > Could not resolve org.springframework.boot:spring-boot-gradle-plugin:3.4.1.
+     Required by:
+         root project : > org.springframework.boot:org.springframework.boot.gradle.plugin:3.4.1
+      > Could not resolve org.springframework.boot:spring-boot-gradle-plugin:3.4.1.
+         > Could not get resource 'https://plugins.gradle.org/m2/org/springframework/boot/spring-boot-gradle-plugin/3.4.1/spring-boot-gradle-plugin-3.4.1.pom'.
+            > Could not GET 'https://plugins-artifacts.gradle.org/org.springframework.boot/spring-boot-gradle-plugin/3.4.1/e7cb3adea6a8ea7c227f2db62a3a5e584191fd02d7ee255c54b25d8c5e7d9690/spring-boot-gradle-plugin-3.4.1.pom'.
+               > http-proxy.porsche.org: Der Name oder der Dienst ist nicht bekannt
+
+* Try:Run with --stacktrace option to get the stack trace.
+Run with --info or --debug option to get more log output.
+Run with --scan to get full insights.
+Get more help at https://help.gradle.org.
+BUILD FAILED in 4s
+```
+
+Korrigieren konnte ich das durch Erweitern der "gradle.properties" um
+"plugins-artifacts.gradle.org". Leider kann ich den ursprünglichen Fehler
+aktuell nicht mehr reproduzieren. Dementsprechend kann ich aktuell auch
+nicht mir Einträgen wie "plugins*.gradle.org" experimentieren!
+
 Finale Version von gradle.properties
 ------------------------------------
 
@@ -266,8 +300,8 @@ systemProp.https.proxyPort=3128
 #systemProp.https.proxyHost=localhost
 #systemProp.https.proxyPort=1234
 
-systemProp.http.nonProxyHosts=plugins.gradle.org|services.gradle.org|github.com|objects.githubusercontent.com|repo.maven.apache.org
-systemProp.https.nonProxyHosts=plugins.gradle.org|services.gradle.org|github.com|objects.githubusercontent.com|repo.maven.apache.org
+systemProp.http.nonProxyHosts=plugins-artifacts.gradle.org|plugins.gradle.org|services.gradle.org|github.com|objects.githubusercontent.com|repo.maven.apache.org
+systemProp.https.nonProxyHosts=plugins-artifacts.gradle.org|plugins.gradle.org|services.gradle.org|github.com|objects.githubusercontent.com|repo.maven.apache.org
 ```
 
 Sie liegt typischerweise NICHT im Projektverzeichnis, sondern
@@ -288,5 +322,6 @@ Links
 Historie
 --------
 
+- 2024-12-27: Weitere Tests - nonProxyHosts erweitern um plugins-artifacts.gradle.org
 - 2024-12-22: Tests mit Gradle-Plugins - nonProxyHosts erweitern um plugins.gradle.org
 - 2024-12-19: Erste Version
