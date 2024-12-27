@@ -420,6 +420,9 @@ index c474eaa..b4c77f1 100644
 
 - Logo+Motto oben links
 - Home
+- Suchen
+- Bildbreite
+- Inhaltsverzeichnis
 
 #### Erledigt
 
