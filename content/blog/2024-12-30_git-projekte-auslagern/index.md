@@ -24,7 +24,7 @@ Github-Projekte. Links darauf funktionieren sicher.
 Liste der Java-Projekte
 -----------------------
 
-- static/gradle-artifactory
+- static/gradle-artifactory ... erledigt
 - static/gradle-maven-publish
 - static/gradle-bom
 - static/gradle-bom-use
