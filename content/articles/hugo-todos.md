@@ -93,6 +93,24 @@ Offen
 
 - 2024-12-21_02 - [Theme PaperMod](https://www.softwarecraftsperson.com/posts/2024-11-09-responsive-menu/)
 
+- 2024-12-29_01 - Clarity: Logo+Motto oben links
+
+- 2024-12-29_02 - Clarity: Home
+
+- 2024-12-29_03 - Clarity: Suchen
+
+- 2024-12-29_04 - Clarity: Bildbreite
+
+- 2024-12-29_05 - Clarity: Textbreite
+
+- 2024-12-29_06 - Clarity: Menübreite
+
+- 2024-12-29_07 - Clarity: Menü: Aktiven Eintrag markieren
+
+- 2024-12-29_08 - Clarity: Inhaltsverzeichnis - [Adding a floating TOC to the Hugo-Clarity theme | No D in Rogers](https://www.nodinrogers.com/post/2023-04-06-add-floating-toc-in-hugo-clarity-theme/)
+
+- 2024-12-29_09 - Clarity: Copyright + Lizenz
+
 Erledigt
 --------
 
@@ -148,6 +166,7 @@ Erledigt
 Historie
 --------
 
+- 2024-12-29: Viele TODOs beim Theme "Clarity"
 - 2024-12-21: [Kommentare mit Utterances](https://www.softwarecraftsperson.com/posts/2024-02-04-blog-comments-using-utterances/)
     und [Theme PaperMod](https://www.softwarecraftsperson.com/posts/2024-11-09-responsive-menu/)
 - 2024-12-19: Fehlermeldungen beim Test mit `hugo -D -E -F server`
