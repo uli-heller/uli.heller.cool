@@ -104,11 +104,40 @@ Handhabungshinweise
 - Dateizugriffe: Über "decrypted"!
 - Ausbinden: `fusermount -u decrypted`
 
+Wiederherstellung mit dem MasterKey
+-----------------------------------
+
+- Annahme: Ich habe entweder mein "Password"
+  vergessen oder die Datei "encrypted/gocryptfs.conf"
+  ist kaputt
+- Dummy-Version der "gocryptfs.conf" erzeugen:
+  `mkdir encrypted-2; gocryptfs --init encrypted-2/`
+  (Password hierbei ist egal)
+- Dummy-Version kopieren:
+  `cp encrypted-2/gocryptfs.conf encrypted/gocryptfs.conf`
+- Dummy-Verzeichnis löschen:
+  `rm -rf encrypted-2`
+- Master-Key eintragen:
+  ```
+  $ gocryptfs -passwd -masterkey bce87b84-c2b6152c-7a74cbb3-8c7e8d37-804741c2-46cd797a-9b5571ff-7565757c encrypted
+  Using explicit master key.
+  THE MASTER KEY IS VISIBLE VIA "ps ax" AND MAY BE STORED IN YOUR SHELL HISTORY!
+  ONLY USE THIS MODE FOR EMERGENCIES
+  Please enter your new password.
+  Password: 
+  Repeat: 
+  A copy of the old config file has been created at "/tmp/encrypted/gocryptfs.conf.bak".
+  Delete it after you have verified that you can access your files with the new password.
+  Password changed.
+  ```
+- Danach klappt der Zugriff mit dem zuletzt vergebenen "Password"
+
 Links
 -----
 
 - [Homepage: gocryptfs](https://nuetzlich.net/gocryptfs/)
 - [GITHUB: gocryptfs](https://github.com/rfjakob/gocryptfs)
+- [Recreate gocryptfs.conf using masterkey](https://github.com/rfjakob/gocryptfs/wiki/Recreate-gocryptfs.conf-using-masterkey)
 
 Versionen
 ---------
