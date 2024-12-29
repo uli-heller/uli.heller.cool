@@ -39,12 +39,13 @@ cp -a "${ULI_HELLER_COOL_PATH}/."  /tmp/git-separation/. || exit 1
     cd /tmp/git-separation || exit 1
     rm -rf .git/filter-repo
     rm -rf .git/modules/*
+    rm -f .gitmodules
     git checkout .
     git clean -fdx
-    git status
+#    git status
     git filter-repo --force --path "static/${NAME}/" --path-rename "static/${NAME}/:"
     git clean -fdx
-    git status
+#    git status
 #)
 #(
 #    cd /tmp/git-separation
@@ -58,8 +59,8 @@ rm -rf /tmp/git-separation
   for f in $(find . -type f -name "*.md"|xargs grep -l "${NAME}"); do
     sed -i -e "s,\[\([^]]*\)\](/${NAME}),[github:java-example-\1](${GITHUB_URL})," "${f}"
   done
-  git status
-  git diff
+  #git status
+  #git diff
   git commit -m "Java-Beispiel '${NAME}' ausgelagert - Verweise" .
   git rm -r "static/${NAME}"
   git commit -m "Java-Beispiel '${NAME}' ausgelagert - Löschen" static
