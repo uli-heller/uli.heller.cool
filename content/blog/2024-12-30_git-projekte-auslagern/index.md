@@ -157,6 +157,17 @@ rm -rf /tmp/git-separation
 )
 ```
 
+Links
+-----
+
+- [github:java-example-gradle-artifactory](https://github.com/uli.heller/java-example-gradle-artifactory)
+- [github:java-example-gradle-maven-publish](https://github.com/uli.heller/java-example-gradle-maven-publish)
+- [github:java-example-gradle-bom](https://github.com/uli.heller/java-example-gradle-bom)
+- [github:java-example-gradle-bom-use](https://github.com/uli.heller/java-example-gradle-bom-use)
+- [github:java-example-springboot-hello-world](https://github.com/uli.heller/java-example-springboot-hello-world)
+- [github:java-example-my-gradle-project](https://github.com/uli.heller/java-example-my-gradle-project)
+- [github:java-example-gradle-proxy](https://github.com/uli.heller/java-example-gradle-proxy)
+
 Historie
 --------
 
