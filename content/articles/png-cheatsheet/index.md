@@ -50,7 +50,7 @@ Skalieren und transparent
 
 - [Original](images/stuttgart.svg)
 - `convert stuttgart.svg -resize 60x -transparent white stuttgart-rt.png` ... [unschönes Bild mit weißem Rand](images/stuttgart-rt.png)
-- `convert stuttgart.svg -transparent white -resize 60x stuttgart-tr.png? ... [besseres Bild ohne Rand](images/stuttgart-tr.png)
+- `convert stuttgart.svg -transparent white -resize 60x stuttgart-tr.png` ... [besseres Bild ohne Rand](images/stuttgart-tr.png)
 
 Dateigröße reduzieren
 ---------------------
