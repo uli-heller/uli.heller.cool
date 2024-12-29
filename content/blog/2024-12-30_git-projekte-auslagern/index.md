@@ -116,12 +116,12 @@ Ablauf mit Skript
   - Public
 - Github-URL speichern: git@github.com:uli-heller/java-example-gradle-artifactory.git
 
-Skript:
+Skript: [auslagern.sh](auslagern.sh)
 
 ```
-ULI_HELLER_COOL_PATH=.../uli.heller.cool
 NAME=gradle-artifactory
 GITHUB_URL="git@github.com:uli-heller/java-example-${NAME}.git"
+ULI_HELLER_COOL_PATH=.../uli.heller.cool
 
 rm -rf /tmp/git-separation
 mkdir /tmp/git-separation
