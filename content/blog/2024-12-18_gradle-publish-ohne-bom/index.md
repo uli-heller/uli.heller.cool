@@ -169,7 +169,7 @@ Damit erhält man die POM-Datei gradle-bom-1.0.1.pom:
 Test: Funktioniert es?
 ----------------------
 
-Java-Projekt, welches die beiden Varianten einbindet: [gradle-bom-use](/gradle-bom-use)
+Java-Projekt, welches die beiden Varianten einbindet: [github:java-example-gradle-bom-use](git@github.com:uli-heller/java-example-gradle-bom-use.git)
 
 Ich teste beide Varianten durch Variation von "build.gradle":
 
