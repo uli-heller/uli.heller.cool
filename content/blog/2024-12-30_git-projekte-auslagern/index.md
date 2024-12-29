@@ -40,8 +40,17 @@ Ich mache es mit einfach und verwende dieses feste Schema:
 - Schema: static/(projektname) -> uli-heller/java-example-(projektname)
 - Beispiel: static/my-gradle-project -> uli-heller/java-example-my-gradle-project".
 
-Ablauf für jedes Projekt
-------------------------
+Grob-Ablauf für jedes Projekt
+-----------------------------
+
+- Github: Neues Repo anlegen
+- Github-URL speichern
+- Git-Projekt der Webseite kopieren
+- Kopie aufbereiten
+- Abspeichern im neuen Repo
+- Aufräumen der Kopie
+- Anpassen der Verweise
+- Löschen des Java-Projektes
 
 Ablauf für "my-gradle-project"
 ------------------------------
@@ -97,6 +106,56 @@ Ablauf für "my-gradle-project"
   git rm -r static/my-gradle-project
   git commit -m "Java-Beispiel 'my-gradle-project' ausgelagert - Löschen" static
   ```
+
+Ablauf mit Skript
+-----------------
+
+- Github: Neues Repo anlegen
+  - Owner: uli-heller
+  - Repository name: java-example-gradle-artifactory
+  - Public
+- Github-URL speichern: git@github.com:uli-heller/java-example-gradle-artifactory.git
+
+Skript:
+
+```
+ULI_HELLER_COOL_PATH=.../uli.heller.cool
+NAME=gradle-artifactory
+GITHUB_URL="git@github.com:uli-heller/java-example-${NAME}.git"
+
+rm -rf /tmp/git-separation
+mkdir /tmp/git-separation
+cp -a "${ULI_HELLER_COOL_PATH}/."  /tmp/git-separation/. || exit 1
+(
+    cd /tmp/git-separation || exit 1
+    rm -rf .git/filter-repo
+    rm -rf .git/modules/*
+    git checkout .
+    git clean -fdx
+    git status
+    git filter-repo --force --path "static/${NAME}/" --path-rename "static/${NAME}/:"
+    git clean -fdx
+    git status
+#)
+#(
+#    cd /tmp/git-separation
+    git remote add new "${GITHUB_URL}"
+    git push new main:main
+)
+rm -rf /tmp/git-separation
+(
+  cd "${ULI_HELLER_COOL_PATH}" || exit 1
+
+  for f in $(find . -type f -name "*.md"|xargs grep -l "${NAME}"); do
+    sed -i -e "s,\[\([^]]*\)\](/${NAME}),[github:java-example-\1](${GITHUB_URL})," "${f}"
+  done
+  git status
+  git diff
+  git commit -m "Java-Beispiel '${NAME}' ausgelagert - Verweise" .
+  git rm -r "static/${NAME}"
+  git commit -m "Java-Beispiel '${NAME}' ausgelagert - Löschen" static
+)
+```
 
 Historie
 --------
