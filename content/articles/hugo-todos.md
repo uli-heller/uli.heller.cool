@@ -91,7 +91,7 @@ Offen
 
 - 2024-12-21_01 - [Kommentare mit Utterances](https://www.softwarecraftsperson.com/posts/2024-02-04-blog-comments-using-utterances/)
 
-- 2024-12-21_02 - [Theme PaperMod](https://www.softwarecraftsperson.com/posts/2024-02-04-blog-comments-using-utterances/)
+- 2024-12-21_02 - [Theme PaperMod](https://www.softwarecraftsperson.com/posts/2024-11-09-responsive-menu/)
 
 Erledigt
 --------
@@ -148,6 +148,9 @@ Erledigt
 Historie
 --------
 
+- 2024-12-21: [Kommentare mit Utterances](https://www.softwarecraftsperson.com/posts/2024-02-04-blog-comments-using-utterances/)
+    und [Theme PaperMod](https://www.softwarecraftsperson.com/posts/2024-11-09-responsive-menu/)
+- 2024-12-19: Fehlermeldungen beim Test mit `hugo -D -E -F server`
 - 2024-12-15: TODO bzgl. robots.txt erledigt
 - 2024-12-11: Viele neue TODOs und Links
 - 2024-12-06: Clarity und PageBundles
