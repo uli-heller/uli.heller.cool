@@ -38,6 +38,12 @@ Auf Höhe skalieren
 
 `convert -resize x240 (alt).png (neu).png`
 
+Hintergrund transparent
+-----------------------
+
+- `convert static/images/stuttgart.svg stuttgart.png` ... liefert einen weißen Hintergrund
+- `convert static/images/stuttgart.svg -transparent white stuttgart-t.png` ... liefert einen transparenten Hintergrund
+
 Dateigröße reduzieren
 ---------------------
 
