@@ -250,7 +250,7 @@ In "java-projekt/gradle.properties" scheint sie nicht zu greifen!
 Nachtrag 2024-12-27 - Could not GET 'https://plugins-artifacts.gradle.org/...' ...
 ----------------------------------------------------------------------------------
 
-Heute am 2024-12-27 habe ich mit dem Beispielprojekt [springboot-hello-world](/springboot-hello-world) gearbeitet.
+Heute am 2024-12-27 habe ich mit dem Beispielprojekt [github:java-example-springboot-hello-world](git@github.com:uli-heller/java-example-springboot-hello-world.git) gearbeitet.
 Dabei erschien diese Fehlermeldung:
 
 ```

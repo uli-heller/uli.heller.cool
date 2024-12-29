@@ -17,7 +17,7 @@ mit "Trivy" auf Sicherheitslücken untersuche.
 
 <!--more-->
 
-Ein Beispiel-Java-Projekt findet sich hier:  [springboot-hello-world](/springboot-hello-world)
+Ein Beispiel-Java-Projekt findet sich hier:  [github:java-example-springboot-hello-world](git@github.com:uli-heller/java-example-springboot-hello-world.git)
 
 Wichtig ist insbesondere dieser Teil in "build.gradle":
 
@@ -77,7 +77,7 @@ Links
 -----
 
 - [Github - Trivy - Releases](https://github.com/aquasecurity/trivy/releases)
-- [Beispielprojekt](/springboot-hello-world)
+- [github:java-example-Beispielprojekt](git@github.com:uli-heller/java-example-springboot-hello-world.git)
 
 Versionen
 ---------
