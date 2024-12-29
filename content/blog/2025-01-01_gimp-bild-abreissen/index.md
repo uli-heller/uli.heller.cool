@@ -155,6 +155,7 @@ Links
 -----
 
 - [GIMP](https://www.gimp.org)
+- [daemons-point.com: GIMP: Bildchen abreissen](https://daemons-point.com/blog/2020/05/30/gimp-abreissen/)
 
 Versionen
 ---------
