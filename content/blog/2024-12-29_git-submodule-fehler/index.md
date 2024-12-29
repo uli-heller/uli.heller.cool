@@ -18,6 +18,25 @@ zum Bauen funktioniert auch nicht mehr.
 
 <!--more-->
 
+Fehlermeldung in der Github-Action
+----------------------------------
+
+[Fehlermeldung in der Github-Action](https://github.com/uli-heller/uli.heller.cool/actions/runs/12519060308):
+
+```
+Annotations
+  2 errors and 2 warnings
+
+build
+  No url found for submodule path 'themes/hugo-clarity.orig' in .gitmodules
+build
+  The process '/usr/bin/git' failed with exit code 128
+build
+  ubuntu-latest pipelines will use ubuntu-24.04 soon. For more details, see https://github.com/actions/runner-images/issues/10636
+build
+  The process '/usr/bin/git' failed with exit code 128
+```
+
 Fehlermeldung bei "git commit"
 ------------------------------
 
