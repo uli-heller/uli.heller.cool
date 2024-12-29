@@ -1,7 +1,7 @@
 ---
 date: 2024-12-30
 draft: false
-title: Git: Projekte auslagern
+title: 'Git: Projekte auslagern'
 categories:
  - Git
 tags:
