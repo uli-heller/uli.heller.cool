@@ -25,12 +25,12 @@ Liste der Java-Projekte
 -----------------------
 
 - static/gradle-artifactory ... erledigt
-- static/gradle-maven-publish
-- static/gradle-bom
-- static/gradle-bom-use
-- static/springboot-hello-world
+- static/gradle-maven-publish ... erledigt
+- static/gradle-bom ... erledigt
+- static/gradle-bom-use ... erledigt
+- static/springboot-hello-world ... erledigt
 - static/my-gradle-project ... erledigt
-- static/gradle-proxy
+- static/gradle-proxy ... erledigt
 
 Neue Heimat
 -----------
