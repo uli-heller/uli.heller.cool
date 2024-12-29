@@ -126,8 +126,8 @@ Vereinen und Schatten
 - Filter
   - Licht und Schatten
   - Schlagschatten (veraltet)
-    - VersatzX: 4
-    - VersatzY: 4
+    - VersatzX: 4 (oder auch 8)
+    - VersatzY: 4 (oder auch 8)
     - Weichzeichnenradius: 15
     - Farbe: Schwarz
     - Deckkraft: 60
@@ -150,7 +150,14 @@ Finales Ergebnis
 ----------------
 
 ![Abgerissenes Bild](images/home-top-abgerissen.png?width=800pt)
-  
+
+Dunkles Bild
+------------
+
+![Terminal](images/terminal.png)
+
+![Terminal abgerissen](images/terminal-abgrissen.png)
+
 Links
 -----
 
