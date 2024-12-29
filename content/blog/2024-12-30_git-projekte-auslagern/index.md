@@ -17,7 +17,8 @@ als Code-Beispiele gespeichert. Leider
 zeigt sich, dass deren Verlinkung nicht gut funktioniert.
 
 Nun möchte ich diese Projekte auslagern in eigene
-Github-Projekte. Links darauf funktionieren sicher.
+Github-Projekte inklusive der Git-Historie.
+Links darauf funktionieren dann sicher.
 
 <!--more-->
 
