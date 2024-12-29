@@ -33,7 +33,7 @@ und diese möchte ich "ausblenden".
 Ausgangspunkt: Java-Projekt mit der BOM-Abhängigkeit
 ----------------------------------------------------
 
-Beispiel: [gradle-bom](/gradle-bom).
+Beispiel: [github:java-example-gradle-bom](git@github.com:uli-heller/java-example-gradle-bom.git).
 
 Das Projekt erzeugt per Standard die POM-Datei gradle-bom-1.0.0.pom:
 
