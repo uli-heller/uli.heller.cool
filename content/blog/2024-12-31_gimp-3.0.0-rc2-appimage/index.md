@@ -47,7 +47,7 @@ Einspielen
 Links
 -----
 
-TBD
+- [GIMP](https://www.gimp.org)
 
 Historie
 --------
