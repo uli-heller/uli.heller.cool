@@ -102,7 +102,7 @@ Links
 -----
 
 - [Gradle - Maven Publish Plugin](https://docs.gradle.org/current/userguide/publishing_maven.html)
-- [my-gradle-project](/my-gradle-project)
+- [github:java-example-my-gradle-project](https://github.com/uli-heller/java-example-my-gradle-project)
 
 Historie
 --------

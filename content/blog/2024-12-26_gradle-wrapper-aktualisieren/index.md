@@ -20,7 +20,7 @@ aktualisieren. Hier zeige ich den Ablauf!
 Beispielprojekt
 ---------------
 
-Mein Beispielprojekt liegt hier: [my-gradle-project](/my-gradle-project).
+Mein Beispielprojekt liegt hier: [github:java-example-my-gradle-project](https://github.com/uli-heller/java-example-my-gradle-project).
 
 Aktualisieren
 -------------
@@ -50,7 +50,7 @@ Getestet mit
 Links
 -----
 
-- [my-gradle-project](/my-gradle-project)
+- [github:java-example-my-gradle-project](https://github.com/uli-heller/java-example-my-gradle-project)
 
 Historie
 --------
