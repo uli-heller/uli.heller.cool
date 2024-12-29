@@ -27,7 +27,7 @@ Hier beschreibe ich Konfiguration und Probleme.
 Beispielprojekt
 ---------------
 
-Mein Beispielprojekt liegt hier: [gradle-proxy](/gradle-proxy).
+Mein Beispielprojekt liegt hier: [github:java-example-gradle-proxy](git@github.com:uli-heller/java-example-gradle-proxy.git).
 
 Zunächst: Proxy für alles
 -------------------------
@@ -317,7 +317,7 @@ Getestet mit
 Links
 -----
 
-- [Beispielprojekt gradle-proxy](/gradle-proxy)
+- [github:java-example-Beispielprojekt gradle-proxy](git@github.com:uli-heller/java-example-gradle-proxy.git)
 
 Historie
 --------
