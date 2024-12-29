@@ -41,8 +41,16 @@ Auf Höhe skalieren
 Hintergrund transparent
 -----------------------
 
-- `convert static/images/stuttgart.svg stuttgart.png` ... liefert einen weißen Hintergrund
-- `convert static/images/stuttgart.svg -transparent white stuttgart-t.png` ... liefert einen transparenten Hintergrund
+- [Original](images/stuttgart.svg)
+- `convert stuttgart.svg stuttgart.png` ... [liefert einen weißen Hintergrund](images/stuttgart.png)
+- `convert stuttgart.svg -transparent white stuttgart-t.png` ... [liefert einen transparenten Hintergrund](images/stuttgart-t.png)
+
+Skalieren und transparent
+-------------------------
+
+- [Original](images/stuttgart.svg)
+- `convert stuttgart.svg -resize 60x -transparent white stuttgart-rt.png` ... [unschönes Bild mit weißem Rand](images/stuttgart-rt.png)
+- `convert stuttgart.svg -transparent white -resize 60x stuttgart-tr.png? ... [besseres Bild ohne Rand](images/stuttgart-tr.png)
 
 Dateigröße reduzieren
 ---------------------
@@ -57,6 +65,7 @@ Wandeln nach PDF
 Historie
 --------
 
+- 2024-12-29: Transparenz
 - 2024-12-10: Wandeln nach PDF
 - 2024-11-25: Dateigröße reduzieren
 - 2024-11-22: Skalieren auf Breite und Höhe
