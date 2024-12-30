@@ -158,6 +158,16 @@ rm -rf /tmp/git-separation
 )
 ```
 
+Ergebnis
+--------
+
+Was habe ich damit erreicht?
+
+- Die Java-Beispiel-Projekte unterhalb von [static](https://github.com/uli-heller/uli.heller.cool/tree/main/static) sind weg
+- Für jedes Java-Beispiel-Projekt gibt es ein eigenes Github-Repo [hier](https://github.com/uli-heller)
+- Alle Java-Beispiel-Projekte sind aufgelistet unter "Links" (siehe unten)
+- Jedes Java-Beispiel-Projekt hat seine Änderungshistorie behalten
+
 Links
 -----
 
