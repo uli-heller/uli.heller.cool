@@ -142,7 +142,10 @@ Links
 Versionen
 ---------
 
-Getestet mit Ubutu-22.04 und gocryptfs-1.8.0-1ubuntu0.1.
+Getestet mit
+
+- Ubuntu-22.04 und gocryptfs-1.8.0-1ubuntu0.1
+- Ubuntu-20.04 unt gocryptfs-1.7.1-1ubuntu0.1
 
 Historie
 --------
