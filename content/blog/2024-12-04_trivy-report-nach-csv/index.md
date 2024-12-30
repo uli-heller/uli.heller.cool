@@ -11,7 +11,7 @@ TRIVY: JSON nach CSV wandeln
 =========================
 -->
 
-TRIVE ist ein Sicherheitsscanner. Seine Berichte
+TRIVE ist ein Sicherheitsscanner. Die Berichte des Scanners
 kann man in verschiedenen Formaten erzeugen, bspw.
 auch im HTML-Format zur Einbindung in Webseiten.
 Leider fehlen dann gewisse Informationen, bspw. der SCORE.
@@ -24,7 +24,7 @@ mit JQ in's CSV-Format wandele.
 Wandel-Skript
 -------------
 
-[trivy-json-2-csv.sh](trivy-json-2-csv.sh)
+[trivy-check-json-2-csv.sh](trivy-check-json-2-csv.sh)
 
 ```
 jq -r '["score","severity","cve","pkgname","title","description","installed_version","fixed_version","target","class","type"],
@@ -43,7 +43,7 @@ Test
 ----
 
 ```
-./trivy-json-2-csv.sh <ubuntu-2404.trivy-check.json >ubuntu-2404.trivy-check.csv
+./trivy-check-json-2-csv.sh <ubuntu-2404.trivy-check.json >ubuntu-2404.trivy-check.csv
 ```
 
 [ubuntu-2404.trivy-check.csv](ubuntu-2404.trivy-check.csv):
@@ -78,4 +78,5 @@ Erzeugte Dateien:
 Historie
 --------
 
+- 2024-12-30: trivy-json -> trivy-check-json (zur Abgrenzung gegenüber trivy-sbom-json)
 - 2024-12-04: Erste Version
