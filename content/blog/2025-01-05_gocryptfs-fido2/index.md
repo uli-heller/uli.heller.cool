@@ -108,7 +108,8 @@ Leider sind bei gibt es bei 2.4.0 die Aufrufoption "--fido2-assert-option" nicht
 Sichtung des Github-Repos:
 
 - 2.4.0 wurde angelegt im Juni 2023
-- "fido2-assert-option" gibt es seit grob 9 Monaten, also seit März 2024
+- "fido2-assert-option" gibt es seit grob 9 Monaten, also seit April 2024
+  [Github-Commit](https://github.com/rfjakob/gocryptfs/commit/4b6b9553c4a2e14fd809754f6bf187957ff3cdfd)
 
 Links
 -----
