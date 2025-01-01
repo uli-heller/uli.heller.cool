@@ -53,6 +53,99 @@ $ proot -R /tmp/proot-tests/rootfs -0 /bin/bash
 #
 ```
 
+Test: Bauen von Paketen
+-----------------------
+
+```
+$ proot -S /tmp/proot-tests/rootfs /bin/bash
+root:~ # sed -e "s,^deb ,deb-src ," /etc/apt/sources.list >/etc/apt/sources.list.d/deb-src.list
+root:~ # mkdir /src
+root:~ # cd /src
+root:/src # apt update
+Hit:1 http://archive.ubuntu.com/ubuntu noble InRelease
+Get:2 http://archive.ubuntu.com/ubuntu noble-updates InRelease [126 kB]
+Get:3 http://archive.ubuntu.com/ubuntu noble-backports InRelease [126 kB]
+...
+root:/src # apt source at
+Reading package lists... Done
+NOTICE: 'at' packaging is maintained in the 'Git' version control system at:
+https://salsa.debian.org/debian/at.git -b debian
+Please use:
+git clone https://salsa.debian.org/debian/at.git -b debian
+to retrieve the latest (possibly unreleased) updates to the package.
+Need to get 157 kB of source archives.
+Get:1 http://archive.ubuntu.com/ubuntu noble/universe at 3.2.5-2.1ubuntu3 (dsc) [2078 B]
+Get:2 http://archive.ubuntu.com/ubuntu noble/universe at 3.2.5-2.1ubuntu3 (tar) [133 kB]
+Get:3 http://archive.ubuntu.com/ubuntu noble/universe at 3.2.5-2.1ubuntu3 (diff) [21.9 kB]
+Fetched 157 kB in 2s (101 kB/s)
+sh: 1: dpkg-source: not found
+E: Unpack command 'dpkg-source --no-check -x at_3.2.5-2.1ubuntu3.dsc' failed.
+N: Check if the 'dpkg-dev' package is installed.
+
+root:/src # apt install -y dpkg-dev
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+The following additional packages will be installed:
+  binutils binutils-common binutils-x86-64-linux-gnu build-essential bzip2 cpp cpp-13 cpp-13-x86-64-linux-gnu
+  cpp-x86-64-linux-gnu dirmngr fakeroot fontconfig-config fonts-dejavu-core fonts-dejavu-mono g++ g++-13
+...
+Setting up libheif-plugin-aomdec:amd64 (1.17.6-1ubuntu4.1) ...
+Setting up libheif-plugin-libde265:amd64 (1.17.6-1ubuntu4.1) ...
+Setting up libheif-plugin-aomenc:amd64 (1.17.6-1ubuntu4.1) ...
+Processing triggers for libc-bin (2.39-0ubuntu8.3) ...
+
+root:/src # apt source at
+Reading package lists... Done
+NOTICE: 'at' packaging is maintained in the 'Git' version control system at:
+https://salsa.debian.org/debian/at.git -b debian
+Please use:
+git clone https://salsa.debian.org/debian/at.git -b debian
+to retrieve the latest (possibly unreleased) updates to the package.
+Skipping already downloaded file 'at_3.2.5-2.1ubuntu3.dsc'
+Skipping already downloaded file 'at_3.2.5.orig.tar.gz'
+Skipping already downloaded file 'at_3.2.5-2.1ubuntu3.debian.tar.xz'
+Need to get 0 B of source archives.
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LANG = "de_DE.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to the standard locale ("C").
+dpkg-source: info: extracting at in at-3.2.5
+dpkg-source: info: unpacking at_3.2.5.orig.tar.gz
+dpkg-source: info: unpacking at_3.2.5-2.1ubuntu3.debian.tar.xz
+
+root:/src # cd at-3.2.5
+
+root:/src/at-3.2.5 # apt build-dep at
+Reading package lists... Done
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+The following NEW packages will be installed:
+  autoconf automake autopoint autotools-dev bison bsdextrautils debhelper debugedit dh-autoreconf dh-strip-nondeterminism
+...
+Building database of manual pages ...
+setpriv: setresgid failed: Operation not permitted
+Created symlink /etc/systemd/system/timers.target.wants/man-db.timer → /usr/lib/systemd/system/man-db.timer.
+Setting up debhelper (13.14.1ubuntu5) ...
+Processing triggers for libc-bin (2.39-0ubuntu8.3) ...
+
+root:/src/at-3.2.5 # dpkg-buildpackage
+...
+perl: warning: Falling back to the standard locale ("C").
+dpkg-buildpackage: info: binary and diff upload (original source NOT included)
+ signfile at_3.2.5-2.1ubuntu3.dsc
+gpg: skipped "William Grant <wgrant@ubuntu.com>": No secret key
+gpg: dpkg-sign._2J_Wmec/at_3.2.5-2.1ubuntu3.dsc: clear-sign failed: No secret key
+dpkg-buildpackage: error: failed to sign at_3.2.5-2.1ubuntu3.dsc file: OpenPGP backend command cannot sign
+```
+
+Trotz "scheinbarem" Fehler hat alles geklappt!
+Also: DEB-Paket bauen ohne "root" geht!
+
 Fehler und Probleme
 -------------------
 
