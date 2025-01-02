@@ -86,6 +86,29 @@ Do 2. Jan 09:03:34 CET 2025
 $ fusermount -u decrypted
 ```
 
+Sichtung des Fido2-Gerätes am Arbeitsplatzrechner
+-------------------------------------------------
+
+```
+$ fido2-token -L 
+/dev/hidraw2: vendor=0x0483, product=0xa2ca (SoloKeys Solo 4.1.5)
+```
+
+Ich habe einen Solokey und das Gerät heißt "/dev/hidraw2".
+
+Initialisierung mit dem Solokey
+-------------------------------
+
+```
+$ mkdir encrypted-s
+$ gocryptfs --init --fido2 /dev/hidraw2 \
+  --config encrypted-s/gocryptfs-solo.conf \
+  encrypted-s
+
+
+gocryptfs -passwd -masterkey bce87b84-c2b6152c-7a74cbb3-8c7e8d37-804741c2-46cd797a-9b5571ff-7565757c encrypted
+
+```
 
 Sichtung GOCRYPTFS
 ------------------
