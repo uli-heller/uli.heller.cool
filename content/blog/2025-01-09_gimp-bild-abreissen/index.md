@@ -1,5 +1,5 @@
 +++
-date = '2025-01-01'
+date = '2025-01-09'
 draft = false
 title = 'GIMP: Bild abreissen'
 categories = [ 'Bildchen' ]
@@ -172,4 +172,4 @@ Getestet mit Ubutu-22.04 und GIMP-3.0.0-RC2.
 Historie
 --------
 
-- 2025-01-01: Erste Version
+- 2025-01-09: Erste Version

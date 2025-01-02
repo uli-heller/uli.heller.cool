@@ -1,5 +1,5 @@
 +++
-date = '2025-01-09'
+date = '2025-01-02'
 draft = false
 title = 'Verschlüsseltes Dateisystem mit GOCRYPTFS - mehrere Fido2-Geräte'
 categories = [ 'Verschlüsselung' ]
@@ -208,4 +208,4 @@ Getestet mit
 Historie
 --------
 
-- 2025-01-09: Erste Version
+- 2025-01-02: Erste Version
