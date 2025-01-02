@@ -46,6 +46,23 @@ Ungünstig:
 - Änderungsnachricht leer - Abhilfe: Text hinten an's Kommando dranhängen
 - Editor erfordert manuelle Eingriffe - Abhilfe: Text hinten an's Kommando dranhängen
 
+Neuen Versionseintrag erstellen beim Umpacken
+---------------------------------------------
+
+```
+DEBFULLNAME="Uli Heller" DEBEMAIL=uli@heller.cool debchange --changelog data/changelog --distribution focal --local "~uli" "Repackaged for focal/20.04" 
+```
+
+Damit ergeben sich diese Versionsnummern:
+
+- data/changelog: 2.4.0-1ubuntu0.24.04.2 -> 2.4.0-1ubuntu0.24.04.2~uli1
+- data/changelog: 2.4.0-1ubuntu0.24.04.2~uli1 -> 2.4.0-1ubuntu0.24.04.2~uli2
+- data/dh-golang: 1.53 -> 1.53~uli1
+- golang-defaults: 2:1.22~2build1 -> 2:1.22~2build1~uli1
+- golang-github-hanwen-go-fuse: 2.0.3-1 -> 2.0.3-1~uli1
+- golang-github-moby-sys: 0.0~git20231105.a4e0878-1 -> 0.0~git20231105.a4e0878-1~uli1
+- golang-github-sabhiram-go-gitignore: 1.0.2+git20210923.525f6e1-1 -> 1.0.2+git20210923.525f6e1-1~uli1
+
 Links
 -----
 
