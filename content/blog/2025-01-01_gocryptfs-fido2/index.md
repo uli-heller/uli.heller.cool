@@ -1,9 +1,9 @@
 +++
-date = '2025-01-05'
+date = '2025-01-01'
 draft = false
 title = 'Verschlüsseltes Dateisystem mit GOCRYPTFS - Fido2'
 categories = [ 'Verschlüsselung' ]
-tags = [ 'crypto', 'linux', 'ubuntu' ]
+tags = [ 'crypto', 'fido2', 'linux', 'ubuntu' ]
 +++
 
 <!--Verschlüsseltes Dateisystem mit GOCRYPTFS - Fido2-->
@@ -127,4 +127,4 @@ Getestet mit
 Historie
 --------
 
-- 2025-01-05: Erste Version
+- 2025-01-01: Erste Version

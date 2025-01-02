@@ -1,15 +1,15 @@
 +++
-date = '2025-01-08'
+date = '2025-01-01'
 draft = false
 title = 'Verschlüsseltes Dateisystem mit GOCRYPTFS - Fido2 und kompliziertes Kennwort'
 categories = [ 'Verschlüsselung' ]
-tags = [ 'crypto', 'linux', 'ubuntu' ]
+tags = [ 'crypto', 'fido2', 'linux', 'ubuntu' ]
 +++
 
 <!--Verschlüsseltes Dateisystem mit GOCRYPTFS - Fido2 und kompliziertes Kennwort-->
 <!--============================================================================-->
 
-Im Artikel [Verschlüsseltes Dateisystem mit GOCRYPTFS - Fido2]({{< ref  "/blog/2025-01-05_gocryptfs-fido2" >}})
+Im Artikel [Verschlüsseltes Dateisystem mit GOCRYPTFS - Fido2]({{< ref  "/blog/2025-01-01_gocryptfs-fido2" >}})
 habe ich beschrieben, wie ich
 GOCRYPTFS mit einem
 Fido2-Gerät verwende. Das funktioniert ganz gut, hat aber ein Problem:
@@ -25,7 +25,7 @@ wenn mein Fido2-Gerät gerade nicht zur Verfügung steht.
 Initialisierung mit Fido2
 -------------------------
 
-Vorgehen analog zum Artikel [Verschlüsseltes Dateisystem mit GOCRYPTFS - Fido2]({{< ref  "/blog/2025-01-05_gocryptfs-fido2" >}}):
+Vorgehen analog zum Artikel [Verschlüsseltes Dateisystem mit GOCRYPTFS - Fido2]({{< ref  "/blog/2025-01-01_gocryptfs-fido2" >}}):
 
 ```
 $ fido2-token -L 
@@ -152,7 +152,7 @@ Links
 
 - [Homepage: gocryptfs](https://nuetzlich.net/gocryptfs/)
 - [GITHUB: gocryptfs](https://github.com/rfjakob/gocryptfs)
-- [Verschlüsseltes Dateisystem mit GOCRYPTFS - Fido2]({{< ref  "/blog/2025-01-05_gocryptfs-fido2" >}})
+- [Verschlüsseltes Dateisystem mit GOCRYPTFS - Fido2]({{< ref  "/blog/2025-01-01_gocryptfs-fido2" >}})
 
 Versionen
 ---------
@@ -164,4 +164,4 @@ Getestet mit
 Historie
 --------
 
-- 2025-01-08: Erste Version
+- 2025-01-01: Erste Version

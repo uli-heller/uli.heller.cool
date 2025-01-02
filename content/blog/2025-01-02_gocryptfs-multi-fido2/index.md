@@ -3,7 +3,7 @@ date = '2025-01-02'
 draft = false
 title = 'Verschlüsseltes Dateisystem mit GOCRYPTFS - mehrere Fido2-Geräte'
 categories = [ 'Verschlüsselung' ]
-tags = [ 'crypto', 'linux', 'ubuntu' ]
+tags = [ 'crypto', 'fido2', 'linux', 'ubuntu' ]
 +++
 
 <!--Verschlüsseltes Dateisystem mit GOCRYPTFS - mehrere Fido2-Geräte-->
@@ -29,12 +29,12 @@ Grundlegende Idee
 
 - Konfigurieren für ein Fido2-Gerät
 - Zweites Fido2-Gerät hinzufügen ähnlich wie
-  [Verschlüsseltes Dateisystem mit GOCRYPTFS - Fido2 und kompliziertes Kennwort]({{< ref  "/blog/2025-01-08_gocryptfs-multi" >}}):
+  [Verschlüsseltes Dateisystem mit GOCRYPTFS - Fido2 und kompliziertes Kennwort]({{< ref  "/blog/2025-01-01_gocryptfs-kennwort-und-fido2" >}}):
 
 Dateisystem mit einem Fido2-Gerät
 ---------------------------------
 
-- Ich verwende das Dateisystem von [Verschlüsseltes Dateisystem mit GOCRYPTFS - Fido2 und kompliziertes Kennwort]({{< ref  "/blog/2025-01-08_gocryptfs-multi" >}})
+- Ich verwende das Dateisystem von [Verschlüsseltes Dateisystem mit GOCRYPTFS - Fido2 und kompliziertes Kennwort]({{< ref  "/blog/2025-01-01_gocryptfs-kennwort-und-fido2" >}})
 - Verschlüsselt: [encrypted](encrypted) (... auf der Webseite vermutlich nicht sinnvoll weiterverwendbar)
   - `git mv encrypted/gocryptfs.conf  encrypted/gocryptfs-nitro.conf`
   - `git rm encrypted/gocryptfs-password.conf`

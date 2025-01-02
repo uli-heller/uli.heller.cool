@@ -1,5 +1,5 @@
 +++
-date = '2025-01-01'
+date = '2024-12-31'
 draft = false
 title = 'Verschlüsseltes Dateisystem mit GOCRYPTFS'
 categories = [ 'Verschlüsselung' ]
@@ -150,4 +150,4 @@ Getestet mit
 Historie
 --------
 
-- 2025-01-01: Erste Version
+- 2024-12-31: Erste Version
