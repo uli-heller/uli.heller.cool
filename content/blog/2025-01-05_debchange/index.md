@@ -62,6 +62,7 @@ Damit ergeben sich diese Versionsnummern:
 - golang-github-hanwen-go-fuse: 2.0.3-1 -> 2.0.3-1~uli1
 - golang-github-moby-sys: 0.0~git20231105.a4e0878-1 -> 0.0~git20231105.a4e0878-1~uli1
 - golang-github-sabhiram-go-gitignore: 1.0.2+git20210923.525f6e1-1 -> 1.0.2+git20210923.525f6e1-1~uli1
+- data/changelog-test1: 2.4.0-1ubuntu0.24.04.2~dp01~focal2 -> 2.4.0-1ubuntu0.24.04.2~dp01~focal2~uli1
 
 Links
 -----
