@@ -44,7 +44,64 @@ Erweitern um zweites Fido2-Gerät
 --------------------------------
 
 ```
-$ 
+$ mkdir encrypted-s
+$ gocryptfs --init --fido2 /dev/hidraw2 --config encrypted/gocryptfs-solo.conf encrypted-s
+Using config file at custom location /home/uli/git/github/uli-heller/uli.heller.cool/content/blog/2025-01-09_gocryptfs-multi-fido2/encrypted/gocryptfs-solo.conf
+FIDO2 Register: interact with your device ...
+FIDO2 Secret: interact with your device ...
+...
+  # Angezeigter Masterkey wird nicht benötigt!
+$ rm -rf encrypted-s
+
+$ gocryptfs --passwd --masterkey 3eca91ba-52c4391d-5d7ce783-b07e40f2-a3808dfd-a08c7ee5-a9577f97-cc6085d3 \
+  --fido2 /dev/hidraw2 \
+  --config encrypted/gocryptfs-solo.conf \
+  encrypted
+Using config file at custom location /home/uli/git/github/uli-heller/uli.heller.cool/content/blog/2025-01-09_gocryptfs-multi-fido2/encrypted/gocryptfs-solo.conf
+Using explicit master key.
+THE MASTER KEY IS VISIBLE VIA "ps ax" AND MAY BE STORED IN YOUR SHELL HISTORY!
+ONLY USE THIS MODE FOR EMERGENCIES
+Password change is not supported on FIDO2-enabled filesystems.
+```
+
+So einfach geht es also leider nicht!
+
+Anpassungen an GOCRYPTFS
+------------------------
+
+```diff
+diff --git a/main.go b/main.go
+index cd643b5..9bd76dd 100644
+--- a/main.go
++++ b/main.go
+@@ -78,15 +78,19 @@ func changePassword(args *argContainer) {
+                if len(masterkey) == 0 {
+                        log.Panic("empty masterkey")
+                }
++               var newPw []byte
+                if confFile.IsFeatureFlagSet(configfile.FlagFIDO2) {
+-                       tlog.Fatal.Printf("Password change is not supported on FIDO2-enabled filesystems.")
+-                       os.Exit(exitcodes.Usage)
+-               }
+-               tlog.Info.Println("Please enter your new password.")
+-               newPw, err := readpassword.Twice(nil, nil)
+-               if err != nil {
+-                       tlog.Fatal.Println(err)
+-                       os.Exit(exitcodes.ReadPassword)
++                       var fido2CredentialID, fido2HmacSalt []byte
++                       fido2CredentialID = confFile.FIDO2.CredentialID //fido2.Register(args.fido2, filepath.Base(args.cipherdir))
++                       fido2HmacSalt = confFile.FIDO2.HMACSalt //cryptocore.RandBytes(32)
++                       newPw = fido2.Secret(args.fido2, args.fido2_assert_options, fido2CredentialID, fido2HmacSalt)
++               } else {
++                       tlog.Info.Println("Please enter your new password.")
++                       newPw, err = readpassword.Twice(nil, nil)
++                       if err != nil {
++                          tlog.Fatal.Println(err)
++                          os.Exit(exitcodes.ReadPassword)
++                       }
+                }
+                logN := confFile.ScryptObject.LogN()
+                if args._explicitScryptn {
 ```
 
 Sichtung des Fido2-Gerätes am Laptop
