@@ -104,10 +104,36 @@ $ mkdir encrypted-s
 $ gocryptfs --init --fido2 /dev/hidraw2 \
   --config encrypted-s/gocryptfs-solo.conf \
   encrypted-s
+Using config file at custom location /home/uli/git/github/uli-heller/uli.heller.cool/content/blog/2025-01-08_gocryptfs-multi/encrypted-s/gocryptfs-solo.conf
+FIDO2 Register: interact with your device ...
+Enter PIN for /dev/hidraw2:
+  # PIN eingeben und Knopf auf Solokey drücken
+FIDO2 Secret: interact with your device ...
+  # Knopf auf Solokey drücken
 
+Your master key is:
 
-gocryptfs -passwd -masterkey bce87b84-c2b6152c-7a74cbb3-8c7e8d37-804741c2-46cd797a-9b5571ff-7565757c encrypted
+    b82abf6f-ec17405e-c678a518-7ba37a1e-
+    af33d379-54217cc5-01d691be-ad1bddd3
 
+If the gocryptfs.conf file becomes corrupted or you ever forget your password,
+there is only one hope for recovery: The master key. Print it to a piece of
+paper and store it in a drawer. This message is only printed once.
+The gocryptfs filesystem has been created successfully.
+You can now mount it using: gocryptfs encrypted-s MOUNTPOINT
+
+$ cp encrypted-s/gocryptfs-solo.conf encrypted/.
+$ rm -rf encrypted-s
+
+$ gocryptfs --passwd --masterkey dea5f281-7ce0e001-1fb1d042-1f0410c7-fab9cc43-2bf4b3e9-7ed759ad-cd86d0f1 \
+  --fido2 /dev/hidraw2 \
+  --config encrypted/gocryptfs-solo.conf \
+  encrypted
+Using config file at custom location /home/uli/git/github/uli-heller/uli.heller.cool/content/blog/2025-01-08_gocryptfs-multi/encrypted/gocryptfs-solo.conf
+Using explicit master key.
+THE MASTER KEY IS VISIBLE VIA "ps ax" AND MAY BE STORED IN YOUR SHELL HISTORY!
+ONLY USE THIS MODE FOR EMERGENCIES
+Password change is not supported on FIDO2-enabled filesystems.
 ```
 
 Sichtung GOCRYPTFS
@@ -195,6 +221,54 @@ Sichtung des Github-Repos:
 - 2.4.0 wurde angelegt im Juni 2023
 - "fido2-assert-option" gibt es seit grob 9 Monaten, also seit April 2024
   [Github-Commit](https://github.com/rfjakob/gocryptfs/commit/4b6b9553c4a2e14fd809754f6bf187957ff3cdfd)
+
+Notizen
+-------
+
+```
+uli@ulicsl:~/git/github/uli-heller/uli.heller.cool/content/blog/2025-01-08_gocryptfs-multi$ mkdir encrypted-s
+uli@ulicsl:~/git/github/uli-heller/uli.heller.cool/content/blog/2025-01-08_gocryptfs-multi$ gocryptfs --init --fido2 /dev/hidraw2 encrypted-s
+FIDO2 Register: interact with your device ...
+Enter PIN for /dev/hidraw2: 
+FIDO2 Secret: interact with your device ...
+
+Your master key is:
+
+    ab16ad29-dc256b5f-6ba55359-586df2d5-
+    1fa2c213-3b3842c6-6c882174-51d008bb
+
+If the gocryptfs.conf file becomes corrupted or you ever forget your password,
+there is only one hope for recovery: The master key. Print it to a piece of
+paper and store it in a drawer. This message is only printed once.
+The gocryptfs filesystem has been created successfully.
+You can now mount it using: gocryptfs encrypted-s MOUNTPOINT
+uli@ulicsl:~/git/github/uli-heller/uli.heller.cool/content/blog/2025-01-08_gocryptfs-multi$ mkdir secret-s
+uli@ulicsl:~/git/github/uli-heller/uli.heller.cool/content/blog/2025-01-08_gocryptfs-multi$ cat >secret-s/masterkey.txt
+Your master key is:
+
+    ab16ad29-dc256b5f-6ba55359-586df2d5-
+    1fa2c213-3b3842c6-6c882174-51d008bb
+
+If the gocryptfs.conf file becomes corrupted or you ever forget your password,
+there is only one hope for recovery: The master key. Print it to a piece of
+paper and store it in a drawer. This message is only printed once.
+
+uli@ulicsl:~/git/github/uli-heller/uli.heller.cool/content/blog/2025-01-08_gocryptfs-multi$ mkdir decrypted-s
+uli@ulicsl:~/git/github/uli-heller/uli.heller.cool/content/blog/2025-01-08_gocryptfs-multi$ gocryptfs --fido2 /dev/hidraw2 encrypted-s decrypted-s
+FIDO2 Secret: interact with your device ...
+Decrypting master key
+Filesystem mounted and ready.
+uli@ulicsl:~/git/github/uli-heller/uli.heller.cool/content/blog/2025-01-08_gocryptfs-multi$ mkdir decrypted-s
+uli@ulicsl:~/git/github/uli-heller/uli.heller.cool/content/blog/2025-01-08_gocryptfs-multi$ gocryptfs --fido2 /dev/hidraw2 encrypted-s decrypted-s
+FIDO2 Secret: interact with your device ...
+Decrypting master key
+Filesystem mounted and ready.
+uli@ulicsl:~/git/github/uli-heller/uli.heller.cool/content/blog/2025-01-08_gocryptfs-multi$ date >decrypted-s/secret-date-solo.txt
+uli@ulicsl:~/git/github/uli-heller/uli.heller.cool/content/blog/2025-01-08_gocryptfs-multi$ cat decrypted-s/secret-date-solo.txt
+Do 2. Jan 09:33:46 CET 2025
+uli@ulicsl:~/git/github/uli-heller/uli.heller.cool/content/blog/2025-01-08_gocryptfs-multi$ fusermount -u decrypted-s
+uli@ulicsl:~/git/github/uli-heller/uli.heller.cool/content/blog/2025-01-08_gocryptfs-multi$ rm -rf decrypted-s
+```
 
 Links
 -----
