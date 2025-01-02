@@ -86,6 +86,68 @@ Do 2. Jan 09:03:34 CET 2025
 $ fusermount -u decrypted
 ```
 
+Manuelles Kennwort
+------------------
+
+```
+$ mkdir encrypted-p
+$ gocryptfs --init \
+  --config encrypted-p/gocryptfs-password.conf \
+  encrypted-p
+Using config file at custom location /home/uli/git/github/uli-heller/uli.heller.cool/content/blog/2025-01-08_gocryptfs-multi/encrypted-p/gocryptfs-password.conf
+Choose a password for protecting your files.
+Password: 
+Repeat: 
+
+Your master key is:
+
+    6994ce88-b2a8d012-3fb0e043-a5e646db-
+    1c132a88-ed71f372-95d8ee49-d5711e5a
+
+If the gocryptfs.conf file becomes corrupted or you ever forget your password,
+there is only one hope for recovery: The master key. Print it to a piece of
+paper and store it in a drawer. This message is only printed once.
+The gocryptfs filesystem has been created successfully.
+You can now mount it using: gocryptfs encrypted-p MOUNTPOINT
+
+$ cp encrypted-p/gocryptfs-password.conf encrypted/.
+$ rm -rf encrypted-p
+
+$ gocryptfs --passwd --masterkey dea5f281-7ce0e001-1fb1d042-1f0410c7-fab9cc43-2bf4b3e9-7ed759ad-cd86d0f1 \
+  --config encrypted/gocryptfs-password.conf \
+  encrypted
+Using config file at custom location /home/uli/git/github/uli-heller/uli.heller.cool/content/blog/2025-01-08_gocryptfs-multi/encrypted/gocryptfs-password.conf
+Using explicit master key.
+THE MASTER KEY IS VISIBLE VIA "ps ax" AND MAY BE STORED IN YOUR SHELL HISTORY!
+ONLY USE THIS MODE FOR EMERGENCIES
+Please enter your new password.
+Password: 
+Repeat: 
+A copy of the old config file has been created at "/home/uli/git/github/uli-heller/uli.heller.cool/content/blog/2025-01-08_gocryptfs-multi/encrypted/gocryptfs-password.conf.bak".
+Delete it after you have verified that you can access your files with the new password.
+Password changed.
+```
+
+Als "password" habe ich "1" eingegeben!
+
+Test:
+
+```
+$ mkdir decrypted
+$ gocryptfs --config  encrypted/gocryptfs-password.conf \
+  encrypted decrypted
+Using config file at custom location /home/uli/git/github/uli-heller/uli.heller.cool/content/blog/2025-01-08_gocryptfs-multi/encrypted/gocryptfs-password.conf
+Password: 
+Decrypting master key
+Filesystem mounted and ready.
+$ ls decrypted/
+secret-date.txt
+uli@ulicsl:~/git/github/uli-heller/uli.heller.cool/content/blog/2025-01-08_gocryptfs-multi$ cat decrypted/secret-date.txt 
+Do 2. Jan 09:03:34 CET 2025
+$ fusermount -u decrypted
+$ rmdir decrypted
+```
+
 Sichtung des Fido2-Gerätes am Arbeitsplatzrechner
 -------------------------------------------------
 
