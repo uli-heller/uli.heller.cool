@@ -1,0 +1,8 @@
+Your master key is:
+
+    ab16ad29-dc256b5f-6ba55359-586df2d5-
+    1fa2c213-3b3842c6-6c882174-51d008bb
+
+If the gocryptfs.conf file becomes corrupted or you ever forget your password,
+there is only one hope for recovery: The master key. Print it to a piece of
+paper and store it in a drawer. This message is only printed once.
