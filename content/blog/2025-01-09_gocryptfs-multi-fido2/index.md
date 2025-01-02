@@ -1,20 +1,41 @@
 +++
 date = '2025-01-08'
 draft = false
-title = 'Verschlüsseltes Dateisystem mit GOCRYPTFS - mehrere Schlüssel'
+title = 'Verschlüsseltes Dateisystem mit GOCRYPTFS - mehrere Fido2-Geräte'
 categories = [ 'Verschlüsselung' ]
 tags = [ 'crypto', 'linux', 'ubuntu' ]
 +++
 
-<!--Verschlüsseltes Dateisystem mit GOCRYPTFS - mehrere Schlüssel-->
-<!--=============================================================-->
+<!--Verschlüsseltes Dateisystem mit GOCRYPTFS - mehrere Fido2-Geräte-->
+<!--================================================================-->
 
-GOCRYPTFS kann auch in Verbindung mit mehreren
-Fido2-Gerät verwendet werden, also bspw.
-mit einem Nitrokey auf meinem Laptop und einem
-Solokey auf meinem Arbeitsplatzrechner.
+GOCRYPTFS kann auch in Verbindung mit
+Fido2-Geräten verwendet werden.
+Das ist sehr komfortabel, man muß sich
+keine Kennworte merken sondern nur
+auf sein Fido2-Gerät "aufpassen".
+
+Ich habe mehrere Fido2-Geräte: Einen Solokey, den
+ich primär an meinem Arbeitsplatzrechner nutze
+und einen Nitrokey für den Laptop.
+
+Ich würde das verschlüsselte Dateisystem gerne mit
+beiden Fido2-Geräten entsperren können!
 
 <!--more-->
+
+Grundlegende Idee
+-----------------
+
+- Konfigurieren für ein Fido2-Gerät
+- Zweites Fido2-Gerät hinzufügen ähnlich wie
+  [Verschlüsseltes Dateisystem mit GOCRYPTFS - Fido2 und kompliziertes Kennwort]({{< ref  "/blog/2025-01-08_gocryptfs-multi" >}}):
+
+Dateisystem mit einem Fido2-Gerät
+---------------------------------
+
+- Ich verwende das Dateisystem von [Verschlüsseltes Dateisystem mit GOCRYPTFS - Fido2 und kompliziertes Kennwort]({{< ref  "/blog/2025-01-08_gocryptfs-multi" >}})
+- 
 
 Sichtung des Fido2-Gerätes am Laptop
 ------------------------------------
