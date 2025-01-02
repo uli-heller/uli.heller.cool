@@ -1,0 +1,319 @@
+golang-defaults (2:1.22~2build1) noble; urgency=medium
+
+  * No-change rebuild for CVE-2024-3094
+
+ -- William Grant <wgrant@ubuntu.com>  Mon, 01 Apr 2024 16:49:40 +1100
+
+golang-defaults (2:1.22~2) unstable; urgency=medium
+
+  * Team upload
+  * Upload to unstable
+
+ -- Shengjing Zhu <zhsj@debian.org>  Mon, 26 Feb 2024 17:15:02 +0800
+
+golang-defaults (2:1.22~1) experimental; urgency=medium
+
+  * Team upload
+  * Update to Go 1.22 (src:golang-1.22)
+  * Bump gccgo to 14: gccgo-14 only implements go1.18.
+
+ -- Shengjing Zhu <zhsj@debian.org>  Thu, 22 Feb 2024 15:26:22 +0800
+
+golang-defaults (2:1.21~3) unstable; urgency=medium
+
+  * Extend golang-go to ppc64, but golang-any still points to gccgo-go
+    on ppc64.
+    This helps packages that want to use golang-go to on ppc64 even if it
+    violates the baseline requirements.
+
+ -- Shengjing Zhu <zhsj@debian.org>  Wed, 21 Feb 2024 18:51:50 +0800
+
+golang-defaults (2:1.21~2) unstable; urgency=medium
+
+  * Team upload
+  * Upload to unstable
+
+ -- Shengjing Zhu <zhsj@debian.org>  Wed, 16 Aug 2023 11:04:02 +0800
+
+golang-defaults (2:1.21~1) experimental; urgency=medium
+
+  * Team upload
+  * Make golang-any depends on determinate package (Closes: #1031351)
+  * Update to Go 1.21 (src:golang-1.21)
+
+ -- Shengjing Zhu <zhsj@debian.org>  Wed, 09 Aug 2023 16:45:21 +0800
+
+golang-defaults (2:1.20~2) unstable; urgency=medium
+
+  * Team upload
+  * Bump gccgo to 13: gccgo-13 only implements go1.18.
+
+ -- Shengjing Zhu <zhsj@debian.org>  Sun, 25 Jun 2023 23:39:28 +0800
+
+golang-defaults (2:1.20~1) unstable; urgency=medium
+
+  * Team upload
+  * Update Standards-Version to 4.6.2 (no changes)
+  * Update to Go 1.20 (src:golang-1.20)
+
+ -- Shengjing Zhu <zhsj@debian.org>  Sun, 11 Jun 2023 17:04:31 +0800
+
+golang-defaults (2:1.19~1) unstable; urgency=medium
+
+  * Update to Go 1.19 (src:golang-1.19)
+  * Update existing man pages to Go 1.19
+  * Add debian/README.source on keeping the man pages updated
+  * Bump Standards-Version to 4.6.1 (no change)
+
+ -- Anthony Fok <foka@debian.org>  Sat, 06 Aug 2022 13:09:49 -0600
+
+golang-defaults (2:1.18~3) unstable; urgency=medium
+
+  * Have gccgo-go depend on g++-12 too, as go-12 "go env CXX" refers
+    specifically to "${DEB_BUILD_GNU_TYPE}-g++-12", but g++-12 does not
+    get installed when the default g++ is still version 11.
+
+ -- Anthony Fok <foka@debian.org>  Tue, 22 Mar 2022 06:45:47 -0600
+
+golang-defaults (2:1.18~2) unstable; urgency=medium
+
+  * Bump gccgo to 12: gccgo-12 implements go1.18.
+    Thanks to Shengjing Zhu for letting me know!
+
+ -- Anthony Fok <foka@debian.org>  Mon, 21 Mar 2022 10:07:36 -0600
+
+golang-defaults (2:1.18~1) unstable; urgency=medium
+
+  [ Jelmer Vernooĳ: deb-scrub-obsolete ]
+  * Remove constraints unnecessary since buster
+    - golang-go: Drop versioned constraint on golang-doc and golang-go.tools
+      in Replaces and Breaks.
+
+  [ Anthony Fok ]
+  * Update to Go 1.18 (src:golang-1.18)
+  * Update man pages to Go 1.18
+  * Reorder fields in debian/control
+    as would be generated in the next dh-make-golang release after 0.6.0-1
+
+ -- Anthony Fok <foka@debian.org>  Mon, 21 Mar 2022 00:03:54 -0600
+
+golang-defaults (2:1.17~1) unstable; urgency=medium
+
+  * Update to Go 1.17.
+  * Update man pages to Go 1.17
+  * Convert golang-src "Architecture: all" and marked "Multi-Arch: foreign"
+    as recommended by the Multiarch hinter on Debian Package Tracker
+  * Mark Multi-Arch for golang-go and golang-doc
+    to resolve Lintian dependency-is-not-multi-archified warnings
+
+ -- Anthony Fok <foka@debian.org>  Fri, 15 Oct 2021 07:34:04 -0600
+
+golang-defaults (2:1.16~1) unstable; urgency=medium
+
+  [ Jenkins ]
+  * Remove constraints unnecessary since stretch
+    * golang-go: Drop versioned constraint on golang-golang-x-tools in Replaces.
+    * golang-go: Drop versioned constraint on golang-golang-x-tools in Breaks.
+    * Remove 1 maintscript entries from 1 files.
+    Changes-By: deb-scrub-obsolete
+
+  [ Anthony Fok ]
+  * Update to Go 1.16 (Closes: #993356)
+  * Change Section from devel to golang
+  * Change Maintainer from "Go Compiler Team" to "Debian Go Compiler Team"
+  * Bump Standards-Version to 4.6.0 (no change)
+  * Bump gccgo to 11: gccgo-11 implements Go 1.16 (Yay!)
+  * Updated most man pages to Go 1.16
+    - go-get(1) now documents the module-aware mode;
+      the original GOPATH mode doc has been moved to go-gopath-get(1)
+    - go-remote(7), go-testflag(7) and go-testfunc(7) are not yet updated
+
+ -- Anthony Fok <foka@debian.org>  Mon, 06 Sep 2021 09:40:53 -0600
+
+golang-defaults (2:1.15~1) unstable; urgency=medium
+
+  * Update to Go 1.15.
+
+ -- Michael Hudson-Doyle <mwhudson@debian.org>  Thu, 17 Sep 2020 08:08:57 +1200
+
+golang-defaults (2:1.14~2) unstable; urgency=medium
+
+  * Team upload.
+  * Bump gccgo to 10
+    gccgo-10 implements go1.14
+  * Fix mips64 typo, should be mips64el.
+    Thanks Helmut Grohne for spotting this in #960842
+  * Bump debhelper-compat to 13
+  * Bump Standards-Version to 4.5.0 (no changes)
+  * Add Rules-Requires-Root
+
+ -- Shengjing Zhu <zhsj@debian.org>  Wed, 20 May 2020 19:48:35 +0800
+
+golang-defaults (2:1.14~1) unstable; urgency=medium
+
+  * Update to Go 1.14 (src:golang-1.14). Closes: #952831
+  * Add riscv64 to architectures of golang-go, golang-src, and golang.
+    Thanks to Aurelien Jarno <aurel32@debian.org> (Closes: #953303)
+
+ -- Dr. Tobias Quathamer <toddy@debian.org>  Sat, 07 Mar 2020 13:47:33 +0100
+
+golang-defaults (2:1.13~1) unstable; urgency=medium
+
+  * Update to Go 1.13 (src:golang-1.13)
+
+ -- Dr. Tobias Quathamer <toddy@debian.org>  Fri, 04 Oct 2019 13:23:03 +0200
+
+golang-defaults (2:1.12~1) unstable; urgency=medium
+
+  [ Louis-Philippe Véronneau ]
+  * d/control: Suggest installing git (Closes: #933003)
+
+  [ Anthony Fok ]
+  * Add myself to the list of Uploaders
+  * Apply "cme fix dpkg" fixes:
+    - Update debhelper dependency to "Build-Depends: debhelper-compat (= 12)"
+    - Bump Standards-Version to 4.4.0 (no change)
+  * Have gccgo-go depend on gccgo-9
+  * Update to Go 1.12 (src:golang-1.12) (Closes: #924623)
+
+ -- Anthony Fok <foka@debian.org>  Sat, 03 Aug 2019 04:27:09 -0600
+
+golang-defaults (2:1.11~1) unstable; urgency=medium
+
+  * Update to Go 1.11 (src:golang-1.11)
+
+ -- Dr. Tobias Quathamer <toddy@debian.org>  Sat, 29 Dec 2018 14:55:11 +0100
+
+golang-defaults (2:1.10~6) unstable; urgency=medium
+
+  [ Michael Hudson-Doyle ]
+  * d/control: Update Vcs-* to point at salsa.
+  * d/helpers/getver.pl: small improvements, thanks Guillem Jover.
+    (Closes: #909604)
+
+  [ Dr. Tobias Quathamer ]
+  * Switch team address to tracker.d.o
+  * Add myself as uploader
+  * Update Standards-Version to 4.3.0
+    - Use HTTPS URL for d/copyright
+  * Use debhelper v11
+
+ -- Dr. Tobias Quathamer <toddy@debian.org>  Thu, 27 Dec 2018 00:20:37 +0100
+
+golang-defaults (2:1.10~5) unstable; urgency=medium
+
+  * Remove ppc64 from golang architectures as upstream's minimum ISA
+    requirement now exceeds Debian's.
+
+ -- Michael Hudson-Doyle <mwhudson@debian.org>  Thu, 01 Mar 2018 10:51:58 +1300
+
+golang-defaults (2:1.10~4) unstable; urgency=medium
+
+  * Enable golang and golang-src on s390x too.
+
+ -- Michael Hudson-Doyle <mwhudson@debian.org>  Wed, 28 Feb 2018 22:08:37 +1300
+
+golang-defaults (2:1.10~3) unstable; urgency=medium
+
+  * Have gccgo-go depend on gccgo-8.
+
+ -- Michael Hudson-Doyle <mwhudson@debian.org>  Wed, 28 Feb 2018 22:01:45 +1300
+
+golang-defaults (2:1.10~2) unstable; urgency=medium
+
+  * Enable golang-go on s390x (Thanks cbmuser)
+
+ -- Michael Stapelberg <stapelberg@debian.org>  Wed, 28 Feb 2018 09:40:49 +0100
+
+golang-defaults (2:1.10~1) unstable; urgency=medium
+
+  [ Michael Hudson-Doyle ]
+  * Use my @debian.org address in Uploaders.
+
+  [ Michael Stapelberg ]
+  * Update to Go 1.10 (src:golang-1.10)
+
+ -- Michael Stapelberg <stapelberg@debian.org>  Sat, 17 Feb 2018 13:06:01 +0100
+
+golang-defaults (2:1.9~2) unstable; urgency=medium
+
+  * Add mips, mips64el and mipsel to golang-go Architectures.
+    (Closes: #834002, #841645)
+
+ -- Michael Hudson-Doyle <mwhudson@debian.org>  Mon, 11 Dec 2017 09:15:36 +1300
+
+golang-defaults (2:1.9~1) unstable; urgency=medium
+
+  [ Martina Ferrari ]
+  * Add myself to Uploaders.
+
+  [ Michael Stapelberg ]
+  * Update to Go 1.9 (src:golang-1.9)
+
+ -- Michael Stapelberg <stapelberg@debian.org>  Fri, 15 Sep 2017 07:53:10 +0200
+
+golang-defaults (2:1.8~3) unstable; urgency=medium
+
+  * Upload to unstable.
+
+ -- Michael Hudson-Doyle <michael.hudson@ubuntu.com>  Fri, 23 Jun 2017 10:12:10 +1200
+
+golang-defaults (2:1.8~2) experimental; urgency=medium
+
+  * Have gccgo-go depend on gccgo-7. (Closes: #862422)
+
+ -- Michael Hudson-Doyle <michael.hudson@ubuntu.com>  Mon, 15 May 2017 09:33:17 +1200
+
+golang-defaults (2:1.8~1) experimental; urgency=medium
+
+  * Update to Go 1.8 (src:golang-1.8)
+
+ -- Michael Stapelberg <stapelberg@debian.org>  Wed, 15 Mar 2017 09:17:16 +0100
+
+golang-defaults (2:1.7~5) unstable; urgency=medium
+
+  * Add man pages to "gccgo-go" as well (given that it's the mirror of
+    "golang-go"), quieting lintian
+
+ -- Tianon Gravi <tianon@debian.org>  Tue, 27 Dec 2016 10:38:42 -0800
+
+golang-defaults (2:1.7~4) unstable; urgency=medium
+
+  * Add old "golang-doc" to Breaks/Replaces (Closes: #836991)
+
+ -- Tianon Gravi <tianon@debian.org>  Tue, 06 Dec 2016 23:21:37 -0800
+
+golang-defaults (2:1.7~3) unstable; urgency=medium
+
+  * Define a gccgo-go package that can be used to test building with gccgo on
+    any architecture. (Closes: 842254)
+
+ -- Michael Hudson-Doyle <michael.hudson@ubuntu.com>  Tue, 22 Nov 2016 09:44:29 -0800
+
+golang-defaults (2:1.7~2) unstable; urgency=medium
+
+  * Remove "s390x" again (Closes: #844258)
+    - Go upstream supports z196 and above, Debian still supports z10.  If we
+      and/or upstream get a patch to support z10, we can add this back. :)
+    - see also https://github.com/golang/go/issues/16637
+
+ -- Tianon Gravi <tianon@debian.org>  Fri, 18 Nov 2016 16:56:22 -0800
+
+golang-defaults (2:1.7~1) unstable; urgency=medium
+
+  [ Tianon Gravi ]
+  * Add missing Vcs-Browser and Vcs-Git
+  * Update to Go 1.7 (src:golang-1.7)
+  * Add "s390x" to Architectures
+
+  [ Michael Hudson-Doyle ]
+  * Add d/golang-go.maintscript to properly handle transition of /usr/lib/go
+    from directory to symlink. (Closes: 832160)
+
+ -- Tianon Gravi <tianon@debian.org>  Tue, 23 Aug 2016 14:15:24 -0700
+
+golang-defaults (2:1.6.1+1) unstable; urgency=medium
+
+  * Initial release. (Closes: #818415, #822746)
+
+ -- Michael Hudson-Doyle <michael.hudson@ubuntu.com>  Wed, 01 Jun 2016 10:05:10 -0700

@@ -1,0 +1,24 @@
+golang-github-sabhiram-go-gitignore (1.0.2+git20210923.525f6e1-1) unstable; urgency=medium
+
+  * Team upload.
+  * New upstream snapshot.
+  * Standards-Version: 4.6.0.
+
+  [ Debian Janitor ]
+  * Bump debhelper from old 12 to 13.
+  * Set upstream metadata fields: Bug-Database, Bug-Submit, Repository,
+    Repository-Browse.
+
+ -- Dmitry Smirnov <onlyjob@debian.org>  Wed, 04 May 2022 20:57:30 +1000
+
+golang-github-sabhiram-go-gitignore (1.0.2-2) unstable; urgency=medium
+
+  * Source-only upload for migration to testing
+
+ -- Felix Lechner <felix.lechner@lease-up.com>  Sun, 29 Dec 2019 08:01:21 -0800
+
+golang-github-sabhiram-go-gitignore (1.0.2-1) unstable; urgency=medium
+
+  * Initial release (Closes: #945407)
+
+ -- Felix Lechner <felix.lechner@lease-up.com>  Sun, 24 Nov 2019 07:09:14 -0800

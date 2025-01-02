@@ -1,0 +1,83 @@
+golang-github-rfjakob-eme (1.1.1-1) unstable; urgency=medium
+
+  * Team upload.
+  * New upstream release.
+  * Standards-Version: 4.5.0
+  * debhelper compatibility level 13
+  * mark golang-github-rfjakob-eme-dev as Multi-Arch: foreign
+
+ -- Drew Parsons <dparsons@debian.org>  Sun, 27 Sep 2020 23:19:31 +0800
+
+golang-github-rfjakob-eme (1.1-6) unstable; urgency=medium
+
+  * Team upload.
+  * Source-only upload.
+
+ -- David Steele <steele@debian.org>  Sat, 27 Jul 2019 21:40:40 -0400
+
+golang-github-rfjakob-eme (1.1-5) unstable; urgency=medium
+
+  * Team upload.
+  * Remove David Steele as Uploader.
+  * Add Salsa CI.
+  * Update Debian Standards to 4.3.0.
+  * Clean up rules.
+
+ -- David Steele <steele@debian.org>  Tue, 09 Jul 2019 12:55:47 -0400
+
+golang-github-rfjakob-eme (1.1-4) unstable; urgency=medium
+
+  [ Alexandre Viau ]
+  * Point Vcs-* urls to salsa.debian.org.
+
+  [ Felix Lechner ]
+  * Set Standards-Version: 4.1.5
+
+ -- Felix Lechner <felix.lechner@lease-up.com>  Wed, 11 Jul 2018 16:03:24 -0700
+
+golang-github-rfjakob-eme (1.1-3) unstable; urgency=medium
+
+  * Marked package Arch:all (Closes: #888587)
+  * Partially adopted new packaging workflow:
+    - Dropped pristine-tar, including related gbp settings
+    - Autoformatted debian/control and added pre-commit hook
+
+ -- Felix Lechner <felix.lechner@lease-up.com>  Sat, 17 Feb 2018 12:57:01 -0800
+
+golang-github-rfjakob-eme (1.1-2) unstable; urgency=medium
+
+  * Set Architecture: any (one time, to generate test output for each)
+  * Set Priority: optional (from extra)
+  * Set Build-Depends: debhelper (> 11)
+  * Set compat to 11
+  * Set Standards-Version: 4.1.3
+  * Removed unnecessary Testsuite: autopkgtest
+  * Removed Depends: ${shlibs:Depends}
+  * Used dpkg/pkg-info.mk in rules instead of parsing changelog
+  * Switched to secure URL for copyright format
+  * Removed full stop from the end of short description
+  * Added self to Uploaders:
+
+ -- Felix Lechner <felix.lechner@lease-up.com>  Wed, 24 Jan 2018 04:51:58 -0800
+
+golang-github-rfjakob-eme (1.1-1) unstable; urgency=medium
+
+  * New upstream version.
+  * Implement CI testing.
+
+ -- David Steele <steele@debian.org>  Sun, 28 May 2017 21:41:43 -0400
+
+golang-github-rfjakob-eme (1.0-2) unstable; urgency=medium
+
+  * Team upload.
+  * Use debhelper v10
+  * Use secure URLs for Vcs-Browser and Vcs-Git
+  * Build-Depends on golang-any instead of golang-go
+
+ -- Dr. Tobias Quathamer <toddy@debian.org>  Thu, 01 Dec 2016 22:28:10 +0100
+
+golang-github-rfjakob-eme (1.0-1) unstable; urgency=medium
+
+  * Initial release (Closes: #839402)
+
+ -- David Steele <steele@debian.org>  Tue, 27 Sep 2016 20:35:24 -0400

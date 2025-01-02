@@ -1,0 +1,53 @@
+golang-github-pkg-xattr (0.4.2-1) unstable; urgency=medium
+
+  * Team upload.
+  * New upstream version.
+  * Use new-style debhelper-compat prerequisite; drop d/compat.
+  * Bump compat level to 13.
+  * Bump Standards-Version to 4.5.1.
+  * Set Rules-Requires-Root: no.
+  * Bump watch file standard to 4.
+
+ -- Felix Lechner <felix.lechner@lease-up.com>  Fri, 27 Nov 2020 06:41:11 -0800
+
+golang-github-pkg-xattr (0.4.0-1) unstable; urgency=medium
+
+  * Team upload.
+
+  [ Felix Lechner ]
+  * New upstream version.
+  * Set Build-Depends: golang-golang-x-sys (>= 0.0~git20181026.95b1ffb)
+
+ -- David Steele <steele@debian.org>  Sun, 04 Nov 2018 08:56:12 -0500
+
+golang-github-pkg-xattr (0.3.1-1) unstable; urgency=medium
+
+  [ Alexandre Viau ]
+  * Point Vcs-* urls to salsa.debian.org.
+
+  [ Felix Lechner ]
+  * Team upload
+  * New upstream version (Closes: #911725)
+  * Set Standards-Version: 4.2.1
+  * Added Build-Depends: golang-golang-x-sys-dev
+  * Added Testsuite: autopkgtest-pkg-go
+
+ -- Felix Lechner <felix.lechner@lease-up.com>  Fri, 26 Oct 2018 14:25:57 -0700
+
+golang-github-pkg-xattr (0.2.2-1) unstable; urgency=medium
+
+  * New upstream version 0.2.2
+  * bump Standards-Compat to 4.1.3
+    - use https in copyright
+    - use priority optional
+  * fix incorrect watch file created by dh-make-golang
+  * remove pristine-tar from gbp.conf
+  * bump compat to 11
+
+ -- Félix Sipma <felix+debian@gueux.org>  Tue, 27 Feb 2018 13:34:25 +0100
+
+golang-github-pkg-xattr (0.2.0+git20170313.4.2c7218a-1) unstable; urgency=medium
+
+  * Initial release (Closes: #860540)
+
+ -- Félix Sipma <felix+debian@gueux.org>  Mon, 24 Apr 2017 16:07:08 +0200
