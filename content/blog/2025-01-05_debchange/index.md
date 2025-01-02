@@ -40,11 +40,11 @@ gocryptfs (2.4.0-1ubuntu0.24.04.2) noble-security; urgency=medium
 
 Ungünstig:
 
-- Versionsnummer wird einfach hochgezählt
-- Email stimmt nicht
-- Statt UNRELEASED sollte besser der Name der Zieldistribution erscheinen
-- Änderungsnachricht leer
-- Editor erfordert manuelle Eingriffe
+- Versionsnummer wird einfach hochgezählt - Abhilfe: `-i` weglassen und `--local "~uli"` -> hängt "~uli1" dran
+- Email stimmt nicht - Abhilfe: `DEBFULLNAME="Uli Heller" DEBEMAIL=uli@heller.cool debchange ...`
+- Statt UNRELEASED sollte besser der Name der Zieldistribution erscheinen - Abhilfe: `--distribution focal`
+- Änderungsnachricht leer - Abhilfe: Text hinten an's Kommando dranhängen
+- Editor erfordert manuelle Eingriffe - Abhilfe: Text hinten an's Kommando dranhängen
 
 Links
 -----
