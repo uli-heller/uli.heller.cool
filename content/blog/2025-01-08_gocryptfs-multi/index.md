@@ -31,8 +31,58 @@ Vorgehen analog zum Artikel [Verschlüsseltes Dateisystem mit GOCRYPTFS - Fido2]
 $ fido2-token -L 
 /dev/hidraw2: vendor=0x20a0, product=0x42f3 (Nitrokey Nitrokey Passkey)
 
+$ mkdir encrypted
+$ mkdir secret
+
+$ gocryptfs --init --fido2 /dev/hidraw2 encrypted
+FIDO2 Register: interact with your device ...
+  # Nitrokey leuchtet blau -> berühren
+FIDO2 Secret: interact with your device ...
+  # Nitrokey leuchtet blau -> nochmal berühren
+
+Your master key is:
+
+    3eca91ba-52c4391d-5d7ce783-b07e40f2-
+    a3808dfd-a08c7ee5-a9577f97-cc6085d3
+
+If the gocryptfs.conf file becomes corrupted or you ever forget your password,
+there is only one hope for recovery: The master key. Print it to a piece of
+paper and store it in a drawer. This message is only printed once.
+The gocryptfs filesystem has been created successfully.
+You can now mount it using: gocryptfs encrypted MOUNTPOINT
+
+$ cat >secret/masker-key.txt <<EOF
+Your master key is:
+
+    3eca91ba-52c4391d-5d7ce783-b07e40f2-
+    a3808dfd-a08c7ee5-a9577f97-cc6085d3
+
+If the gocryptfs.conf file becomes corrupted or you ever forget your password,
+there is only one hope for recovery: The master key. Print it to a piece of
+paper and store it in a drawer. This message is only printed once.
+The gocryptfs filesystem has been created successfully.
+You can now mount it using: gocryptfs encrypted MOUNTPOINT
+EOF
+```
+
+Nutzung mit Fido2
+-----------------
+
+Das verschlüsselte Verzeichnis kann ich nun so nutzen:
 
 ```
+$ mkdir /tmp/decrypted-uli
+$ gocryptfs --fido2 /dev/hidraw2 encrypted /tmp/decrypted-uli
+FIDO2 Secret: interact with your device ...
+  # Nitrokey leuchtet blau -> berühren
+Decrypting master key
+Filesystem mounted and ready.
+
+$ echo "Das ist ein geheimer Satz" >/tmp/decrypted-uli/secret.txt
+
+$ fusermount -u /tmp/decrypted-uli
+```
+
 
 Sicherheitseinschätzung
 -----------------------
@@ -372,6 +422,7 @@ Links
 
 - [Homepage: gocryptfs](https://nuetzlich.net/gocryptfs/)
 - [GITHUB: gocryptfs](https://github.com/rfjakob/gocryptfs)
+- [Verschlüsseltes Dateisystem mit GOCRYPTFS - Fido2]({{< ref  "/blog/2025-01-05_gocryptfs-fido2" >}})
 
 Versionen
 ---------
