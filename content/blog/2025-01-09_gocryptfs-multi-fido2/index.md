@@ -149,6 +149,25 @@ Jetzt hat es geklappt!
 Dateisystem verwenden mit Nitrokey
 ----------------------------------
 
+```
+$ mkdir /tmp/decrypted-uli
+$ gocryptfs --fido2 /dev/hidraw2 --config encrypted/gocryptfs-nitro.conf encrypted /tmp/decrypted-uli
+Using config file at custom location /home/uli/git/github/uli-heller/uli.heller.cool/content/blog/2025-01-09_gocryptfs-multi-fido2/encrypted/gocryptfs-nitro.conf
+FIDO2 Secret: interact with your device ...
+  # Nitrokey leuchtet - berühren!
+Decrypting master key
+Filesystem mounted and ready.
+
+$ ls /tmp/decrypted-uli/
+secret.txt
+
+$ cat /tmp/decrypted-uli/secret.txt
+Das ist ein geheimer Satz
+
+$ fusermount -u /tmp/decrypted-uli
+$ rmdir /tmp/decrypted-uli
+```
+
 Dateisystem verwenden mit Solokey
 ---------------------------------
 
