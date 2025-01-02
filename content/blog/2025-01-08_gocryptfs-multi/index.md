@@ -1,16 +1,53 @@
 +++
 date = '2025-01-08'
 draft = false
-title = 'Verschlüsseltes Dateisystem mit GOCRYPTFS - mehrere Schlüssel'
+title = 'Verschlüsseltes Dateisystem mit GOCRYPTFS - Fido2 und kompliziertes Kennwort'
 categories = [ 'Verschlüsselung' ]
 tags = [ 'crypto', 'linux', 'ubuntu' ]
 +++
 
-<!--Verschlüsseltes Dateisystem mit GOCRYPTFS - mehrere Schlüssel-->
-<!--=============================================================-->
+<!--Verschlüsseltes Dateisystem mit GOCRYPTFS - Fido2 und kompliziertes Kennwort-->
+<!--============================================================================-->
 
-GOCRYPTFS kann auch in Verbindung mit mehreren
-Fido2-Gerät verwendet werden, also bspw.
+Im Artikel [Verschlüsseltes Dateisystem mit GOCRYPTFS - Fido2]({{< ref  "/blog/2025-01-05_gocryptfs-fido2" >}})
+habe ich beschrieben, wie ich
+GOCRYPTFS mit einem
+Fido2-Gerät verwende. Das funktioniert ganz gut, hat aber ein Problem:
+Wenn ich das Fido2-Gerät nicht im Zugriff habe, dann komme ich
+an meine Daten nicht dran.
+
+Wenn man den Masterkey kennt, dann kann man zusätzlich zur Fido2-Entschlüsselung
+eine Entschlüsselung mit Kennwort hinterlegen. Die nutze ich dann im "Notfall",
+wenn mein Fido2-Gerät gerade nicht zur Verfügung steht.
+
+<!--more-->
+
+Initialisierung mit Fido2
+-------------------------
+
+Vorgehen analog zum Artikel [Verschlüsseltes Dateisystem mit GOCRYPTFS - Fido2]({{< ref  "/blog/2025-01-05_gocryptfs-fido2" >}}):
+
+```
+$ fido2-token -L 
+/dev/hidraw2: vendor=0x20a0, product=0x42f3 (Nitrokey Nitrokey Passkey)
+
+
+```
+
+Sicherheitseinschätzung
+-----------------------
+
+Da ich das Dateisystem im Regelfall mit dem Fido2-Gerät entschlüssle,
+verwende ich das hinterlegte Kennwort relativ selten. Dementsprechend
+kann es ruhig deutlich länger und komplizierter sein, als meine
+üblichen Kennworte. Meiner Einschätzung nach ist das ein Sicherheitsgewinn!
+
+
+
+- Wenn das Fido2-Gerät kaputt ge
+
+
+t werden, also bspw.
 mit einem Nitrokey auf meinem Laptop und einem
 Solokey auf meinem Arbeitsplatzrechner.
 
@@ -20,8 +57,6 @@ Sichtung des Fido2-Gerätes am Laptop
 ------------------------------------
 
 ```
-$ fido2-token -L 
-/dev/hidraw2: vendor=0x20a0, product=0x42f3 (Nitrokey Nitrokey Passkey)
 ```
 
 Ich habe einen Nitrokey und das Gerät heißt "/dev/hidraw2".
