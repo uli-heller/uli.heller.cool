@@ -35,7 +35,17 @@ Dateisystem mit einem Fido2-Gerät
 ---------------------------------
 
 - Ich verwende das Dateisystem von [Verschlüsseltes Dateisystem mit GOCRYPTFS - Fido2 und kompliziertes Kennwort]({{< ref  "/blog/2025-01-08_gocryptfs-multi" >}})
-- 
+- Verschlüsselt: [encrypted](encrypted) (... auf der Webseite vermutlich nicht sinnvoll weiterverwendbar)
+  - `git mv encrypted/gocryptfs.conf  encrypted/gocryptfs-nitro.conf`
+  - `git rm encrypted/gocryptfs-password.conf`
+- Geheimnis und MasterKey:  [secret](secret) (... auf der Webseite vermutlich nicht sinnvoll weiterverwendbar)
+
+Erweitern um zweites Fido2-Gerät
+--------------------------------
+
+```
+$ 
+```
 
 Sichtung des Fido2-Gerätes am Laptop
 ------------------------------------
