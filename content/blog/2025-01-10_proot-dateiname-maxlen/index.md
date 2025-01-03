@@ -85,12 +85,23 @@ $ rm -rf mnt
 
 Auch bei Bind-Mounts gehen nur 254 Zeichen!
 
+### Test mit "proot-5.4.0.3"
+
+```
+$ proot -S build-proot-jammy-amd64/rootfs/ -w / bash
+# LEN=255; touch "$(expr substr "$(seq 1 200|tr -d "\n")" 1 $LEN)"; rm -f 12345*
+```
+
+Mit 5.4.0.3 klappt's!
+
 Links
 -----
 
 - [Homepage: Proot](https://proot-me.github.io/)
 - [Github: Proot](https://github.com/proot-me/proot)
 - [Github Issue: Max filename length: 254 vs 255](https://github.com/proot-me/proot/issues/391)
+- [Github Pull Request: Max filename length: 254 vs 255](https://github.com/proot-me/proot/pull/392)
+- [Github: Mein Proot-Fork](https://github.com/uli-heller/proot/tree/name_max)
 
 Versionen
 ---------
@@ -98,6 +109,8 @@ Versionen
 Getestet mit
 
 - Ubuntu-20.04 und proot-5.4.0 (selbst kompiliert)
+- Ubuntu-22.04 und proot-5.4.0 (selbst kompiliert)
+- Ubuntu-22.04 und proot-5.4.0.3 (selbst kompiliert)
 
 Historie
 --------
