@@ -107,6 +107,8 @@ Offen
 
 - 2024-12-29_07 - Clarity: Menü: Aktiven Eintrag markieren
 
+  - Siehe ...
+
 - 2024-12-29_08 - Clarity: Inhaltsverzeichnis - [Adding a floating TOC to the Hugo-Clarity theme | No D in Rogers](https://www.nodinrogers.com/post/2023-04-06-add-floating-toc-in-hugo-clarity-theme/)
 
 - 2024-12-29_09 - Clarity: Copyright + Lizenz
