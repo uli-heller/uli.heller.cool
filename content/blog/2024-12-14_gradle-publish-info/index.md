@@ -102,7 +102,7 @@ Links
 -----
 
 - [Gradle - Maven Publish Plugin](https://docs.gradle.org/current/userguide/publishing_maven.html)
-- [github:java-example-gradle-artifactory](git@github.com:uli-heller/java-example-gradle-artifactory.git)
+- [github:java-example-gradle-artifactory](https://github.com/uli-heller/java-example-gradle-artifactory.git)
 - [StackOverflow - Get uri of published artifact using maven-publish gradle plugin](https://stackoverflow.com/questions/41745995/get-uri-of-published-artifact-using-maven-publish-gradle-plugin)
 
 Historie

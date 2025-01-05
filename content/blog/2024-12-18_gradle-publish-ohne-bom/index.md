@@ -33,7 +33,7 @@ und diese möchte ich "ausblenden".
 Ausgangspunkt: Java-Projekt mit der BOM-Abhängigkeit
 ----------------------------------------------------
 
-Beispiel: [github:java-example-gradle-bom](git@github.com:uli-heller/java-example-gradle-bom.git).
+Beispiel: [github:java-example-gradle-bom](https://github.com/uli-heller/java-example-gradle-bom.git).
 
 Das Projekt erzeugt per Standard die POM-Datei gradle-bom-1.0.0.pom:
 
@@ -169,7 +169,7 @@ Damit erhält man die POM-Datei gradle-bom-1.0.1.pom:
 Test: Funktioniert es?
 ----------------------
 
-Java-Projekt, welches die beiden Varianten einbindet: [github:java-example-gradle-bom-use](git@github.com:uli-heller/java-example-gradle-bom-use.git)
+Java-Projekt, welches die beiden Varianten einbindet: [github:java-example-gradle-bom-use](https://github.com/uli-heller/java-example-gradle-bom-use.git)
 
 Ich teste beide Varianten durch Variation von "build.gradle":
 

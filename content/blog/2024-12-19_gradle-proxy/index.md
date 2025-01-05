@@ -27,7 +27,7 @@ Hier beschreibe ich Konfiguration und Probleme.
 Beispielprojekt
 ---------------
 
-Mein Beispielprojekt liegt hier: [github:java-example-gradle-proxy](git@github.com:uli-heller/java-example-gradle-proxy.git).
+Mein Beispielprojekt liegt hier: [github:java-example-gradle-proxy](https://github.com/uli-heller/java-example-gradle-proxy.git).
 
 Zunächst: Proxy für alles
 -------------------------
@@ -250,7 +250,7 @@ In "java-projekt/gradle.properties" scheint sie nicht zu greifen!
 Nachtrag 2024-12-27 - Could not GET 'https://plugins-artifacts.gradle.org/...' ...
 ----------------------------------------------------------------------------------
 
-Heute am 2024-12-27 habe ich mit dem Beispielprojekt [github:java-example-springboot-hello-world](git@github.com:uli-heller/java-example-springboot-hello-world.git) gearbeitet.
+Heute am 2024-12-27 habe ich mit dem Beispielprojekt [github:java-example-springboot-hello-world](https://github.com/uli-heller/java-example-springboot-hello-world.git) gearbeitet.
 Dabei erschien diese Fehlermeldung:
 
 ```
@@ -317,7 +317,7 @@ Getestet mit
 Links
 -----
 
-- [github:java-example-Beispielprojekt gradle-proxy](git@github.com:uli-heller/java-example-gradle-proxy.git)
+- [github:java-example-Beispielprojekt gradle-proxy](https//github.com/uli-heller/java-example-gradle-proxy.git)
 
 Historie
 --------
