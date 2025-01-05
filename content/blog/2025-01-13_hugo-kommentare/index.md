@@ -45,6 +45,16 @@ index b4c77f1..0868baf 100644
  # giscus = true
 ```
 
+Einrichten der App
+------------------
+
+- Link aufrufen: [UtterancesApp](https://github.com/apps/utterances)
+- Nutzer auswählen: uli-heller
+- Repo auswählen: uli.heller.cool
+- Zugriff erlauben:
+  - Metadaten lesen
+  - Issues lesen und schreiben
+
 Kommentarfunktion aus Anwendersicht
 -----------------------------------
 
