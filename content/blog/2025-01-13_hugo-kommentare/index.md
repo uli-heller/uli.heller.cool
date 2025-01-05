@@ -52,7 +52,15 @@ Kommentarfunktion aus Anwendersicht
 
 Nach der Aktivierung erscheint am unteren Bildschirmrand ein
 Kommentarfeld. Um einen Kommentar hinzuzufügen, muß man sich
-bei Github anmelden.
+bei Github anmelden und irgendwelche Privilegien an "utterances.es"
+erteilen.
+
+Danach erscheint aktuell eine Fehlermeldung wie diese:
+
+Error: utterances is not installed on uli-heller/uli.heller.cool. 
+If you own this repo, [install the app](https://github.com/apps/utterances).
+Read more about this change in
+[the PR](https://github.com/utterance/utterances/pull/25).
 
 Kommentarfunktion aus "meiner" Sicht
 ------------------------------------
