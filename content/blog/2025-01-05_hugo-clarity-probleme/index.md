@@ -4,6 +4,7 @@ draft = false
 title = 'Hugo-Clarity: Diverse Kleinprobleme'
 categories = [ 'Hugo' ]
 tags = [ 'hugo', 'clarity' ]
+toc = true
 +++
 
 <!--
@@ -105,6 +106,45 @@ Damit:
 Klar, so kann es nicht bleiben! Man kann die Beschriftung nicht erkennen.
 Außerdem stört der "Abstand". Und bei Umstellung auf "Dark" sieht es ganz
 finster aus!
+
+Clarity: Breite
+---------------
+
+![Breitenbegrenzung](images/breite-abgerissen.png)
+
+Notwendige Anpassungen:
+
+- themes/hugo-clarity/assets/sass/_base.sass
+  - max-width: 1920px -> 19200px
+- themes/hugo-clarity/assets/sass/_variables.sass
+  - --maxWidth: 1440px -> 14400px
+- themes/hugo-clarity/assets/sass/_components.sass
+  - .sidebar max-width: 540px ... klappt nicht so richtig!
+
+Hier die Darstellung danach:
+
+![Volle Breite](images/volle-breite-abgerissen.png)
+
+Clarity: Inhaltsverzeichnis
+---------------------------
+
+Bei der Clarity-Beschreibung steht, dass man mit dem
+Shortcode `{{ .TableOfContents }}` ein Inhaltsverzeichnis
+erzeugen kann. Das habe ich ausprobiert.
+Es funktioniert für mich nicht.
+
+Wenn ich in den Seitenkopf dies hinzufüge, dann erscheint
+ein Inhaltsverzeichnis:
+
+```
+toc: true
+```
+
+Danach habe ich versucht, die in
+[Adding a floating TOC to the Hugo-Clarity theme | No D in Rogers](https://www.nodinrogers.com/post/2023-04-06-add-floating-toc-in-hugo-clarity-theme/)
+vorgeschlagenen Änderungen umzusetzen.
+Bei mir haben die NICHT funktioniert.
+Vermutlich klappt's nur bei älteren Versionen von Hugo-Clarity?
 
 Links
 -----
