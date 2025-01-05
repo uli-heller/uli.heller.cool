@@ -8,8 +8,6 @@ tags:
  - pdf
  - png
  - imagemagick
-toc: true
-sidebar: false
 ---
 
 <!--Tipps und Tricks mit PNG-Dateien-->
