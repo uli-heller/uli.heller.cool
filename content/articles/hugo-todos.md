@@ -105,16 +105,16 @@ Offen
 
 - 2024-12-29_06 - Clarity: Menübreite
 
-- 2024-12-29_07 - Clarity: Aktiven Eintrag im Menü markieren
-
-  - Siehe [Hugo-Clarity: Diverse Kleinprobleme]({{< ref "/blog/2025-01-05_hugo-clarity-probleme" >}})
-
 - 2024-12-29_08 - Clarity: Inhaltsverzeichnis - [Adding a floating TOC to the Hugo-Clarity theme | No D in Rogers](https://www.nodinrogers.com/post/2023-04-06-add-floating-toc-in-hugo-clarity-theme/)
 
 - 2024-12-29_09 - Clarity: Copyright + Lizenz
 
 Erledigt
 --------
+
+- 2024-12-29_07 - Clarity: Aktiven Eintrag im Menü markieren
+
+  - Siehe [Hugo-Clarity: Diverse Kleinprobleme]({{< ref "/blog/2025-01-05_hugo-clarity-probleme" >}})
 
 - 2024-12-11_01 - [More Hugo Tipps](https://its.mw/posts/more-hugo-tips-tricks/), robots.txt
 

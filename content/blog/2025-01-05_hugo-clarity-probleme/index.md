@@ -22,6 +22,42 @@ habe ich aufgelistet in [Störende Details bei Hugo]({{< ref "/articles/hugo-tod
 Clarity: Aktiven Eintrag im Menü markieren
 ------------------------------------------
 
+### TLDR
+
+- Hintergrundfarbe aktives Menu:
+  - themes/hugo-clarity/assets/sass/_components.sass
+  - `&_active` - `background-color` - `var(--choice-bg)`
+- Textfarbe aktives Menu:
+  - themes/hugo-clarity/assets/sass/_components.sass
+  - `&_active` - `color` - `var(--text)`
+- Abstand - nav_parent nav_active
+  - themes/hugo-clarity/assets/sass/_components.sass
+  - `&_parent` - `margin` - `0.25rem 0 0 0`
+- Rundung
+  - themes/hugo-clarity/assets/sass/_components.sass
+  - `&_parent` - `border-radius` - `0.5rem 0.5rem 0 0`
+
+Dark
+
+- Neue Variablen in "themes/hugo-clarity/assets/sass/_variables.sass":
+  - --nav-bg: var(--bg)
+  - --nav-text: var(--haze)
+  - --nav-active-bg: var(--choice-bg)
+  - --nav-active-text: var(--text)
+- Werte für "dark":
+  - --nav-bg: #0077b8 (TBD: Variable)
+  - --nav-text: var(--haze) (TBD: notwendig?)
+  - --nav-active-bg: var(--choice-bg) (TBD: notwendig?)
+  - --nav-active-text: var(--text) (TBD: notwendig?)
+- Werte setzen in "themes/hugo-clarity/assets/sass/_components.sass":
+  - .nav - background-color
+  - .nav - color
+  - .nav &active - background-color
+  - .nav &active - color
+  - .nav &header - background-color
+
+### Detailanalyse - Hintergrundfarbe
+
 "Eigentlich" ist das gar kein Problem. Der aktive Eintrag
 ist markiert. Ich konnte ihn zumindest auf meinem Laptop
 einfach nicht richtig erkennen:
