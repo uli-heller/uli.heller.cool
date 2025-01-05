@@ -29,22 +29,6 @@ Offen
   Ich würde mir wünschen, dass diese (zumindest auf meinem Arbeitsplatzrechner)
   dauernd sichtbar sind!
 
-- 2024-11-21_04 - Klären: Was hat es mit den "Categories" und "Tags" auf
-  sich?
-
-  - Stand 2024-11-23 gibt es diese "Categories": Git, Hugo, Markdown
-  - Stand 2024-11-23 gibt es diese "Tags": Github
-  - Sollte "Tags" eine Obermenge von "Categories" sein?
-
-- 2024-11-30_01 - Fußzeile erweitern um Lizenz
-
-  - ./themes/mainroad/layouts/partials/footer_links.html
-    - Wertet Site.Menus.footer aus
-    - .URL und .Name definieren Links
-  - ./themes/mainroad/layouts/partials/footer.html
-    - Wertet Site.Params.copyright aus
-    - Und Site.Title
-
 - 2024-11-30_02 - LICENSE.txt
 
 - 2024-11-30_04 - Fußzeile erweitern um "Edit in Github"
@@ -59,12 +43,6 @@ Offen
 
   - Erstellt mit Hugo und "mainroad" (zunächst)
   - Nutzt Hugo und "clarity" (aktuell)
-
-- 2024-12-04_01 - Clarity
-
-  - [Change From Beautifulhugo to Clarity Theme](https://blog.euc-rt.me/post/change-from-beautifulhugo-to-clarity-theme)
-  - [Adding a floating TOC to the Hugo-Clarity theme](https://www.nodinrogers.com/post/2023-04-06-add-floating-toc-in-hugo-clarity-theme)
-  - [Organizing page resources](https://github.com/chipzoller/hugo-clarity#organizing-page-resources)
 
 - 2024-12-11_01 - [Michael Welford](https://its.mw/)
 
@@ -90,8 +68,6 @@ Offen
   ignoreLogs = ['warning-goldmark-raw-html']
   ```
 
-- 2024-12-21_01 - [Kommentare mit Utterances](https://www.softwarecraftsperson.com/posts/2024-02-04-blog-comments-using-utterances/)
-
 - 2024-12-21_02 - [Theme PaperMod](https://www.softwarecraftsperson.com/posts/2024-11-09-responsive-menu/)
 
 - 2024-12-29_01 - Clarity: Logo+Motto oben links
@@ -100,12 +76,36 @@ Offen
 
 - 2024-12-29_03 - Clarity: Suchen
 
-- 2024-12-29_08 - Clarity: Inhaltsverzeichnis - [Adding a floating TOC to the Hugo-Clarity theme | No D in Rogers](https://www.nodinrogers.com/post/2023-04-06-add-floating-toc-in-hugo-clarity-theme/)
-
 - 2024-12-29_09 - Clarity: Copyright + Lizenz
 
 Erledigt
 --------
+
+- 2024-11-21_04 - Klären: Was hat es mit den "Categories" und "Tags" auf
+  sich?
+
+  - Stand 2024-11-23 gibt es diese "Categories": Git, Hugo, Markdown
+  - Stand 2024-11-23 gibt es diese "Tags": Github
+  - Sollte "Tags" eine Obermenge von "Categories" sein?
+
+- 2024-12-04_01 - Clarity
+
+  - [Change From Beautifulhugo to Clarity Theme](https://blog.euc-rt.me/post/change-from-beautifulhugo-to-clarity-theme)
+  - [Adding a floating TOC to the Hugo-Clarity theme](https://www.nodinrogers.com/post/2023-04-06-add-floating-toc-in-hugo-clarity-theme)
+  - [Organizing page resources](https://github.com/chipzoller/hugo-clarity#organizing-page-resources)
+
+- 2024-12-21_01 - [Kommentare mit Utterances](https://www.softwarecraftsperson.com/posts/2024-02-04-blog-comments-using-utterances/)
+
+- 2024-11-30_01 - Fußzeile erweitern um Lizenz - wird nicht mehr umgesetzt wegen Wechsel mainroad -> clarity
+
+  - ./themes/mainroad/layouts/partials/footer_links.html
+    - Wertet Site.Menus.footer aus
+    - .URL und .Name definieren Links
+  - ./themes/mainroad/layouts/partials/footer.html
+    - Wertet Site.Params.copyright aus
+    - Und Site.Title
+
+- 2024-12-29_08 - Clarity: Inhaltsverzeichnis - [Adding a floating TOC to the Hugo-Clarity theme | No D in Rogers](https://www.nodinrogers.com/post/2023-04-06-add-floating-toc-in-hugo-clarity-theme/)
 
 - 2024-12-29_04 - Clarity: Bildbreite
 
