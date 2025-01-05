@@ -106,11 +106,11 @@ disclaimerText = "Diese Webseite wird bereitgestellt auf und durch Github"
 blogDir = "blog"
 
 # Enable or disable Utterances (https://github.com/utterance/utterances) Github Issue-Based Commenting
-# utterances = true  # Run the utterances script in the single.html layout to load https://utteranc.es comments
-# utterancesRepo = "GHUsername/Repository.Name" # Utterances is enabled when this param is set
-# utterancesLabel = "blog comments ✨💬✨" # The label needs to be manually added to your Github repository issues before configuring here
-# utterancesTheme = "github-light" # Default: github-dark
-# utterancesIssueTerm = "pathname" # Default: pathname
+utterances = true  # Run the utterances script in the single.html layout to load https://utteranc.es comments
+utterancesRepo = "uli-heller/uli.heller.cool" # Utterances is enabled when this param is set
+utterancesLabel = "blog comments ✨💬✨" # The label needs to be manually added to your Github repository issues before configuring here
+utterancesTheme = "github-light" # Default: github-dark
+utterancesIssueTerm = "pathname" # Default: pathname
 
 # Enable or disable Giscus comments globally. Default to false.
 # giscus = true
