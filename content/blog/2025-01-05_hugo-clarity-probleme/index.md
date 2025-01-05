@@ -124,6 +124,7 @@ Notwendige Anpassungen:
   - --maxWidth: 1440px -> 14400px
 - themes/hugo-clarity/assets/sass/_components.sass
   - .sidebar max-width: 540px ... klappt nicht so richtig!
+  - Eventuell: `themes/hugo-clarity/assets/sass/_utils.sass:    grid-template-columns: 70% 1fr`
 
 Hier die Darstellung danach:
 
@@ -149,6 +150,35 @@ Danach habe ich versucht, die in
 vorgeschlagenen Änderungen umzusetzen.
 Bei mir haben die NICHT funktioniert.
 Vermutlich klappt's nur bei älteren Versionen von Hugo-Clarity?
+
+Clarity: Linker Rand
+--------------------
+
+Beim Rumspielen ist mir aufgefallen, dass der linke Rand nicht "stimmt":
+
+![Linker Rand KO](images/linker-rand-abgerissen.png?width=500px)
+
+Diese Änderungen korrigieren das:
+
+```diff
+diff --git a/themes/hugo-clarity/assets/sass/_components.sass b/themes/hugo-clarity/assets/sass/_components.sass
+index 49a902f..fb69056 100644
+--- a/themes/hugo-clarity/assets/sass/_components.sass
++++ b/themes/hugo-clarity/assets/sass/_components.sass
+@@ -142,7 +142,7 @@
+ .content, .footer
+   padding: 1.5rem
+   @media screen and (min-width: 1441px)
+-    padding: 1.5rem 0
++    //padding: 1.5rem 0
+ 
+ .content
+   padding-top: 5rem
+```
+
+Hier der "richtige" Rand:
+
+![Linker Rand OK](images/linker-rand-ok-abgerissen.png?width=500px)
 
 Links
 -----
