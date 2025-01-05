@@ -29,16 +29,16 @@ GIMP starten
 Ausgangsbild laden
 ------------------
 
-- Datei
-- Öffnen... "images/home-top.png" wählen
+- Datei (File)
+- Öffnen... (Open...) "images/home-top.png" wählen
 
 ![GIMP mit Ausgangsbild](images/03-gimp-ausgangsbild.png?width=800pt)
 
 Ansicht verkleinern
 -------------------
 
-- Ansicht
-- Vergrößerung
+- Ansicht (View)
+- Vergrößerung (Zoom)
 - 25%
 
 ![GIMP Ansicht verkleinert](images/04-gimp-verkleinert.png?width=800pt)
@@ -46,9 +46,9 @@ Ansicht verkleinern
 Freie Auswahl - Bereich wählen
 ------------------------------
 
-- Werkzeuge
-- Auswahlwerkzeuge
-- Freie Auswahl
+- Werkzeuge (Tools)
+- Auswahlwerkzeuge (Selection Tools)
+- Freie Auswahl (Free Select)
 - "Kreisförmig"
 
 ![GIMP Freie Auswahl](images/06-gimp-freie-auswahl.png?width=800pt)
@@ -56,14 +56,14 @@ Freie Auswahl - Bereich wählen
 Auswahl verzerren
 -----------------
 
-- Auswahl
-- Verzerren...
-  - Schwellwert: 0,500
-  - Verteilen: 8
-  - Körnigkeit: 4
-  - Glätten: 2->3
-  - Horizontal glätten: Ja
-  - Vertikal glätten: Ja
+- Auswahl (Select)
+- Verzerren... (Distort...)
+  - Schwellwert (Threshold): 0,500
+  - Verteilen (Spread): 8
+  - Körnigkeit (Granularity): 4
+  - Glätten (Smooth): 2->3
+  - Horizontal glätten (Smooth horizontally): Ja
+  - Vertikal glätten (Smooth vertically): Ja
   - OK
 
 ![GIMP Auswahl verzerrt](images/08-gimp-auswahl-verzerrt.png?width=800pt)
@@ -71,11 +71,11 @@ Auswahl verzerren
 Kopieren und neues Bild erstellen
 ---------------------------------
 
-- Bearbeiten
-- Kopieren
-- Datei
-- Erstellen
-- Aus Zwischenablage
+- Bearbeiten (Edit)
+  - Kopieren (Copy)
+- Datei (File)
+  - Erstellen (Create)
+    - Aus Zwischenablage (From clipboard)
 
 ![GIMP Neues Bild](images/09-gimp-neues-bild.png?width=800pt)
 
@@ -83,17 +83,18 @@ Erstes Bild einweißen
 --------------------
 
 - Zurück zum ersten Bild (oben, linkes Bild)
-- Auswahl
-  - Verzerren
+- Auswahl (Select)
+  - Verzerren (Distort)
   - OK
-- Farben
+- Farben 
   - Vordergrund: Schwarz, Hintergrund: Weiß
   - Wechseln
   - Vordergrund: Weiß, Hintergrund: Schwarz
-- Werkzeuge
-  - Malwerkzeuge
-  - Füllen
-  - Ganze Auswahl füllen
+- Werkzeuge (Tools)
+  - Malwerkzeuge (Paint Tools)
+  - Füllen (Bucket Fill)
+  - Betroffener Bereich (Affected Area)
+    - Ganze Auswahl füllen (Fill whole selection)
 - In den Auswahlbereich klicken -> wird mit weiß gefüllt
 
 ![GIMP Auswahlbereich füllen](images/10-gimp-auswahl-fuellen.png?width=800pt)
@@ -104,15 +105,15 @@ Weißen Teil als Ebene einfügen
 ------------------------------
 
 - Erstes Bild
-- Werkzeuge
-  - Auswahlwerkzeuge
-  - Freie Auswahl
-- Bearbeiten
-  - Kopieren
+- Werkzeuge (Tools)
+  - Auswahlwerkzeuge (Selection Tools)
+  - Freie Auswahl (Free Select)
+- Bearbeiten (Edit)
+  - Kopieren (Copy)
 - Zweites Bild
-- Bearbeiten
-  - Einfügen als...
-  - Als einzelne Ebene einfügen
+- Bearbeiten (Edit)
+  - Einfügen als... (Paste as...)
+  - Als einzelne Ebene einfügen (Paste as Single Layer)
 - Unten rechts: Ebenen vertauschen
 
 ![GIMP Vereintes Bild](images/12-gimp-vereintes-bild.png?width=800pt)
@@ -121,16 +122,16 @@ Vereinen und Schatten
 ---------------------
 
 - Unten rechts: Rechte Maustaste
-  - Sichtbare Ebenen vereinen...
-  - OK
-- Filter
-  - Licht und Schatten
-  - Schlagschatten (veraltet)
-    - VersatzX: 4 (oder auch 8)
-    - VersatzY: 4 (oder auch 8)
-    - Weichzeichnenradius: 15
-    - Farbe: Schwarz
-    - Deckkraft: 60
+  - Sichtbare Ebenen vereinen... (Merge Visible Layers...)
+  - OK (Merge)
+- Filter (Filters)
+  - Licht und Schatten (Light and Shadow)
+  - Schlagschatten (veraltet)... (Drop Shadow (lagacy)...)
+    - VersatzX (OffsetX): 4 (oder auch 8)
+    - VersatzY (OffsetY): 4 (oder auch 8)
+    - Weichzeichnenradius (Blur radius): 15
+    - Farbe (Color): Schwarz
+    - Deckkraft (Opacity): 60
     - OK
 
 ![GIMP Schatten](images/13-gimp-schatten.png?with=800pt)
