@@ -38,6 +38,8 @@ Clarity: Aktiven Eintrag im Menü markieren
   - themes/hugo-clarity/assets/sass/_components.sass
   - `&_parent` - `border-radius` - `0.5rem 0.5rem 0 0`
 
+![Markierter Menü-Eintrag hell](images/markierter-menu-eintrag-hell-abgerissen.png?width=500px)
+
 Dark
 
 - Neue Variablen in "themes/hugo-clarity/assets/sass/_variables.sass":
@@ -57,13 +59,15 @@ Dark
   - .nav &active - color
   - .nav &header - background-color
 
+![Markierter Menü-Eintrag dunkel](images/markierter-menu-eintrag-dunkel-abgerissen.png?width=500px)
+
 ### Detailanalyse - Hintergrundfarbe
 
 "Eigentlich" ist das gar kein Problem. Der aktive Eintrag
 ist markiert. Ich konnte ihn zumindest auf meinem Laptop
 einfach nicht richtig erkennen:
 
-![Markierter Menü-Eintrag](images/markierter-menue-eintrag-abgerissen.png)
+![Markierter Menü-Eintrag](images/markierter-menue-eintrag-abgerissen.png?width=500px)
 
 Sichtung: Welche ColorCodes werden verwendet?
 
@@ -101,7 +105,7 @@ index 59e784b..b688061 100644
 
 Damit:
 
-![Markierter Menü-Eintrag](images/experiment-abgerissen.png)
+![Markierter Menü-Eintrag](images/experiment-abgerissen.png?width=500px)
 
 Klar, so kann es nicht bleiben! Man kann die Beschriftung nicht erkennen.
 Außerdem stört der "Abstand". Und bei Umstellung auf "Dark" sieht es ganz
