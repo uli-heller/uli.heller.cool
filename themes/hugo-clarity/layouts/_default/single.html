@@ -19,12 +19,18 @@
         {{- partial "image" (dict "file" $p.featureImage "alt" $p.featureImageAlt "cap" $p.featureImageCap "type" "featured" "Page" $.Page) }}
       </div>
     {{- end -}}
+
     {{ if $p.toc }}
-      <div class="post_toc">
-        <h2>{{ T "overview" }}</h2>
-        {{ .TableOfContents }}
-      </div>
+      <aside class="tableOfContentContainer" id="tableOfContentContainer">
+        <h3>{{ T "overview" }}</h3>
+          {{ .TableOfContents }}
+      </aside>
+    {{ else }}
+      {{- if ( ne $p.sidebar false ) }}
+        {{- partial "sidebar" . }}
+      {{ end }}
     {{ end }}
+
     <div class="post_body">
       {{- .Content }}
     </div>
@@ -55,4 +61,30 @@
     {{- partial "sidebar" . }}
   {{ end }}
 </div>
+
+<script>
+  window.addEventListener('DOMContentLoaded', () => {
+    const observerForTableOfContentActiveState = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        const id = entry.target.getAttribute('id');
+
+        if (entry.intersectionRatio > 0) {
+          clearActiveStatesInTableOfContents();
+          document.querySelector(`nav li a[href="#${id}"]`).parentElement.classList.add('active');
+        }
+      });
+    });
+    document.querySelectorAll('h1[id],h2[id],h3[id],h4[id]').forEach((section) => {
+      observerForTableOfContentActiveState.observe(section);
+    });
+
+  });
+
+  function clearActiveStatesInTableOfContents() {
+    document.querySelectorAll('nav li').forEach((section) => {
+      section.classList.remove('active');
+    });
+  }
+</script>
+
 {{- end }}
