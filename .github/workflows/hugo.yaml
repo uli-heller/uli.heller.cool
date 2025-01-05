@@ -59,8 +59,7 @@ jobs:
           hugo \
             --gc \
             --minify \
-            --source .\
-            --baseURL "${{ steps.pages.outputs.base_url }}/"          
+            --source .
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
