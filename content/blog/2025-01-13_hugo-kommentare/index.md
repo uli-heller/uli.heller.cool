@@ -91,7 +91,7 @@ Kommentarfunktion gewisse Probleme in der Darstellung!
 Links
 -----
 
-- [Github - Hugo-Cla)rity](https://github.com/chipzoller/hugo-clarity)
+- [Github - Hugo-Clarity](https://github.com/chipzoller/hugo-clarity)
 - [Utteranc.es](https://utteranc.es/)
 
 Historie
