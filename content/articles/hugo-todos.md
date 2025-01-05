@@ -105,9 +105,9 @@ Offen
 
 - 2024-12-29_06 - Clarity: Menübreite
 
-- 2024-12-29_07 - Clarity: Menü: Aktiven Eintrag markieren
+- 2024-12-29_07 - Clarity: Aktiven Eintrag im Menü markieren
 
-  - Siehe ...
+  - Siehe [Hugo-Clarity: Diverse Kleinprobleme]({{< ref "/blog/2025-01-05_hugo-clarity-probleme" >}})
 
 - 2024-12-29_08 - Clarity: Inhaltsverzeichnis - [Adding a floating TOC to the Hugo-Clarity theme | No D in Rogers](https://www.nodinrogers.com/post/2023-04-06-add-floating-toc-in-hugo-clarity-theme/)
 
@@ -168,6 +168,7 @@ Erledigt
 Historie
 --------
 
+- 2025-01-05: Aktualisierung einiger TODOs beim Theme "Clarity"
 - 2024-12-29: Viele TODOs beim Theme "Clarity"
 - 2024-12-21: [Kommentare mit Utterances](https://www.softwarecraftsperson.com/posts/2024-02-04-blog-comments-using-utterances/)
     und [Theme PaperMod](https://www.softwarecraftsperson.com/posts/2024-11-09-responsive-menu/)
