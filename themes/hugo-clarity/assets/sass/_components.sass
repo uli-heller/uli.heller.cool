@@ -9,9 +9,12 @@
   color: $haze
   display: flex
   justify-content: space-between
+  background-color: var(--nav-bg)
+  color: var(--nav-text)
   @include content
   &_active
-    background-color: rgba($light, 0.05)
+    background-color: var(--nav-active-bg)
+    color: var(--nav-active-text)
     border-radius: 0.25rem
   &, &_body
   &_icon
@@ -23,7 +26,7 @@
     display: flex
     flex: 1
   &_header
-    background-color: $bg
+    background-color: var(--nav-bg)
     padding: 0 1.5rem
     position: fixed
     width: 100%
@@ -50,8 +53,8 @@
     position: relative
     display: flex
     align-items: center
-    margin: 0.25rem 0
-    border-radius: 0.5rem
+    margin: 0.25rem 0 0 0
+    border-radius: 0.5rem 0.5rem 0 0
 
   &_open + &_sub &_child
     padding-top: 0.5rem
@@ -139,7 +142,7 @@
 .content, .footer
   padding: 1.5rem
   @media screen and (min-width: 1441px)
-    padding: 1.5rem 0
+    //padding: 1.5rem 0
 
 .content
   padding-top: 5rem
@@ -458,6 +461,7 @@
         grid-template-columns: 2fr 7fr
         grid-gap: 1rem
 .sidebar
+  //max-width: 540px // FIXME: Limits the width of the sidebar but shows empty space to the right
   &_inner
     position: relative
     &::before
