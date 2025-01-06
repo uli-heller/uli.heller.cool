@@ -3,7 +3,7 @@ title: Über mich
 date: 2024-11-21
 authorbox: false
 sidebar: false
-menu: main
+#menu: main
 toc: false
 ---
 
