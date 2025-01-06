@@ -22,6 +22,30 @@ für jeden außer mich selbst!
 Offene Ideen
 ------------
 
+### Detecting the use of "curl | bash" server side
+
+- [Detecting the use of "curl | bash" server side](https://www.reddit.com/r/linux/comments/92tt8s/detecting_the_use_of_curl_bash_server_side/?rdt=59648)
+- [https://www.idontplaydarts.com](https://www.idontplaydarts.com/2016/04/detecting-curl-pipe-bash-server-side/) - Zertifikat abgelaufen
+- [The Dangers of curl | bash](https://lukespademan.com/blog/the-dangers-of-curlbash/)
+
+### Copycat - A library for intercepting system calls
+
+[Copycat](https://github.com/vimpostor/copycat)
+
+A library for intercepting system calls.
+
+This library allows you to overwrite system calls of arbitrary binaries in an intuitive way.
+For example the following snippet tricks `cat` into opening another file than was given:
+```bash
+echo "a" > /tmp/a
+echo "b" > /tmp/b
+COPYCAT="/tmp/a /tmp/b" copycat -- cat /tmp/a # this will print "b"
+# Success! cat was tricked into opening /tmp/b instead of /tmp/a
+```
+
+Internally `copycat` uses a modern [Seccomp Notifier](https://man7.org/linux/man-pages/man2/seccomp_unotify.2.html) implementation to reliably intercept system calls.
+This is more elegant and much faster than usual `ptrace`-based implementations. However due to this relatively new Linux Kernel feature, `copycat` only works on **Linux 5.9** or higher. Additionally, due to a [Linux kernel bug not notifying the supervisor when a traced child terminates](https://lore.kernel.org/all/20240628021014.231976-2-avagin@google.com/), it is recommended to use **Linux 6.11** or higher.
+
 ### [GitFourchette](https://gitfourchette.org/)
 
 Oberfläche für Git, geschrieben in Python und Qt.
