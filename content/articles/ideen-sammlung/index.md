@@ -30,7 +30,28 @@ Offene Ideen
 - Nun klappts: [https://www.idontplaydarts.com](https://www.idontplaydarts.com/2016/04/detecting-curl-pipe-bash-server-side/) - Zertifikat abgelaufen
 - Getestet mit Google-Chrome Version Version 131.0.6778.204 (Offizieller Build) (64-Bit)
 
+### DuckDB + Webassembly = WhatTheDuck
+
+[DuckDB + Webassembly = WhatTheDuck](https://www.i-programmer.info/news/84-database/17726-duckdb-webassembly-whattheduck.html)
+
+Run DuckDB inside your browser thanks to Webassembly. When is that useful?
+
+Running a database instance inside a browser is nothing new.
+I've already explored the idea in Running PostgreSQL Inside Your Browser With PGLite where I explained:
+
+PGlite is a WASM Postgres build packaged into a TypeScript client library that enableyou to run Postgres in the browser with no need to install any other dependencies.
+
+The concept here is the same. You get a local first application
+disposable application without the hassle of having to set up anything.
+
+Usually when I want to quickly load CSV files, store them in tables and perform SQL queries on the data, I use DBeaver where I setup the DuckDB driver as well the in-memory database and then load the CSV with "create table as".￼
+
+Instead, with WhatTheDuck you just upload your files and are ready to go.
+
 ### Detecting the use of "curl | bash" server side
+
+Meine Einschätzung: Schwierig zu beschreiben, schwierig ein Beispiel
+umzusetzen!
 
 - [Detecting the use of "curl | bash" server side](https://www.reddit.com/r/linux/comments/92tt8s/detecting_the_use_of_curl_bash_server_side/?rdt=59648)
 - [https://www.idontplaydarts.com](https://www.idontplaydarts.com/2016/04/detecting-curl-pipe-bash-server-side/) - Zertifikat abgelaufen
