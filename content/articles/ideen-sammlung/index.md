@@ -22,6 +22,14 @@ für jeden außer mich selbst!
 Offene Ideen
 ------------
 
+### Anzeige einer Webseite mit abgelaufenen Zertifikat
+
+- Alle Chrome-Prozesse stoppen
+- Neuen Chrome-Prozess starten via Kommandozeile: `google-chrome-stable --ignore-certificate-errors`
+- Diverse Warnungen ignorieren
+- Nun klappts: [https://www.idontplaydarts.com](https://www.idontplaydarts.com/2016/04/detecting-curl-pipe-bash-server-side/) - Zertifikat abgelaufen
+- Getestet mit Google-Chrome Version Version 131.0.6778.204 (Offizieller Build) (64-Bit)
+
 ### Detecting the use of "curl | bash" server side
 
 - [Detecting the use of "curl | bash" server side](https://www.reddit.com/r/linux/comments/92tt8s/detecting_the_use_of_curl_bash_server_side/?rdt=59648)
