@@ -1,5 +1,5 @@
 +++
-date = '2025-01-07'
+date = '2025-01-15'
 draft = false
 title = 'PROOT: Dateisysteme ohne "root"'
 categories = [ 'Dateisystem' ]
@@ -197,4 +197,4 @@ Getestet mit
 Historie
 --------
 
-- 2025-01-07: Erste Version
+- 2025-01-15: Erste Version
