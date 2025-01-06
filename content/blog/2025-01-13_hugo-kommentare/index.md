@@ -55,27 +55,44 @@ Einrichten der App
   - Metadaten lesen
   - Issues lesen und schreiben
 
-Kommentarfunktion aus Anwendersicht
------------------------------------
-
-![Kommentarfeld](images/utterances.png)
-
-Nach der Aktivierung erscheint am unteren Bildschirmrand ein
-Kommentarfeld. Um einen Kommentar hinzuzufügen, muß man sich
-bei Github anmelden und irgendwelche Privilegien an "utterances.es"
-erteilen.
-
-Danach erscheint aktuell eine Fehlermeldung wie diese:
+Hinweis: Wenn man das einmalige Einrichten der "App" vergisst, dann
+erscheint beim Nutzen der Kommentarfunktion diese Fehlermeldung:
 
 Error: utterances is not installed on uli-heller/uli.heller.cool. 
 If you own this repo, [install the app](https://github.com/apps/utterances).
 Read more about this change in
 [the PR](https://github.com/utterance/utterances/pull/25).
 
+Kommentarfunktion aus Anwendersicht
+-----------------------------------
+
+![Kommentarfeld](images/utterances-abgerissen.png)
+
+Nach der Aktivierung erscheint am unteren Bildschirmrand ein
+Kommentarfeld. Um einen Kommentar hinzuzufügen, muß man sich
+bei Github anmelden und irgendwelche Privilegien an "utterances.es"
+erteilen.
+
+Oder auch hier:
+
+![Zwei Testkommentare](images/test-kommentare-abgerissen.png)
+
 Kommentarfunktion aus "meiner" Sicht
 ------------------------------------
 
-TBD
+Hier erste Eindrücke:
+
+1. Ich bekomme eine Email mit dem Hinweis auf den neuen Kommentar/das neue Ticket
+
+   ![Info-Email - neuer Kommentar](images/email.png)
+
+2. Leider sehe ich in der Email nicht den Inhalt der Kommentars - dazu muß
+   ich auf Github nachschauen
+
+3. Für Folgekommentare scheint es keine Emails zu geben!
+
+4. In meinem Github-Projekt [uli.heller.cool](https://github.com/uli-heller/uli.heller.cool) erscheinen die Kommentare
+   als GithubIssues. Sie können von jedem eingesehen werden!
 
 Wertung
 -------
@@ -88,11 +105,17 @@ sieht man "unten" viele Kommentare. Die wirken sehr unübersichtlich.
 Also: Wenn es zu einem Artikel viele Kommentare gibt, dann hat die
 Kommentarfunktion gewisse Probleme in der Darstellung!
 
+Die Kommentare erscheinen als GithubIssues
+im Github-Projekt. Sie sind genauso wie alle meine
+Texte für jeden einsehbar. Vertrauliche Informationen
+sollten also NICHT in Kommentaren eingefügt werden!
+
 Links
 -----
 
 - [Github - Hugo-Clarity](https://github.com/chipzoller/hugo-clarity)
 - [Utteranc.es](https://utteranc.es/)
+- [Github - uli.heller.cool](https://github.com/uli-heller/uli.heller.cool)
 
 Historie
 --------
