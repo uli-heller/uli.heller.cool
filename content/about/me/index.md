@@ -13,7 +13,7 @@ mich dort für alles,
 was mit Kommunikation zu tun hat. Nutzeroberflächen finde
 ich eher uninteressant.
 
-Privat jogge ich gerne und fahrradfahren
+Privat jogge ich gerne und Fahrradfahren
 gefällt mir auch!
 
 Diese Seite habe ich aufgebaut mit [Hugo](https://gohugo.io/) und

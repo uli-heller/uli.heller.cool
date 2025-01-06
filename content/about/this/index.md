@@ -54,11 +54,19 @@ Auch hier bin ich für Tipps dankbar, falls im Nutzerkreis bessere
 Lösungen bekannt sind.
 
 Die Inhalte selbst erstelle ich nach bestem Wissen und in guter Absicht.
-Ich HOFFE, sie sind hilfreich. Dafür garantieren kann ich leider nicht.
+Ich HOFFE, sie sind hilfreich. Dafür garantieren und haften kann ich leider nicht.
 Es kann also vorkommen, dass Informationen falsch sind oder dass sich
 gute Tipps als schädlich herausstellen. Sollte das tatsächlich vorkommen,
 so bitte ich um Rückmeldung. Ich werde versuchen, das dann als
 Folge zu korrigieren und besser darzustellen.
+
+Die Texte erstelle ich überwiegend am Wochenende oder morgens/abends in meiner
+Freizeit. Als Veröffentlichungsdatum setze ich Zeitpunkte in der Zukunft.
+Ich achte darauf, dass pro Tag nicht mehr als ein Artikel veröffentlicht wird.
+Der Veröffentlichungszeitpunkt hängt nur sehr grob mit dem Erstellungszeitpunkt
+zusammen.
+
+Ich nutze für die Erstellung keine KI (gekünstelte Intelligenz).
 
 Historie
 --------
