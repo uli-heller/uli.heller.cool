@@ -22,14 +22,6 @@ für jeden außer mich selbst!
 Offene Ideen
 ------------
 
-### Anzeige einer Webseite mit abgelaufenen Zertifikat
-
-- Alle Chrome-Prozesse stoppen
-- Neuen Chrome-Prozess starten via Kommandozeile: `google-chrome-stable --ignore-certificate-errors`
-- Diverse Warnungen ignorieren
-- Nun klappts: [https://www.idontplaydarts.com](https://www.idontplaydarts.com/2016/04/detecting-curl-pipe-bash-server-side/) - Zertifikat abgelaufen
-- Getestet mit Google-Chrome Version Version 131.0.6778.204 (Offizieller Build) (64-Bit)
-
 ### DuckDB + Webassembly = WhatTheDuck
 
 [DuckDB + Webassembly = WhatTheDuck](https://www.i-programmer.info/news/84-database/17726-duckdb-webassembly-whattheduck.html)
@@ -158,12 +150,27 @@ Veröffentlichungen:
 - [PROOT: Probleme bei langen Dateinamen]({{- ref "/blog/2025-01-10_proot-dateiname-maxlen" -}})
 -->
 
+### Anzeige einer Webseite mit abgelaufenen Zertifikat
+
+- Alle Chrome-Prozesse stoppen
+- Neuen Chrome-Prozess starten via Kommandozeile: `google-chrome-stable --ignore-certificate-errors`
+- Diverse Warnungen ignorieren
+- Nun klappts: [https://www.idontplaydarts.com](https://www.idontplaydarts.com/2016/04/detecting-curl-pipe-bash-server-side/) - Zertifikat abgelaufen
+- Getestet mit Google-Chrome Version Version 131.0.6778.204 (Offizieller Build) (64-Bit)
+
+<!--
+Veröffentlichungen:
+
+- [Chrome: Webseite mit abgelaufenem Zertifikat anzeigen]({{- ref "/blog/2025-01-17_chrome-abgelaufenes-zertifikat" -}})
+-->
+
 <!--
 Links
 -----
 
 - [PROOT: Dateisysteme ohne "roo]({{- ref "/blog/2025-01-07_proot-dateisystem-ohne-root" -}})
 - [PROOT: Probleme bei langen Dateinamen]({{- ref "/blog/2025-01-10_proot-dateiname-maxlen" -}})
+- [Chrome: Webseite mit abgelaufenem Zertifikat anzeigen]({{- ref "/blog/2025-01-17_chrome-abgelaufenes-zertifikat" -}})
 -->
 
 Historie
