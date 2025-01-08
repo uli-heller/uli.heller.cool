@@ -22,6 +22,10 @@ für jeden außer mich selbst!
 Offene Ideen
 ------------
 
+### Nitrokey - PIN
+
+[Nitrokey - PIN](https://docs.nitrokey.com/de/nitrokeys/nitrokey3/set-pins)
+
 ### DuckDB + Webassembly = WhatTheDuck
 
 [DuckDB + Webassembly = WhatTheDuck](https://www.i-programmer.info/news/84-database/17726-duckdb-webassembly-whattheduck.html)
