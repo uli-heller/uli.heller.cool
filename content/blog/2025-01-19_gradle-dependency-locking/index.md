@@ -149,6 +149,25 @@ Execution failed for task ':compileJava'.
 Klappt also leider überhaupt nicht. Da sind noch Forschungsarbeiten
 notwendig!
 
+Hier die Gradle-Doku: [Running a build with lock state present](https://docs.gradle.org/current/userguide/dependency_locking.html#sec:run-build-lock-state)
+
+----
+...
+The complete validation is as follows:
+
+- Existing entries in the lock state must be matched in the build
+
+  - A version mismatch or missing resolved module causes a build failure
+
+- Resolution result must not contain extra dependencies compared to the lock state
+----
+
+Also:
+
+- Ich hatte ein völlig falsches Verständnis vom DepencendyLocking
+- Ich dachte, die gelockten Versionen werden für den Build verwendet - das ist falsch
+- Die gelockten Versionen werden mit den gefundenen Versionen verglichen und bei Abweichungen wird abgebrochen - das entspricht genau der Beobachtung
+
 Versionen
 ---------
 
@@ -160,6 +179,7 @@ Links
 -----
 
 - [github:java-example-gradle-dependency-locking](https://github.com/uli-heller/java-example-gradle-dependency-locking)
+- [Gradle-Doku: Running a build with lock state present](https://docs.gradle.org/current/userguide/dependency_locking.html#sec:run-build-lock-state)
 - [Gradle forum: Subproject downloads dependencies higher version than in lockfiles](https://discuss.gradle.org/t/subproject-downloads-dependencies-higher-version-than-in-lockfiles/38308)
 
 Historie
