@@ -160,6 +160,7 @@ Links
 -----
 
 - [github:java-example-gradle-dependency-locking](https://github.com/uli-heller/java-example-gradle-dependency-locking)
+- [Gradle forum: Subproject downloads dependencies higher version than in lockfiles](https://discuss.gradle.org/t/subproject-downloads-dependencies-higher-version-than-in-lockfiles/38308)
 
 Historie
 --------
