@@ -168,6 +168,26 @@ Also:
 - Ich dachte, die gelockten Versionen werden für den Build verwendet - das ist falsch
 - Die gelockten Versionen werden mit den gefundenen Versionen verglichen und bei Abweichungen wird abgebrochen - das entspricht genau der Beobachtung
 
+Test mit LockState.LENIENT
+--------------------------
+
+```diff
+diff --git a/build.gradle b/build.gradle
+index c40fb59..b689c75 100644
+--- a/build.gradle
++++ b/build.gradle
+@@ -10,6 +10,7 @@ version = '0.0.1-SNAPSHOT'
+ sourceCompatibility = '17'
+ 
+ dependencyLocking {
++    lockMode = LockMode.LENIENT
+     lockAllConfigurations()
+ }
+```
+
+Damit gibt es zwar keine Fehlermeldung mehr, jedoch
+wird trotz 3.2.1-er-Lock die Version 3.4.1 eingebaut.
+
 Versionen
 ---------
 
