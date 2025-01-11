@@ -22,6 +22,14 @@ für jeden außer mich selbst!
 Offene Ideen
 ------------
 
+### Gradle - Bauen mit gradle.lockfile
+
+<!--
+[Link auf meinen Artikel]({{- ref "/blog/2025-01-19_gradle-dependency-locking/" -}})
+-->
+
+Aktuell wirft Gradle nur eine Warnung, wenn die Lock-Datei nicht "passt".
+
 ### Nitrokey - PIN
 
 [Nitrokey - PIN](https://docs.nitrokey.com/de/nitrokeys/nitrokey3/set-pins)
@@ -180,5 +188,8 @@ Links
 Historie
 --------
 
-- 2025-01-06: PROOT ist erledigt
+- 2025-01-11: Gradle und gradle.lockfile
+- 2025-01-08: Neue Idee - Nitrokey + PIN
+- 2025-01-07: Webseite mit abgelaufenem Zertifikat ist erledigt
+- 2025-01-06: PROOT ist erledigt + diverse neue Ideen
 - 2025-01-01: Erste Version
