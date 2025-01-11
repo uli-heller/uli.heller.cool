@@ -1,5 +1,5 @@
 +++
-date = '2025-01-19'
+date = '2025-01-12'
 draft = false
 title = 'Gradle: Dependency-Locking und Probleme'
 categories = [ 'Gradle' ]
@@ -205,4 +205,4 @@ Links
 Historie
 --------
 
-- 2025-01-19: Erste Version
+- 2025-01-12: Erste Version

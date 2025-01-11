@@ -1,5 +1,5 @@
 +++
-date = '2025-01-12'
+date = '2025-01-19'
 draft = false
 title = 'debchange - Werkzeug zum Verwalten der Datei "debian/changelog"'
 categories = [ 'Linux' ]
@@ -79,4 +79,4 @@ Getestet mit
 Historie
 --------
 
-- 2025-01-12: Erste Version
+- 2025-01-19: Erste Version
