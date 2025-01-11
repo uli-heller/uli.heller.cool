@@ -132,9 +132,11 @@ Getestet mit
 Links
 -----
 
-- [github:java-example-gradle-dependency-locking](https://github.com/uli-heller/java-example-gradle-dependency-locking)
-- [Gradle-Doku: Running a build with lock state present](https://docs.gradle.org/current/userguide/dependency_locking.html#sec:run-build-lock-state)
-- [Gradle forum: Subproject downloads dependencies higher version than in lockfiles](https://discuss.gradle.org/t/subproject-downloads-dependencies-higher-version-than-in-lockfiles/38308)
+- Beispielprojekt - [github:java-example-gradle-plugin-use](https://github.com/uli-heller/java-example-gradle-plugin-use)
+  - [... mit Warnung](https://github.com/uli-heller/java-example-gradle-plugin-use/releases/tag/gradle-9.0-deprecation-warning)
+  - [... mit Korrektur, ohne Warnung](https://github.com/uli-heller/java-example-gradle-plugin-use/releases/tag/fix-for-gradle-9.0-deprecation-warning)
+- [StackOverflow - Project.getConvention() method has been deprecated](https://stackoverflow.com/questions/76777878/project-getconvention-method-has-been-deprecated)
+  - [Taoufik Laaroussi](https://stackoverflow.com/a/79346365/959232)
 
 Historie
 --------
