@@ -300,8 +300,8 @@ systemProp.https.proxyPort=3128
 #systemProp.https.proxyHost=localhost
 #systemProp.https.proxyPort=1234
 
-systemProp.http.nonProxyHosts=plugins-artifacts.gradle.org|plugins.gradle.org|services.gradle.org|github.com|objects.githubusercontent.com|repo.maven.apache.org
-systemProp.https.nonProxyHosts=plugins-artifacts.gradle.org|plugins.gradle.org|services.gradle.org|github.com|objects.githubusercontent.com|repo.maven.apache.org
+systemProp.http.nonProxyHosts=plugins-artifacts.gradle.org|plugins.gradle.org|services.gradle.org|github.com|objects.githubusercontent.com|repo.maven.apache.org|repo1.maven.apache.org|jcenter.bintray.com
+systemProp.https.nonProxyHosts=plugins-artifacts.gradle.org|plugins.gradle.org|services.gradle.org|github.com|objects.githubusercontent.com|repo.maven.apache.org|repo1.maven.apache.org|jcenter.bintray.com
 ```
 
 Sie liegt typischerweise NICHT im Projektverzeichnis, sondern
@@ -322,6 +322,7 @@ Links
 Historie
 --------
 
+- 2025-01-11: Weitere Ausnahmen bei nonProxyHosts: repo1.maven.apache.org und jcenter.bintray.com
 - 2024-12-27: Weitere Tests - nonProxyHosts erweitern um plugins-artifacts.gradle.org
 - 2024-12-22: Tests mit Gradle-Plugins - nonProxyHosts erweitern um plugins.gradle.org
 - 2024-12-19: Erste Version
