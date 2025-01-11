@@ -22,6 +22,10 @@ für jeden außer mich selbst!
 Offene Ideen
 ------------
 
+### Linux-PPAs - Richtige Handhabung der GPG-Schlüssel
+
+https://stackoverflow.com/questions/68992799/warning-apt-key-is-deprecated-manage-keyring-files-in-trusted-gpg-d-instead
+
 ### Gradle - Bauen mit gradle.lockfile
 
 <!--
