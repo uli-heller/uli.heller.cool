@@ -30,8 +30,11 @@ Dependency-Locking aktivieren
 index 4552994..aedb683 100644
 @@ -9,6 +9,10 @@ group = 'com.example'
  version = '0.0.1-SNAPSHOT'
- sourceCompatibility = '17'
- 
+
+ java {
+     sourceCompatibility = '17'
+ }
+
 +dependencyLocking {
 +    lockAllConfigurations()
 +}
