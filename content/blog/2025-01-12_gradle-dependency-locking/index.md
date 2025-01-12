@@ -188,6 +188,68 @@ index c40fb59..b689c75 100644
 Damit gibt es zwar keine Fehlermeldung mehr, jedoch
 wird trotz 3.2.1-er-Lock die Version 3.4.1 eingebaut.
 
+Test ohne SpringDependencyManagement-Plugin
+-------------------------------------------
+
+In der [Diskussion im Gradle-Forum](https://discuss.gradle.org/t/subproject-downloads-dependencies-higher-version-than-in-lockfiles/38308)
+wurde ich darauf hingewiesen, dass ich besser ohne SpringDependencyManagement-Plugin arbeite.
+
+Hier die Umstellungen an [github:java-example-gradle-dependency-locking](https://github.com/uli-heller/java-example-gradle-dependency-locking):
+
+```diff
+--- build-springdependencymanagement.gradle	2025-01-12 10:33:13.414939719 +0100
++++ build.gradle	2025-01-12 10:27:43.199982198 +0100
+@@ -3,8 +3,6 @@
+ 	id 'org.springframework.boot' version "${springBootVersion}"
+ }
+ 
+-apply plugin: 'io.spring.dependency-management'
+-
+ group = 'com.example'
+ version = '0.0.1-SNAPSHOT'
+ 
+@@ -22,5 +20,6 @@
+ }
+ 
+ dependencies {
++	implementation platform(org.springframework.boot.gradle.plugin.SpringBootPlugin.BOM_COORDINATES)
+ 	implementation 'org.springframework.boot:spring-boot-starter-web'
+ }
+```
+
+Damit erhalte ich qualitativ die gleichen Fehler, allerdings sind
+die Fehlermeldungen aussagekräftiger:
+
+```
+java-example-gradle-dependency-locking$ ./gradlew build -PspringBootVersion=3.+
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/8.12/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+> Task :compileJava FAILED
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':compileJava'.
+> Could not resolve all files for configuration ':compileClasspath'.
+   > Could not resolve org.springframework.boot:spring-boot-dependencies:3.4.1.
+     Required by:
+         root project :
+      > Cannot find a version of 'org.springframework.boot:spring-boot-dependencies' that satisfies the version constraints:
+           Dependency path 'com.example:java-example-gradle-dependency-locking:0.0.1-SNAPSHOT' --> 'org.springframework.boot:spring-boot-dependencies:3.4.1'
+           Constraint path 'com.example:java-example-gradle-dependency-locking:0.0.1-SNAPSHOT' --> 'org.springframework.boot:spring-boot-dependencies:{strictly 3.2.1}' because of the following reason: dependency was locked to version '3.2.1'
+
+> There is 1 more failure with an identical cause.
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 5s
+1 actionable task: 1 executed
+```
+
 Versionen
 ---------
 
@@ -205,4 +267,5 @@ Links
 Historie
 --------
 
+- 2025-01-12: Fehlermeldungen ohne SpringDependencyManagement-Plugin
 - 2025-01-12: Erste Version
