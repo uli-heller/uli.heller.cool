@@ -253,6 +253,51 @@ BUILD FAILED in 5s
 1 actionable task: 1 executed
 ```
 
+Locken der Plugin-Versionen
+---------------------------
+
+In der [Diskussion im Gradle-Forum](https://discuss.gradle.org/t/subproject-downloads-dependencies-higher-version-than-in-lockfiles/38308)
+wurde ich darauf hingewiesen, dass das Hauptproblem bei der Version des SpringBoot-Plugins liegt.
+Diese Version habe ich nicht gelockt und später dann auf der Version des SpringBoot-Plugins die
+vom der SpringBoot-BOM abgeleitet.
+
+Es gibt diese Alternativen zur Korrektur:
+
+- Verwendung von "SpringBootPlugin.BOM_COORDINATES" vermeiden
+
+  ```diff
+  --------------------------------- build.gradle ---------------------------------
+  index ddc7b75..bdb8d78 100644
+  @@ -20,6 +20,6 @@ repositories {
+   }
+ 
+   dependencies {
+  -    implementation platform(org.springframework.boot.gradle.plugin.SpringBootPlugin.BOM_COORDINATES)
+  +    implementation platform("org.springframework.boot:spring-boot-dependencies:${springBootVersion}")
+       implementation 'org.springframework.boot:spring-boot-starter-web'
+   }
+  ```
+
+- Plugin-Version auch locken
+
+  ```diff
+  --------------------------------- build.gradle ---------------------------------
+  index ddc7b75..fea4dd4 100644
+  @@ -1,3 +1,9 @@
+  +buildscript {
+  +    configurations.classpath {
+  +        resolutionStrategy.activateDependencyLocking()
+  +    }
+  +}
+  +
+   plugins {
+       id 'java'
+       id 'org.springframework.boot' version "${springBootVersion}"
+  ```
+
+Ich habe beide Varianten getestet. Sie funktionieren beide! Super!
+Vielen Dank an Björn Kautler vom Gradle-Forum!
+
 Versionen
 ---------
 
@@ -270,5 +315,6 @@ Links
 Historie
 --------
 
+- 2025-01-12: Lösung mit Plugin-Lock
 - 2025-01-12: Fehlermeldungen ohne SpringDependencyManagement-Plugin
 - 2025-01-12: Erste Version
