@@ -107,6 +107,20 @@ Mi etwas Rumprobieren habe ich vorstehende
 Variante entdeckt und damit die neueste Version vom Dezember 2024
 verwendet.
 
+Server-Kommunikation
+--------------------
+
+- 2.2.7
+  - plugins.gradle.org
+  - plugins-artifacts.gradle.org
+- 12.7.1
+  - repo.maven.apache.org
+- 4.+
+  - jcenter.bintray.com
+  - repo1.maven.org
+- 15.+
+  - keine zusätzliche Server-Kommunikation
+
 Versionen
 ---------
 
