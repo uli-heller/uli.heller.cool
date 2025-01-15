@@ -25,7 +25,7 @@ Beispielprojekt und build.gradle
 
 TBD
 
-[Locking Dependency Versions in Gradle](https://jkutner.github.io/2017/03/29/locking-gradle-dependencies.html)
+[Github: java-example-gradle-useversion](https://github.com/uli-heller/java-example-gradle-useversion)
 
 Ablauf ohne Dependency-Locking
 ------------------------------
@@ -46,7 +46,7 @@ Getestet mit
 Links
 -----
 
-- [github:java-example-gradle-plugin-use](https://github.com/uli-heller/java-example-gradle-plugin-use)
+- [Github: java-example-gradle-useversion](https://github.com/uli-heller/java-example-gradle-useversion)
 
 Historie
 --------
