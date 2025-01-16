@@ -100,6 +100,64 @@ BUILD FAILED in 576ms
 1 actionable task: 1 executed
 ```
 
+Mit und ohne "useVersion"
+-------------------------
+
+Ich habe eine neue Abhängigkeit mit Namen "maybe-mars"
+hinzugefügt. Diese verwendet auch die dynamische Version "1.+",
+allerdings ohne "useVersion()".
+
+Damit wie zuvor:
+
+```
+rm -rf maven-repository
+./create-maven-repository.sh 0 2
+./create-maven-repository.sh 1 2
+./gradlew dependencies --write-locks             # --> BUILD SUCCESSFUL, *lockfile created
+./create-maven-repository.sh 1 3
+./gradlew build                                  # --> BUILD FAILED
+```
+
+In der Fehlermeldung taucht "maybe-mars" nicht auf:
+
+```
+java-example-gradle-useversion$ ./gradlew build
+> Task :compileJava FAILED
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':compileJava'.
+> Could not resolve all files for configuration ':compileClasspath'.
+   > Did not resolve 'cool.heller.uli:hello-world:1.2.0' which has been forced / substituted to a different version: '1.3.0'
+   > Did not resolve 'cool.heller.uli:bye-moon:1.2.0' which has been forced / substituted to a different version: '1.3.0'
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 1s
+```
+
+In den Dateien "*lockfile" sehen alle drei Abhängigkeiten ähnlich aus:
+
+```
+java-example-gradle-useversion$ grep heller *lockfile
+gradle.lockfile:cool.heller.uli:bye-moon:1.2.0=compileClasspath,productionRuntimeClasspath,runtimeClasspath,testCompileClasspath,testRuntimeClasspath
+gradle.lockfile:cool.heller.uli:hello-world:1.2.0=compileClasspath,productionRuntimeClasspath,runtimeClasspath,testCompileClasspath,testRuntimeClasspath
+gradle.lockfile:cool.heller:maybe-mars:1.2.0=compileClasspath,productionRuntimeClasspath,runtimeClasspath,testCompileClasspath,testRuntimeClasspath
+```
+
+Also: Das Problem liegt an "useVersion()"!
+
+Abstimmung im Gradle-Forum
+--------------------------
+
+Meine Nachfrage im [GradleForum - Dependency Locking and useVersion](https://discuss.gradle.org/t/dependency-locking-and-useversion/50256)
+liefert als Erkenntnis, dass man "useVersion()" besser nicht verwendet!
+
 Versionen
 ---------
 
@@ -111,7 +169,7 @@ Links
 -----
 
 - [Github:java-example-gradle-useversion](https://github.com/uli-heller/java-example-gradle-useversion)
-- [GradleForums - Dependency Locking and useVersion](https://discuss.gradle.org/t/dependency-locking-and-useversion/50256)
+- [GradleForum - Dependency Locking and useVersion](https://discuss.gradle.org/t/dependency-locking-and-useversion/50256)
 
 Historie
 --------
