@@ -158,6 +158,8 @@ Abstimmung im Gradle-Forum
 Meine Nachfrage im [GradleForum - Dependency Locking and useVersion](https://discuss.gradle.org/t/dependency-locking-and-useversion/50256)
 liefert als Erkenntnis, dass man "useVersion()" besser nicht verwendet!
 
+Vielen Dank an Björn Kautler!
+
 Versionen
 ---------
 
