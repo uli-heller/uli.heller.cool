@@ -45,6 +45,13 @@ Start
   - Starten
 - Es erscheint relativ schnell eine Fehlermeldung
 
+```
+$ sudo adduser uli vboxusers
+Benutzer »uli« wird der Gruppe »vboxusers« hinzugefügt …
+Benutzer uli wird zur Gruppe vboxusers hinzugefügt.
+Fertig.
+```
+
 Versionen
 ---------
 
@@ -56,6 +63,8 @@ Links
 -----
 
 - TBD
+
+https://dl-cdn.alpinelinux.org/alpine/v3.21/releases/x86_64/alpine-extended-3.21.2-x86_64.iso
 
 Historie
 --------
