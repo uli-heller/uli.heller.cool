@@ -56,6 +56,19 @@ Start
 - Nochmal testen -> klappt nicht!
 - Diverse Variationen mit den VM-Einstellungen: Nix hilft!
 
+Paket bauen
+-----------
+
+- ... kbuild
+- ... virtualbox
+
+Man erhält virtualbox-7.xx.yy
+
+Test mit neuem Paket
+--------------------
+
+TBD
+
 Versionen
 ---------
 
@@ -66,9 +79,8 @@ Versionen
 Links
 -----
 
-- TBD
-
-https://dl-cdn.alpinelinux.org/alpine/v3.21/releases/x86_64/alpine-extended-3.21.2-x86_64.iso
+- [Github: lxc-...]() ... bauen von Paketen
+- [AlpineLinux-3.21 - ISO](https://dl-cdn.alpinelinux.org/alpine/v3.21/releases/x86_64/alpine-extended-3.21.2-x86_64.iso)
 
 Historie
 --------
