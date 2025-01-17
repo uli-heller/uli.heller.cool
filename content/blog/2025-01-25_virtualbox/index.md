@@ -44,13 +44,17 @@ Start
 - "test-vb" anwählen
   - Starten
 - Es erscheint relativ schnell eine Fehlermeldung
-
-```
-$ sudo adduser uli vboxusers
-Benutzer »uli« wird der Gruppe »vboxusers« hinzugefügt …
-Benutzer uli wird zur Gruppe vboxusers hinzugefügt.
-Fertig.
-```
+- Nutzer in Gruppe "vboxusers" aufnehmen
+  ```
+  $ sudo adduser uheller vboxusers
+  Benutzer »uheller« wird der Gruppe »vboxusers« hinzugefügt …
+  Benutzer uheller wird zur Gruppe vboxusers hinzugefügt.
+  Fertig.
+  ```
+- Abmelden/Anmelden
+- `id` -> vboxusers wird angezeigt
+- Nochmal testen -> klappt nicht!
+- Diverse Variationen mit den VM-Einstellungen: Nix hilft!
 
 Versionen
 ---------
