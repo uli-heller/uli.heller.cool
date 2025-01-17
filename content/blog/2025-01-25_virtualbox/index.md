@@ -59,8 +59,16 @@ Start
 Paket bauen
 -----------
 
-- ... kbuild
-- ... virtualbox
+Grob geht es mit "lxc-ubuntu-i386-amd64" wie folgt:
+
+- `./build-proot.sh -s noble -o jammy -S -a amd64 kbuild`
+- `./build.proot.sh -s noble -o jammy -S -a amd64 -k virtualbox`
+  (scheitert mit einem Fehler)
+- `proot.sh build-jammy-amd64/rootfs bash`
+  - `cd /src/virtualbox/virtualbox-7*/debian`
+  - "rules" anpassen
+  - `cd ..`
+  - `dpkg-buildpackage` - dauert sehr lange!
 
 Man erhält virtualbox-7.xx.yy
 
