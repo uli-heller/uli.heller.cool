@@ -43,7 +43,7 @@ sed: -e Ausdruck #1, Zeichen 15: Unbekannte Option für »s«
 Das klappt wohl nicht!
 
 ```
-$ maskiere () { echo "$@"|sed -e "s,/,\\\/,g"; }
+$ maskiere () { echo "$1"|sed -e "s,/,\\\/,g"; }
 $ SUCHE="$(maskiere "Apfel/Birne")"
 $ ERSETZE="$(maskiere "Kirsche/Erdbeere")"
 $ echo "Ich esse gerne Apfel/Birne"|sed -e "s/${SUCHE}/${ERSETZE}/"
@@ -68,7 +68,7 @@ Unklar:
 Das geht mit:
 
 ```
-$ maskiere () { echo "$@"|sed -e "s,\([/()]\),\\\\\1,g"; }
+$ maskiere () { echo "$1"|sed -e "s,\([/()]\),\\\\\1,g"; }
 ```
 
 Lösungsvorschlag aus StackOverflow
@@ -77,12 +77,12 @@ Lösungsvorschlag aus StackOverflow
 [StackOverflow - Escape a string for a sed replace pattern](https://stackoverflow.com/questions/407523/escape-a-string-for-a-sed-replace-pattern):
 
 ```
-$ SUCHE="was-auch-immer"
-$ ERSETZE="meine-ersetzung"
-$ SUCHE_ESCAPED="$(printf "%s\n" "${SUCHE}" | sed -e 's/[]\/$*.^[]/\\&/g')"
-$ ERSETZE_ESCAPED="$(printf "%s\n" "${ERSETZE}" | sed -e 's/[\/&]/\\&/g')"
-$ echo "ausgangs-text"|sed -e "s/${SUCHE_ESCAPED}/${ERSETZE_ESCAPED}/g"
-...
+$ maskiere_suche () { echo "$1" | sed -e 's/[]\/$*.^[]/\\&/g'; }
+$ maskiere_ersetze () { echo "$1" | sed -e  's/[\/&]/\\&/g'; }
+$ SUCHE="$(maskiere_suche "Ein [Text] mit &Sonder(Zeichen)")"
+$ ERSETZE="$(maskiere_ersetze "/meine/ Ersetzung&")"
+$ echo "Dies ist Ein [Text] mit &Sonder(Zeichen)"|sed -e "s/${SUCHE}/${ERSETZE}/g"
+Dies ist /meine/ Ersetzung&
 ```
 
 Links
