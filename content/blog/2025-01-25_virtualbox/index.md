@@ -99,6 +99,35 @@ Test mit neuem Paket
     - Starten -> klappt!
     - Fenster schliessen - "... die virtuelle Maschine ausschalten" - OK
 
+Paket bauen für 20.04
+---------------------
+
+- `./build-proot.sh -S -a amd64 -s noble -o focal -k virtualbox` -> meckert an: dh-sequence-dkms und später kbuild
+- `./build-proot.sh -S -a amd64 -s noble -o focal -k dh-dkms`
+- `./build-proot.sh -S -a amd64 -s noble -o focal -k kbuild`
+- `./build-proot.sh -S -a amd64 -s noble -o focal -k virtualbox` -> meckert an: libtpms-dev:amd64
+- `./build-proot.sh -S -a amd64 -s noble -o focal -k libtpms-dev`
+- `./build-proot.sh -S -a amd64 -s noble -o focal -k virtualbox` -> bricht ab mit Fehler wegen KMOD_SCROLL
+  ```
+  In file included from /src/virtualbox/virtualbox-7.0.16-dfsg/include/iprt/stream.h:42,
+                   from /src/virtualbox/virtualbox-7.0.16-dfsg/src/VBox/Frontends/VBoxSDL/VBoxSDL.cpp:35:
+  /src/virtualbox/virtualbox-7.0.16-dfsg/src/VBox/Frontends/VBoxSDL/VBoxSDL.cpp: In function 'const char* keyModToStr(unsigned int)':
+  /src/virtualbox/virtualbox-7.0.16-dfsg/src/VBox/Frontends/VBoxSDL/VBoxSDL.cpp:713:25: error: 'KMOD_SCROLL' was not declared in this scope; did you mean 'KMOD_RALT'?
+    713 |         RT_CASE_RET_STR(KMOD_SCROLL);
+        |                         ^~~~~~~~~~~
+  /src/virtualbox/virtualbox-7.0.16-dfsg/include/iprt/cdefs.h:2404:43: note: in definition of macro 'RT_CASE_RET_STR'
+   2404 | #define RT_CASE_RET_STR(a_Const)     case a_Const: return #a_Const
+        |                                           ^~~~~~~
+  kmk: *** [/usr/share/kBuild/footer-pass2-compiling-targets.kmk:277: /src/virtualbox/virtualbox-7.0.16-dfsg/out/obj/VBoxSDL/VBoxSDL.o] Error 1
+  make[1]: *** [debian/rules:62: override_dh_auto_build] Error 2
+  make[1]: Leaving directory '/src/virtualbox/virtualbox-7.0.16-dfsg'
+  ```
+
+  - Anpassen: Zeile 713 auskommentieren
+  - debian/control: libsdb2 auskommentieren
+  
+- `./build-proot.sh -S -a amd64 -s noble -o focal -k virtualbox` -> klappt!
+
 Versionen
 ---------
 
