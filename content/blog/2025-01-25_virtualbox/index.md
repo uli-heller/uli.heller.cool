@@ -124,7 +124,7 @@ Paket bauen für 20.04
   ```
 
   - Anpassen: Zeile 713 auskommentieren
-  - debian/control: libsdb2 auskommentieren
+  - debian/control: libsdb2 auskommentieren, breaks-Zeugs weg
   
 - `./build-proot.sh -S -a amd64 -s noble -o focal -k virtualbox` -> klappt!
 
