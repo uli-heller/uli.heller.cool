@@ -160,6 +160,43 @@ liefert als Erkenntnis, dass man "useVersion()" besser nicht verwendet!
 
 Vielen Dank an Björn Kautler!
 
+Nachtrag: POM und Module
+------------------------
+
+Bei meinem Kundenteam gibt es die Hypothese, dass `useVersion`
+keine Auswirkung auf die Module-Datei beim Publishing hat.
+Dort steht wohl immer diejenige Version drin, die in der Datei
+"build.gradle" vorgegeben wird.
+
+Ich habe das nachgetestet mit [Github:java-example-gradle-useversion](https://github.com/uli-heller/java-example-gradle-useversion), Entwicklerzweig "module-and-pom".
+
+- Auschecken: `git checkout "module-and-pom"`
+- Sichten: Was steht in "build.gradle"?
+  - cool.heller.uli:hello-world:0.9.0
+  - cool.heller.uli:bye-moon (leer, keine Version)
+  - cool.heller:maybe-mars:${coolHellerUliVersion}
+- Sichten: Was steht in "cool-heller-uli.gradle"?
+  - coolHellerUliVersion='0.1.0'
+- Maven-Repo erzeugen:
+  - `./create-maven-repository.sh 0 2`
+  - `./create-maven-repository.sh 1 2`
+- Sichten: Welche Version wird verwendet?
+  - `./gradlew dependencies|grep cool`
+  - Erkenntnis: (Fast) Immer 0.1.0, bei "implementation" sind die
+    Versionen aus "build.gradle" drin
+- Veröffentlichen: `./gradlew publish`
+- Sichten POM: `less build/local-repository/com/example/java-example-gradle-useversion/0.0.2/java-example-gradle-useversion-0.0.2.pom`
+  - cool.heller.uli:hello-world:0.9.0
+  - cool.heller.uli:bye-moon (leer, keine Version)
+  - cool.heller:maybe-mars:0.1.0
+- Sichten Module: `less build/local-repository/com/example/java-example-gradle-useversion/0.0.2/java-example-gradle-useversion-0.0.2.module`
+  - cool.heller.uli:hello-world:0.9.0
+  - cool.heller.uli:bye-moon (leer, keine Version)
+  - cool.heller:maybe-mars:0.1.0
+
+Also: Sowohl in der POM-Datei, als auch in der Modules-Datei
+tauchen die mit "useVersion" überschriebenen Versionen nicht auf!
+
 Versionen
 ---------
 
