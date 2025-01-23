@@ -40,6 +40,12 @@ convert a.png a.pdf
 ... wandelt das Bildchen "a.png" nach "a.pdf".
 Funktioniert analog auch mit "a.jpg".
 
+```
+convert s1.png s2.png s3.png -auto-orient result.pdf
+```
+
+... wandelt mehrere Seiten nach PDF.
+
 Problem
 -------
 
