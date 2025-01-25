@@ -77,10 +77,6 @@ LNr | Marke  | Farbe   | Kapazität | Datum      | mAh  | Min | Volt | Anmerkung
 .   | Amazon | Schwarz |  800 mAh  | 2022-08-30 | 782  | 288 | 1.47
 .   | Amazon | Schwarz |  800 mAh  | 2022-12-24 | 762  | 289 | 1.46
 .   | Amazon | Schwarz |  800 mAh  | 2023-03-25 | 761  | 282 | 1.47
-03  | Amazon | Schwarz |  800 mAh  | 2024-08-30 | 697  | 258 | 1.47
-.   | Amazon | Schwarz |  800 mAh  | 2022-03-21 | 718  | 266 | 1.49
-04  | Amazon | Schwarz |  800 mAh  | 2024-08-30 | 730  | 272 | 1.49
-.   | Amazon | Schwarz |  800 mAh  | 2022-03-21 | 785  | 292 | 1.49
 07  | Amazon | Weiß    |  750 mAh  | 2024-08-30 | 782  | 289 | 1.49
 .   | Amazon | Weiß    |  750 mAh  | 2022-03-28 | 781  | 289 | 1.49
 08  | Amazon | Weiß    |  750 mAh  | 2024-08-30 | 782  | 289 | 1.49
@@ -107,11 +103,15 @@ LNr | Marke  | Farbe   | Kapazität | Datum      | mAh  | Min | Volt | Anmerkung
 
 LNr | Marke   | Farbe   | Kapazität | Datum      | mAh  | Min | Volt | Anmerkung
 ----|---------|---------|-----------|------------|------|-----|------|-------------
-?   | Ansmann | Silber  |  800 mAh  | 2022-05-12 | ?    | ?   | ?    | Anzeige HIGH
-02  | Amazon  | Schwarz |  800 mAh  | 2022-03-21 | 696  | 258 | 1.48 |
-?   | Amazon  | Schwarz |  800 mAh  | 2022-08-30 | 673  | 249 | 1.46 |
-?   | Amazon  | Schwarz |  800 mAh  | 2022-12-24 | 681  | 252 | 1.49 |
-?   | Amazon  | Schwarz |  800 mAh  | 2023-03-20 | -    | -   | -    | Anzeige HIGH
+?   | Ansmann| Silber  |  800 mAh  | 2022-05-12 | ?    | ?   | ?    | Anzeige HIGH
+02  | Amazon | Schwarz |  800 mAh  | 2022-03-21 | 696  | 258 | 1.48 |
+?   | Amazon | Schwarz |  800 mAh  | 2022-08-30 | 673  | 249 | 1.46 |
+?   | Amazon | Schwarz |  800 mAh  | 2022-12-24 | 681  | 252 | 1.49 |
+?   | Amazon | Schwarz |  800 mAh  | 2023-03-20 | -    | -   | -    | Anzeige HIGH
+03  | Amazon | Schwarz |  800 mAh  | 2024-08-30 | 697  | 258 | 1.47
+.   | Amazon | Schwarz |  800 mAh  | 2022-03-21 | 718  | 266 | 1.49
+04  | Amazon | Schwarz |  800 mAh  | 2024-08-30 | 730  | 272 | 1.49
+.   | Amazon | Schwarz |  800 mAh  | 2022-03-21 | 785  | 292 | 1.49
 05  | Amazon | Schwarz |  800 mAh  | 2022-03-23 | 778  | 288 | 1.46
 .   | Amazon | Schwarz |  800 mAh  | 2022-11-16 | 742  | 274 | 1.48
 .   | Amazon | Schwarz |  800 mAh  | 2022-12-27 | 730  | 270 | 1.47
