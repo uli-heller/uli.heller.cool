@@ -1,0 +1,115 @@
+{
+  "spdxVersion": "SPDX-2.3",
+  "dataLicense": "CC0-1.0",
+  "SPDXID": "SPDXRef-DOCUMENT",
+  "name": "gradle.lockfile",
+  "documentNamespace": "http://aquasecurity.github.io/trivy/filesystem/gradle.lockfile-b52fcc5c-037d-4107-ac8d-1ed8cd54e601",
+  "creationInfo": {
+    "creators": [
+      "Organization: aquasecurity",
+      "Tool: trivy-0.58.0"
+    ],
+    "created": "2025-01-25T13:14:17Z"
+  },
+  "packages": [
+    {
+      "name": "ohne-doppelpunkt",
+      "SPDXID": "SPDXRef-Package-9a8728010e83fc98",
+      "versionInfo": "1.5.12",
+      "supplier": "NOASSERTION",
+      "downloadLocation": "NONE",
+      "filesAnalyzed": false,
+      "sourceInfo": "package found in: gradle.lockfile",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:maven/ch.qos.logback/logback-classic@1.5.12"
+        }
+      ],
+      "primaryPackagePurpose": "LIBRARY",
+      "annotations": [
+        {
+          "annotator": "Tool: trivy-0.58.0",
+          "annotationDate": "2025-01-25T13:14:17Z",
+          "annotationType": "OTHER",
+          "comment": "PkgID: ch.qos.logback:logback-classic:1.5.12"
+        },
+        {
+          "annotator": "Tool: trivy-0.58.0",
+          "annotationDate": "2025-01-25T13:14:17Z",
+          "annotationType": "OTHER",
+          "comment": "PkgType: gradle"
+        }
+      ]
+    },
+    {
+      "name": "mit:zwei:doppelpunkten",
+      "SPDXID": "SPDXRef-Package-15304e22c5ce459f",
+      "versionInfo": "1.5.12",
+      "supplier": "NOASSERTION",
+      "downloadLocation": "NONE",
+      "filesAnalyzed": false,
+      "sourceInfo": "package found in: gradle.lockfile",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:maven/ch.qos.logback/logback-core@1.5.12"
+        }
+      ],
+      "primaryPackagePurpose": "LIBRARY",
+      "annotations": [
+        {
+          "annotator": "Tool: trivy-0.58.0",
+          "annotationDate": "2025-01-25T13:14:17Z",
+          "annotationType": "OTHER",
+          "comment": "PkgID: ch.qos.logback:logback-core:1.5.12"
+        },
+        {
+          "annotator": "Tool: trivy-0.58.0",
+          "annotationDate": "2025-01-25T13:14:17Z",
+          "annotationType": "OTHER",
+          "comment": "PkgType: gradle"
+        }
+      ]
+    },
+    {
+      "name": "ganz:ganz:ganz:ganz:viele:doppelpunkte",
+      "SPDXID": "SPDXRef-Package-6667507e0913260",
+      "versionInfo": "2.18.2",
+      "supplier": "NOASSERTION",
+      "downloadLocation": "NONE",
+      "filesAnalyzed": false,
+      "sourceInfo": "package found in: gradle.lockfile",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:maven/com.fasterxml.jackson.core/jackson-annotations@2.18.2"
+        }
+      ],
+      "primaryPackagePurpose": "LIBRARY",
+      "annotations": [
+        {
+          "annotator": "Tool: trivy-0.58.0",
+          "annotationDate": "2025-01-25T13:14:17Z",
+          "annotationType": "OTHER",
+          "comment": "PkgID: com.fasterxml.jackson.core:jackson-annotations:2.18.2"
+        },
+        {
+          "annotator": "Tool: trivy-0.58.0",
+          "annotationDate": "2025-01-25T13:14:17Z",
+          "annotationType": "OTHER",
+          "comment": "PkgType: gradle"
+        }
+      ]
+    }
+  ]
+}
