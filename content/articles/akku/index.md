@@ -26,7 +26,13 @@ Garmin
 
 Meine aktuelle Armbanduhr: [marq2](marq2)
 
+Akkus/"Batterien"
+-----------------
+
+Hier die Liste meiner "Batterien": [akku-tabelle](akku-tabelle)
+
 Historie
 --------
 
+- 2025-01-25: Liste der "Batterien"
 - 2024-12-31: Erste Version
