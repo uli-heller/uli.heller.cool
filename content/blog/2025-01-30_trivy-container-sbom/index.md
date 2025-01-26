@@ -63,3 +63,24 @@ Idee: "referenceLocator" könnte helfen!
         }
       ],
 ```
+
+Umsetzung mit JQ:
+
+```diff
+--- a/content/blog/2025-01-30_trivy-container-sbom/spdx-2-csv-2.sh
++++ b/content/blog/2025-01-30_trivy-container-sbom/spdx-2-csv-2.sh
+@@ -1,9 +1,12 @@
+ #!/bin/sh
+-jq -r '["type","group", "name", "version"], (
++jq -r '["type","ref","group", "name", "version"], (
+              .packages[]
+              | (
+                  [
+                    .primaryPackagePurpose,
++                   (
++                     .externalRefs|..|.referenceLocator?|strings|split("/")[0]
++                   ),
+                    (
+                      .name|split(":") as $splitted|($splitted[-2], $splitted[-1])
+                    ), .versionInfo
+```
