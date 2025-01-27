@@ -252,7 +252,7 @@ DNS dauerhaft aktivieren für beide Netzwerkbrücken:
 # DNS
 #
 for bridge in lxdhostonly lxdnat; do
-ipaddress="$(lxc network get ${bridge} ipv4.address)"
+ipaddress="$(lxc network get ${bridge} ipv4.address|cut -d "/" -f 1)"
 cat >/etc/systemd/system/lxd-dns-${bridge}.service <<EOF
 [Unit]
 Description=LXD per-link DNS configuration for ${bridge}
@@ -288,4 +288,5 @@ Versionen
 Historie
 --------
 
+- 2025-01-27: Fehlerkorrektur Korrektur "${ipaddress}"
 - 2024-12-05: Erste Version

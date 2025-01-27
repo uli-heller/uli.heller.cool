@@ -24,7 +24,7 @@ lxc profile device set default eth0 network=lxdnat
 # DNS
 #
 for bridge in lxdhostonly lxdnat; do
-ipaddress="$(lxc network get ${bridge} ipv4.address)"
+ipaddress="$(lxc network get ${bridge} ipv4.address|cut -d "/" -f 1)"
 cat >/etc/systemd/system/lxd-dns-${bridge}.service <<EOF
 [Unit]
 Description=LXD per-link DNS configuration for ${bridge}
