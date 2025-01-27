@@ -74,8 +74,10 @@ LNr | Marke  | Farbe   | Kapazität | Datum      | mAh  | Min | Volt | Anmerkung
 ----|--------|---------|-----------|------------|------|-----|------|-----------
 07  | Amazon | Weiß    |  750 mAh  | 2024-08-30 | 782  | 289 | 1.49
 .   | Amazon | Weiß    |  750 mAh  | 2022-03-28 | 781  | 289 | 1.49
+07  | Amazon | Weiß    |  750 mAh  | 2025-01-27 | 764  | 284 | 1.50
 08  | Amazon | Weiß    |  750 mAh  | 2024-08-30 | 782  | 289 | 1.49
 .   | Amazon | Weiß    |  750 mAh  | 2022-03-23 | 776  | 289 | 1.49
+.   | Amazon | Weiß    |  750 mAh  | 2025-01-27 | 756  | 281 | 1.49
 12  | Varta  | Grün    |  800 mAh  | 2022-06-07 | 799  | 296 | 1.48
 13  | Varta  | Grün    |  800 mAh  | 2022-06-07 | 769  | 285 | 1.47
 14  | EBL    | Weiß    | 1100 mAh  | 2022-09-04 |1008  | 270 | 1.46
@@ -90,7 +92,7 @@ LNr | Marke  | Farbe   | Kapazität | Datum      | mAh  | Min | Volt | Anmerkung
 21  | Amazon | Schwarz |  800 mAh  | 2024-08-30 | 789  | 203 | 1.46
 .   | Amazon | Schwarz |  800 mAh  | 2022-12-08 | 782  | 290 | 1.46
 .   | Amazon | Schwarz |  800 mAh  | 2024-04-08 | 767  | 286 | 1.47 
-
+.   | Amazon | Schwarz |  800 mAh  | 2025-01-27 | 721  | 321 | 1.47
 
 ### Schrott
 
