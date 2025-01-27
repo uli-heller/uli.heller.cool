@@ -1,4 +1,27 @@
-SODX-Format
++++
+date = '2025-01-30'
+draft = false
+title = 'Container-SBOM nach CSV wandeln'
+categories = [ 'Trivy' ]
+tags = [ 'trivy', 'cdxgen', 'spdx', 'sicherheit', 'sbom', 'container' ]
++++
+
+<!--
+SBOM nach CSV wandeln
+=====================
+-->
+
+Für Kundenprojekte verwende ich häufig Container-Images
+als Ergebnis der CICD-Pipeline. Diese werden dann in einer
+Cloud-Umgebung eingespielt.
+
+Wir erstellen für die Container-Images SBOMs. Diese sind im
+JSON-Format. Für Auswertungen möchte ich sie als CSV-Datei
+bereitstellen und danach in eine Datenbank importieren.
+
+<!--more-->
+
+SPDX-Format
 -----------
 
 ### Wandlung nach CSV
@@ -154,3 +177,13 @@ Damit erhält man dann die [CVS-Datei trivy-cdx-jib-sbom-2.csv](trivy-cdx-jib-sb
 "library","pkg:maven","org.springframework","spring-webmvc","6.2.1"
 "library","pkg:maven","org.yaml","snakeyaml","2.3"
 ```
+
+Links
+-----
+
+- [Erstellung einer Software-Inventurliste (SBOM) für eine Java-App - JSON und CSV]({{- ref "blog/2025-01-28_sbom-java-app" -}})
+
+Änderungen
+----------
+
+- 2025-01-30: Erste Version
