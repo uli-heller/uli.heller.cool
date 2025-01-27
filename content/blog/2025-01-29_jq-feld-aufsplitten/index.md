@@ -12,7 +12,11 @@ JQ: Feld aufsplitten beim Wandeln nach CSV
 ==========================================
 -->
 
-TBD
+Bei der Wandlung der SBOM-JSON-Dokumente nach CSV
+fällt auf, dass die JSON-Struktur beim SPDX-Format
+leider keine Trennung von "group" und "name"
+aufweist. Dies möchte ich bei der Wandlung
+mit JQ "nachholen".
 
 <!--more-->
 
