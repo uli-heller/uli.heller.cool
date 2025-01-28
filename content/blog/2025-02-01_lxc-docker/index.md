@@ -11,6 +11,21 @@ LXC/LXD: Docker im Container
 ============================
 -->
 
+Wenn man sich für OpenSource-Software interessiert,
+kommt man heutzutage fast nicht an Docker vorbei.
+Zahlreiche Programme werden als Docker-Container angeboten
+und können so sehr einfach getestet werden.
+
+Problem: Die Kombination aus Dockerfile und Image
+trennt den Arbeitsplatzrechner nur sehr ungenügend
+von der Fremdsoftware. Ohne detaillierte Prüfung kann
+ich nicht sicher sein, dass mein Rechner nicht kompromittiert
+wird.
+
+Abhilfe: Docker im LXC/LXD-Container!
+
+<!--more-->
+
 Container anlegen
 -----------------
 
