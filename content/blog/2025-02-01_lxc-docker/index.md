@@ -146,6 +146,12 @@ Versionen
 - Getestet mit einem Ubuntu 24.04 Container
   und docker.io 26.1.3-0ubuntu1~24.04.1
 
+Links
+-----
+
+- [Github - Ubuntu 24.04 AppArmor breaks pivot_root inside LXD containers](https://github.com/canonical/lxd/issues/13389)
+- [daemons-point.com - Docker in LXD/LXC-Container](https://daemons-point.com/blog/2022/12/25/docker-in-lxc-container/)
+
 Historie
 --------
 
