@@ -1,5 +1,5 @@
 +++
-date = '2024-12-05'
+date = '2025-02-01'
 draft = false
 title = 'LXC/LXD: Docker im Container'
 categories = [ 'LXC/LXD' ]
