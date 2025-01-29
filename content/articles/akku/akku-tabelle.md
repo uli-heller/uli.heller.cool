@@ -1,5 +1,14 @@
-0Akku-Tabellen
+Akku-Tabellen
 =============
+
+Li-Ion
+------
+
+Ich habe neue AAA-Akkus besorgt samt Ladegerät.
+Details folgen.
+
+Ni-MH
+-----
 
 ## AA
 
