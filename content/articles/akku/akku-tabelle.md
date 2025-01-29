@@ -5,7 +5,33 @@ Li-Ion
 ------
 
 Ich habe neue AAA-Akkus besorgt samt Ladegerät.
-Details folgen.
+
+### AAA-Akkus mit USB-Stecker
+
+Bei den AAA-Akkus mit USB-Stecker benötige ich kein separates
+Ladegerät. Einfach das 4-fach-USB-Kabel verwenden. Hier ein paar Details
+zur Lieferung:
+
+- 4x AAA-Akku mit USB-Stecker
+- 1xUSB-A-4xUSB-C-Kabel zum parallelen Aufladen aller 4 Akkus
+- [Amazon - CITYORK Lithium Ionen Aufladbare Akkus AAA, 1,5V AAA Wiederaufladbare Batterien, 1200mWh mit USB-Laden (4er Pack)](https://www.amazon.de/dp/B0BHWPN46T?ref=ppx_yo2ov_dt_b_fed_asin_title)
+- Preis: 19.99 EUR
+- Kapazität: 1200mWh
+
+### AAA-Akkus ohne USB-Stecker
+
+Diese Akkus kann ich nur mit Ladegerät laden.
+
+- 4x AAA-Akku ohne USB-Stecker
+- [Amazon - CITYORK AAA Akku 1200mWh 4 Stück 1.5V Wiederaufladbare Lithium Batterien mit Akkuboxs Geringe Selbstentladung](https://www.amazon.de/dp/B0C1V3J5QN?ref=ppx_yo2ov_dt_b_fed_asin_title)
+- Preis: 21.99 EUR
+- Kapazität: 1200mWh
+
+Merkwürdig: Gleiche Kapazität, kein USB-Stecker, kein Kabel - aber teurer!
+
+### Ladegerät von Nitrocore
+
+TBD
 
 Ni-MH
 -----
