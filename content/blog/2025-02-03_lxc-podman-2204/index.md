@@ -43,7 +43,7 @@ $ lxc ls podman-2204
 +-------------+---------+----------------------+------+-----------+-----------+
 |    NAME     |  STATE  |         IPV4         | IPV6 |   TYPE    | SNAPSHOTS |
 +-------------+---------+----------------------+------+-----------+-----------+
-| docker-2204 | RUNNING | 10.38.231.205 (eth0) |      | CONTAINER | 0         |
+| podman-2204 | RUNNING | 10.38.231.205 (eth0) |      | CONTAINER | 0         |
 +-------------+---------+----------------------+------+-----------+-----------+
 ```
 
@@ -54,9 +54,9 @@ Podman im Container installieren
 $ lxc exec podman-2204 bash
 
 root@podman-2204:~# apt update
-Hit:1 http://archive.ubuntu.com/ubuntu noble InRelease
-Get:2 http://archive.ubuntu.com/ubuntu noble-updates InRelease [126 kB]
-Get:3 http://archive.ubuntu.com/ubuntu noble-backports InRelease [126 kB]
+Hit:1 http://archive.ubuntu.com/ubuntu jammy InRelease
+Get:2 http://archive.ubuntu.com/ubuntu jammy-updates InRelease [126 kB]
+Get:3 http://archive.ubuntu.com/ubuntu jammy-backports InRelease [126 kB]
 ...
 Building dependency tree... Done
 Reading state information... Done
