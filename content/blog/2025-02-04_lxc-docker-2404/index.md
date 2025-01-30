@@ -1,7 +1,7 @@
 +++
-date = '2025-02-01'
+date = '2025-02-04'
 draft = false
-title = 'LXC/LXD: Docker im Container'
+title = 'LXC/LXD: Docker im Ubuntu-24.04-Container'
 categories = [ 'LXC/LXD' ]
 tags = [ 'lxc', 'lxd', 'docker', 'linux', 'ubuntu' ]
 +++
@@ -170,4 +170,4 @@ Links
 Historie
 --------
 
-- 2025-02-01: Erste Version
+- 2025-02-04: Erste Version

@@ -1,5 +1,5 @@
 +++
-date = '2025-02-04'
+date = '2025-02-01'
 draft = false
 title = 'LXC/LXD: Podman im Container mit Ubuntu-24.04'
 categories = [ 'LXC/LXD' ]
@@ -117,4 +117,4 @@ Links
 Historie
 --------
 
-- 2025-02-04: Erste Version
+- 2025-02-01: Erste Version
