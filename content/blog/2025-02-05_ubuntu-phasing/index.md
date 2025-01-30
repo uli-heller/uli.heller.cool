@@ -19,3 +19,36 @@ The following packages have been kept back:
   libnetplan1 netplan-generator netplan.io python3-netplan
 0 upgraded, 0 newly installed, 0 to remove and 14 not upgraded.
 N: Some packages may have been kept back due to phasing.
+
+
+Never-Include-Phased-Updates
+----------------------------
+
+... funktioniert nicht
+
+root@ubuntu-2404:~# apt -o APT::Get::Never-Include-Phased-Updates=true upgrade -y
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+Calculating upgrade... Done
+The following upgrades have been deferred due to phasing:
+  libnss-systemd libpam-systemd libsystemd-shared libsystemd0 libudev1 systemd
+  systemd-dev systemd-resolved systemd-sysv systemd-timesyncd
+The following packages have been kept back:
+  libnetplan1 netplan-generator netplan.io python3-netplan
+0 upgraded, 0 newly installed, 0 to remove and 14 not upgraded.
+N: Some packages may have been kept back due to phasing.
+root@ubuntu-2404:~# apt -o APT::Get::Never-Include-Phased-Updates=true -o Update-Manager::Never-Include-Phased-Updates upgrade -y
+E: Option Update-Manager::Never-Include-Phased-Updates: Configuration item specification must have an =<val>.
+root@ubuntu-2404:~# apt -o APT::Get::Never-Include-Phased-Updates=true -o Update-Manager::Never-Include-Phased-Updates=true upgrade -y
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+Calculating upgrade... Done
+The following upgrades have been deferred due to phasing:
+  libnss-systemd libpam-systemd libsystemd-shared libsystemd0 libudev1 systemd
+  systemd-dev systemd-resolved systemd-sysv systemd-timesyncd
+The following packages have been kept back:
+  libnetplan1 netplan-generator netplan.io python3-netplan
+0 upgraded, 0 newly installed, 0 to remove and 14 not upgraded.
+N: Some packages may have been kept back due to phasing.
