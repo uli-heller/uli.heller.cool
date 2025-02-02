@@ -186,4 +186,5 @@ Links
 Änderungen
 ----------
 
+- 2025-02-02: Link korrigiert
 - 2025-01-30: Erste Version
