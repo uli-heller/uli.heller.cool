@@ -22,7 +22,7 @@ Ausgangspunkt
 
 Container mit Podman, bspw.
 
-- [LXC/LXD: Podman im Container mit Ubuntu-24.04]({{- ref "/blog/2025-02-01_lxc-podman-2404" -}})
+- [LXC/LXD: Podman im Container mit Ubuntu-24.04]({{< ref "/blog/2025-02-01_lxc-podman-2404" >}})
 
 Sichten von [Github: podman-compose](https://github.com/containers/podman-compose).
 
@@ -212,7 +212,7 @@ Versionen
 Links
 -----
 
-- [LXC/LXD: Podman im Container mit Ubuntu-24.04]({{- ref "/blog/2025-02-01_lxc-podman-2404" -}})
+- [LXC/LXD: Podman im Container mit Ubuntu-24.04]({{< ref "/blog/2025-02-01_lxc-podman-2404" >}})
 - [daemons-point.com - Docker in LXD/LXC-Container](https://daemons-point.com/blog/2022/12/25/docker-in-lxc-container/)
 - [daemons-point.com: Docker mit docker-compose in LXD/LXC-Container](https://daemons-point.com/blog/2022/12/26/docker-compose-in-lxc-container/)
 - [DigitalOcean: How To Install and Use Docker Compose on Ubuntu 20.04](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-compose-on-ubuntu-20-04)

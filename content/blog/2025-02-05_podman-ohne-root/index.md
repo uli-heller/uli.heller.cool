@@ -23,8 +23,8 @@ Ausgangspunkt
 
 Container mit Podman, bspw.
 
-- [LXC/LXD: Podman im Container mit Ubuntu-24.04]({{- ref "/blog/2025-02-01_lxc-podman-2404" -}})
-- [LXC/LXD: Podman im Container mit Ubuntu-22.04]({{- ref "/blog/2025-02-03_lxc-podman-2204" -}})
+- [LXC/LXD: Podman im Container mit Ubuntu-24.04]({{< ref "/blog/2025-02-01_lxc-podman-2404" >}})
+- [LXC/LXD: Podman im Container mit Ubuntu-22.04]({{< ref "/blog/2025-02-03_lxc-podman-2204" >}})
 
 Kurztest
 --------
@@ -109,8 +109,8 @@ Versionen
 Links
 -----
 
-- [LXC/LXD: Podman im Container mit Ubuntu-24.04]({{- ref "/blog/2025-02-01_lxc-podman-2404" -}})
-- [LXC/LXD: Podman im Container mit Ubuntu-22.04]({{- ref "/blog/2025-02-03_lxc-podman-2204" -}})
+- [LXC/LXD: Podman im Container mit Ubuntu-24.04]({{< ref "/blog/2025-02-01_lxc-podman-2404" >}})
+- [LXC/LXD: Podman im Container mit Ubuntu-22.04]({{< ref "/blog/2025-02-03_lxc-podman-2204" >}})
 - [Github - Ubuntu 24.04 AppArmor breaks pivot_root inside LXD containers](https://github.com/canonical/lxd/issues/13389)
 - [daemons-point.com - Docker in LXD/LXC-Container](https://daemons-point.com/blog/2022/12/25/docker-in-lxc-container/)
 

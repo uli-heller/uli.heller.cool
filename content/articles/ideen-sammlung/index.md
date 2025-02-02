@@ -29,7 +29,7 @@ https://stackoverflow.com/questions/68992799/warning-apt-key-is-deprecated-manag
 ### Gradle - Bauen mit gradle.lockfile
 
 <!--
-[Link auf meinen Artikel]({{- ref "/blog/2025-01-19_gradle-dependency-locking/" -}})
+[Link auf meinen Artikel]({{< ref "/blog/2025-01-19_gradle-dependency-locking/" >}})
 -->
 
 Aktuell wirft Gradle nur eine Warnung, wenn die Lock-Datei nicht "passt".
@@ -162,8 +162,8 @@ relies on ptrace, an unprivileged system-call available in every Linux kernel.
 <!--
 Veröffentlichungen:
 
-- [PROOT: Dateisysteme ohne "roo]({{- ref "/blog/2025-01-07_proot-dateisystem-ohne-root" -}})
-- [PROOT: Probleme bei langen Dateinamen]({{- ref "/blog/2025-01-10_proot-dateiname-maxlen" -}})
+- [PROOT: Dateisysteme ohne "roo]({{< ref "/blog/2025-01-07_proot-dateisystem-ohne-root" >}})
+- [PROOT: Probleme bei langen Dateinamen]({{< ref "/blog/2025-01-10_proot-dateiname-maxlen" >}})
 -->
 
 ### Anzeige einer Webseite mit abgelaufenen Zertifikat
@@ -177,16 +177,16 @@ Veröffentlichungen:
 <!--
 Veröffentlichungen:
 
-- [Chrome: Webseite mit abgelaufenem Zertifikat anzeigen]({{- ref "/blog/2025-01-17_chrome-abgelaufenes-zertifikat" -}})
+- [Chrome: Webseite mit abgelaufenem Zertifikat anzeigen]({{< ref "/blog/2025-01-17_chrome-abgelaufenes-zertifikat" >}})
 -->
 
 <!--
 Links
 -----
 
-- [PROOT: Dateisysteme ohne "roo]({{- ref "/blog/2025-01-07_proot-dateisystem-ohne-root" -}})
-- [PROOT: Probleme bei langen Dateinamen]({{- ref "/blog/2025-01-10_proot-dateiname-maxlen" -}})
-- [Chrome: Webseite mit abgelaufenem Zertifikat anzeigen]({{- ref "/blog/2025-01-17_chrome-abgelaufenes-zertifikat" -}})
+- [PROOT: Dateisysteme ohne "roo]({{< ref "/blog/2025-01-07_proot-dateisystem-ohne-root" >}})
+- [PROOT: Probleme bei langen Dateinamen]({{< ref "/blog/2025-01-10_proot-dateiname-maxlen" >}})
+- [Chrome: Webseite mit abgelaufenem Zertifikat anzeigen]({{< ref "/blog/2025-01-17_chrome-abgelaufenes-zertifikat" >}})
 -->
 
 Historie

@@ -181,7 +181,7 @@ Damit erhält man dann die [CVS-Datei trivy-cdx-jib-sbom-2.csv](trivy-cdx-jib-sb
 Links
 -----
 
-- [Erstellung einer Software-Inventurliste (SBOM) für eine Java-App - JSON und CSV]({{- ref "blog/2025-01-28_sbom-java-app" -}})
+- [Erstellung einer Software-Inventurliste (SBOM) für eine Java-App - JSON und CSV]({{< ref "blog/2025-01-28_sbom-java-app" >}})
 
 Änderungen
 ----------
