@@ -28,9 +28,7 @@ https://stackoverflow.com/questions/68992799/warning-apt-key-is-deprecated-manag
 
 ### Gradle - Bauen mit gradle.lockfile
 
-<!--
-[Link auf meinen Artikel]({{< ref "/blog/2025-01-19_gradle-dependency-locking/" >}})
--->
+[Link auf meinen Artikel]({{< ref "/blog/2025-01-12_gradle-dependency-locking/" >}})
 
 Aktuell wirft Gradle nur eine Warnung, wenn die Lock-Datei nicht "passt".
 
@@ -159,12 +157,10 @@ developers can use PRoot as a generic Linux process instrumentation engine
 thanks to its extension mechanism, see CARE for an example. Technically PRoot 
 relies on ptrace, an unprivileged system-call available in every Linux kernel.
 
-<!--
 Veröffentlichungen:
 
-- [PROOT: Dateisysteme ohne "roo]({{< ref "/blog/2025-01-07_proot-dateisystem-ohne-root" >}})
+- [PROOT: Dateisysteme ohne "roo]({{< ref "/blog/2025-01-15_proot-dateisystem-ohne-root" >}})
 - [PROOT: Probleme bei langen Dateinamen]({{< ref "/blog/2025-01-10_proot-dateiname-maxlen" >}})
--->
 
 ### Anzeige einer Webseite mit abgelaufenen Zertifikat
 
@@ -174,20 +170,16 @@ Veröffentlichungen:
 - Nun klappts: [https://www.idontplaydarts.com](https://www.idontplaydarts.com/2016/04/detecting-curl-pipe-bash-server-side/) - Zertifikat abgelaufen
 - Getestet mit Google-Chrome Version Version 131.0.6778.204 (Offizieller Build) (64-Bit)
 
-<!--
 Veröffentlichungen:
 
 - [Chrome: Webseite mit abgelaufenem Zertifikat anzeigen]({{< ref "/blog/2025-01-17_chrome-abgelaufenes-zertifikat" >}})
--->
 
-<!--
 Links
 -----
 
 - [PROOT: Dateisysteme ohne "roo]({{< ref "/blog/2025-01-07_proot-dateisystem-ohne-root" >}})
 - [PROOT: Probleme bei langen Dateinamen]({{< ref "/blog/2025-01-10_proot-dateiname-maxlen" >}})
 - [Chrome: Webseite mit abgelaufenem Zertifikat anzeigen]({{< ref "/blog/2025-01-17_chrome-abgelaufenes-zertifikat" >}})
--->
 
 Historie
 --------
