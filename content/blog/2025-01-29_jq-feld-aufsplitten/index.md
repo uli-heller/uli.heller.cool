@@ -162,9 +162,10 @@ jq -r '["group", "name", "version"], (
 Links
 -----
 
-- [Erstellung einer Software-Inventurliste (SBOM) für eine Java-App - JSON und CSV]({{- ref "/blog/2025-01-28_sbom-java-app" -}})
+- [Erstellung einer Software-Inventurliste (SBOM) für eine Java-App - JSON und CSV]({{< ref "/blog/2025-01-28_sbom-java-app" >}})
 
 Historie
 --------
 
+- 2025-02-02: Link korrigiert
 - 2025-01-29: Erste Version
