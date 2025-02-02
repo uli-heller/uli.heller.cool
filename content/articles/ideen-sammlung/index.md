@@ -159,7 +159,7 @@ relies on ptrace, an unprivileged system-call available in every Linux kernel.
 
 Veröffentlichungen:
 
-- [PROOT: Dateisysteme ohne "roo]({{< ref "/blog/2025-01-15_proot-dateisystem-ohne-root" >}})
+- [PROOT: Dateisysteme ohne "root"]({{< ref "/blog/2025-01-15_proot-dateisystem-ohne-root" >}})
 - [PROOT: Probleme bei langen Dateinamen]({{< ref "/blog/2025-01-10_proot-dateiname-maxlen" >}})
 
 ### Anzeige einer Webseite mit abgelaufenen Zertifikat
@@ -177,7 +177,7 @@ Veröffentlichungen:
 Links
 -----
 
-- [PROOT: Dateisysteme ohne "roo]({{< ref "/blog/2025-01-07_proot-dateisystem-ohne-root" >}})
+- [PROOT: Dateisysteme ohne "roo]({{< ref "/blog/2025-01-15_proot-dateisystem-ohne-root" >}})
 - [PROOT: Probleme bei langen Dateinamen]({{< ref "/blog/2025-01-10_proot-dateiname-maxlen" >}})
 - [Chrome: Webseite mit abgelaufenem Zertifikat anzeigen]({{< ref "/blog/2025-01-17_chrome-abgelaufenes-zertifikat" >}})
 
