@@ -78,6 +78,9 @@ Offen
 
 - 2024-12-29_09 - Clarity: Copyright + Lizenz
 
+- 2025-02-03_01 - Clarity: Kopieren eines Artikels und Verpacken
+  in Roundcube -> CodeBlöcke sind quasi unsichtbar
+
 Erledigt
 --------
 
