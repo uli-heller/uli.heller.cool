@@ -1,3 +1,83 @@
++++
+date = '2025-02-08'
+draft = false
+title = 'Ubuntu: Ausroll-Phasen'
+categories = [ 'Ubuntu' ]
+tags = [ 'linux', 'ubuntu' ]
++++
+
+<!--
+Ubuntu: Ausroll-Phasen
+======================
+-->
+
+Ubuntu hat irgendwann mal die Idee entwickelt,
+Aktualisierungen erstmal in begrenztem Maße
+bei einer Teilmenge der Installationen auszurollen
+und bei Problemen wieder zurückzuziehen.
+
+Leider mit ganz eigenen Problemen! Ich mag'
+den Mechanismus nicht!
+
+<!--more-->
+
+Grundidee
+---------
+
+Die Grundidee besteht darin, gewisse "unsichere"
+Aktualisierungen erstmal bei einem begrenzten Teil
+der Installationen auszurollen, bspw. bei 10%.
+
+Wenn sich die Aktualisierung als gut herausstellt, dann
+wird die Prozentzahl sukzessive erhöht bis schlussendlich
+alle Installationen aktualisiert sind.
+
+Bei Fehlern wird die Aktualisierung zurückgezogen
+und nicht weiter verteilt.
+
+Probleme
+--------
+
+Etwas problematisch wird's, wenn man zur Teilmenge gehört,
+die "früh" die Aktualisierung eingespielt bekommen. Wenn
+sich die Aktualisierung als schlecht herausstellt, dann
+wird sie von den Installationsquellen gelöscht.
+Auf dem eigenen Rechner bleibt sie aber erhalten.
+
+Das verursacht zwei Arten von Problemen:
+
+- Man hat ein "kaputtes" Paket auf seinem Rechner. Wenn's gut läuft,
+  dann sind nur kleinere funktionale Störungen vorhanden die bei einem
+  selbst nicht auftreten. Es könnten aber auch sicherheits-relevante
+  Störungen sein. Schlecht!
+
+- Man hat ein Paket auf seinem Rechner, von dem man nicht mehr
+  nachweisen kann, dass es aus einer offiziellen Quelle eingespielt wurde.
+  `apt policy (paketname)` gibt als Quelle nur "/var/lib/dpkg/status" an.
+  Das Paket kann also von überall herkommen. Angenommen, es enthält einen
+  Virus - dann sieht es so aus, als hätte man grob fahrlässig ein
+  Fremdpaket eingespielt und sich damit den Virus eingehandelt!
+
+Ich mag den Mechanismus nicht!
+
+Abhilfe
+-------
+
+Leider funktioniert dies nicht mehr:
+
+```
+Update-Manager::Never-Include-Phased-Updates;
+APT::Get::Never-Include-Phased-Updates "true";
+```
+
+Also: Keine Abhilfe möglich!
+
+Notizen
+-------
+
+### Zurückgehaltene Aktualisierungen
+
+```
 root@ubuntu-2404:~# apt update
 Hit:1 http://archive.ubuntu.com/ubuntu noble InRelease
 Hit:2 http://archive.ubuntu.com/ubuntu noble-updates InRelease
@@ -19,13 +99,13 @@ The following packages have been kept back:
   libnetplan1 netplan-generator netplan.io python3-netplan
 0 upgraded, 0 newly installed, 0 to remove and 14 not upgraded.
 N: Some packages may have been kept back due to phasing.
+```
 
-
-Never-Include-Phased-Updates
-----------------------------
+### Never-Include-Phased-Updates
 
 ... funktioniert nicht
 
+```
 root@ubuntu-2404:~# apt -o APT::Get::Never-Include-Phased-Updates=true upgrade -y
 Reading package lists... Done
 Building dependency tree... Done
@@ -38,6 +118,7 @@ The following packages have been kept back:
   libnetplan1 netplan-generator netplan.io python3-netplan
 0 upgraded, 0 newly installed, 0 to remove and 14 not upgraded.
 N: Some packages may have been kept back due to phasing.
+
 root@ubuntu-2404:~# apt -o APT::Get::Never-Include-Phased-Updates=true -o Update-Manager::Never-Include-Phased-Updates upgrade -y
 E: Option Update-Manager::Never-Include-Phased-Updates: Configuration item specification must have an =<val>.
 root@ubuntu-2404:~# apt -o APT::Get::Never-Include-Phased-Updates=true -o Update-Manager::Never-Include-Phased-Updates=true upgrade -y
@@ -52,10 +133,13 @@ The following packages have been kept back:
   libnetplan1 netplan-generator netplan.io python3-netplan
 0 upgraded, 0 newly installed, 0 to remove and 14 not upgraded.
 N: Some packages may have been kept back due to phasing.
+```
 
-apt policy ...
---------------
+### Ausgabe von "apt policy" bei Phasen-Aktualierungen
 
+#### Noch nicht installiert
+
+```
 root@ubuntu-2404:~# apt policy systemd
 systemd:
   Installed: 255.4-1ubuntu8.4
@@ -79,10 +163,37 @@ libudev1:
         100 /var/lib/dpkg/status
      255.4-1ubuntu8 500
         500 http://archive.ubuntu.com/ubuntu noble/main amd64 Packages
+```
 
-Always include
---------------
+#### Installiert
 
+```
+root@ubuntu-2404:~# apt policy systemd
+systemd:
+  Installed: 255.4-1ubuntu8.5
+  Candidate: 255.4-1ubuntu8.5
+  Version table:
+ *** 255.4-1ubuntu8.5 500 (phased 40%)
+        500 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 Packages
+        100 /var/lib/dpkg/status
+     255.4-1ubuntu8 500
+        500 http://archive.ubuntu.com/ubuntu noble/main amd64 Packages
+
+root@ubuntu-2404:~# apt policy libudev1
+libudev1:
+  Installed: 255.4-1ubuntu8.5
+  Candidate: 255.4-1ubuntu8.5
+  Version table:
+ *** 255.4-1ubuntu8.5 500 (phased 40%)
+        500 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 Packages
+        100 /var/lib/dpkg/status
+     255.4-1ubuntu8 500
+        500 http://archive.ubuntu.com/ubuntu noble/main amd64 Packages
+```
+
+### Immer installieren mit "always include"
+
+```
 root@ubuntu-2404:~# apt -o APT::Get::Always-Include-Phased-Updates=true -o Update-Manager::Always-Include-Phased-Updates=true upgrade -y
 Reading package lists... Done
 Building dependency tree... Done
@@ -195,29 +306,14 @@ Setting up netplan.io (1.1.1-1~ubuntu24.04.1) ...
 Setting up libpam-systemd:amd64 (255.4-1ubuntu8.5) ...
 Processing triggers for dbus (1.14.10-4ubuntu4.1) ...
 Processing triggers for libc-bin (2.39-0ubuntu8.3) ...
+```
 
-apt policy ...
---------------
+Links
+-----
 
-root@ubuntu-2404:~# apt policy systemd
-systemd:
-  Installed: 255.4-1ubuntu8.5
-  Candidate: 255.4-1ubuntu8.5
-  Version table:
- *** 255.4-1ubuntu8.5 500 (phased 40%)
-        500 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 Packages
-        100 /var/lib/dpkg/status
-     255.4-1ubuntu8 500
-        500 http://archive.ubuntu.com/ubuntu noble/main amd64 Packages
+- [ubuntuusers - phased update](https://wiki.ubuntuusers.de/Aktualisierungen/phased_update/)
 
+Historie
+--------
 
-root@ubuntu-2404:~# apt policy libudev1
-libudev1:
-  Installed: 255.4-1ubuntu8.5
-  Candidate: 255.4-1ubuntu8.5
-  Version table:
- *** 255.4-1ubuntu8.5 500 (phased 40%)
-        500 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 Packages
-        100 /var/lib/dpkg/status
-     255.4-1ubuntu8 500
-        500 http://archive.ubuntu.com/ubuntu noble/main amd64 Packages
+- 2025-02-08: Erste Version
