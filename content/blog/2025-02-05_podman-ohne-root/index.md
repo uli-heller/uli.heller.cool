@@ -35,8 +35,8 @@ Kurztest
   ```
   ubuntu@podman:~$ podman run hello-world
   Resolved "hello-world" as an alias (/etc/containers/registries.conf.d/shortnames.conf)
-Trying to pull docker.io/library/hello-world:latest...
-Getting image source signatures
+  Trying to pull docker.io/library/hello-world:latest...
+  Getting image source signatures
   ...
   Hello from Docker!
   ...
@@ -117,4 +117,5 @@ Links
 Historie
 --------
 
+- 2025-02-08: Korrektur des Formatierungsproblems
 - 2025-02-05: Erste Version
