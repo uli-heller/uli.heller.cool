@@ -1,5 +1,5 @@
 +++
-date = '2025-02-10'
+date = '2025-02-11'
 draft = false
 title = 'Ubuntu-20.04: Umstellen auf CGROUPS v2'
 categories = [ 'Ubuntu' ]
@@ -111,4 +111,4 @@ Links
 Historie
 --------
 
-- 2025-02-10: Erste Version
+- 2025-02-11: Erste Version
