@@ -98,6 +98,9 @@ ERRO[0000] running `/usr/bin/newuidmap 257 0 1000 1 1 100000 65536`: newuidmap: 
 Error: cannot set up namespace using "/usr/bin/newuidmap": exit status 1
 ```
 
+Lösung hierfür habe ich zwischenzeitlich gefunden und
+in [LXC/LXD: Podman ohne "root"]({{< ref "/blog/2025-02-05_podman-ohne-root" >}}) dokumentiert!
+
 Versionen
 ---------
 
@@ -107,6 +110,7 @@ Links
 -----
 
 - [webuzo - So aktivieren Sie cGroups v2](https://webuzo-com.translate.goog/docs/how-tos/how-to-enable-cgroups-v2/?_x_tr_sl=en&_x_tr_tl=de&_x_tr_hl=de&_x_tr_pto=rq)
+- [LXC/LXD: Podman ohne "root"]({{< ref "/blog/2025-02-05_podman-ohne-root" >}})
 
 Historie
 --------
