@@ -3,7 +3,7 @@ date = '2025-02-12'
 draft = false
 title = 'LXC/LXD: Podman-Startproblem - newuidmap: write to uid_map failed'
 categories = [ 'LXC/LXD' ]
-tags = [ 'lxc', 'lxd', 'docker', 'podman', 'linux', 'ubuntu' ]
+tags = [ 'lxc', 'lxd', 'podman', 'linux', 'ubuntu' ]
 +++
 
 <!--
