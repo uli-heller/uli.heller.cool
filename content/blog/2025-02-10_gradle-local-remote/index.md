@@ -1,7 +1,7 @@
 +++
 date = '2025-02-10'
 draft = false
-title = '
+title = 'Gradle: Lokales oder entferntes PackageRepository'
 categories = [ 'Gradle' ]
 tags = [ 'gradle' ]
 +++
