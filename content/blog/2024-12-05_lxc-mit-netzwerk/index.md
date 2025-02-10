@@ -144,6 +144,7 @@ for es in /etc/subuid /etc/subgid; do
     }
   done
 done
+lxc profile set default security.idmap.isolated=true
 systemctl restart "$(systemctl |grep -o '[\s][^\s]*lxd\.daemon\.service')"
 ```
 
@@ -288,5 +289,6 @@ Versionen
 Historie
 --------
 
+- 2025-02-10: Neuer Parameter: security.idmap.isolated=true
 - 2025-01-27: Fehlerkorrektur Korrektur "${ipaddress}"
 - 2024-12-05: Erste Version

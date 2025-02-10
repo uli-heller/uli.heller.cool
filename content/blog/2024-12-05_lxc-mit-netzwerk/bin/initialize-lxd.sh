@@ -11,6 +11,7 @@ for es in /etc/subuid /etc/subgid; do
     }
   done
 done
+lxc profile set default security.idmap.isolated=true
 systemctl restart "$(systemctl |grep -o '[\s][^\s]*lxd\.daemon\.service')"
 
 #
