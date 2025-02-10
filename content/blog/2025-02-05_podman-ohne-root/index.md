@@ -133,7 +133,7 @@ Damit:
 
 ```sh
 ubuntu-20.04:~ # lxc copy ubuntu-2404 podman-2404
-ubuntu-20.04:~ # lxc config set podman-2404 security.nesting=true security.syscalls.intercept.mknod=true security.syscalls.intercept.setxattr=true
+ubuntu-20.04:~ # lxc config set podman-2404 security.idmap.size=700000 security.nesting=true security.syscalls.intercept.mknod=true security.syscalls.intercept.setxattr=true
 ubuntu-20.04:~ # lxc start podman-2404
 ubuntu-20.04:~ # lxc ls podman-2404
 +-------------+---------+---------------------+------+-----------+-----------+
@@ -178,7 +178,7 @@ Lösung: [Unable to run rootless docker/podman under a (rootless) LXD container]
 
 - Im Podman-Container: `cat /proc/self/uid_map` -> nur 65536 UIDs sind möglich
 - Host-Rechner:
-  - `lxc config set podman-2404 security.idmap.size=200000`
+  - `lxc config set podman-2404 security.idmap.size=700000`
   - `lxc stop podman-2404`
   - `lxc start podman-2404`
 - Danach klappt es!
@@ -203,6 +203,6 @@ Links
 Historie
 --------
 
-- 2025-02-10: Problemlösung
+- 2025-02-10: Problemlösung, security.idmap.size=700000
 - 2025-02-08: Korrektur des Formatierungsproblems, Problem mit 20.04
 - 2025-02-05: Erste Version

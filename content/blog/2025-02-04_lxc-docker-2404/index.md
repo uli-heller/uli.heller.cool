@@ -38,6 +38,7 @@ Container konfigurieren
 
 ```
 $ lxc config set docker \
+  security.idmap.size=700000 \
   security.nesting=true \
   security.syscalls.intercept.mknod=true \
   security.syscalls.intercept.setxattr=true
@@ -170,4 +171,5 @@ Links
 Historie
 --------
 
+- 2025-02-10: security.idmap.size=700000
 - 2025-02-04: Erste Version
