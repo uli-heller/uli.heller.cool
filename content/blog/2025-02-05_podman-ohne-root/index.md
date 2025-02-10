@@ -172,6 +172,17 @@ ERRO[0000] running `/usr/bin/newuidmap 508 0 1000 1 1 100000 65536`: newuidmap: 
 Error: cannot set up namespace using "/usr/bin/newuidmap": exit status 1
 ```
 
+Umstellung auf "cgroups v2" bringt keine Besserung!
+
+Lösung: [Unable to run rootless docker/podman under a (rootless) LXD container](https://discuss.linuxcontainers.org/t/unable-to-run-rootless-docker-podman-under-a-rootless-lxd-container/15276)
+
+- Im Podman-Container: `cat /proc/self/uid_map` -> nur 65536 UIDs sind möglich
+- Host-Rechner:
+  - `lxc config set podman-2404 security.idmap.size=200000`
+  - `lxc stop podman-2404`
+  - `lxc start podman-2404`
+- Danach klappt es!
+
 Versionen
 ---------
 
@@ -187,9 +198,11 @@ Links
 - [LXC/LXD: Podman im Container mit Ubuntu-22.04]({{< ref "/blog/2025-02-03_lxc-podman-2204" >}})
 - [Github - Ubuntu 24.04 AppArmor breaks pivot_root inside LXD containers](https://github.com/canonical/lxd/issues/13389)
 - [daemons-point.com - Docker in LXD/LXC-Container](https://daemons-point.com/blog/2022/12/25/docker-in-lxc-container/)
+- [linuxcontainers.org - Unable to run rootless docker/podman under a (rootless) LXD container](https://discuss.linuxcontainers.org/t/unable-to-run-rootless-docker-podman-under-a-rootless-lxd-container/15276)
 
 Historie
 --------
 
+- 2025-02-10: Problemlösung
 - 2025-02-08: Korrektur des Formatierungsproblems, Problem mit 20.04
 - 2025-02-05: Erste Version
