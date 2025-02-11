@@ -93,6 +93,40 @@ root@podman:~# du -hs /home/ubuntu/.local/share/containers/storage/overlay
 4.0K	/home/ubuntu/.local/share/containers/storage/overlay
 ```
 
+Alles aufräumen
+---------------
+
+Wenn man Podman mit "root" und "ubuntu" genutzt hat, dann räumen diese
+Befehle alles auf:
+
+```
+podman# podman system reset
+WARNING! This will remove:
+        - all containers
+        - all pods
+        - all images
+        - all networks
+        - all build cache
+        - all machines
+        - all volumes
+        - the graphRoot directory: "/var/lib/containers/storage"
+        - the runRoot directory: "/run/containers/storage"
+Are you sure you want to continue? [y/N] y
+
+podman# sudo -u ubuntu -i podman system reset
+WARNING! This will remove:
+        - all containers
+        - all pods
+        - all images
+        - all networks
+        - all build cache
+        - all machines
+        - all volumes
+        - the graphRoot directory: "/home/ubuntu/.local/share/containers/storage"
+        - the runRoot directory: "/run/user/1000/containers"
+Are you sure you want to continue? [y/N] y
+```
+
 Versionen
 ---------
 
@@ -108,4 +142,5 @@ Links
 Historie
 --------
 
+- 2025-02-11: Alles löschen mit `podman system reset`
 - 2025-02-09: Erste Version
