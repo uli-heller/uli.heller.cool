@@ -1,3 +1,15 @@
++++
+date = '2025-02-14'
+draft = true
+title = 'PC-Startvorgang optimieren'
+categories = [ 'Ubuntu' ]
+tags = [ 'linux', 'ubuntu' ]
++++
+
+<!--
+PC-Startvorgang optimieren
+==========================
+-->
 
 Grobablauf
 ----------
