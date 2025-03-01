@@ -22,6 +22,13 @@ für jeden außer mich selbst!
 Offene Ideen
 ------------
 
+### USB über's Netzwerk
+
+[LINUX FU: USB EVERYWHERE](https://hackaday.com/2025/02/27/linux-fu-usb-everywhere/)
+
+Beschreibt, wie ich ein USB-Gerät von einem Linux-Rechner
+auf einem anderen verwende.
+
 ### Linux-PPAs - Richtige Handhabung der GPG-Schlüssel
 
 https://stackoverflow.com/questions/68992799/warning-apt-key-is-deprecated-manage-keyring-files-in-trusted-gpg-d-instead
@@ -184,6 +191,7 @@ Links
 Historie
 --------
 
+- 2025-03-01: USB über's Netzwerk
 - 2025-01-11: Gradle und gradle.lockfile
 - 2025-01-08: Neue Idee - Nitrokey + PIN
 - 2025-01-07: Webseite mit abgelaufenem Zertifikat ist erledigt
