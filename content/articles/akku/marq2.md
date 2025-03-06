@@ -154,3 +154,6 @@ Datum     |Ereignis         |Massnahme  |Neuer Stand|Lademenge|Ladedauer|Anschlu
 2025-02-25|niedrig          |Lade       |32% -> 100%|180mAh   |194min   |PC - USB-A|
 2025-02-28|20.21            |Eingespielt|20.19      |         |         |          |
 2025-03-01|niedrig          |Lade       |13% -> 100%|210mAh   |177min   |PC - USB-A|
+2025-03-03|20.22            |Eingespielt|20.21      |         |         |          |
+2025-03-05|niedrig          |Lade       |20% ->  33%| 32mAh   | 15min   |PC - USB-A|
+2025-03-05|niedrig          |Lade       |18% -> 100%|204mAh   |157min   |PC - USB-A|
