@@ -332,10 +332,19 @@ done
 
 Diese Änderung ist auch Teil des Initialisierungsskripts: [initialize-incus.sh](bin/initialize-incus.sh)
 
+Offene Punkte
+-------------
+
+- Reboot-Test
+  - Werden laufende Container automatisch gestartet?
+  - Funktioniert DNS?
+- Image-Test
+  - Klappt's mit eigenen LXC/LXD-Images?
+
 Links
 -----
 
-- [Arch: Incus](https://wiki.archlinux.org/title/Incus#Initialize_Incus_config))
+- [Arch: Incus](https://wiki.archlinux.org/title/Incus#Initialize_Incus_config)
 - [How to integrate with systemd-resolved](https://linuxcontainers.org/incus/docs/main/howto/network_bridge_resolved/)
 
 Versionen
