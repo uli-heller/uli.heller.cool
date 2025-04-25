@@ -247,7 +247,7 @@ $ incus network get incushostonly dns.domain
 $ sudo resolvectl dns incusnat 10.38.231.1
 $ sudo resolvectl domain incusnat '~incus'
 $ sudo resolvectl dns incushostonly 10.2.210.1
-$ sudo resolvectl domain incushostonly '~lxd'
+$ sudo resolvectl domain incushostonly '~incus'
 ```
 
 Kurztest:
@@ -293,7 +293,7 @@ incus network info incusbr0 >/dev/null 2>&1 && {
 }
 ```
 
-Standardcontainer auf Nutzung von "lxdnat" festlegen:
+Standardcontainer auf Nutzung von "incusnat" festlegen:
 
 ```
 incus profile device set default eth0 network=incusnat
