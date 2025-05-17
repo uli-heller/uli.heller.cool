@@ -16,7 +16,7 @@ Serverrechnern. Heute habe ich festgestellt, dass ich
 mich mit meinem Laptop auf einem der Uraltrechner nicht
 mehr anmelden kann.
 
-<--more-->
+<!--more-->
 
 Abgleich der SSH-Schlüssel
 --------------------------
@@ -88,4 +88,5 @@ Links
 Historie
 --------
 
+- 2025-05-17: Tippfehler korrigiert
 - 2025-02-13: Erste Version
