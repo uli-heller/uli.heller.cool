@@ -7,8 +7,8 @@ tags = [ 'linux', 'ubuntu', 'debian' ]
 +++
 
 <!--
-Shell-Skripte wandeln in Binärdatei
-===================================
+Shell-Skripte wandeln in Binärdatei mit BUNSTER
+===============================================
 -->
 
 Ich bin zufällig über
