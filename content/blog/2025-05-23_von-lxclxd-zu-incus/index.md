@@ -42,7 +42,7 @@ sudo mount /dev/mapper/ubuntu--vg-lxdlv /mnt
 $ sudo du -hs /mnt/containers/noble-32
 513M	/mnt/containers/noble-32
 
-$ time sudo image import /mnt/containers/noble-32 --alias noble-32-image
+$ time sudo incus image import /mnt/containers/noble-32 --alias noble-32-image
 Image imported with fingerprint: 1e03aa9015a0ac1ffa7f09b94aa0a11d7fbbeaeae73af170e3a8ade540f2fd8e
 
 real	2m44,910s
