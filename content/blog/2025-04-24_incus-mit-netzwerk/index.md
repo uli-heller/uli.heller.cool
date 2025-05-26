@@ -203,7 +203,8 @@ Network incushostonly created
 $ incus network create incusnat ipv4.address=10.38.231.1/24 ipv4.nat=false ipv6.address=none
 Network incusnat created
 
-$ incus profile device set default eth0 network=incusnat
+$ incus profile device set default eth0 network=incushostonly
+$ incus profile device add default eth1 nic network=incusnat
 
 $ incus network delete incusbr0
 Network incusbr0 deleted
@@ -296,7 +297,23 @@ incus network info incusbr0 >/dev/null 2>&1 && {
 Standardcontainer auf Nutzung von "incusnat" festlegen:
 
 ```
-incus profile device set default eth0 network=incusnat
+incus profile device set default eth0 network=incushostonly
+incus profile device add default eth1 nic network=incusnat
+```
+
+Profile für "hostonly" und "nat":
+
+```
+incus profile create hostonly
+incus profile set hostonly security.idmap.isolated true
+incus profile device add hostonly eth0 nic network=incushostonly
+incus profile device add hostonly root disk path=/ pool=default
+
+incus profile create nat
+incus profile set nat security.idmap.isolated true
+incus profile device add nat eth0 nic network=incushostonly
+incus profile device add nat eth1 nic network=incusnat
+incus profile device add nat root disk path=/ pool=default
 ```
 
 DNS dauerhaft aktivieren für beide Netzwerkbrücken:
@@ -355,4 +372,5 @@ Versionen
 Historie
 --------
 
+- 2025-05-26: eth0, eth1 und Profile anlegen
 - 2025-04-24: Erste Version
