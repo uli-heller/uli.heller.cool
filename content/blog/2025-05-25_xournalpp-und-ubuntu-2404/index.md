@@ -1,5 +1,5 @@
 +++
-date = '2025-06-04'
+date = '2025-05-25'
 draft = false
 title = 'Ubuntu: XournalPP - Probleme beim Start'
 categories = [ 'pdf' ]
@@ -60,4 +60,4 @@ Versionen
 Historie
 --------
 
-- 2025-06-04: Erste Version
+- 2025-05.-25: Erste Version
