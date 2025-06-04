@@ -68,3 +68,5 @@ Andere Zusätze
 Entfettung neue Kette
 
 - Stearinsäure (stearic acid)
+  - Kostet 20 $ pro Kg
+  - 20g für 2 Ketten
