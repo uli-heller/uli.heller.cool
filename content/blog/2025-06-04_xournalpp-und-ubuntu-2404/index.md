@@ -1,7 +1,7 @@
 +++
 date = '2025-06-04'
 draft = false
-title = 'Ubuntu: XournalPP - Probleme beim Start
+title = 'Ubuntu: XournalPP - Probleme beim Start'
 categories = [ 'pdf' ]
 tags = [ 'linux', 'ubuntu', 'debian' ]
 +++
