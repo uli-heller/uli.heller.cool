@@ -60,4 +60,4 @@ Versionen
 Historie
 --------
 
-- 2025-05.-25: Erste Version
+- 2025-05-25: Erste Version
