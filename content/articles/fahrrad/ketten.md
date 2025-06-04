@@ -36,3 +36,35 @@ Cube - Force
 ### Kette 1
 
 ### Kassette 1
+
+Wachstipps
+----------
+
+
+### [Youtube - Wax your chain anywhere - make it yourself](https://www.youtube.com/watch?v=XY7QI3xfa_4)
+
+Anleitung zum Flüssigwachs
+
+- 1/3 Parafin - nicht raffiniert
+- 2/3 Naphta - eine Art Benzin
+- Etwas PTFE - 1/10 vom Parafin
+
+### [Youtube - Waxing your chain(s) - Now Easier , Cheaper & Faster than ever before](https://www.youtube.com/watch?v=bhxFJ8Zq9Mg&t=881s)
+
+Anleitung zum Heißwachs
+
+- Parafin
+- 1/50 PTFE beim Erstwachsen
+- 1/200 PTFE beim Folgewachsen
+
+Andere Zusätze
+
+- molybdenum disulphide
+- tungsten disulphide
+- graphite
+- graphene
+- hexagonal boron nitride
+
+Entfettung neue Kette
+
+- Stearinsäure (stearic acid)
