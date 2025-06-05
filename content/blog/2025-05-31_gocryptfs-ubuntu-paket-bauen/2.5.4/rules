@@ -1,0 +1,53 @@
+#!/usr/bin/make -f
+
+include /usr/share/dpkg/default.mk
+
+export DH_GOLANG_EXCLUDES := test
+export DH_GOLANG_INSTALL_ALL := 1
+
+GOFUSE_VERSION_UPSTREAM=$(shell dpkg-query -f='$${source:Upstream-Version}' -W golang-github-hanwen-go-fuse-dev)
+CHANGELOG_TIMESTAMP=$(shell date -u --rfc-3339=date -d@$(SOURCE_DATE_EPOCH))
+DEB_LDFLAGS="-X main.GitVersion=$(DEB_VERSION_UPSTREAM) -X main.GitVersionFuse=$(GOFUSE_VERSION_UPSTREAM) -X main.BuildDate=$(CHANGELOG_TIMESTAMP)"
+
+%:
+	PATH="$(CURDIR)/debian:$$PATH" \
+	dh $@ --buildsystem=golang --with=golang --builddirectory=_build
+
+override_dh_auto_build:
+	head -1 debian/changelog|cut -f 2 -d '('|cut -f 1 -d ')' >VERSION
+	./build-without-openssl.bash
+	#dh_auto_build -- -ldflags $(DEB_LDFLAGS)
+	#cp -r internal/* _build/src/github.com/rfjakob/gocryptfs/internal/
+	#cp -r tests/* _build/src/github.com/rfjakob/gocryptfs/tests
+	#cp _build/bin/gocryptfs _build/src/github.com/rfjakob/gocryptfs/
+	pandoc Documentation/MANPAGE.md -s -t man -o debian/gocryptfs.1
+	pandoc Documentation/MANPAGE-XRAY.md -s -t man -o debian/gocryptfs-xray.1
+	pandoc Documentation/MANPAGE-STATFS.md -s -t man -o debian/statfs.1
+
+override_dh_auto_test:
+	\
+    PATH="$(CURDIR)/_build/bin:$$PATH" \
+    DH_GOLANG_EXCLUDES="gocryptfs-xray tests/cli tests/defaults tests/deterministic_names tests/example_filesystems tests/fsck tests/hkdf_sanity \
+			tests/matrix tests/plaintextnames tests/reverse tests/root_test tests/sharedstorage tests/xattr" \
+    true
+#    dh_auto_test
+
+override_dh_auto_clean:
+	rm -f debian/gocryptfs.1
+	rm -f debian/gocryptfs-xray.1
+	rm -f debian/statfs.1
+	rm -f contrib/atomicrename/atomicrename
+	rm -f contrib/findholes/findholes
+	rm -f contrib/statfs/statfs
+	rm -f gocryptfs-xray/gocryptfs-xray
+	rm -f gocryptfs
+	rm -f VERSION
+	dh_auto_clean
+
+override_dh_auto_install:
+	dh_auto_install --destdir=debian/tmp
+	mkdir -p debian/tmp/usr/bin
+	cp gocryptfs debian/tmp/usr/bin
+	cp gocryptfs-xray/gocryptfs-xray debian/tmp/usr/bin
+	cp contrib/statfs/statfs debian/tmp/usr/bin
+	rm -rf debian/tmp/usr/share/gocode

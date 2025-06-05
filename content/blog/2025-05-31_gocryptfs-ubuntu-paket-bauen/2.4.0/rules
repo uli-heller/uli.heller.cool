@@ -1,0 +1,39 @@
+#!/usr/bin/make -f
+
+include /usr/share/dpkg/default.mk
+
+export DH_GOLANG_EXCLUDES := test
+export DH_GOLANG_INSTALL_ALL := 1
+
+GOFUSE_VERSION_UPSTREAM=$(shell dpkg-query -f='$${source:Upstream-Version}' -W golang-github-hanwen-go-fuse-dev)
+CHANGELOG_TIMESTAMP=$(shell date -u --rfc-3339=date -d@$(SOURCE_DATE_EPOCH))
+DEB_LDFLAGS="-X main.GitVersion=$(DEB_VERSION_UPSTREAM) -X main.GitVersionFuse=$(GOFUSE_VERSION_UPSTREAM) -X main.BuildDate=$(CHANGELOG_TIMESTAMP)"
+
+%:
+	dh $@ --buildsystem=golang --with=golang --builddirectory=_build
+
+override_dh_auto_build:
+	dh_auto_build -- -ldflags $(DEB_LDFLAGS)
+	cp -r internal/* _build/src/github.com/rfjakob/gocryptfs/internal/
+	cp -r tests/* _build/src/github.com/rfjakob/gocryptfs/tests
+	cp _build/bin/gocryptfs _build/src/github.com/rfjakob/gocryptfs/
+	pandoc Documentation/MANPAGE.md -s -t man -o debian/gocryptfs.1
+	pandoc Documentation/MANPAGE-XRAY.md -s -t man -o debian/gocryptfs-xray.1
+	pandoc Documentation/MANPAGE-STATFS.md -s -t man -o debian/statfs.1
+
+override_dh_auto_test:
+	\
+    PATH="$(CURDIR)/_build/bin:$$PATH" \
+    DH_GOLANG_EXCLUDES="gocryptfs-xray tests/cli tests/defaults tests/deterministic_names tests/example_filesystems tests/fsck tests/hkdf_sanity \
+			tests/matrix tests/plaintextnames tests/reverse tests/root_test tests/sharedstorage tests/xattr" \
+    dh_auto_test
+
+override_dh_auto_clean:
+	rm -f debian/gocryptfs.1
+	rm -f debian/gocryptfs-xray.1
+	rm -f debian/statfs.1
+	dh_auto_clean
+
+override_dh_auto_install:
+	dh_auto_install --destdir=debian/tmp
+	rm -rf debian/tmp/usr/share/gocode
