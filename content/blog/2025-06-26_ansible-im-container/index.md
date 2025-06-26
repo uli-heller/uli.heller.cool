@@ -1,6 +1,6 @@
 +++
 date = '2025-06-26'
-draft = true
+draft = false
 title = 'ANSIBLE: Alte Version in einem Container verwenden'
 categories = [ 'devops' ]
 tags = [ 'ansible', 'linux', 'ubuntu' ]
@@ -30,14 +30,14 @@ Danach Virencheck!
 ### Aufsetzen
 
 ```
-lxc image import --alias focal focal-v1.12.1-amd64-lxcimage.tar.xz
-lxc launch focal ubuntu-2004
+lxc image import --alias jammy jammy-v1.12.1-amd64-lxcimage.tar.xz
+lxc launch jammy ubuntu-2204
 ```
 
 ### Aktualisieren
 
 ```
-lxc exec ubuntu-2004 bash
+lxc exec ubuntu-2204 bash
 
 # Innerhalb der "neuen" bash
 apt update
@@ -48,10 +48,30 @@ poweroff
 ### Kopieren
 
 ```
-lxc copy ubuntu-2004 ansible
+lxc copy ubuntu-2204 ansible
+lxc start ansible
 ```
 
 ## Ansible einrichten
+
+### Container vorbereiten
+
+Alle hierin beschrieben Kommandos
+"laufen" im Ansible-Container, also
+nach Eingabe von `lxc exec ansible bash`.
+
+```
+apt install -y python2
+apt install -y pipx
+apt install -y rsync
+apt install -y git     # benötige ich zum Zugriff auf meine Playbooks
+```
+
+### Wechseln zum Benutzer "ubuntu" im Ansible-Container
+
+```
+ssh -A ubuntu@ansible.lxd
+```
 
 ### Herunterladen
 
@@ -59,13 +79,48 @@ lxc copy ubuntu-2004 ansible
 [diesem Link](https://codeload.github.com/ansible/ansible/tar.gz/v2.9.27).
 Danach Virencheck!
 
+Kommando zum Herunterladen:
+`wget https://codeload.github.com/ansible/ansible/tar.gz/v2.9.27 -O ansible-2.9.27.tar.gz`
+
 ### Einrichten
 
 ```
-sudo apt install pipx
 pipx install --include-deps $(pwd)/ansible-2.9.27.tar.gz
 pipx inject ansible dnspython
 pipx inject ansible netaddr
+```
+
+## Playbooks einspielen
+
+### Wechseln zum Benutzer "ubuntu" im Ansible-Container
+
+```
+ssh -A ubuntu@ansible.lxd
+```
+
+### Git-Repo clonen
+
+```
+mkdir git
+cd git
+git clone (repo-url)
+cd (repo-basename)
+```
+
+### SSH-Zugriff testen
+
+Mein Testrechner hat den Namen "goliath", also:
+
+```
+ssh goliath
+# muß klappen!
+```
+
+### Ansible-Playbook testen
+
+```
+ansible-playbook site.yml --check --diff -l goliath
+# sollte nun keinen Fehler anzeigen
 ```
 
 Links
