@@ -25,6 +25,8 @@ Hier beschreibe ich, wie ich es in einem Container nutze
 LXC-Image herunterladen von
 [Github: Ubuntu-Images für LXC](https://github.com/uli-heller/lxc-ubuntu-i386-amd64/releases/tag/v1.12.1).
 
+Danach Virencheck!
+
 ### Aufsetzen
 
 ```
@@ -51,9 +53,17 @@ lxc copy ubuntu-2004 ansible
 
 ## Ansible einrichten
 
+### Herunterladen
+
+"ansible-tar.gz" herunterladen mit
+[diesem Link](https://codeload.github.com/ansible/ansible/tar.gz/v2.9.27).
+Danach Virencheck!
+
+### Einrichten
+
 ```
 sudo apt install pipx
-pipx install --include-deps $(pwd)/ansible-stable-2.9.27.tar.gz
+pipx install --include-deps $(pwd)/ansible-2.9.27.tar.gz
 pipx inject ansible dnspython
 pipx inject ansible netaddr
 ```
@@ -62,7 +72,7 @@ Links
 -----
 
 - [Github: Ubuntu-Images für LXC](https://github.com/uli-heller/lxc-ubuntu-i386-amd64/releases/tag/v1.12.1)
-
+- [Github: ansible-2.9.27.tar.gz](https://codeload.github.com/ansible/ansible/tar.gz/v2.9.27)
 
 Versionen
 ---------
