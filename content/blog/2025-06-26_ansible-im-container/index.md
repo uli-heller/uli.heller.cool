@@ -20,10 +20,15 @@ Hier beschreibe ich, wie ich es in einem Container nutze
 
 ## Container aufsetzen und aktualisieren
 
+### Herunterladen
+
+LXC-Image herunterladen von
+[Github: Ubuntu-Images für LXC](https://github.com/uli-heller/lxc-ubuntu-i386-amd64/releases/tag/v1.12.1).
+
 ### Aufsetzen
 
 ```
-lxc image import --alias focal dp-focal-v1.12.1-amd64-lxcimage.tar.xz
+lxc image import --alias focal focal-v1.12.1-amd64-lxcimage.tar.xz
 lxc launch focal ubuntu-2004
 ```
 
@@ -56,17 +61,17 @@ pipx inject ansible netaddr
 Links
 -----
 
-- [Homepage: gocryptfs](https://nuetzlich.net/gocryptfs/)
-- [GITHUB: gocryptfs](https://github.com/rfjakob/gocryptfs)
+- [Github: Ubuntu-Images für LXC](https://github.com/uli-heller/lxc-ubuntu-i386-amd64/releases/tag/v1.12.1)
+
 
 Versionen
 ---------
 
 Getestet mit
 
-- Ubuntu-24.04 und Github:gocryptfs "master" vom 2025-05-31
+- Ubuntu-22.04 und LXC-Image von Ubuntu-20.04 (focal)
 
 Historie
 --------
 
-- 2025-05-31: Erste Version
+- 2025-06-26: Erste Version
