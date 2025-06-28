@@ -15,6 +15,18 @@ klappt aber nicht.
 
 <!-- more -->
 
+Mai 2025
+--------
+
+Juni 2025
+---------
+
+Im Juni 2025 hat sich die Situation verbessert.
+Die Übertragung klappt nun. Einzig die Routen-Vorschau
+fehlt:
+
+![Routen ohne Vorschau](wahoo-app-ohne-vorschau.jpg)
+
 Vergleich Kopfzeilen
 --------------------
 
