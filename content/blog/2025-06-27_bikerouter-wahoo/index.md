@@ -1,12 +1,12 @@
 +++
 date = '2025-06-27'
 draft = true
-title = 'ANSIBLE: Alte Version in einem Container verwenden'
-categories = [ 'devops' ]
-tags = [ 'ansible', 'linux', 'ubuntu' ]
+title = 'Wahoo Element Ace: Übertragen vou Routen klappt nicht'
+categories = [ 'fahrrad' ]
+tags = [ 'routenplanung', 'wahoo' ]
 +++
 
-<!--ANSIBLE: Alte Version in einem Container verwenden-->
+<!--Wahoo Element Ace: Übertragen vou Routen klappt nicht-->
 <!--======================================-->
 
 Meine geplanten Touren kann ich zwar problemlos in die
@@ -15,8 +15,25 @@ klappt aber nicht.
 
 <!-- more -->
 
-Mai 2025
---------
+Details - Mai 2025
+------------------
+
+Hier mehr Details zum Problem:
+
+- Route planen in [https://bikerouter.de](https://bikerouter.de)
+- Route exportieren: [br-300-00.gpx](br-300-00.gpx)
+- Route importieren in die Wahoo App:
+  [wahoo-app.png](wahoo-app.png) und [routen-liste.png](routen-liste.png)
+- Wahoo Element Ace einschalten
+- Nach ein paar Minuten erscheint: “Synchronisierung im Gange” -> abwarten
+- Im ACE erscheint zeitweise das Telefon-Piktogramm,
+  zeitweise auch WIFI, zeitweise beides
+- In der Wahoo App: WIFI für ACE aktivieren
+- In der Wahoo App: Route anwählen
+- In der Wahoo App: "An ELEMNT senden" anwählen -> nichts passiert
+  - [senden.png](senden.png)
+- Auf dem Wahoo Element ACE erscheinen keinerlei Routen
+  - [keine-routen.png](keine-routen.png)
 
 Juni 2025
 ---------
@@ -117,22 +134,35 @@ garminconnect:
 Tests
 -----
 
-- Original-Track von bikerouter.de: br-300-00.gpx
-- Ohne "link" bei "trk": br-300-01.gpx
+- Original-Track von bikerouter.de: [br-300-00.gpx](br-300-00.gpx)
+- Ohne "link" bei "trk": [br-300-01.gpx](br-300-01.gpx) -> damit klappt's
 
+Hier die Unterschiede:
+
+```diff
+--- br-300-00.gpx	2025-06-27 20:14:11.700102852 +0200
++++ br-300-01.gpx	2025-06-27 20:14:11.702102866 +0200
+@@ -8,9 +8,6 @@
+  creator="bikerouter.de 2025.45">
+  <trk>
+   <name>Kornwestheim -&gt; Tamm - 302,8 km, 734 hm</name>
+-  <link href="https://bikerouter.de/#map=15/48.9270/9.1624/osm-mapnik-german_style,Waymarked_Trails-Cycling&amp;lonlats=9.185763,48.868796;8.592838,49.124742;8.376726,49.228749;8.436111,49.266606;8.412426,49.548609;8.470781,49.523667;8.557645,49.473829;8.62853,49.443941;8.670165,49.411899;8.692649,49.413629;8.79565,49.397699;8.822168,49.394153;8.850959,49.394739;8.920023,49.439144;8.990307,49.455542;9.040953,49.415716;9.069702,49.391991;9.087568,49.365543;9.107906,49.32368;9.152022,49.298424;9.133056,49.286282;9.156656,49.24704;9.195016,49.227211;9.207983,49.182768;9.200947,49.142582;9.152718,49.100418;9.155809,49.074476;9.149631,49.034321;9.153407,49.014689;9.140277,48.998144;9.138732,48.967347;9.138646,48.948533;9.148131,48.927264&amp;profile=trekking">
+-   <text>bikerouter.de</text>
+-  </link>
+   <trkseg>
+    <trkpt lat="48.868833" lon="9.185966"><ele>304.25</ele></trkpt>
+    <trkpt lat="48.868896" lon="9.185947"><ele>304.5</ele></trkpt>
+```
 
 Links
 -----
 
-- [Github: Ubuntu-Images für LXC](https://github.com/uli-heller/lxc-ubuntu-i386-amd64/releases/tag/v1.12.1)
-- [Github: ansible-2.9.27.tar.gz](https://codeload.github.com/ansible/ansible/tar.gz/v2.9.27)
+- [Wahoo Element ACE](https://de-eu.wahoofitness.com/devices/bike-computers/elemnt-ace-buy)
 
 Versionen
 ---------
 
-Getestet mit
-
-- Ubuntu-22.04 und LXC-Image von Ubuntu-20.04 (focal)
+Getestet mit TBD
 
 Historie
 --------
