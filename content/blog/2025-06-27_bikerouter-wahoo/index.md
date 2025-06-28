@@ -1,6 +1,6 @@
 +++
 date = '2025-06-27'
-draft = true
+draft = false
 title = 'Wahoo Element Ace: Übertragen vou Routen klappt nicht'
 categories = [ 'fahrrad' ]
 tags = [ 'routenplanung', 'wahoo' ]
