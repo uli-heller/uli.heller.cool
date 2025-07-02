@@ -181,6 +181,11 @@ Veröffentlichungen:
 
 - [Chrome: Webseite mit abgelaufenem Zertifikat anzeigen]({{< ref "/blog/2025-01-17_chrome-abgelaufenes-zertifikat" >}})
 
+### Nepenthes
+
+- [Heise: Nepenthes: eine Teergrube für KI-Webcrawler](https://www.heise.de/news/Nepenthes-eine-Teergrube-fuer-KI-Webcrawler-10255982.html)
+- [Nepenthes Homepage](https://zadzmo.org/code/nepenthes/)
+
 Links
 -----
 
@@ -191,6 +196,7 @@ Links
 Historie
 --------
 
+- 2025-07-02: Nepenthes
 - 2025-03-01: USB über's Netzwerk
 - 2025-01-11: Gradle und gradle.lockfile
 - 2025-01-08: Neue Idee - Nitrokey + PIN
