@@ -246,6 +246,21 @@ Standardcontainer auf Nutzung von "lxdnat" festlegen:
 lxc profile device set default eth0 network=lxdnat
 ```
 
+Profile für "hostonly" und "nat":
+
+```
+lxc profile create hostonly
+lxc profile set hostonly security.idmap.isolated true
+lxc profile device add hostonly eth0 nic network=lxdhostonly
+lxc profile device add hostonly root disk path=/ pool=default
+
+lxc profile create nat
+lxc profile set nat security.idmap.isolated true
+lxc profile device add nat eth0 nic network=lxdhostonly
+lxc profile device add nat eth1 nic network=lxdnat
+lxc profile device add nat root disk path=/ pool=default
+```
+
 DNS dauerhaft aktivieren für beide Netzwerkbrücken:
 
 ```
@@ -289,6 +304,7 @@ Versionen
 Historie
 --------
 
+- 2025-07-09: Profile für "hostonly" und "nat"
 - 2025-02-10: Neuer Parameter: security.idmap.isolated=true
 - 2025-01-27: Fehlerkorrektur Korrektur "${ipaddress}"
 - 2024-12-05: Erste Version

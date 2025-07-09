@@ -22,6 +22,20 @@ lxc network create lxdnat ipv4.address=10.38.231.1/24 ipv4.nat=true ipv6.address
 lxc profile device set default eth0 network=lxdnat
 
 #
+# Profile für "hostonly" und "nat"
+#
+lxc profile create hostonly
+lxc profile set hostonly security.idmap.isolated true
+lxc profile device add hostonly eth0 nic network=lxdhostonly
+lxc profile device add hostonly root disk path=/ pool=default
+
+lxc profile create nat
+lxc profile set nat security.idmap.isolated true
+lxc profile device add nat eth0 nic network=lxdhostonly
+lxc profile device add nat eth1 nic network=lxdnat
+lxc profile device add nat root disk path=/ pool=default
+
+#
 # DNS
 #
 for bridge in lxdhostonly lxdnat; do
