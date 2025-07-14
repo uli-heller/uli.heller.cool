@@ -88,6 +88,7 @@ Meine ersten Eindrücke:
   Fenster "greifen" unmittelbar
 - Keinerlei Anzeigeprobleme
 - Keinerlei sonstige Probleme
+- Sogar "Kopieren und Einfügen" funktioniert zwischen VM und Arbeitsplatz
 
 Probleme
 --------
