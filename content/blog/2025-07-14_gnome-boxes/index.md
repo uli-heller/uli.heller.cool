@@ -37,6 +37,9 @@ dpkg -l gnome-boxes
 Nutzerrechte erweitern
 ----------------------
 
+Diesen Teil mußte ich nur auf Rechnern machen,
+auf denen VirtualBox installiert war!
+
 ```
 sudo usermod -aG kvm,libvirt $USER
 ```
@@ -119,5 +122,5 @@ Links
 Historie
 --------
 
-- 2025-07-18: Link ["Gnome-boxes: communication between guest and host"](https://itsfoss.community/t/gnome-boxes-communication-between-guest-and-host/11807/7) hinzugefügt
+- 2025-07-18: Link ["Gnome-boxes: communication between guest and host"](https://itsfoss.community/t/gnome-boxes-communication-between-guest-and-host/11807/7) hinzugefügt, Hinweis auf VirtualBox bei Nutzerrechten
 - 2025-07-14: Erste Version
