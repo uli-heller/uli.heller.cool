@@ -24,9 +24,10 @@ Installation
 ```
 sudo apt update
 sudo apt upgrade
+sudo apt install -y gnome-boxes
+
 # Falls VirtualBox installiert ist: Deinstallieren!
 sudo apt purge virtualbox virtualbox-dkms virtualbox-qt
-sudo apt install -y gnome-boxes
 sudo apt install -y qemu-kvm libvirt-daemon-system libvirt-clients bridge-utils virt-manager
 ...
 dpkg -l gnome-boxes
@@ -113,8 +114,10 @@ Links
 -----
 
 - [bobcares - How to Fix “No KVM Error” in GNOME Boxes](https://bobcares.com/blog/how-to-fix-no-kvm-error-in-gnome-boxes/)
+- [Gnome-boxes: communication between guest and host](https://itsfoss.community/t/gnome-boxes-communication-between-guest-and-host/11807/7)
 
 Historie
 --------
 
+- 2025-07-18: Link ["Gnome-boxes: communication between guest and host"](https://itsfoss.community/t/gnome-boxes-communication-between-guest-and-host/11807/7) hinzugefügt
 - 2025-07-14: Erste Version
