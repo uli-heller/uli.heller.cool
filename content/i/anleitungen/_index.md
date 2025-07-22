@@ -24,3 +24,10 @@ Kopfhörer
 ### Openshokz OpenRun Pro
 
 - [Bedienungsanleitung (deutsch) 2024-11](kopfhoerer/openshokz/OpenRun_Pro_User_Guide-German.pdf) [Download](https://cdn.shopify.com/s/files/1/0474/1981/8141/files/OpenRun_Pro_User_Guide-German.pdf?v=1699598130)
+
+Navi
+----
+
+### TomTom Go 6100
+
+- [Bedienungsanleitung (deutch) 2025-07-22](navi/TomTom-GO-EU-RG-de-de.pdf) [Download](https://download.tomtom.com/open/manuals/new_GO/refman/TomTom-GO-EU-RG-de-de.pdf)
