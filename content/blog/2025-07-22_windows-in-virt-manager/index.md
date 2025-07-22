@@ -36,6 +36,21 @@ Windows 10 in Gnome-Boxes
 Erster Versuch scheitert, ich bekomme keine
 Netzwerkverbindung.
 
+Vorbereitungen für VirtManager
+------------------------------
+
+VirtManager legt per Standard seine Daten
+ab in "${HOME}/.local/libvirt". Ich möchte einen
+anderen Plattenbereich dafür verwenden:
+
+```
+sudo mkdir /data/libvirt
+sudo chown uheller:uheller /data/libvirt
+mv "${HOME}/.local/share/libvirt/"* /data/libvirt/.
+rmdir "${HOME}/.local/share/libvirt"
+ln -s /data/libvirt  "${HOME}/.local/share/libvirt"
+```
+
 Windows 11 in VirtManager
 -------------------------
 
