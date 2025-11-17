@@ -82,9 +82,6 @@ Processing triggers for libc-bin (2.39-0ubuntu8.3) ...
 
 root@docker:~# apt install docker.io -y
 ...
-
-root@docker:~# ln -s /etc/apparmor.d/runc /etc/apparmor.d/disable/
-root@docker:~# apparmor_parser -R  /etc/apparmor.d/runc
 ```
 
 Kurztest
@@ -154,6 +151,9 @@ To generate this message, Docker took the following steps:
 ...
 ```
 
+**Nachtrag 2025-11-16**: Abklemmen von AppArmor im Container ist nicht mehr
+notwendig!
+
 Versionen
 ---------
 
@@ -171,5 +171,6 @@ Links
 Historie
 --------
 
+- 2025-11-16: AppArmor im Container kann aktiviert bleiben
 - 2025-02-10: security.idmap.size=700000
 - 2025-02-04: Erste Version
