@@ -97,7 +97,7 @@ gibt es einen Abbruch mit einem Fehler!
 Probleme
 --------
 
-### Offen - Absturz beim Erzeugen eines Bildes
+### Erledigt - Absturz beim Erzeugen eines Bildes
 
 Fehler:
 
