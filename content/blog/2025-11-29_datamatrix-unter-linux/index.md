@@ -89,7 +89,7 @@ $ dmtxread matrix-code.png
 $ seq 1 10 | dmtxwrite -o matrix-code.png
 ```
 
-... erzeugt die Datei "matrix-code.png](matrix-code.png)
+... erzeugt die Datei [matrix-code.png](matrix-code.png)
 
 Hinweis: Mit der Standard-Version des Tools von Ubuntu-24.04
 gibt es einen Abbruch mit einem Fehler!
