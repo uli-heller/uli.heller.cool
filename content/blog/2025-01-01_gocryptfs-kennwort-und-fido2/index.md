@@ -51,7 +51,7 @@ paper and store it in a drawer. This message is only printed once.
 The gocryptfs filesystem has been created successfully.
 You can now mount it using: gocryptfs encrypted MOUNTPOINT
 
-$ cat >secret/masker-key.txt <<EOF
+$ cat >secret/master-key.txt <<EOF
 Your master key is:
 
     3eca91ba-52c4391d-5d7ce783-b07e40f2-
@@ -164,4 +164,5 @@ Getestet mit
 Historie
 --------
 
+- 2025-12-15: Tippfehler korrigiert
 - 2025-01-01: Erste Version
