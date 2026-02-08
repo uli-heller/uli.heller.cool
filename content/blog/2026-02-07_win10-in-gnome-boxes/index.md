@@ -1,5 +1,5 @@
 +++
-date = '2026-02-08'
+date = '2026-02-07'
 draft = false
 title = 'Windows 10 in Gnome-Boxes'
 categories = [ 'Virtualisierung' ]
@@ -94,4 +94,4 @@ Links
 Historie
 --------
 
-- 2026-02-08: Erste Version
+- 2026-02-07: Erste Version
