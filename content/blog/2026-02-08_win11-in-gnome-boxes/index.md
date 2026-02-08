@@ -15,7 +15,7 @@ Gestern habe ich Windows 10 in Gnome-Boxes installiert.
 Eine Anleitung findet sich [hier (Windows 10 in Gnome-Boxes)]({{< ref "blog/2026-02-07_win10-in-gnome-boxes" >}}).
 
 Windows 11 klappt nicht ganz so einfach wegen der Mindestvoraussetzungen
-TPM und SecureBoot. Mit etwas Spielerei klappt es aber.
+TPM und SecureBoot. Mit etwas Spielerei geht es aber doch.
 Hier die Details!
 
 <!--more-->
