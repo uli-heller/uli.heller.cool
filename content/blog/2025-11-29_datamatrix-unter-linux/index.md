@@ -20,7 +20,7 @@ Standardprogramme wie `zbarimg` können damit leider
 nicht umgehen. Mit etwas Suchen habe ich ein anderes
 Programm gefunden, welches dafür geeignet ist.
 
-<!-- more -->
+<!--more-->
 
 Beispiel eines 2D-DataMatrix-Codes
 ----------------------------------

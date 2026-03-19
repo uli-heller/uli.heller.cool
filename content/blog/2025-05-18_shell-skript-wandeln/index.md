@@ -17,7 +17,7 @@ gestolpert. Darin wird das Werkzeug BUNSTER vorgestellt.
 Das wandelt Shell-Skripte in ausführbare Binärdateien.
 Hier meine Erfahrungen.
 
-<!-- more -->
+<!--more-->
 
 ## Herunterladen und installieren
 

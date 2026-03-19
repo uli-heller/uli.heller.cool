@@ -24,7 +24,7 @@ mit den "richtigen" UIDs "sehen" - also so, wie innerhalb des
 Containers. Das kann man mit "Bind Mounts" erreichen und
 hier beschreibe ich, wie das geht.
 
-<!-- more -->
+<!--more-->
 
 ## Sichtung des Container-Dateisystems
 

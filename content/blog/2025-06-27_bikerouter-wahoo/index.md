@@ -13,7 +13,7 @@ Meine geplanten Touren kann ich zwar problemlos in die
 Wahoo-App importieren, das Übertragen an meinen Wahoo-ACE
 klappt aber nicht.
 
-<!-- more -->
+<!--more-->
 
 Details - Mai 2025
 ------------------

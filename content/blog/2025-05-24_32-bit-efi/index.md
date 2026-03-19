@@ -15,7 +15,7 @@ Ich habe einen kleinen Rechner mit 32-bit EFI
 und würde auf diesem gerne ein Ubuntu-24.04 installieren.
 Hier beschreibe ich, wie das geht.
 
-<!-- more -->
+<!--more-->
 
 Links
 -----
