@@ -1,12 +1,12 @@
 +++
 date = '2025-06-27'
 draft = false
-title = 'Wahoo Element Ace: Übertragen vou Routen klappt nicht'
+title = 'Wahoo Element Ace: Übertragen von Routen klappt nicht'
 categories = [ 'fahrrad' ]
 tags = [ 'routenplanung', 'wahoo' ]
 +++
 
-<!--Wahoo Element Ace: Übertragen vou Routen klappt nicht-->
+<!--Wahoo Element Ace: Übertragen von Routen klappt nicht-->
 <!--======================================-->
 
 Meine geplanten Touren kann ich zwar problemlos in die
@@ -167,4 +167,5 @@ Getestet mit TBD
 Historie
 --------
 
+- 2026-03-19: Tippfehler in Überschrift korrigiert
 - 2025-06-27: Erste Version
