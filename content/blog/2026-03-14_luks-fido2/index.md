@@ -96,6 +96,7 @@ Offene Punkte
 
 - Verwendung für die Boot-Platte - Entsperren beim Systemstart muß klappen!
 - Entsperren via GNOME-Desktop geht aktuell nur via Kennwort
+- Entsperren wenn unklar ist, welche "token-id" der angeschlossene FIDO2-Schlüssel hat
 
 Tests
 -----
@@ -208,7 +209,7 @@ Links
 -----
 
 - [Github - bertogg - fido2luks](https://github.com/bertogg/fido2luks)
-  - keyscript.sh
+  - [keyscript.sh](keyscript.sh)
 - [PidEins - Unlocking LUKS2 volumes with TPM2, FIDO2, PKCS#11 Security Hardware on systemd 248](https://0pointer.net/blog/unlocking-luks2-volumes-with-tpm2-fido2-pkcs11-security-hardware-on-systemd-248.html)
 - [man7 - cryptsetup-token](https://man7.org/linux/man-pages/man8/cryptsetup-token.8.html)
 - [ArchLinux - fido2-token](https://man.archlinux.org/man/fido2-token.1.en)
