@@ -54,9 +54,14 @@ for t in $(seq 0 "${TOKEN_MAX}"); do
                ."fido2-credential",
                ."fido2-salt"' <"${TMPDIR}/current-token.json" >"${TMPDIR}/assert-params.txt"
     for dev in ${FIDO2_DEVICES}; do
-	fido2-assert -G -t up=false -t pin=false -i "${TMPDIR}/assert-params.txt" -o /dev/null "${dev}" 2>/dev/null && {
-	    echo "$t"
-	    exit 0
-	}	
+        fido2-assert -G -t up=false -t pin=false -i "${TMPDIR}/assert-params.txt" -o /dev/null "${dev}" 2>/dev/null && {
+            echo "$t"
+            RC=0
+            cleanUp
+            exit $RC
+        }
     done
 done
+
+cleanUp
+exit $RC
