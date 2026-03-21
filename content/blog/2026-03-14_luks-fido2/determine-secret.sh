@@ -55,8 +55,22 @@ for t in $(seq 0 "${TOKEN_MAX}"); do
                ."fido2-salt"' <"${TMPDIR}/current-token.json" >"${TMPDIR}/assert-params.txt"
     for dev in ${FIDO2_DEVICES}; do
 	fido2-assert -G -t up=false -t pin=false -i "${TMPDIR}/assert-params.txt" -o /dev/null "${dev}" 2>/dev/null && {
-	    echo "$t"
-	    exit 0
+	    # Determine up (user presence), pin and uv (user verification, for example fingerprint)
+	    # - for SoloKey1, uv doesn't seem to play any role
+	    #   (getting dame secret for '-t uv=true', '-t uv=false' and even without the paramater)
+	    UP="$(jq -r '."fido2-up-required"' <"${TMPDIR}/current-token.json")"
+	    PIN="$(jq -r '."fido2-clientPin-required"' <"${TMPDIR}/current-token.json")"
+	    UV="$(jq -r '."fido2-uv-required"' <"${TMPDIR}/current-token.json")"
+	    SECRET="$(fido2-assert -G -h -t up=${UP} -t pin=${PIN} -t uv=${UV} -i "${TMPDIR}/assert-params.txt" "${dev}"|tail -1)"
+	    if [ -n "${SECRET}" ]; then
+		echo "${SECRET}"
+		RC=0
+	    else
+		echo >&2 "${BN}: Probleme beim Zugriff auf den FIDO2-Schlüssel - ABBRUCH"
+		RC=1
+	    fi
+	    cleanUp
+	    exit "${RC}"
 	}	
     done
 done
