@@ -63,5 +63,6 @@ for t in $(seq 0 "${TOKEN_MAX}"); do
     done
 done
 
+RC=1
 cleanUp
 exit $RC
