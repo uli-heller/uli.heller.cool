@@ -1,0 +1,120 @@
++++
+date = '2026-03-28'
+draft = false
+title = 'Copilot-CLI in einem Container'
+categories = [ 'KI' ]
+tags = [ 'copilot' ]
++++
+
+<!--
+Copilot-CLI in einem Container
+==============================
+-->
+
+Seit einiger Zeit verwende ich [Copilot-CLI](https://github.com/github/copilot-cli) zur Unterstützung meiner
+Arbeit bei einem meiner Kunden. Streng genomen ist Copilot-CLI eine
+Kundenvorgabe und aktuell soll so viel wie möglich mit Copilot-CLI
+gemacht werden.
+
+Meine Beobachtung: Man schaltet dann mehr und
+mehr das Hirn aus und läßt zunehmend mehr Aktionen direkt
+von Copilot-CLI ausführen. Das sorgt für wachsendes Umbehagen
+wenn nicht klar ist, auf welche Daten Copilot-CLI zugreifen kann.
+
+Idee: Ich betreibe den Copilot-CLI in einem Container!
+
+<!--more-->
+
+Vorarbeiten
+-----------
+
+- Grundcontainer mit Ubuntu-Basisinstallation: ubuntu-26.04
+- Copilot-CLI herunterladen: [copilot-1.0.12-linux-x64.tar.gz](https://github.com/github/copilot-cli/releases/download/v1.0.12/copilot-linux-x64.tar.gz)
+- Virencheck
+
+Container initialisieren
+------------------------
+
+- Arbeitsplatzrechner: Container kopieren und starten
+  - `incus copy ubuntu-2604 uli-copilot-cli`
+  - `incus start uli-copilot-cli`
+- Copilot-CLI in Container kopieren: `incus file push copilot-1.0.12-linux-x64.tar.gz uli-copilot-cli/home/ubuntu/copilot-1.0.12-linux-x64.tar.gz`
+- Kommandozeile im Container starten: `incus exec uli-copilot-cli bash`
+- Copilot-CLI im Container auspacken und ausführbar machen:
+  - `sudo -u ubuntu -i`
+    - `mkdir bin`
+    - `gzip -cd copilot-1.0.12-linux-x64.tar.gz|(cd bin; tar xf -)`
+    - `echo "PATH=\"\${PATH}:\${HOME}/bin"\" >>"${HOME}/.bashrc"`
+    - `exit`
+- Testaufruf con Copilot-CLI im Container:
+  ```
+  # sudo -u ubuntu -i
+  
+  ubuntu@uli-copilot-cli:~$ copilot
+  ...
+  (some more or less nice looking output shows up - press Esc twice to exit)
+  Total usage est:        0 Premium requests
+  API time spent:         0s
+  Total session time:     57s
+  Total code changes:     +0 -0
+  
+  Resume any session with copilot --resume
+  
+  ubuntu@uli-copilot-cli:~$
+  ```
+
+Copilot-CLI initialisieren
+--------------------------
+
+- Kommandozeile im Container: `incus exec uli-copilot-cli -- sudo -u ubuntu -i`
+- Testverzeichnis anlegen und reinwechseln: `mkdir copilot-test && cd copilot-test`
+- Copilot-CLI im Container starten: `copilot --no-mouse`
+  - Confirm folder trust - 2. Yes, and remember this folder for future sessions
+  - `/login`
+    - 1. GitHub.com -> one-time code wird angezeigt
+    - Browser: [https://github.com/login/device](https://github.com/login/device)
+      -> one-time code eintippen
+    - Browser: Authorize -> "Congratulations"
+    - GithHub MCP Server: Connected
+  - Unten rechts: Claude Haiku 4.5 <-- verwendetes Modell
+  - `/model` -> Modell-Liste wird angezeigt
+    - Claude Haiku 4.5 (default)
+    - GPT-5 mini
+    - GPT-4.1
+  - Erkenntnis: Es stehen sehr eingeschränkte Modelle zur Verfügung, sofern man die Gratis-Variante von Copilot verwendet!
+    Wenn man sich in GitHub mit einem Konto anmeldet, das eine kommerzielle Copilot-Lizent hat, dann stehen diese Modelle
+    zur Verfügung:
+    - Claude Sonnet 4.6 (default) ✓        1x
+    - Claude Sonnet 4.5                    1x
+    - Claude Haiku 4.5                  0.33x
+    - Claude Opus 4.6                      3x
+    - Claude Opus 4.5                      3x
+    - Claude Sonnet 4                      1x
+    - GPT-5.4                              1x
+    - GPT-5.3-Codex                        1x
+    - GPT-5.2                              1x
+    - GPT-5.1-Codex-Max                    1x
+    - GPT-5 mini                           0x
+    - GPT-4.1                              0x
+
+Probleme
+--------
+
+- Unklar: Wie gut klappt's bei Verwendung der Gratis-Variante?
+- Zugriff auf Projektdaten durch Kapselung in Container schwierig
+
+Versionen
+---------
+
+- Getestet unter Ubuntu-2404 mit einem Container basierend auf Ubuntu-2604
+  und Copilot-CLI-1.0.12
+
+Links
+-----
+
+- [Copilot-CLI](https://github.com/github/copilot-cli)
+
+Historie
+--------
+
+- 2026-03-28: Erste Version
