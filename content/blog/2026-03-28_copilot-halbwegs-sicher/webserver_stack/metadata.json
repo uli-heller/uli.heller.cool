@@ -1,0 +1,44 @@
+{
+  "name": "example-webserver_stack",
+  "version": "1.0.0",
+  "author": "Puppet Administrator",
+  "license": "Apache-2.0",
+  "summary": "Modul zur Installation von Apache httpd, Tomcat und einer Webapp",
+  "description": "Dieses Modul installiert und konfiguriert Apache httpd, Tomcat und eine Beispiel-Webapp auf einer einzelnen Maschine mit Reverse Proxy Konfiguration.",
+  "source": "https://github.com/example/webserver_stack",
+  "dependencies": [
+    {
+      "name": "puppetlabs/stdlib",
+      "version_requirement": ">= 4.0.0"
+    }
+  ],
+  "operatingsystem_support": [
+    {
+      "operatingsystem": "CentOS",
+      "operatingsystemrelease": [
+        "7",
+        "8"
+      ]
+    },
+    {
+      "operatingsystem": "RedHat",
+      "operatingsystemrelease": [
+        "7",
+        "8"
+      ]
+    },
+    {
+      "operatingsystem": "Ubuntu",
+      "operatingsystemrelease": [
+        "18.04",
+        "20.04"
+      ]
+    }
+  ],
+  "tags": [
+    "apache",
+    "httpd",
+    "tomcat",
+    "webapp"
+  ]
+}

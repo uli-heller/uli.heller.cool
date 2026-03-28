@@ -97,10 +97,46 @@ Copilot-CLI initialisieren
     - GPT-5 mini                           0x
     - GPT-4.1                              0x
 
+Test: Klappt die Erstellung eines Puppet-Moduls?
+------------------------------------------------
+
+- Voraussetzung: Copilot-CLI ist gestartet, Modell "Claude Haiku 4.5" ist angewählt
+- Prompt: erstelle ein module für puppetenterprise welches einen apache httpd, einen tomcat
+  und eine webapp innerhalb des tomcats auf einem Rechner installiert
+- Schluss-Statistik:
+  ```
+  Total usage est:        1 Premium request
+   API time spent:         17s
+   Total session time:     7m 34s
+   Total code changes:     +772 -0
+   Breakdown by AI model:
+    claude-haiku-4.5         92.5k in, 2.2k out, 60.7k cached (Est. 1 Premium request)
+  
+   Resume this session with:
+     copilot --resume=4a787838-532c-4de2-b73a-3d99b0e1463f
+  ```
+- [copilot-conversation.md](copilot-conversation.md)
+- Erzeugtes Modul: [webserver_stack/README.md](webserver_stack/README.md)
+  - [webserver_stack/examples/advanced.pp](webserver_stack/examples/advanced.pp)
+  - [webserver_stack/examples/init.pp](webserver_stack/examples/init.pp)
+  - [webserver_stack/files/tomcat.service](webserver_stack/files/tomcat.service)
+  - [webserver_stack/files/web.xml](webserver_stack/files/web.xml)
+  - [webserver_stack/manifests/apache.pp](webserver_stack/manifests/apache.pp)
+  - [webserver_stack/manifests/init.pp](webserver_stack/manifests/init.pp)
+  - [webserver_stack/manifests/reverse_proxy.pp](webserver_stack/manifests/reverse_proxy.pp)
+  - [webserver_stack/manifests/tomcat.pp](webserver_stack/manifests/tomcat.pp)
+  - [webserver_stack/manifests/webapp.pp](webserver_stack/manifests/webapp.pp)
+  - [webserver_stack/metadata.json](webserver_stack/metadata.json)
+  - [webserver_stack/README.md](webserver_stack/README.md)
+  - [webserver_stack/templates/index.jsp.epp](webserver_stack/templates/index.jsp.epp)
+  - [webserver_stack/templates/reverse_proxy.conf.epp](webserver_stack/templates/reverse_proxy.conf.epp)
+  - [webserver_stack/templates/server.xml.epp](webserver_stack/templates/server.xml.epp)
+- Kurzsichtung:
+  - Es werden alte Versionen verwendet, bspw Ubuntu 18.04 und 20.04 oder Tomcat 9
+
 Probleme
 --------
 
-- Unklar: Wie gut klappt's bei Verwendung der Gratis-Variante?
 - Zugriff auf Projektdaten durch Kapselung in Container schwierig
 
 Versionen

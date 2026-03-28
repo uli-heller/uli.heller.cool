@@ -1,0 +1,39 @@
+# Apache Reverse Proxy Konfiguration für Tomcat
+# Diese Datei konfiguriert Apache als Reverse Proxy vor Tomcat
+
+# Proxy Module aktivieren
+LoadModule proxy_module modules/mod_proxy.so
+LoadModule proxy_http_module modules/mod_proxy_http.so
+LoadModule rewrite_module modules/mod_rewrite.so
+LoadModule headers_module modules/mod_headers.so
+
+# VirtualHost für Reverse Proxy
+<VirtualHost *:80>
+    ServerName localhost
+    ServerAdmin admin@localhost
+    
+    DocumentRoot /var/www/html
+
+    # Logging
+    ErrorLog logs/reverse_proxy_error.log
+    CustomLog logs/reverse_proxy_access.log combined
+
+    # Proxy Einstellungen
+    ProxyPreserveHost On
+    ProxyRequests Off
+    
+    # Weiterleitung zu Tomcat
+    ProxyPass / http://localhost:<%= @tomcat_port %>/
+    ProxyPassReverse / http://localhost:<%= @tomcat_port %>/
+    
+    # Header für Proxy
+    RequestHeader set X-Forwarded-For %{REMOTE_ADDR}s
+    RequestHeader set X-Forwarded-Proto http
+    RequestHeader set X-Forwarded-Host %{HTTP_HOST}s
+    
+    # Connection Einstellungen
+    <Proxy *>
+        Order deny,allow
+        Allow from all
+    </Proxy>
+</VirtualHost>
