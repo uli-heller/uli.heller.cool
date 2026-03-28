@@ -133,11 +133,33 @@ Test: Klappt die Erstellung eines Puppet-Moduls?
   - [webserver_stack/templates/server.xml.epp](webserver_stack/templates/server.xml.epp)
 - Kurzsichtung:
   - Es werden alte Versionen verwendet, bspw Ubuntu 18.04 und 20.04 oder Tomcat 9
+  - Grundstruktur sieht OK aus
+
+Zugriff auf ein einzelnes Projektverzeichnis
+--------------------------------------------
+
+- Ausgangspunkt: "Außerhalb" liegt ein Projekt ab, welches mit dem Copilot-Container geteilt werden soll!
+- Ermitteln: Welche Nutzerkennung wird außerhalb verwendet?
+  - `id -u` -> 9032
+  - `id -g` -> 9032
+- Ziel: Diese Nutzerkennung brauchen wir auch innerhalb vom Copilot-Container!
+  - "root" im Container: `incus exec uli-copilot-cli bash`
+  - Gruppenkennung ändern: `groupmod -g 9032 ubuntu`
+  - Nutzerkennung ändern: `usermod -u 9032 -g 9032 ubuntu`
+  - Dateien anpassen:
+    - `find / -user 1000|xargs -r chown 9032`
+    - `find / -group 1000|xargs -r chgrp 9032`
+  - Kontrolle: `ls -l /home` -> "drwxr-x--- 1 ubuntu ubuntu 262 Mar 28 17:47 ubuntu"
+- Auswahl: Welches Projektverzeichnis soll im Container verwendet werden?
+  - /home/uheller/git/test-project
+- Zugriff freigeben: `incus config device add uli-copilot-cli git-test-project disk source=/home/uheller/git/test-project path=/home/ubuntu/test-project shift=true`
+  -> Error: Failed to start device "git-test-project": Required idmapping abilities not available
 
 Probleme
 --------
 
 - Zugriff auf Projektdaten durch Kapselung in Container schwierig
+  - Anscheinend klappt "shift=true" nicht für incus<6.2 und kernel>=6.9
 
 Versionen
 ---------
@@ -149,6 +171,7 @@ Links
 -----
 
 - [Copilot-CLI](https://github.com/github/copilot-cli)
+- [Simos Xenitellis - How to share a folder between a host and a container in Incus](https://blog.simos.info/how-to-share-a-folder-between-a-host-and-a-container-in-incus/)
 
 Historie
 --------
