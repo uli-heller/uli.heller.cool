@@ -57,7 +57,8 @@ Komfort-Funktionen innerhalb von Copilot bleiben erhalten.
 Versionen
 ---------
 
-- Getestet unter Ubuntu-22.04 mit Copilot-v1.0.11
+- Getestet unter Ubuntu-22.04 mit Copilot-v1.0.11 - klappt
+- Getestet unter Ubuntu-24.04 mit Copilot-v1.0.12 - "xclip" klappt nicht
 
 Links
 -----
@@ -67,4 +68,5 @@ Links
 Historie
 --------
 
+- 2026-03-28: Probleme mit Ubuntu-24.04 und copilot-1.0.12
 - 2026-03-24: Erste Version
