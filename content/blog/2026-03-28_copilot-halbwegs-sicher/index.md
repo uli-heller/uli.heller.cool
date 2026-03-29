@@ -176,7 +176,7 @@ Zugriff auf ein einzelnes Projektverzeichnis
   - Kontrolle: `ls -l /home` -> "drwxr-x--- 1 ubuntu ubuntu 262 Mar 28 17:47 ubuntu"
 - Auswahl: Welches Projektverzeichnis soll im Container verwendet werden?
   - /home/uheller/shared-with-copilot
-- Zugriff freigeben: `incus config device add uli-copilot-cli shared-with-copilot disk source=/home/uheller/shared-with-copilot path=/home/ubuntu/shared-with-host shift=true`
+- Zugriff freigeben: `incus config device add uli-copilot-cli shared-with-uli-copilot-cli disk source=/home/uheller/shared-with-copilot path=/home/ubuntu/shared-with-host shift=true`
   - Klappt nicht mit incus-6.0 und Linux >= 6.9 (Error: Failed to start device "shared-with-host": Required idmapping abilities not available)
   - Klappt mit incus-6.23.0
 - Nachkontrolle: Ist das Proijektverzheichnis sichtbar innerhalb vom Copilot-Container?
