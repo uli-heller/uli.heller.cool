@@ -172,8 +172,11 @@ Links
 
 - [Copilot-CLI](https://github.com/github/copilot-cli)
 - [Simos Xenitellis - How to share a folder between a host and a container in Incus](https://blog.simos.info/how-to-share-a-folder-between-a-host-and-a-container-in-incus/)
+- [Arch - SOLVED Unable to use idmapping in incus with linux 6.9](https://bbs.archlinux.org/viewtopic.php?id=295933)
+- [Github/Incus - Linux 6.9+ idmapping abilities are required but aren't supported on system](https://github.com/lxc/incus/issues/882)
 
 Historie
 --------
 
+- 2026-03-29: Mehr Hinweise zum Problem mit "shift=true"
 - 2026-03-28: Erste Version
