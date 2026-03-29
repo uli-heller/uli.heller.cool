@@ -153,13 +153,12 @@ Zugriff auf ein einzelnes Projektverzeichnis
 - Auswahl: Welches Projektverzeichnis soll im Container verwendet werden?
   - /home/uheller/git/test-project
 - Zugriff freigeben: `incus config device add uli-copilot-cli git-test-project disk source=/home/uheller/git/test-project path=/home/ubuntu/test-project shift=true`
-  -> Error: Failed to start device "git-test-project": Required idmapping abilities not available
-
-Probleme
---------
-
-- Zugriff auf Projektdaten durch Kapselung in Container schwierig
-  - Anscheinend klappt "shift=true" nicht für incus<6.2 und kernel>=6.9
+  - Klappt nicht mit incus-6.0 und Linux >= 6.9 (Error: Failed to start device "git-test-project": Required idmapping abilities not available)
+  - Klappt mit incus-6.23.0
+- Nachkontrolle: Ist das Proijektverzheichnis sichtbar innerhalb vom Copilot-Container?
+  - `incus exec uli-copilot-cli -- sudo -u ubuntu -i`
+  - `ls` -> test-project
+  - `ls -l test-project|head -5` -> passt! Dateien "gehören" ubuntu.ubuntu
 
 Versionen
 ---------
