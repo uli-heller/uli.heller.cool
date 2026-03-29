@@ -1,0 +1,70 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= @webapp_name %> - Willkommen</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            max-width: 600px;
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        p {
+            color: #666;
+            line-height: 1.6;
+        }
+        .info {
+            background: #f5f5f5;
+            padding: 20px;
+            border-radius: 5px;
+            margin: 20px 0;
+            text-align: left;
+        }
+        .status {
+            display: inline-block;
+            background: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 <%= @webapp_name %></h1>
+        <p>Willkommen bei Ihrer Webanwendung!</p>
+        
+        <div class="info">
+            <p><strong>Anwendungsdetails:</strong></p>
+            <ul style="text-align: left;">
+                <li>Anwendung: <%= @webapp_name %></li>
+                <li>Server: Tomcat 9</li>
+                <li>Frontend: Apache httpd</li>
+                <li>Java Version: <%= System.getProperty("java.version") %></li>
+                <li>Betriebssystem: <%= System.getProperty("os.name") %></li>
+            </ul>
+        </div>
+        
+        <div class="status">✓ System läuft</div>
+    </div>
+</body>
+</html>

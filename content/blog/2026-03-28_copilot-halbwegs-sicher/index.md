@@ -39,16 +39,15 @@ Container initialisieren
   - `incus copy ubuntu-2604 uli-copilot-cli`
   - `incus start uli-copilot-cli`
 - Copilot-CLI in Container kopieren: `incus file push copilot-1.0.12-linux-x64.tar.gz uli-copilot-cli/home/ubuntu/copilot-1.0.12-linux-x64.tar.gz`
-- Kommandozeile im Container starten: `incus exec uli-copilot-cli bash`
+- Kommandozeile im Container starten: `incus exec uli-copilot-cli -- sudo -u ubuntu -i`
 - Copilot-CLI im Container auspacken und ausführbar machen:
-  - `sudo -u ubuntu -i`
-    - `mkdir bin`
-    - `gzip -cd copilot-1.0.12-linux-x64.tar.gz|(cd bin; tar xf -)`
-    - `echo "PATH=\"\${PATH}:\${HOME}/bin"\" >>"${HOME}/.bashrc"`
-    - `exit`
-- Testaufruf con Copilot-CLI im Container:
+  - `mkdir bin`
+  - `gzip -cd copilot-1.0.12-linux-x64.tar.gz|(cd bin; tar xf -)`
+  - `echo "PATH=\"\${PATH}:\${HOME}/bin"\" >>"${HOME}/.bashrc"`
+  - `exit`
+- Testaufruf von Copilot-CLI im Container:
   ```
-  # sudo -u ubuntu -i
+  $ incus exec uli-copilot-cli -- sudo -u ubuntu -i
   
   ubuntu@uli-copilot-cli:~$ copilot
   ...
@@ -116,24 +115,49 @@ Test: Klappt die Erstellung eines Puppet-Moduls?
      copilot --resume=4a787838-532c-4de2-b73a-3d99b0e1463f
   ```
 - [copilot-conversation.md](copilot-conversation.md)
-- Erzeugtes Modul: [webserver_stack/README.md](webserver_stack/README.md)
-  - [webserver_stack/examples/advanced.pp](webserver_stack/examples/advanced.pp)
-  - [webserver_stack/examples/init.pp](webserver_stack/examples/init.pp)
-  - [webserver_stack/files/tomcat.service](webserver_stack/files/tomcat.service)
-  - [webserver_stack/files/web.xml](webserver_stack/files/web.xml)
-  - [webserver_stack/manifests/apache.pp](webserver_stack/manifests/apache.pp)
-  - [webserver_stack/manifests/init.pp](webserver_stack/manifests/init.pp)
-  - [webserver_stack/manifests/reverse_proxy.pp](webserver_stack/manifests/reverse_proxy.pp)
-  - [webserver_stack/manifests/tomcat.pp](webserver_stack/manifests/tomcat.pp)
-  - [webserver_stack/manifests/webapp.pp](webserver_stack/manifests/webapp.pp)
-  - [webserver_stack/metadata.json](webserver_stack/metadata.json)
-  - [webserver_stack/README.md](webserver_stack/README.md)
-  - [webserver_stack/templates/index.jsp.epp](webserver_stack/templates/index.jsp.epp)
-  - [webserver_stack/templates/reverse_proxy.conf.epp](webserver_stack/templates/reverse_proxy.conf.epp)
-  - [webserver_stack/templates/server.xml.epp](webserver_stack/templates/server.xml.epp)
+- Erzeugtes Modul: [webserver_stack_v1/README.md](webserver_stack_v1/README.md)
+  - [webserver_stack_v1/examples/advanced.pp](webserver_stack_v1/examples/advanced.pp)
+  - [webserver_stack_v1/examples/init.pp](webserver_stack_v1/examples/init.pp)
+  - [webserver_stack_v1/files/tomcat.service](webserver_stack_v1/files/tomcat.service)
+  - [webserver_stack_v1/files/web.xml](webserver_stack_v1/files/web.xml)
+  - [webserver_stack_v1/manifests/apache.pp](webserver_stack_v1/manifests/apache.pp)
+  - [webserver_stack_v1/manifests/init.pp](webserver_stack_v1/manifests/init.pp)
+  - [webserver_stack_v1/manifests/reverse_proxy.pp](webserver_stack_v1/manifests/reverse_proxy.pp)
+  - [webserver_stack_v1/manifests/tomcat.pp](webserver_stack_v1/manifests/tomcat.pp)
+  - [webserver_stack_v1/manifests/webapp.pp](webserver_stack_v1/manifests/webapp.pp)
+  - [webserver_stack_v1/metadata.json](webserver_stack_v1/metadata.json)
+  - [webserver_stack_v1/README.md](webserver_stack_v1/README.md)
+  - [webserver_stack_v1/templates/index.jsp.epp](webserver_stack_v1/templates/index.jsp.epp)
+  - [webserver_stack_v1/templates/reverse_proxy.conf.epp](webserver_stack_v1/templates/reverse_proxy.conf.epp)
+  - [webserver_stack_v1/templates/server.xml.epp](webserver_stack_v1/templates/server.xml.epp)
 - Kurzsichtung:
   - Es werden alte Versionen verwendet, bspw Ubuntu 18.04 und 20.04 oder Tomcat 9
   - Grundstruktur sieht OK aus
+
+Weitergehende Tests
+-------------------
+
+- Klappt die Erweiterung/Anpassung auf Ubuntu-24.04, Java 21 und Tomcat 10?
+  - Prompt: Ich würde das puppetmodule gerne mit ubuntu-24.04 verwenden und auch mit java-21 und tomcat-10. Was muß ich ändern?
+    -> Scheint zu klappen!
+  - Prompt: muß ich was ändern, damit das puppetmodule mit puppet-3.5 läuft?
+    -> Erklärungen werden ausgegeben, ich gebe an, dass ich die Änderungen nicht machen möchte!
+  - [Konversation: additions.md](additions.md)
+  - Angepasstes Modul: [webserver_stack_v2/README.md](webserver_stack_v2/README.md)
+    - [webserver_stack_v2/examples/advanced.pp](webserver_stack_v2/examples/advanced.pp)
+    - [webserver_stack_v2/examples/init.pp](webserver_stack_v2/examples/init.pp)
+    - [webserver_stack_v2/files/tomcat.service](webserver_stack_v2/files/tomcat.service)
+    - [webserver_stack_v2/files/web.xml](webserver_stack_v2/files/web.xml)
+    - [webserver_stack_v2/manifests/apache.pp](webserver_stack_v2/manifests/apache.pp)
+    - [webserver_stack_v2/manifests/init.pp](webserver_stack_v2/manifests/init.pp)
+    - [webserver_stack_v2/manifests/reverse_proxy.pp](webserver_stack_v2/manifests/reverse_proxy.pp)
+    - [webserver_stack_v2/manifests/tomcat.pp](webserver_stack_v2/manifests/tomcat.pp)
+    - [webserver_stack_v2/manifests/webapp.pp](webserver_stack_v2/manifests/webapp.pp)
+    - [webserver_stack_v2/metadata.json](webserver_stack_v2/metadata.json)
+    - [webserver_stack_v2/README.md](webserver_stack_v2/README.md)
+    - [webserver_stack_v2/templates/index.jsp.epp](webserver_stack_v2/templates/index.jsp.epp)
+    - [webserver_stack_v2/templates/reverse_proxy.conf.epp](webserver_stack_v2/templates/reverse_proxy.conf.epp)
+    - [webserver_stack_v2/templates/server.xml.epp](webserver_stack_v2/templates/server.xml.epp)
 
 Zugriff auf ein einzelnes Projektverzeichnis
 --------------------------------------------
@@ -151,14 +175,14 @@ Zugriff auf ein einzelnes Projektverzeichnis
     - `find / -group 1000|xargs -r chgrp 9032`
   - Kontrolle: `ls -l /home` -> "drwxr-x--- 1 ubuntu ubuntu 262 Mar 28 17:47 ubuntu"
 - Auswahl: Welches Projektverzeichnis soll im Container verwendet werden?
-  - /home/uheller/git/test-project
-- Zugriff freigeben: `incus config device add uli-copilot-cli git-test-project disk source=/home/uheller/git/test-project path=/home/ubuntu/test-project shift=true`
-  - Klappt nicht mit incus-6.0 und Linux >= 6.9 (Error: Failed to start device "git-test-project": Required idmapping abilities not available)
+  - /home/uheller/shared-with-copilot
+- Zugriff freigeben: `incus config device add uli-copilot-cli shared-with-copilot disk source=/home/uheller/shared-with-copilot path=/home/ubuntu/shared-with-host shift=true`
+  - Klappt nicht mit incus-6.0 und Linux >= 6.9 (Error: Failed to start device "shared-with-host": Required idmapping abilities not available)
   - Klappt mit incus-6.23.0
 - Nachkontrolle: Ist das Proijektverzheichnis sichtbar innerhalb vom Copilot-Container?
   - `incus exec uli-copilot-cli -- sudo -u ubuntu -i`
-  - `ls` -> test-project
-  - `ls -l test-project|head -5` -> passt! Dateien "gehören" ubuntu.ubuntu
+  - `ls` -> shared-with-host
+  - `ls -l shared-with-host|head -5` -> passt! Dateien "gehören" ubuntu.ubuntu
 
 Versionen
 ---------
@@ -177,5 +201,5 @@ Links
 Historie
 --------
 
-- 2026-03-29: Mehr Hinweise zum Problem mit "shift=true"
+- 2026-03-29: Mehr Hinweise zum Problem mit "shift=true", Anpassungen/Erweiterungen am Puppet-Modul
 - 2026-03-28: Erste Version
