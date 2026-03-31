@@ -22,6 +22,9 @@ von Copilot-CLI ausführen. Das sorgt für wachsendes Umbehagen
 wenn nicht klar ist, auf welche Daten Copilot-CLI zugreifen kann.
 
 Idee: Ich betreibe den Copilot-CLI in einem Container!
+Dazu verwende ich INCUS. Es klappt auch mit LXC/LXD,
+die notwendigen Kommandos unterscheiden sich minimal
+("incus" -> "lxc", ".incus" -> ".lxd").
 
 <!--more-->
 
@@ -201,5 +204,6 @@ Links
 Historie
 --------
 
+- 2026-03-31: Hinweise auf LXC/LXD
 - 2026-03-29: Mehr Hinweise zum Problem mit "shift=true", Anpassungen/Erweiterungen am Puppet-Modul
 - 2026-03-28: Erste Version
