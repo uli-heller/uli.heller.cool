@@ -213,6 +213,12 @@ Wie wird der pubkey von openssh gelesen und geparst?
 Hier stellt sich heraus, dass die "sk_flags" im PubKey garnicht enthalten
 sind!
 
+#### Prompt: Wie erfolgt die Prüfung der Flags?
+
+[copilot-v11.md](copilot-v11.md)
+
+Prüfung erfolgt via FIDO-Signatur.
+
 Versionen
 ---------
 
