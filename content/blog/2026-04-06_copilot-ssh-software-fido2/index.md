@@ -1,6 +1,6 @@
 +++
 date = '2026-04-06'
-draft = false
+draft = true
 title = 'Praxistests mit Copilot - SSH Software FIDO'
 categories = [ 'KI' ]
 tags = [ 'copilot' ]
@@ -75,7 +75,38 @@ cc1: fatal error: ./crypto_api.c: Datei oder Verzeichnis nicht gefunden
 compilation terminated.
 ```
 
+Dritter Test: Fehlerkorrektur
+-----------------------------
+
+**Anfrage**:
+Leider funktioniert das Build-Skript nicht - Fehlermeldungen:
+
+```
+ssh-sk-software-extended.c:8:10: fatal error: includes.h: Datei oder Verzeichnis nicht gefunden
+    8 | #include "includes.h"
+      |          ^~~~~~~~~~~~
+compilation terminated.
+cc1: fatal error: ./crypto_api.c: Datei oder Verzeichnis nicht gefunden
+compilation terminated.
+```
+
 Bitte korrigieren!
+
+[copilot-v14.md](copilot-v14.md), [v14](v14)
+
+Vierter Test
+------------
+
+**Anfrage**:
+
+Ich bekomme nun diese Fehlermeldung beim ausführen von ./build-software-sk-fixed.sh ./openssh-portable:
+
+```
+Error: ./openssh-portable doesn't look like an OpenSSH repository
+Usage: ./build-software-sk-fixed.sh /path/to/openssh-portable
+```
+
+Was muß ich ändern?
 
 
 Versionen
