@@ -47,7 +47,7 @@ Immer mal wieder hab ich Google und andere Suchmaschinen
 bemüht mit Fragen wie:
 
 - "query fido2 options for pubkeys" -> viel Information, nicht sonderlich sinnvolles
-- "ssh-keygen" -> https://linux.die.net/man/1/ssh-keygen
+- "ssh-keygen" -> [https://linux.die.net/man/1/ssh-keygen](https://linux.die.net/man/1/ssh-keygen)
 - usw.
 
 Letztlich erstmal kein durchschlagender Erfolg!
@@ -59,7 +59,7 @@ nicht auf das FIDO2-Gerät drücken muß. Also: Irgendwie
 muß das für die Server-Seite unterscheidbar sein.
 Noch eine Suche:
 
-- "sshd.config" -> https://manpages.ubuntu.com/manpages/jammy/de/man5/sshd_config.5.html -> PubkeyAuthOptions - "touch-required", "verify-required"
+- "sshd.config" -> [https://manpages.ubuntu.com/manpages/jammy/de/man5/sshd_config.5.html](https://manpages.ubuntu.com/manpages/jammy/de/man5/sshd_config.5.html) -> PubkeyAuthOptions - "touch-required", "verify-required"
 
 Also: Der OpenSSH-Server hat Optionen, mit denen man festlegen
 kann welche Optionen beim PubKey gesetzt sein müssen.
