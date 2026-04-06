@@ -4,7 +4,8 @@ V11
 Anfrage
 -------
 
-Wenn die sk_flags im PubKey nicht enthalten sind und in authorized_keys nur der PubKey steht, wir kann der OpenSSH-Server dann prüfen ob verify-required erfüllt ist?
+Wenn die sk_flags im PubKey nicht enthalten sind und in authorized_keys nur der PubKey steht,
+wie kann der OpenSSH-Server dann prüfen ob verify-required erfüllt ist?
 
 Antwort
 -------
