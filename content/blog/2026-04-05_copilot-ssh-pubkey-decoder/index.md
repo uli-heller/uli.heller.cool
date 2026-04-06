@@ -1,7 +1,7 @@
 +++
 date = '2026-04-05'
 draft = false
-title = 'Praxistests mit Copilot'
+title = 'Praxistests mit Copilot - ssh-pubkey-decoder'
 categories = [ 'KI' ]
 tags = [ 'copilot' ]
 +++
