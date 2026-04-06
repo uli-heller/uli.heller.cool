@@ -78,7 +78,9 @@ vom Github-Copilot und Claude Haiku 4.5 rumgespielt:
 - Browser: [GitHub](https://github.com)
 - Suchen nach OpenSSH -> Wechsel zum [OpenSSH-Projekt](https://github.com/openssh/openssh-portable)
 - Copilot aktiviert (oben rechts)
+
   ![github-copilot](github-copilot.png)
+
 - Erste Frage zum Quelltext: "Wie wird PubkeyAuthOptions touch-required geprüft?" -> [Antwort von Copilot](copilot-search.md)
 - Die Antwort sieht schonmal ganz vielversprechend aus! Manuelle Suche im Quelltext wäre zeitaufwändiger gewesen!
 
