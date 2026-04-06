@@ -76,7 +76,7 @@ static int parse_public_key(const uint8_t *keydata, size_t keylen,
     }
     
     /* Check if this is a FIDO key */
-    int is_sk = (strstr(keytype, "sk-") != NULL);
+    int is_sk = (strstr(keytype, "-sk") != NULL);
     
     if (!is_sk) {
         fprintf(stderr, "Error: Key is not a FIDO security key (not *-sk type)\n");

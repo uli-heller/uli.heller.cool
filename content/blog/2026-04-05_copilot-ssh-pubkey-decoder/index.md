@@ -119,6 +119,99 @@ Praktischer Test
     ```
   - Kompilierung
   - Nochmaliger Test: `./ssh-pubkey-decoder ~/.ssh/uli-solokey.pub` -> "Error: Could not read sk_flags from key"
+- Die KO-Ergebnisse habe ich jeweils in den Prompt eingepackt und um Korrektur gebeten.
+- Nach zahlreichen Korrekturen klappt es leider immer noch nicht! Es stellt sich schließlich heraus,
+  dass die betreffenden Informationen garnicht im PubKey enthalten sind!
+
+Wertung
+-------
+
+Die Ergebnisse vom praktischen Test des Copilot mit Claude Haiku 4.5 sind gemischt.
+
+- (PLUS) Die Analyse von bestehenden Programmen klappt ganz gut und ist hilfreich
+- (NEUTRAL) Die Implementierung von neuen Programmen klappt "scheinbar". Es werden syntaktisch korrekte Vorschläge gemacht!
+- (NEGATIV) Die Implementierungen werden mit positiven Aussagen garniert, die ein wenig verdecken, dass die Implementierung nicht funktioniert!
+  Aussagen wie "XYZ funktioniert" müssen unbedingt überprüft werden!
+- (NEUTRAL) Implementierung und Doku wird mit unnötigen Dingen ergänzt. Sieht einerseits gut aus, andererseits erhöht es den Ballast!
+- (PLUS) Am Ende gibt es erhellende Erkenntnisse (die hoffentlich stimmen!)
+
+Details
+-------
+
+Hier die Copilot-Dialoge im Detail!
+
+### Copilot-Dialoge
+
+#### Prompt- Abfrage nach Prüfung
+
+Wie wird PubkeyAuthOptions touch-required geprüft?
+
+[copilot-search.md](copilot-search.md)
+
+#### Prompt - Implementierung
+
+Schreibe ein eigenständiges Programm welches:
+  
+1. Einen PubKey aus einer Datei einliest
+2. Seine sk_flags ermittelt
+3. Die sk_flags dekodiert in Klartext
+4. Dies dann als Ergebnis auf STDOUT ausgibt
+
+[copilot-implement.md](copilot-implement.md), [ssh-pubkey-decoder.c](ssh-pubkey-decoder.c)
+
+
+#### Prompt - erste Fehlerkorrektur
+
+Hier ein gültiger Pubkey: "sk-ssh-ed25519@openssh.com AAAAGnNrLXNzaC1lZDI1NTE5QG9wZW5zc2guY29tAAAAIBLpj7x6pLk5arOrX/OFUYiw8CfHbQH999g291Qqxy6mAAAABHNzaDo= uli.heller_pin".
+Leider zeigt das Programm statt den Flags diese Fehlermeldung: Error: Key is not a FIDO security key (not *-sk type).
+Korrigiere es!
+
+[copilot-v2.md](copilot-v2.md), [ssh-pubkey-decoder-v2.c](ssh-pubkey-decoder-v2.c)
+
+#### Prompt - noch eine Fehlerkorrektur
+
+Leider klappt es immer noch nicht. Jetzt bekomme ich den Fehler Error: Could not read sk_flags from key. Korrigiere das!
+
+[copilot-v3.md](copilot-v3.md), [ssh-pubkey-decoder-v3.c](ssh-pubkey-decoder-v3.c)
+
+#### Prompt - immer noch nicht OK
+
+Fehlermeldung: Error: Not enough data left to read sk_flags. Bitte korrigieren!
+
+[copilot-v4.md](copilot-v4.md), [ssh-pubkey-decoder-v4.c](ssh-pubkey-decoder-v4.c)
+
+#### Prompt - Fehler bei KeyType?
+
+Ich habe den Eindruck, dass das Lesen des KeyType nicht stimmt. Da werden zu viele Daten gelesen. Der KeyType endet mit openssh.com
+
+[copilot-v5.md](copilot-v5.md), [ssh-pubkey-decoder-v5.c](ssh-pubkey-decoder-v5.c)
+
+#### Prompt - Offset-Fehler
+
+Der Offset nach Schritt 2 stimmt nicht. 30+32=62, nicht 66. Bitte korrigieren
+
+[copilot-v6.md](copilot-v6.md), [ssh-pubkey-decoder-v6.c](ssh-pubkey-decoder-v6.c)
+
+#### Prompt - sk_flags und key_handle
+
+Es klappt leider immer noch nicht. Sind die sk_flags wirklich außerhalb vom key_handle?
+
+[copilot-v8.md](copilot-v8.md), [ssh-pubkey-decoder-v8.c](ssh-pubkey-decoder-v8.c)
+
+#### Prompt - Aufbau key_handle
+
+Wie sieht der interne Aufbau vom key handle aus?
+
+[copilot-v9.md](copilot-v9.md)
+
+#### Prompt - Wie macht es OpenSSH?
+
+Wie wird der pubkey von openssh gelesen und geparst?
+
+[copilot-v10.md](copilot-v10.md)
+
+Hier stellt sich heraus, dass die "sk_flags" im PubKey garnicht enthalten
+sind!
 
 Versionen
 ---------
@@ -134,4 +227,5 @@ Links
 Historie
 --------
 
+- 2026-04-06: Weitere Korrekturen, Copilot-Dialoge und Wertung
 - 2026-04-05: Erste Version
