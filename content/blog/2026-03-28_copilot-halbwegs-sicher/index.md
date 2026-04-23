@@ -18,7 +18,7 @@ gemacht werden.
 
 Meine Beobachtung: Man schaltet dann mehr und
 mehr das Hirn aus und läßt zunehmend mehr Aktionen direkt
-von Copilot-CLI ausführen. Das sorgt für wachsendes Umbehagen
+von Copilot-CLI ausführen. Das sorgt für wachsendes Unbehagen
 wenn nicht klar ist, auf welche Daten Copilot-CLI zugreifen kann.
 
 Idee: Ich betreibe den Copilot-CLI in einem Container!
@@ -204,6 +204,7 @@ Links
 Historie
 --------
 
+- 2026-04-23: Tippfehler korrigiert
 - 2026-03-31: Hinweise auf LXC/LXD
 - 2026-03-29: Mehr Hinweise zum Problem mit "shift=true", Anpassungen/Erweiterungen am Puppet-Modul
 - 2026-03-28: Erste Version
