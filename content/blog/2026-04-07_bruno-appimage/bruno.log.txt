@@ -1,0 +1,41 @@
+uli@ulicsl:~/Software$ ls -ltra bruno_*
+-rwxrwxr-x 1 uli uli 160302827 Sep 23  2025 bruno_2.11.0_x86_64_linux.AppImage
+-rw-rw-r-- 1 uli uli        43 Sep 23  2025 bruno_2.11.0_x86_64_linux.AppImage.release-check-url
+-rw-rw-r-- 1 uli uli       644 Sep 23  2025 bruno_2.11.0_x86_64_linux.AppImage.ssh-sig
+-rw-rw-r-- 1 uli uli        95 Sep 23  2025 bruno_2.11.0_x86_64_linux.AppImage.urls
+-rw-rw-r-- 1 uli uli     44228 Sep 23  2025 bruno_2.11.0_x86_64_linux.AppImage.virustotal.json
+
+uli@ulicsl:~/Software$ ./bruno_2.11.0_x86_64_linux.AppImage --no-sandbox
+Preferences file is located at: /home/uli/.config/bruno/preferences.json
+07:34:39.472 › AutoUpdater configured.
+07:34:39.486 › Checking for update
+07:34:40.336 › Found version 3.2.2 (url: bruno_3.2.2_x86_64_linux.AppImage, bruno_3.2.2_amd64_linux.deb, bruno_3.2.2_x86_64_linux.rpm)
+07:34:40.336 › Update to 3.2.2 available, download will start
+07:34:40.336 › Downloading update from bruno_3.2.2_x86_64_linux.AppImage, bruno_3.2.2_amd64_linux.deb, bruno_3.2.2_x86_64_linux.rpm
+07:34:40.337 › updater cache dir: /home/uli/.cache/bruno-updater
+07:34:40.580 › File has 6935 changed blocks
+07:34:40.580 › [
+  {
+    "kind": 0,
+    "start": 0,
+    "end": 159006
+  },
+...
+07:34:40.603 › Full: 157,185.54 KB, To download: 140,741.79 KB (90%)
+07:34:40.605 › Differential download: https://github.com/usebruno/bruno/releases/download/v3.2.2/bruno_3.2.2_x86_64_linux.AppImage
+07:34:40.607 › download range: bytes=159006-191773
+07:34:40.620 › Redirect to https://release-assets.githubusercontent.com/github-production-release-asset/542284380/3c2ee454-eb4f-4bba-8923-e3febb3d2c4f
+07:34:40.644 › download range: bytes=1022379-86377407
+07:34:50.119 › download range: bytes=86716316-86774560
+...
+07:34:57.825 › download range: bytes=160559030-160600443
+07:34:57.843 › download range: bytes=160768775-160788455
+07:34:57.858 › New version 3.2.2 has been downloaded to /home/uli/.cache/bruno-updater/pending/bruno_3.2.2_x86_64_linux.AppImage
+07:34:57.860 › Update to 3.2.2 downloaded
+
+uli@ulicsl:~/Software$ ls -ltra bruno_*
+-rw-rw-r-- 1 uli uli        43 Sep 23  2025 bruno_2.11.0_x86_64_linux.AppImage.release-check-url
+-rw-rw-r-- 1 uli uli       644 Sep 23  2025 bruno_2.11.0_x86_64_linux.AppImage.ssh-sig
+-rw-rw-r-- 1 uli uli        95 Sep 23  2025 bruno_2.11.0_x86_64_linux.AppImage.urls
+-rw-rw-r-- 1 uli uli     44228 Sep 23  2025 bruno_2.11.0_x86_64_linux.AppImage.virustotal.json
+-rwxr-xr-x 1 uli uli 160957997 Apr  7 07:34 bruno_3.2.2_x86_64_linux.AppImage
