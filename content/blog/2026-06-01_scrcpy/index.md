@@ -1,19 +1,19 @@
 +++
 date = '2026-06-01'
 draft = false
-title = 'SCRCPY - Handy-Bedienung auf dem Linux-Arbeitsplatz'
+title = 'SCRCPY - Telefon-Bedienung auf dem Linux-Arbeitsplatz'
 categories = [ 'Sonstiges' ]
 tags = [ 'linux', 'ubuntu' ]
 +++
 
 <!--
-SCRCPY - Handy-Bedienung auf dem Linux-Arbveitsplatz
+SCRCPY - Telefon-Bedienung auf dem Linux-Arbveitsplatz
 ============================
 -->
 
 Manchmal ist es lästig, wenn man am Arbeitsplatz
-werkelt und dann das Handy bedienen muß.
-Mittels SCRCPY kann man sich die Handy-Oberfläche
+werkelt und dann das Telefon bedienen muß.
+Mittels SCRCPY kann man sich die Telefon-Oberfläche
 in einem Fenster anzeigen lassen und bedienen.
 
 <!--more-->
@@ -33,13 +33,13 @@ SCRCPY herunterladen und einspielen
 - Virenscan
 - Auspacken: `gzip -cd scrcpy-linux-x86_64-v4.0.tar.gz|tar xf -`
 
-Handy: USB-Debugging aktivieren
--------------------------------
+Telefon: USB-Debugging aktivieren
+---------------------------------
 
-Auf dem Handy muß USB-Debugging aktiviert werden.
-Bei Samsung geht das via der Handy-Konfiguration:
+Auf dem Telefon muß USB-Debugging aktiviert werden.
+Bei Samsung geht das via der Telefon-Konfiguration:
 
-- Handy-Konfiguration öffnen
+- Telefon-Konfiguration öffnen
 - Entwickleroptionen
 
   ![Entwickleroptionen](handy-entwickleroptionen.png)
@@ -48,8 +48,8 @@ Bei Samsung geht das via der Handy-Konfiguration:
 
   ![Debugging](handy-debugging.png)
 
-Handy: Per USB-Kabel mit Arbeitsplatzrechner verbinden
-------------------------------------------------------
+Telefon: Per USB-Kabel mit Arbeitsplatzrechner verbinden
+--------------------------------------------------------
 
 Bitte melden, falls unklar ist wie man das macht!
 
@@ -78,7 +78,7 @@ Auf dem Telefon wird ein Abfragedialog angezeigt zur Genehmigung
 des Zugriffs. Diesen erlauben und SCRCPY nochmal starten - nun
 klappt es!
 
-![Handy-UI](handy-ui.png)
+![Telefon-UI](handy-ui.png)
 
 Versionen
 ---------
