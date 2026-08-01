@@ -14,7 +14,7 @@ Kleinanzeigen - Bremsentlüftung
 Anzeige
 -------
 
-**Entlüftungskit für Fahrradbremsen**
+**Entlüftungskit für Scheibenbremsen**
 
 Ich möchte mich von meinem Entlüftungskit für Fahrradbremsen
 trennen. Ich habe es im letzten Sommer gekauft und vor ein
@@ -50,7 +50,7 @@ Gerne nehme ich Kaufangebote entgegen. Idealerweise klappt ein Verkauf in den ko
 
 Garantie kann ich keine übernehmen, Mängel sind mir keine bekannt.
 Der Artikel ist einmalig benutzt. Habe ihn danach gründlich ausgewaschen,
-sollte also quasi neuwertig sein.
+sollte also quasi neuwertig sein. Handschuhe und Bremsöl sind unbenutzt.
 
 ![Entlüftungskit](entlueftungs-kit.jpg)
 
