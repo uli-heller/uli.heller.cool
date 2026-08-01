@@ -52,7 +52,11 @@ Garantie kann ich keine übernehmen, Mängel sind mir keine bekannt.
 Der Artikel ist einmalig benutzt. Habe ihn danach gründlich ausgewaschen,
 sollte also quasi neuwertig sein.
 
-![Entlüftungskit](entlüftungs-kit.jpg)
+![Entlüftungskit](entlueftungs-kit.jpg)
+
+![Öl 1](oel1.jpg)
+
+![Öl 2](oel1.jpg)
 
 [Amazon-Link](https://www.amazon.de/dp/B0F18F3GQQ/ref=sspa_dk_detail_1?psc=1&pd_rd_i=B0F18F3GQQ&pd_rd_w=xT8F5&content-id=amzn1.sym.cf5ead54-c2f4-4493-953a-430e94cae639&pf_rd_p=cf5ead54-c2f4-4493-953a-430e94cae639&pf_rd_r=G0SB8PKNASB1WE9ZZNN6&pd_rd_wg=aTEqI&pd_rd_r=da521ea3-73cc-4217-8ae9-9c68da9350f6&aref=udvuSRrD9x&sp_csd=d2lkZ2V0TmFtZT1zcF9kZXRhaWw)
 
