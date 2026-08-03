@@ -22,6 +22,12 @@ für jeden außer mich selbst!
 Offene Ideen
 ------------
 
+### Vermeidung von .env-Dateien mittels VARLOCK
+
+- [VARLOCK](https://varlock.dev/)
+  - keepassxc -> .env
+  - Sandboxes
+
 ### USB über's Netzwerk
 
 [LINUX FU: USB EVERYWHERE](https://hackaday.com/2025/02/27/linux-fu-usb-everywhere/)
