@@ -22,6 +22,11 @@ für jeden außer mich selbst!
 Offene Ideen
 ------------
 
+### PDF so ändern, dass es "gescannt" wirkt
+
+- [make-look-scanned](https://github.com/overflowy/make-look-scanned/releases)
+  - Statische Webseite
+
 ### Vermeidung von .env-Dateien mittels VARLOCK
 
 - [VARLOCK](https://varlock.dev/)
