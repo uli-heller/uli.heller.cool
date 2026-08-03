@@ -43,7 +43,9 @@ Aktuell wirft Gradle nur eine Warnung, wenn die Lock-Datei nicht "passt".
 
 [Nitrokey - PIN](https://docs.nitrokey.com/de/nitrokeys/nitrokey3/set-pins)
 
-### DuckDB + Webassembly = WhatTheDuck
+### DuckDB + Webassembly = WhatTheDuck oder SQLChef
+
+#### WhatTheDuck
 
 [DuckDB + Webassembly = WhatTheDuck](https://www.i-programmer.info/news/84-database/17726-duckdb-webassembly-whattheduck.html)
 
@@ -60,6 +62,13 @@ disposable application without the hassle of having to set up anything.
 Usually when I want to quickly load CSV files, store them in tables and perform SQL queries on the data, I use DBeaver where I setup the DuckDB driver as well the in-memory database and then load the CSV with "create table as".￼
 
 Instead, with WhatTheDuck you just upload your files and are ready to go.
+
+#### SQLChef
+
+[SQLChef](https://jonathanwalker.github.io/SQLChef/)
+
+- Statische Seite
+- Mehrere Tabellen sind möglich -> einfach in separaten Tabs nacheinander laden
 
 ### Detecting the use of "curl | bash" server side
 
