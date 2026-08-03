@@ -25,7 +25,7 @@ Siehe auch: [heise online - Echo Connect wird nutzlos – Amazon stellt Service 
 
 Gerne nehme ich Kaufangebote entgegen. Idealerweise klappt ein Verkauf in den kommenden 2 Wochen, also grob bis Mitte/Ende August.
 
-Garantie kann ich keine übernehmen, Mängel sind mir keine bekannt.
+Garantie kann ich keine übernehmen, Mängel sind mir keine bekannt außer der Tatsache, dass Amazon den Dienst eingestellt hat und das Teil damit eventuell nur noch als Briefbeschwerer dienen kann.
 
 ![Front](front.jpg)
 
