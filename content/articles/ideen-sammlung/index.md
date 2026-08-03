@@ -22,6 +22,10 @@ für jeden außer mich selbst!
 Offene Ideen
 ------------
 
+### AppImage erzeugen mit "quick-sharun"
+
+- [sharun](https://github.com/pkgforge-dev/Anylinux-AppImages)
+
 ### PDF so ändern, dass es "gescannt" wirkt
 
 - [make-look-scanned](https://github.com/overflowy/make-look-scanned/releases)
