@@ -58,6 +58,10 @@ Aktuell wirft Gradle nur eine Warnung, wenn die Lock-Datei nicht "passt".
 
 [Nitrokey - PIN](https://docs.nitrokey.com/de/nitrokeys/nitrokey3/set-pins)
 
+### Python - GUI - Quickshell
+
+[LWN - A look at the Quickshell desktop-component toolkit](https://lwn.net/Articles/1083090/)
+
 ### DuckDB + Webassembly = WhatTheDuck oder SQLChef
 
 #### WhatTheDuck
