@@ -90,6 +90,24 @@ Das gesamte Protokoll der OpenCode-Session findet sich hier: [opencode-console.m
 Das Endergebnis findet sich hier im Unterordner "[springboot](springboot/)"
 oder im ZIP "[springboot.zip](springboot.zip)" zum herunterladen.
 
+Vergleich mit Copilot/Auto/ClaudeSonnet5
+----------------------------------------
+
+Dieselbe Aufgabe habe ich auch mit Copilot bearbeitet.
+Das Ergebnis sieht vergleichbar aus, inklusive Verwendung vom
+Dependency-Management-Plugin.
+
+Auffälligkeiten:
+
+- Copilot ist gefühlt schneller (Faktor 2?)
+- Copilot verwendet Java-25, bei Hetzner ist es Java-26
+- Copilot stellt viele Rückfragen; gefühlt wird nichts gemacht, ohne dass ich als Nutzer es "genehmige"
+
+Das Endergebnis findet sich hier im Unterordner "[springboot-copilot](springboot-copilot/)"
+oder im ZIP "[springboot-copilot.zip](springboot-copilot.zip)" zum herunterladen.
+
+Das gesamte Protokoll der Copilot-Session findet sich hier: [copilot-console.md](copilot-console.md).
+
 Links
 -----
 
@@ -110,4 +128,5 @@ Getestet mit
 Historie
 --------
 
+- 2026-09-09: Vergleich mit Copilot aufgenommen
 - 2026-09-08: Erste Version
