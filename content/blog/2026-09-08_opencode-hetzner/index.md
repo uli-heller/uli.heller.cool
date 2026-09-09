@@ -11,7 +11,7 @@ OPENCODE: Tests mit dem Hetzner-Experiment "inference"
 ===================================
 -->
 
-Bei Hetzner gibt es ein "Experment" mit dem Namen "inference".
+Bei Hetzner gibt es ein "Experiment" mit dem Namen "inference".
 Wie es aussieht, kann man damit Qwen3.8-27B mit einem OpenAI-kompatiblen
 API verwenden. Mal sehen, ob's klappt!
 
