@@ -249,6 +249,58 @@ for n in $(incus network list --format csv | grep "YES" | cut -d, -f1); do incus
 
 # 6. Alle Storage Pools löschen
 for s in $(incus storage list --format csv | cut -d, -f1); do incus storage delete "$s"; done
+
+# 7. incus_lv bereinigen
+lvresize -L 300G /dev/vg0/incus_lv
+mkfs.btrfs -L "INCUS storage pool" -f /dev/vg0/incus_lv
+```
+
+Damit sollte INCUS weitgehend im Grundzustand sein. Gleiches gilt für
+den Speicherbereich/StoragePool. Er ist komplett neu initialisiert
+und kann damit keine Rückstände mehr enthalten!
+
+### Grundinitialisierung INCUS
+
+#### Arbeitsplatzrechner
+
+```
+$ cd .../meine-hilfsskripte # v0.4
+$ ./bin/incus/remote.sh -i uli@hetzner-de-ryzen
+```
+
+##### Vorbereitungen hetzner-de-ryzen
+
+Die nachfolgenden Kommandos werden vorgeschlagen,
+wenn man "Initialisierung hetzner-de-ryzen" mehrfach durchführt
+und die Kommandos noch nicht ausgeführt hat!
+
+```
+# apt install yq
+
+# /home/uli/bin/incus/incus-initialize.sh
+Network incushostonly created
+Network incusnat created
+Device eth0 added to default
+Device eth1 added to default
+
+# home/uli/bin/incus/incus-initialize-root.sh 
+Created symlink /etc/systemd/system/sys-subsystem-net-devices-incushostonly.device.wants/incus-dns-incushostonly.service → /etc/systemd/system/incus-dns-incushostonly.service.
+Unit /etc/systemd/system/incus-dns-incushostonly.service is added as a dependency to a non-existent unit sys-subsystem-net-devices-incushostonly.device.
+Created symlink /etc/systemd/system/sys-subsystem-net-devices-incusnat.device.wants/incus-dns-incusnat.service → /etc/systemd/system/incus-dns-incusnat.service.
+Unit /etc/systemd/system/incus-dns-incusnat.service is added as a dependency to a non-existent unit sys-subsystem-net-devices-incusnat.device.
+
+# incus storage create default btrfs source=/dev/vg0/incus_lv source.wipe=true
+Storage pool default created
+
+# incus profile device add default root disk path=/ pool=default
+Device root added to default
+```
+
+##### Initialisierung hetzner-de-ryzen
+
+```
+$ ./bin/incus/yaml-create.sh etc/incus-dp/apt-cacher-ng.yaml
+$ ./bin/incus/yaml-create.sh etc/incus-dp/certbot.yaml
 ```
 
 Notwendige Nacharbeiten
@@ -256,6 +308,7 @@ Notwendige Nacharbeiten
 
 - Wir müssen sicherstellen, dass alle Hetzner-Rechner
   bei Plattenstörungen irgendwie Alarm schlagen!
+- Einrichten von Sicherungen der Container
 
 Links
 -----
