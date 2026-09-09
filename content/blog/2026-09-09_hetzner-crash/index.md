@@ -38,7 +38,30 @@ Er ist aktuell "oben", damit man ihn schnell finden kann.
      - alle Container/Images/... löschen
    - richtige Version von INCUS installieren
 3. Ermitteln: Welche Container werden benötigt und in welcher Reihenfolge?
-4. ...
+   - Benötigte Container (Reihenfolge noch nicht festgelegt)
+     - 733M	dp-tmate
+     - 834M	pocket-id
+     - 969M	daemons-point-com-static
+     - 1.7G	dp-share
+     - 1.8G	dp-dropzone
+     - 2.4G	anwesenheit
+     - 2.7G	legacy-kimai
+     - 4.9G	dp-ldap-2204
+     - 4.9G	dp-roundcube-2204
+     - 6.1G	dptools
+     - 8.9G	dp-paperless-ngx
+     - 21G	dp-zammad-2004
+     - 35G	dp-gitea
+     - 39G	dp-dovecot-2204
+     - 111G	dprepo
+   - Unnötige Container
+     - 661M	ubuntu-2604
+     - 686M	debian-bookworm
+     - 721M	ubuntu-2204
+     - 759M	ubuntu-2004
+4. Zur Reihenfolge: Ich möchte zuerst mit einem "kleinen" Container beginnen.
+   Da kann ich den Übernahme-Mechanismus schneller testen als mit einem großen
+   Container. Also: "dp-tmate" oder "pocket-id".
 
 Sichtung
 --------
