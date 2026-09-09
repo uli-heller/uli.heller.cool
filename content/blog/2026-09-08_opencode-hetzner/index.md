@@ -83,7 +83,7 @@ Danach sieht's richtig gut aus!
 
 ### Gesamtprotokoll
 
-Das gesamte Protokoll der OpenCode-Session findet sich hier: [opencode-console.md]({{< relref "opencode-console.md" >}}).
+Das gesamte Protokoll der OpenCode-Session findet sich hier: [opencode-console.md](opencode-console.html).
 
 ### Endergebnis
 
@@ -106,7 +106,7 @@ Auffälligkeiten:
 Das Endergebnis findet sich hier im Unterordner "[springboot-copilot](springboot-copilot/)"
 oder im ZIP "[springboot-copilot.zip](springboot-copilot.zip)" zum herunterladen.
 
-Das gesamte Protokoll der Copilot-Session findet sich hier: [copilot-console.md]({{< relref "copilot-console.md" >}}).
+Das gesamte Protokoll der Copilot-Session findet sich hier: [copilot-console.md](copilot-console.html).
 
 Links
 -----
