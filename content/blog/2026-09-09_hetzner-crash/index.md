@@ -309,6 +309,10 @@ Notwendige Nacharbeiten
 - Wir müssen sicherstellen, dass alle Hetzner-Rechner
   bei Plattenstörungen irgendwie Alarm schlagen!
 - Einrichten von Sicherungen der Container
+  - apt-cacher-ng: Wird aktiv genutzt, muß aus meiner Sicht nicht (zwingend) gesichert werden!
+  - certbot: Wird aktiv genutzt, muß aus meiner Sicht nicht (zwingend) gesichert werden!
+- Sichern der Daten außerhalb der Container
+  - hetzner-de-ryzen:/home/uli/shared-letsencrypt ... enthält die Zertifikate; sollte gesichert werden; Platzbedarf: SEHR gering
 
 Links
 -----
