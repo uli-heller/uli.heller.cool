@@ -62,6 +62,7 @@ Er ist aktuell "oben", damit man ihn schnell finden kann.
 4. Zur Reihenfolge: Ich möchte zuerst mit einem "kleinen" Container beginnen.
    Da kann ich den Übernahme-Mechanismus schneller testen als mit einem großen
    Container. Also: "dp-tmate" oder "pocket-id".
+5. Umzug "pocket-id"
 
 Sichtung
 --------
@@ -294,6 +295,11 @@ Storage pool default created
 
 # incus profile device add default root disk path=/ pool=default
 Device root added to default
+
+# echo "/dev/vg0/incus_lv /incus btrfs defaults 0 0" >>/etc/fstab
+# systemctl daemon-reload
+# mkdir /incus
+# mount /incus
 ```
 
 ##### Initialisierung hetzner-de-ryzen
@@ -301,7 +307,163 @@ Device root added to default
 ```
 $ ./bin/incus/yaml-create.sh etc/incus-dp/apt-cacher-ng.yaml
 $ ./bin/incus/yaml-create.sh etc/incus-dp/certbot.yaml
+$ ./bin/incus/yaml-create.sh etc/incus-dp/apache2.yaml
 ```
+
+Umzug "pocket-id"
+-----------------
+
+Ich orientiere mich am Vorgehen aus [Ticket 13315](https://zammad.daemons-point.com/#ticket/zoom/13315).
+Das Grundgerüst des Vorgehens stammt von Gemini.
+
+### Sichten bestehender Storage-Pool
+
+- Pfad für alle Container: /lxd/containers
+- Pfad für "pocket-id": /lxd/containers/pocket-id
+
+### BTRFS-Snapshot auf dem KO-Hetznerrechner erzeugen
+
+Üblicherweise würde man einen Snapshot des Containers erzeugen mit `lxc snapshot ...`.
+Da `lxc` aber nicht mehr funktioniert, scheidet dieses Vorgehen aus.
+Sichern/Übertragen ohne Snapshot ist nicht ratsam, weil dann potentiell inkonsistente
+und funktionsunfähige Datenbanken gesichert/übertragen werden.
+
+```
+# btrfs filesystem show /lxd
+Label: 'default'  uuid: e48d1d90-0faa-4091-9841-562129db69d1
+	Total devices 1 FS bytes used 261.02GiB
+	devid    1 size 350.00GiB used 350.00GiB path /dev/mapper/vg0-lxd
+
+# btrfs subvolume show /lxd
+/
+	Name: 			<FS_TREE>
+	UUID: 			-
+	Parent UUID: 		-
+	Received UUID: 		-
+	Creation time: 		-
+	Subvolume ID: 		5
+	Generation: 		33836141
+	Gen at creation: 	0
+	Parent ID: 		0
+	Top level ID: 		0
+	Flags: 			-
+	Snapshot(s):
+				containers
+				containers-snapshots
+				images
+				images/9afd22581ab1ba80514d4e2cca61c4c365db76b880c0e10eb7d8ea5adf99efd3
+				custom
+				custom-snapshots
+
+# btrfs subvolume show /lxd/containers/pocket-id/
+containers/pocket-id
+	Name: 			pocket-id
+	UUID: 			c08e30cb-966d-e947-ac7e-88c13a04a444
+	Parent UUID: 		87075f5e-3965-9844-8a41-e90221750620
+	Received UUID: 		-
+	Creation time: 		2026-09-07 16:29:42 +0200
+	Subvolume ID: 		23271
+	Generation: 		33837977
+	Gen at creation: 	33825095
+	Parent ID: 		257
+	Top level ID: 		257
+	Flags: 			-
+	Snapshot(s):
+```
+
+Wie erwartet ist "pocket-id" ein separates Subvolume. Es verfügt über keine Snapshots.
+
+Snapshot anlegen:
+
+```
+# mkdir -p /lxd/containers-snapshots/pocket-id
+# btrfs subvolume snapshot -r /lxd/containers/pocket-id /lxd/containers-snapshots/pocket-id/trx_hetzner-de-ryzen_$(date +%Y%m%d-%H%M%S)
+Create a readonly snapshot of '/lxd/containers/pocket-id' in '/lxd/containers-snapshots/pocket-id/trx_hetzner-de-ryzen_20260909-134127'
+```
+
+### Container-Vorbereitung und -Einspielung auf dem OK-Hetznerrechner
+
+- Anmelden auf dem OK-Hetznerrechner mit `ssh -A ...`
+- Leer-Container anlegen:
+  ```
+  # incus copy ubuntu-2604 pocket-id
+  
+  # incus ls pocket-id
+  +-----------+---------+------+------+-----------+-----------+
+  |   NAME    |  STATE  | IPV4 | IPV6 |   TYPE    | SNAPSHOTS |
+  +-----------+---------+------+------+-----------+-----------+
+  | pocket-id | STOPPED |      |      | CONTAINER | 0         |
+  +-----------+---------+------+------+-----------+-----------+
+  
+  # rm -rf /incus/containers/pocket-id/rootfs/*
+  ```
+- Daten übernehmen vom KO-Hetznerrechner:
+  ```
+  # ssh 95.216.23.95 -- oder -- date +%Y%m%d-%H%M%S; ssh 95.216.23.95 date +%Y%m%d-%H%M%S
+    # ... einmaliger Test ob's klappt - dauert grob 2min 30s
+  ...
+
+  # time ssh 95.216.23.95 "tar --numeric-owner -czpf - -C /lxd/containers-snapshots/pocket-id/trx_hetzner-de-ryzen_*/rootfs/ ."\
+  |tar --numeric-owner -xzpvf - -C /incus/containers/pocket-id/rootfs/
+    # ... dauert eine ganze Weile, bis es "los" geht (klar, helsinki-Problem bei SSH-Anmeldung!)
+  ./
+  ./var/
+  ./var/lib/
+  ./var/lib/apt/
+  ./var/lib/apt/lists/
+  ./var/lib/apt/lists/partial/
+  ./var/lib/apt/lists/auxfiles/
+  ./var/lib/apt/lists/lock
+  ./var/lib/apt/lists/archive.ubuntu.com_ubuntu_dists_resolute_InRelease
+  ./var/lib/apt/lists/archive.ubuntu.com_ubuntu_dists_resolute_main_binary-amd64_Packages
+  ./var/lib/apt/lists/archive.ubuntu.com_ubuntu_dists_resolute_main_i18n_Translation-en
+  ...
+  
+  real	2m53.051s
+  user	0m8.145s
+  sys	0m5.190s
+  ```
+- Test
+  ```
+  # /home/uli/bin/incus/incus-nat.sh pocket-id
+  # incus start pocket-id
+  ```
+
+### Zusammenfassung
+
+```
+# Gemini - Schritt 1
+# helsinki
+LXD_PATH=/lxd
+CONTAINER=pocket_id
+mkdir -p "${LXD_PATH}/containers-snapshots/${CONTAINER}"
+btrfs subvolume snapshot -r "${LXD_PATH}/containers/${CONTAINER}" "${LXD_PATH}/containers-snapshots/${CONTAINER}/trx_hetzner-de-ryzen_$(date +%Y%m%d-%H%M%S)"
+
+# Geminic - Schritt 2 und 3 kombiniert
+# hetzner-de-ryzen
+INCUS_PATH=/incus
+LXD_PATH=/lxd
+CONTAINER=pocket_id
+incus copy ubuntu-2604 "${CONTAINER}"
+incus stop -f "${CONTAINER}" 2>/dev/null
+rm -rf "${INCUS_PATH}/containers/${CONTAINER}/rootfs/*"
+time ssh  95.216.23.95 "tar --numeric-owner -czpf - -C "${LXD_PATH}/containers-snapshots/${CONTAINER}/trx_hetzner-de-ryzen_*/rootfs/ ."\
+  |tar --numeric-owner -xzpvf - -C "${INCUS_PATH}/containers/${CONTAINER}/rootfs/
+
+/home/uli/bin/incus/incus-nat.sh "${CONTAINER}"
+incus start "${CONTAINER}"
+```
+
+### Fehlende Schritte
+
+Damit "pocket-id" funktioniert, müssen noch ein paar weitere Anpassungen
+vorgenommen werden:
+
+1. Vorgeschalteter ReverseProxy
+   - Ich verwende in meinem Heim-Netzwerk "caddy"
+   - Für DP sollten wir vermutlich bei "apache2" bleiben
+2. DNS umlegen von helsinki -> hetzner-de-ryzen
+3. CERTBOT aktivieren
 
 Notwendige Nacharbeiten
 -----------------------
@@ -311,6 +473,7 @@ Notwendige Nacharbeiten
 - Einrichten von Sicherungen der Container
   - apt-cacher-ng: Wird aktiv genutzt, muß aus meiner Sicht nicht (zwingend) gesichert werden!
   - certbot: Wird aktiv genutzt, muß aus meiner Sicht nicht (zwingend) gesichert werden!
+  - pocket-id: Wird aktiv genutzt, sollte gesichert werden!
 - Sichern der Daten außerhalb der Container
   - hetzner-de-ryzen:/home/uli/shared-letsencrypt ... enthält die Zertifikate; sollte gesichert werden; Platzbedarf: SEHR gering
 
