@@ -99,7 +99,7 @@ kritische Warnung schon lange besteht:
 /var/log/syslog.7.gz:Sep  1 23:53:41 helsinki smartd[2337]: Device: /dev/nvme1, Critical Warning (0x04): Reliability
 ```
 
-### Sichtung Container
+### Sichtung Container via Standard-Mechanismus
 
 Zunächst möchte ich ermitteln, welche Container auf dem Rechner aktuell laufen.
 Typischerweise mache ich das mit `lxc list`:
@@ -113,6 +113,55 @@ internal error, please report: running "lxd.lxc" failed: cannot create transient
 
 Also: "Handhabung" von Containern ist aktuell stark eingeschränkt!
 Erstmal bin ich froh, dass sie noch laufen und Dienste bereitstellen!
+
+### Sichtung StoragePool von LXC/LXD
+
+Der StoragePool ist glücklicherweise problemlos zugreifbar.
+Daraus kann man auch erkennen, welche Container es gibt und
+wieviele Daten sie jeweils aufweisen:
+
+```
+# cd /lxd
+# cd containers
+# du -hs *|sort -h
+661M	ubuntu-2604
+686M	debian-bookworm
+721M	ubuntu-2204
+733M	dp-tmate
+759M	ubuntu-2004
+834M	pocket-id
+969M	daemons-point-com-static
+1.7G	dp-share
+1.8G	dp-dropzone
+2.4G	anwesenheit
+2.7G	legacy-kimai
+4.9G	dp-ldap-2204
+4.9G	dp-roundcube-2204
+6.1G	dptools
+8.9G	dp-paperless-ngx
+21G	dp-zammad-2004
+35G	dp-gitea
+39G	dp-dovecot-2204
+111G	dprepo
+```
+
+Einschränkungen
+---------------
+
+- SSH-Zugriff auf Hetzner-Rechner und die enthaltenen Container funktioniert SEHR langsam
+  (Anmeldung dauert 1 Minute oder so, danach "läuft's")
+- Systemaktualisierung klappt nicht
+- Container-Kommandos (alles mit `lxc` oder `lxd`) funktionieren nicht
+- SystemD funktioniert nicht, bspw. `systemctl reload apache2`
+- SNAP-Aufrufe sind sehr langsam (`snap list` dauert 25 Sekunden)
+
+Vorgehen bei Konfigurationsänderungen am Apache
+-----------------------------------------------
+
+1. Änderungen vornehmen, bspw. an /etc/apache2/sites-available/daemons-point.com.conf
+2. Die Änderungen sind leider erstmal nicht aktiv
+3. Typischerweise aktiviert man sie via `systemctl reload apache2` - das klappt aber nicht wegen der SystemD-Einschränkung!
+4. Mit dem veralteten Befehl klappt's: `apachectl -k graceful`
 
 Notwendige Nacharbeiten
 -----------------------
@@ -131,7 +180,7 @@ Versionen
 Ausfallender Server:
 
 - Ubuntu-20.04
-- LXC/LXD Version x.xx (Abfragen funktionieren aktuell nicht)
+- LXC/LXD Version 6.9 (SNAP-Variante)
 
 Ersatzserver:
 
