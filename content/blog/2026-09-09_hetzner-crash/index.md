@@ -186,6 +186,57 @@ Vorgehen bei Konfigurationsänderungen am Apache
 3. Typischerweise aktiviert man sie via `systemctl reload apache2` - das klappt aber nicht wegen der SystemD-Einschränkung!
 4. Mit dem veralteten Befehl klappt's: `apachectl -k graceful`
 
+Neuer Hetzner-Rechner (hetzner-de-ryzen)
+----------------------------------------
+
+### Inkonsistenzen in /etc/fstab korrigieren
+
+- Wurzel-Dateisystem nur einmalig einbinden
+- apt-cache-ng -> apt-cacher-ng
+
+### Aktuelle Version von INCUS installieren
+
+- Bislang: Veraltete Version installiert - 6.0.0-1ubuntu0.3
+- Nun: Aktuelle Version installiert - 7.0.1-8~uli04~noble
+
+### Bestehende INCUS-Installation aufräumen
+
+#### Automatischer Weg
+
+```
+$ incus admin init --clean
+Error: unknown flag: --clean
+```
+
+... geht wohl nur bei LXD
+
+#### Manueller Weg
+
+Der nachfolgende manuelle Weg basiert auf einem Vorschlag von Gemini.
+Der Vorschlag ist allerdings deutlich fehlerbehaftet gewesen, ohne meine Änderungen klappt
+es nicht!
+
+```
+# 1. Alle Instanzen (Container/VMs) stoppen und löschen
+for i in $(incus list -c n --format csv); do incus stop "$i" --force 2>/dev/null; incus delete "$i"; done
+
+# 2. ALLE Images (Betriebssystem-Abbilder) löschen
+for img in $(incus image list --format csv | cut -d, -f1); do incus image delete "$img"; done
+
+# 3. Alle benutzerdefinierten Profile löschen (das Profil 'default' kann nicht gelöscht werden)
+for p in $(incus profile list --format csv | cut -d, -f1); do [ "$p" != "default" ] && incus profile delete "$p"; done
+
+# 4. Default-Profil bereinigen
+incus profile device remove default eth0
+incus profile device remove default root
+
+# 5. Alle Netzwerke löschen (Incus-eigene wie 'incusbr0') [grep -v war Quatsch]
+for n in $(incus network list --format csv | grep "YES" | cut -d, -f1); do incus network delete "$n"; done
+
+# 6. Alle Storage Pools löschen
+for s in $(incus storage list --format csv | cut -d, -f1); do incus storage delete "$s"; done
+```
+
 Notwendige Nacharbeiten
 -----------------------
 
