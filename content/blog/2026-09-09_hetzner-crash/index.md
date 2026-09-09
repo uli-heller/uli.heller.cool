@@ -199,6 +199,20 @@ Neuer Hetzner-Rechner (hetzner-de-ryzen)
 - Bislang: Veraltete Version installiert - 6.0.0-1ubuntu0.3
 - Nun: Aktuelle Version installiert - 7.0.1-8~uli04~noble
 
+### "apt-cacher-ng" löschen
+
+Bei neueren Installationen hat es sich bewährt, den "apt-cacher-ng" in
+einem Container laufen zu lassen. Also: Auf den Hetzner-Rechner wird
+er gelöscht!
+
+- Sichtung der APT-Konfiguration: Wird "apt-cacher-ng" verwendet? Nein!
+- "apt-cacher-ng" löschen: `apt purge apt-cacher-ng; apt autoremove`
+- Aktualisierungstest: `apt update` -> klappt!
+- LV löschen
+  - /etc/fstab: /data/apt-cacher-ng entfernen
+  - `umount /data/apt-cacher-ng`
+  - `lvremove /dev/vg0/apt-cacher-ng`
+
 ### Bestehende INCUS-Installation aufräumen
 
 #### Automatischer Weg
