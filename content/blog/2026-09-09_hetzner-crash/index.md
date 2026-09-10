@@ -326,7 +326,8 @@ Device root added to default
 ```
 $ ./bin/incus/yaml-create.sh etc/incus-dp/apt-cacher-ng.yaml
 $ ./bin/incus/yaml-create.sh etc/incus-dp/certbot.yaml
-  # Da CERTBOT erstmal noch nicht aktiv sein kann, muß ich die ersten Zertifikate
+  # Da CERTBOT wegen fehlender DNS-Umstellung erstmal
+  # noch nicht aktiv sein kann, muß ich die ersten Zertifikate
   # manuell vom KO-Rechner "helsinki" kopieren
 
 $ ./bin/incus/yaml-create.sh etc/incus-dp/apache2.yaml
@@ -361,6 +362,16 @@ Also:
 - privkey.pem ablegen auf hetzner-de-ryzen
 - Kopien von (domain).key und privkey.pem löschen
 - Nachkontrolle: Stimmen die Zugriffsrechte von privkey.pem auf hetzner-de-ryzen?
+
+DNS vorbereiten
+---------------
+
+1. Anmelden bei [https://hetzner.com](https://hetzner.com)
+2. Console
+3. DNS
+4. daemons-point.com
+5. Aktionen - Zonefile bearbeiten
+6. TTL: 86400 -> 3600
 
 Umzug "pocket-id"
 -----------------
@@ -490,7 +501,7 @@ testen mit:
   ... muß die ganze Zertifikatskette anzeigen
 - CURL: `curl -v --resolve login.daemons-point.com:443:49.12.86.41 https://login.daemons-point.com`
   ... darf keine Zertifikatsfehler melden
-- WGET: `wget  --connect-to login.daemons-point.com:443:49.12.86.41:443 https://lgin.daemons-point.com`
+- WGET: `wget  --connect-to login.daemons-point.com:443:49.12.86.41:443 https://login.daemons-point.com`
   ... scheitert bei mit mit "wget: Unbekannte Option '--connect-to'"
 
 ### Zusammenfassung
@@ -528,6 +539,17 @@ vorgenommen werden:
    - Für DP sollten wir vermutlich bei "apache2" bleiben
 2. DNS umlegen von helsinki -> hetzner-de-ryzen
 3. CERTBOT aktivieren
+
+DNS umlenken für "login.daemons-point.com"
+------------------------------------------
+
+1. Anmelden bei [https://hetzner.com](https://hetzner.com)
+2. Console
+3. DNS
+4. daemons-point.com
+5. Aktionen - Zonefile bearbeiten
+   - Bislang: `login	IN	CNAME	ilmarinen.daemons-point.com.`
+   - Geändert: `login	IN	CNAME	hetzner-de-ryzen.daemons-point.com.`
 
 Notwendige Nacharbeiten
 -----------------------
