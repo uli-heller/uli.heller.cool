@@ -84,6 +84,31 @@ Er ist aktuell "oben", damit man ihn schnell finden kann.
 5. Umzug "pocket-id"
 6. Umzug "dp-tmate" - geht ohne DNS-Änderungen
 
+Fortschrittstabelle
+-------------------
+
+Größe Helsinki|Container               |UID root fs|Umzug notwendig|Erledigt?|Größe Hetzner-de-ryzen
+--------------|------------------------|-----------|---------------|---------|----------------------
+733M          |dp-tmate                |1507328    |Ja             |Ja       |733M                  
+834M          |pocket-id               |0          |Ja             |Ja       |843M                  
+969M          |daemons-point-com-static|1114112    |Ja             |Nein     |-                     
+1.7G          |dp-share                |1769472    |Ja             |Nein     |-                     
+1.8G          |dp-dropzone             |0          |Ja             |Nein     |-                     
+2.4G          |anwesenheit             |1966080    |Ja             |Nein     |-                     
+2.7G          |legacy-kimai            |0          |Ja             |Nein     |-                     
+4.9G          |dp-ldap-2204            |0          |Ja             |Nein     |-                     
+4.9G          |dp-roundcube-2204       |0          |Ja             |Nein     |-                     
+6.1G          |dptools                 |1638400    |Ja             |Nein     |-                     
+8.9G          |dp-paperless-ngx        |1000       |Ja             |Nein     |-                     
+21G           |dp-zammad-2004          |0          |Ja             |Nein     |-                     
+35G           |dp-gitea                |1900544    |Ja             |Nein     |-                     
+39G           |dp-dovecot-2204         |0          |Ja             |Nein     |-                     
+111G          |dprepo                  |1048576    |Ja             |Nein     |-                     
+661M          |ubuntu-2604             |0          |Nein           |Nein     |-                     
+686M          |debian-bookworm         |0          |Nein           |Nein     |-                     
+721M          |ubuntu-2204             |1000       |Nein           |Nein     |-                     
+759M          |ubuntu-2004             |786432     |Nein           |Nein     |-                     
+
 Sichtung
 --------
 
@@ -530,7 +555,7 @@ time ssh  95.216.23.95 "tar --numeric-owner -czpf - -C \"${LXD_PATH}/containers-
 OLD_UID="$(stat --format="%u" "${INCUS_PATH}/containers/${CONTAINER}/rootfs")"
 OLD_GID="$(stat --format="%g" "${INCUS_PATH}/containers/${CONTAINER}/rootfs")"
 test "${OLD_UID} ${OLD_GID}" != "0 0" && {
-  /home/uli/bin/incus/incus-fuidshift -r -u "0:${OLD_UID}" -g "0:${OLD_GID}" "${INCUS_PATH}/containers/${CONTAINER}"
+  /home/uli/bin/incus/incus-fuidshift.sh -r -u "0:${OLD_UID}" -g "0:${OLD_GID}" "${INCUS_PATH}/containers/${CONTAINER}"
 }
 
 /home/uli/bin/incus/incus-nat.sh "${CONTAINER}"
@@ -634,7 +659,7 @@ time ssh  95.216.23.95 "tar --numeric-owner -czpf - -C \"${LXD_PATH}/containers-
 OLD_UID="$(stat --format="%u" "${INCUS_PATH}/containers/${CONTAINER}/rootfs")"
 OLD_GID="$(stat --format="%g" "${INCUS_PATH}/containers/${CONTAINER}/rootfs")"
 test "${OLD_UID} ${OLD_GID}" != "0 0" && {
-  /home/uli/bin/incus/incus-fuidshift -r -u "0:${OLD_UID}" -g "0:${OLD_GID}" "${INCUS_PATH}/containers/${CONTAINER}"
+  /home/uli/bin/incus/incus-fuidshift.sh -r -u "0:${OLD_UID}" -g "0:${OLD_GID}" "${INCUS_PATH}/containers/${CONTAINER}"
 }
 
 /home/uli/bin/incus/incus-nat.sh "${CONTAINER}"
@@ -663,6 +688,45 @@ Test: Klappt's vom Arbeitsplatzrechner aus?
   - ilmarinen -> hetzner-de-ryzen
 - `tmate.sh` -> funktioniert wie üblich, hetzner-de-ryzen wird angezeigt
 
+dprepo
+------
+
+Ich gehe vor gemäß Beschreibung von "dp-tmate".
+Mit etwas Glück klappt es!
+
+Hier die korrigierte und angepasste Zusammenfassung:
+
+```
+# Gemini - Schritt 1
+# helsinki
+LXD_PATH=/lxd
+CONTAINER=dprepo
+mkdir -p "${LXD_PATH}/containers-snapshots/${CONTAINER}"
+btrfs subvolume snapshot -r "${LXD_PATH}/containers/${CONTAINER}" "${LXD_PATH}/containers-snapshots/${CONTAINER}/trx_hetzner-de-ryzen_$(date +%Y%m%d-%H%M%S)"
+
+# Gemini - Schritt 2 und 3 kombiniert
+# hetzner-de-ryzen
+INCUS_PATH=/incus
+LXD_PATH=/lxd
+CONTAINER=dprepo
+incus copy ubuntu-2604 "${CONTAINER}"
+incus stop -f "${CONTAINER}" 2>/dev/null
+rm -rf "${INCUS_PATH}/containers/${CONTAINER}/rootfs/"*
+time ssh  95.216.23.95 "tar --numeric-owner -czpf - -C \"${LXD_PATH}/containers-snapshots/${CONTAINER}/trx_hetzner-de-ryzen_\"*/rootfs/ ."\
+  |tar --numeric-owner -xzpvf - -C "${INCUS_PATH}/containers/${CONTAINER}/rootfs/"
+
+# "manchmal" müssen die UIDs/GIDs angepasst werden
+OLD_UID="$(stat --format="%u" "${INCUS_PATH}/containers/${CONTAINER}/rootfs")"
+OLD_GID="$(stat --format="%g" "${INCUS_PATH}/containers/${CONTAINER}/rootfs")"
+test "${OLD_UID} ${OLD_GID}" != "0 0" && {
+  /home/uli/bin/incus/incus-fuidshift.sh -r -u "0:${OLD_UID}" -g "0:${OLD_GID}" "${INCUS_PATH}/containers/${CONTAINER}"
+}
+
+/home/uli/bin/incus/incus-nat.sh "${CONTAINER}"
+/home/uli/bin/incus/incus-hostonly.sh "${CONTAINER}"
+incus start "${CONTAINER}"
+```
+
 Notwendige Nacharbeiten
 -----------------------
 
@@ -670,6 +734,7 @@ Notwendige Nacharbeiten
 
 - Wir müssen sicherstellen, dass alle Hetzner-Rechner
   bei Plattenstörungen irgendwie Alarm schlagen!
+- dptools korrigieren - tmate!
 - Einrichten von Sicherungen der Container
   - apt-cacher-ng: Wird aktiv genutzt, muß aus meiner Sicht nicht (zwingend) gesichert werden!
   - apache2: Wird aktiv genutzt, sollte gesichert werden, enthält keine veränderlichen Daten!
