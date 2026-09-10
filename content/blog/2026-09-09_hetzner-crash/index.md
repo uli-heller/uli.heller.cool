@@ -83,6 +83,8 @@ Er ist aktuell "oben", damit man ihn schnell finden kann.
    Container. Also: "dp-tmate" oder "pocket-id".
 5. Umzug "pocket-id"
 6. Umzug "dp-tmate" - geht ohne DNS-Änderungen
+7. Umzug "dprepo" - keine externen Abhängigkeiten; notwendig für die Arbeitsplatz-Aktualisierung
+8. Umzug "dp-gitea" - notwendig für neue DPTOOLS-Versionen
 
 Fortschrittstabelle
 -------------------
@@ -101,7 +103,7 @@ Größe Helsinki|Container               |UID root fs|Umzug notwendig|Erledigt?|
 6.1G          |dptools                 |1638400    |Ja             |Nein     |-                     |
 7.0G          |dp-paperless-ngx        |1000       |Ja             |Nein     |-                     |8.9G vor "journalctl --vacuum-time=14d"
 21G           |dp-zammad-2004          |0          |Ja             |Nein     |-                     |
-35G           |dp-gitea                |1900544    |Ja             |Nein     |-                     |
+35G           |dp-gitea                |1900544    |Ja             |Ja       |-                     |
 38G           |dp-dovecot-2204         |0          |Ja             |Nein     |-                     |39G vor "journalctl --vacuum-time=14d"
 111G          |dprepo                  |1048576    |Ja             |Ja       |-                     |
 661M          |ubuntu-2604             |0          |Nein           |Nein     |-                     |
@@ -742,6 +744,143 @@ Test ohne umgestelltes DNS:
 DNS anpassen:
 - Alt: `dprepo	IN	CNAME	helsinki.daemons-point.com.`
 - Neu: `dprepo	IN	CNAME	hetzner-de-ryzen.daemons-point.com.`
+
+dp-gitea
+--------
+
+Ich gehe vor gemäß Beschreibung von "dprepo".
+
+Hier die korrigierte und angepasste Zusammenfassung:
+
+```
+# Gemini - Schritt 1
+# helsinki
+LXD_PATH=/lxd
+CONTAINER=dp-gitea
+mkdir -p "${LXD_PATH}/containers-snapshots/${CONTAINER}"
+btrfs subvolume snapshot -r "${LXD_PATH}/containers/${CONTAINER}" "${LXD_PATH}/containers-snapshots/${CONTAINER}/trx_hetzner-de-ryzen_$(date +%Y%m%d-%H%M%S)"
+
+# Gemini - Schritt 2 und 3 kombiniert
+# hetzner-de-ryzen
+INCUS_PATH=/incus
+LXD_PATH=/lxd
+CONTAINER=dp-gitea
+incus copy ubuntu-2604 "${CONTAINER}"
+incus stop -f "${CONTAINER}" 2>/dev/null
+rm -rf "${INCUS_PATH}/containers/${CONTAINER}/rootfs/"*
+time ssh  95.216.23.95 "tar --numeric-owner -czpf - -C \"${LXD_PATH}/containers-snapshots/${CONTAINER}/trx_hetzner-de-ryzen_\"*/rootfs/ ."\
+  |tar --numeric-owner -xzpvf - -C "${INCUS_PATH}/containers/${CONTAINER}/rootfs/"
+
+# "manchmal" müssen die UIDs/GIDs angepasst werden
+OLD_UID="$(stat --format="%u" "${INCUS_PATH}/containers/${CONTAINER}/rootfs")"
+OLD_GID="$(stat --format="%g" "${INCUS_PATH}/containers/${CONTAINER}/rootfs")"
+test "${OLD_UID} ${OLD_GID}" != "0 0" && {
+  /home/uli/bin/incus/incus-fuidshift.sh -r -u "0:${OLD_UID}" -g "0:${OLD_GID}" "${INCUS_PATH}/containers/${CONTAINER}"
+}
+
+/home/uli/bin/incus/incus-nat.sh "${CONTAINER}"
+incus start "${CONTAINER}"
+```
+
+Problem beim Start:
+
+```
+$ incus start dp-gitea --console
+Error: Failed to run: /usr/libexec/incus/incusd forklxc dp-gitea /var/lib/incus/containers /run/incus/dp-gitea/lxc.conf /var/log/incus/dp-gitea: exit status 1
+Try `incus info --show-log dp-gitea` for more info
+```
+
+Lösung:
+
+```
+# cd /incus/containers/dp-gitea/rootfs
+# rm  var/lib/dbus/machine-id
+# ln -s ../../../etc/machine-id var/lib/dbus/machine-id
+```
+
+Danach:
+
+- apache2.yaml erweitern um gitea
+- Zertifikate für "gitea.daemons-point.com" ablegen analog to "login.daemons-point.com"
+
+Test ohne umgestelltes DNS:
+
+- OPENSSL: `openssl s_client -connect 49.12.86.41:443 -servername ://gitea.daemons-point.com -showcerts </dev/null`
+  ... muß die ganze Zertifikatskette anzeigen
+- CURL: `curl -v --resolve gitea.daemons-point.com:443:49.12.86.41 https://gitea.daemons-point.com`
+  ... darf keine Zertifikatsfehler melden
+
+DNS anpassen:
+- Alt: `gitea	IN	CNAME	helsinki.daemons-point.com.`
+- Neu: `gitea	IN	CNAME	hetzner-de-ryzen.daemons-point.com.`
+
+### Zugriff via SSH
+
+- Nutzer: gitea
+  - ~/.ssh/id_ed25519
+  - ~/.ssh/id_ed25519.pub
+- Nutzer: gitea-authorized-keys
+- Dateien:
+  - /etc/ssh/sshd_config.d/gitea.conf
+  - /usr/local/bin/create-authorized-keys-for-gitea.sh
+  - /usr/local/bin/forward-to-gitea.sh
+
+Damit auf hetzner-de-ryzen:
+
+- Nutzer "gitea-authorized-keys" anlegen:
+  ```
+  adduser gitea
+  ```
+- Nutzer "gitea-authorized-keys" anlegen:
+  ```
+  adduser gitea-authorized-keys
+    # password -> keepassxc
+  usermod -aG incus-admin gitea-authorized-keys
+  ```
+- Datei "/etc/ssh/sshd_config.d/gitea.conf" anlegen:
+  ```
+  cat >/etc/ssh/sshd_config.d/gitea.conf <<EOF
+  #Match User gitea
+  # ^^^---- damit geht's garnicht!
+  AuthorizedKeysCommand /usr/local/bin/create-authorized-keys-for-gitea.sh
+  AuthorizedKeysCommandUser gitea-authorized-keys
+  EOF
+  ```
+- Datei "/usr/local/bin/create-authorized-keys-for-gitea.sh" anlegen:
+  ```
+  cat >/usr/local/bin/create-authorized-keys-for-gitea.sh <<'EOF'
+  #!/bin/sh
+  #set -x
+  BACKUP_FILE="${HOME}/authorized_keys_backup"
+  CURRENT_FILE="${HOME}/authorized_keys_current"
+  {
+    {
+      USERNAME="$1"
+      if [ "${USERNAME}" = "gitea" ]; then
+        CONTAINER_NAME=dp-gitea
+        CONTAINER_USERNAME=gitea
+        incus file pull "${CONTAINER_NAME}/home/${CONTAINER_USERNAME}/.ssh-gitea-export/authorized_keys" - >"${CURRENT_FILE}"
+        test -s "${CURRENT_FILE}" && { rm -f "${BACKUP_FILE}"; cp "${CURRENT_FILE}" "${BACKUP_FILE}"; }
+        cat "${BACKUP_FILE}" \
+        |sed -e "s,command=\",command=\"/usr/local/bin/forward-to-gitea.sh ${CONTAINER_NAME} ," \
+          -e "s/\(.*notouch\)$/no-touch-required,\1/"
+      fi
+    }  3>&1 1>&2 2>&3\
+    |while read l; do
+      echo "$(date "+%Y-%m-%d %H:%M:%S") $l" >>/var/log/create-authorized-keys.log
+    done
+  } 2>&1
+  EOF
+  ```
+- Datei "/usr/local/bin/forward-to-gitea.sh" anlegen:
+  ```
+  cat >/usr/local/bin/forward-to-gitea.sh <<'EOF'
+  #!/bin/sh
+  CONTAINER_NAME="$1"
+  shift
+  ssh -p 22 -o StrictHostKeyChecking=no "gitea@${CONTAINER_NAME}.hostonly.domain" "SSH_ORIGINAL_COMMAND=\"$SSH_ORIGINAL_COMMAND\" $@"
+  EOF
+  ```
 
 Notwendige Nacharbeiten
 -----------------------
