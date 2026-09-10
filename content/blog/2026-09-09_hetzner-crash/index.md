@@ -16,6 +16,25 @@ LXC/LXD-Containern für unsere internen Services.
 Einer dieser Rechner hat seit neuestem Störungen:
 
 - SSH-Anmeldungen auf dem Hetzner-Rechner dauern sehr lange
+  ```
+  $ date +Start:%Y%m%d-%H%M%S; ssh 95.216.23.95 date +SSH:%Y%m%d-%H%M%S;date +Ende:%Y%m%d-%H%M%S
+  Start:20260910-070608
+  SSH:20260910-070828
+  Ende:20260910-070828
+    # 2min 20s
+  
+  $ date +Start:%Y%m%d-%H%M%S; ssh 95.216.23.95 date +SSH:%Y%m%d-%H%M%S;date +Ende:%Y%m%d-%H%M%S
+  Start:20260910-070854
+  SSH:20260910-071058
+  Ende:20260910-071058
+    # 2min 4s
+  
+  $ date +Start:%Y%m%d-%H%M%S; ssh 95.216.23.95 date +SSH:%Y%m%d-%H%M%S;date +Ende:%Y%m%d-%H%M%S
+  Start:20260910-071204
+  SSH:20260910-071418
+  Ende:20260910-071418
+    # 2min 14s
+  ```
 - Gleiches gilt für die Anmeldungen an den Containern
   (klar: Der Hetzner-Rechner wird dafür als JumpHost verwendet
   und verzögert alles)
@@ -307,8 +326,41 @@ Device root added to default
 ```
 $ ./bin/incus/yaml-create.sh etc/incus-dp/apt-cacher-ng.yaml
 $ ./bin/incus/yaml-create.sh etc/incus-dp/certbot.yaml
+  # Da CERTBOT erstmal noch nicht aktiv sein kann, muß ich die ersten Zertifikate
+  # manuell vom KO-Rechner "helsinki" kopieren
+
 $ ./bin/incus/yaml-create.sh etc/incus-dp/apache2.yaml
 ```
+
+Zertifikate kopieren für "certbot" und "apache2"
+------------------------------------------------
+
+Quellpfade:
+
+- /etc/apache2/ssl.letsencrypt
+  - (domain).crt
+  - private
+    - (domain).key
+
+Zielpfade:
+
+- /home/uli/shared-letsencrypt/archive
+- /home/uli/shared-letsencrypt/live/(domain)
+  - privkey.pem (600)
+  - fullchain.pem (644)
+  - cert.pem (644) (unnötig)
+
+Also:
+
+- (domain).crt herunterladen von helsinki und wandeln nach fullchain.pem
+  - OK: `cp login.daemons-point.com.crt fullchain.pem`
+  - KO: `openssl x509 -in login.daemons-point.com.crt -out fullchain.pem`
+- (domain).key herunterladen von helsinki und wandeln nach privkey.pem
+  - `openssl rsa -in login.daemons-point.com.key -out privkey.pem`
+- fullchain.pem ablegen auf hetzner-de-ryzen
+- privkey.pem ablegen auf hetzner-de-ryzen
+- Kopien von (domain).key und privkey.pem löschen
+- Nachkontrolle: Stimmen die Zugriffsrechte von privkey.pem auf hetzner-de-ryzen?
 
 Umzug "pocket-id"
 -----------------
@@ -428,6 +480,18 @@ Create a readonly snapshot of '/lxd/containers/pocket-id' in '/lxd/containers-sn
   # /home/uli/bin/incus/incus-nat.sh pocket-id
   # incus start pocket-id
   ```
+
+### Zugriffstest ohne umgestelltes DNS
+
+Auf meinem Arbeitsplatzrechner kann ich die neue Pocket-ID-Instanz
+testen mit:
+
+- OPENSSL: `openssl s_client -connect 49.12.86.41:443 -servername ://login.daemons-point.com -showcerts </dev/null`
+  ... muß die ganze Zertifikatskette anzeigen
+- CURL: `curl -v --resolve login.daemons-point.com:443:49.12.86.41 https://login.daemons-point.com`
+  ... darf keine Zertifikatsfehler melden
+- WGET: `wget  --connect-to login.daemons-point.com:443:49.12.86.41:443 https://lgin.daemons-point.com`
+  ... scheitert bei mit mit "wget: Unbekannte Option '--connect-to'"
 
 ### Zusammenfassung
 
