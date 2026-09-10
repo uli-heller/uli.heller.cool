@@ -370,8 +370,8 @@ DNS vorbereiten
 2. Console
 3. DNS
 4. daemons-point.com
-5. Aktionen - Zonefile bearbeiten
-6. TTL: 86400 -> 3600
+5. Aktionen - Allgemeine Einstellungen
+6. Standard-TTL: 86400 -> 300 - Speichern
 
 Umzug "pocket-id"
 -----------------
@@ -534,11 +534,11 @@ incus start "${CONTAINER}"
 Damit "pocket-id" funktioniert, müssen noch ein paar weitere Anpassungen
 vorgenommen werden:
 
-1. Vorgeschalteter ReverseProxy
+1. ERLEDIGT - Vorgeschalteter ReverseProxy - siehe "apache2" oben
    - Ich verwende in meinem Heim-Netzwerk "caddy"
    - Für DP sollten wir vermutlich bei "apache2" bleiben
-2. DNS umlegen von helsinki -> hetzner-de-ryzen
-3. CERTBOT aktivieren
+2. IN ARBEIT - DNS umlegen von helsinki -> hetzner-de-ryzen - siehe DNS unten
+3. OFFEN - CERTBOT aktivieren
 
 DNS umlenken für "login.daemons-point.com"
 ------------------------------------------
@@ -550,6 +550,15 @@ DNS umlenken für "login.daemons-point.com"
 5. Aktionen - Zonefile bearbeiten
    - Bislang: `login	IN	CNAME	ilmarinen.daemons-point.com.`
    - Geändert: `login	IN	CNAME	hetzner-de-ryzen.daemons-point.com.`
+6. Test: Ist die neue Änderung aktiv?
+   ```
+   sudo -s
+     resolvectl flush-caches
+     resolvectl statistics
+       # Bei "Current Cache Size" muß 0 stehen
+     resolvectl --cache=no query login.daemons-point.com
+       # Es darf NIX mit "ilmarinen" erscheinen, hetzner-de-ryzen muß sichtbar sein
+   ```
 
 Notwendige Nacharbeiten
 -----------------------
