@@ -82,6 +82,7 @@ Er ist aktuell "oben", damit man ihn schnell finden kann.
    Da kann ich den Übernahme-Mechanismus schneller testen als mit einem großen
    Container. Also: "dp-tmate" oder "pocket-id".
 5. Umzug "pocket-id"
+6. Umzug "dp-tmate" - geht ohne DNS-Änderungen
 
 Sichtung
 --------
@@ -514,34 +515,29 @@ CONTAINER=pocket_id
 mkdir -p "${LXD_PATH}/containers-snapshots/${CONTAINER}"
 btrfs subvolume snapshot -r "${LXD_PATH}/containers/${CONTAINER}" "${LXD_PATH}/containers-snapshots/${CONTAINER}/trx_hetzner-de-ryzen_$(date +%Y%m%d-%H%M%S)"
 
-# Geminic - Schritt 2 und 3 kombiniert
+# Gemini - Schritt 2 und 3 kombiniert
 # hetzner-de-ryzen
 INCUS_PATH=/incus
 LXD_PATH=/lxd
-CONTAINER=pocket_id
+CONTAINER=dp-tmate
 incus copy ubuntu-2604 "${CONTAINER}"
 incus stop -f "${CONTAINER}" 2>/dev/null
-rm -rf "${INCUS_PATH}/containers/${CONTAINER}/rootfs/*"
-time ssh  95.216.23.95 "tar --numeric-owner -czpf - -C "${LXD_PATH}/containers-snapshots/${CONTAINER}/trx_hetzner-de-ryzen_*/rootfs/ ."\
-  |tar --numeric-owner -xzpvf - -C "${INCUS_PATH}/containers/${CONTAINER}/rootfs/
+rm -rf "${INCUS_PATH}/containers/${CONTAINER}/rootfs/"*
+time ssh  95.216.23.95 "tar --numeric-owner -czpf - -C \"${LXD_PATH}/containers-snapshots/${CONTAINER}/trx_hetzner-de-ryzen_\"*/rootfs/ ."\
+  |tar --numeric-owner -xzpvf - -C "${INCUS_PATH}/containers/${CONTAINER}/rootfs/"
+
+# "manchmal" müssen die UIDs/GIDs angepasst werden - nicht für pocket-id
+OLD_UID="$(stat --format="%u" "${INCUS_PATH}/containers/${CONTAINER}/rootfs")"
+OLD_GID="$(stat --format="%g" "${INCUS_PATH}/containers/${CONTAINER}/rootfs")"
+test "${OLD_UID} ${OLD_GID}" != "0 0" && {
+  /home/uli/bin/incus/incus-fuidshift -r -u "0:${OLD_UID}" -g "0:${OLD_GID}" "${INCUS_PATH}/containers/${CONTAINER}"
+}
 
 /home/uli/bin/incus/incus-nat.sh "${CONTAINER}"
 incus start "${CONTAINER}"
 ```
 
-### Fehlende Schritte
-
-Damit "pocket-id" funktioniert, müssen noch ein paar weitere Anpassungen
-vorgenommen werden:
-
-1. ERLEDIGT - Vorgeschalteter ReverseProxy - siehe "apache2" oben
-   - Ich verwende in meinem Heim-Netzwerk "caddy"
-   - Für DP sollten wir vermutlich bei "apache2" bleiben
-2. IN ARBEIT - DNS umlegen von helsinki -> hetzner-de-ryzen - siehe DNS unten
-3. OFFEN - CERTBOT aktivieren
-
-DNS umlenken für "login.daemons-point.com"
-------------------------------------------
+### DNS umlenken für "login.daemons-point.com"
 
 1. Anmelden bei [https://hetzner.com](https://hetzner.com)
 2. Console
@@ -560,6 +556,112 @@ DNS umlenken für "login.daemons-point.com"
        # Es darf NIX mit "ilmarinen" erscheinen, hetzner-de-ryzen muß sichtbar sein
    ```
 
+### Problem: Nach der DNS-Umstellung klappt die Anmeldung an Zammad nicht mehr
+
+Fehlermeldung: Message from openid_connect: Failed to open TCP connection to login.daemons-point.com:443 (execution expired)
+
+Offenbar benötigt Zammad eine TCP-Verbindung zum Login.
+Sieht so aus, als hätte ich irgendwas an OIDC noch nicht 100%g verstanden!
+
+Verbindungstest:
+
+- helsinki:
+  - `ping login.daemons-point.com` -> klappt, 49.12.86.41 wird verwendet
+  - `nc -vz -w 5 login.daemons-point.com 443` -> klappt
+- dp-zammad-2004:
+  - `ping login.daemons-point.com` -> klappt nicht, 49.12.86.41 wird verwendet
+  - `nc -vz -w 5 login.daemons-point.com 443` -> klappt nicht
+
+Ich muß eine ausgehende Verbindung von dp-zammad-2004 zu login.daemons-point.com
+"erlauben". Da SSH und SystemD nicht richtig funktionieren, muß ich das
+irgendwie manuell in IPTABLES einpflegen!
+
+Kurze Sichtung:
+
+- iptables
+- Typ: -t nat
+- Chain: LXD_NAT_POSTROUTING
+- Source: 10.2.110.12 - dp-zammad-2004
+- Destination: login.daemons-point.com, port 443
+- Kommando: `iptables -t nat -A LXD_NAT_POSTROUTING -j MASQUERADE -s 10.2.110.12 -p tcp --destination login.daemons-point.com --dport 443`
+
+Nochmaliger Verbindungstest:
+
+- dp-zammad-2004:
+  - `ping login.daemons-point.com` -> klappt nicht, 49.12.86.41 wird verwendet
+  - `nc -vz -w 5 login.daemons-point.com 443` -> klappt
+
+### Fehlende Schritte
+
+Damit "pocket-id" funktioniert, müssen noch ein paar weitere Anpassungen
+vorgenommen werden:
+
+1. ERLEDIGT - Vorgeschalteter ReverseProxy - siehe "apache2" oben
+   - Ich verwende in meinem Heim-Netzwerk "caddy"
+   - Für DP sollten wir vermutlich bei "apache2" bleiben
+2. IN ARBEIT - DNS umlegen von helsinki -> hetzner-de-ryzen - siehe DNS oben
+3. OFFEN - CERTBOT aktivieren
+
+dp-tmate
+--------
+
+Ich gehe vor gemäß "Zusammenfassung" von "pocket-id".
+Mit etwas Glück klappt es!
+
+Hier die korrigierte und angepasste Zusammenfassung:
+
+```
+# Gemini - Schritt 1
+# helsinki
+LXD_PATH=/lxd
+CONTAINER=dp-tmate
+mkdir -p "${LXD_PATH}/containers-snapshots/${CONTAINER}"
+btrfs subvolume snapshot -r "${LXD_PATH}/containers/${CONTAINER}" "${LXD_PATH}/containers-snapshots/${CONTAINER}/trx_hetzner-de-ryzen_$(date +%Y%m%d-%H%M%S)"
+
+# Gemini - Schritt 2 und 3 kombiniert
+# hetzner-de-ryzen
+INCUS_PATH=/incus
+LXD_PATH=/lxd
+CONTAINER=dp-tmate
+incus copy ubuntu-2604 "${CONTAINER}"
+incus stop -f "${CONTAINER}" 2>/dev/null
+rm -rf "${INCUS_PATH}/containers/${CONTAINER}/rootfs/"*
+time ssh  95.216.23.95 "tar --numeric-owner -czpf - -C \"${LXD_PATH}/containers-snapshots/${CONTAINER}/trx_hetzner-de-ryzen_\"*/rootfs/ ."\
+  |tar --numeric-owner -xzpvf - -C "${INCUS_PATH}/containers/${CONTAINER}/rootfs/"
+
+# "manchmal" müssen die UIDs/GIDs angepasst werden
+OLD_UID="$(stat --format="%u" "${INCUS_PATH}/containers/${CONTAINER}/rootfs")"
+OLD_GID="$(stat --format="%g" "${INCUS_PATH}/containers/${CONTAINER}/rootfs")"
+test "${OLD_UID} ${OLD_GID}" != "0 0" && {
+  /home/uli/bin/incus/incus-fuidshift -r -u "0:${OLD_UID}" -g "0:${OLD_GID}" "${INCUS_PATH}/containers/${CONTAINER}"
+}
+
+/home/uli/bin/incus/incus-nat.sh "${CONTAINER}"
+/home/uli/bin/incus/incus-hostonly.sh "${CONTAINER}"
+incus start "${CONTAINER}"
+```
+
+Test: Sieht's innerhalb vom Container OK aus?
+
+```
+incus exec dp-tmate bash
+  # OK, keine Fehlermeldung!
+  ss -t4l
+    # OK, Port 10022 ist bereit
+```
+
+Offen: Port-Weiterleitung vom Host zum Container
+
+```
+incus config device add ${CONTAINER} tmate-forward-10022 proxy listen=tcp:0.0.0.0:10022 connect=tcp:127.0.0.1:10022
+```
+
+Test: Klappt's vom Arbeitsplatzrechner aus?
+
+- .tmate-dp.conf anpassen
+  - ilmarinen -> hetzner-de-ryzen
+- `tmate.sh` -> funktioniert wie üblich, hetzner-de-ryzen wird angezeigt
+
 Notwendige Nacharbeiten
 -----------------------
 
@@ -567,8 +669,10 @@ Notwendige Nacharbeiten
   bei Plattenstörungen irgendwie Alarm schlagen!
 - Einrichten von Sicherungen der Container
   - apt-cacher-ng: Wird aktiv genutzt, muß aus meiner Sicht nicht (zwingend) gesichert werden!
-  - certbot: Wird aktiv genutzt, muß aus meiner Sicht nicht (zwingend) gesichert werden!
+  - apache2: Wird aktiv genutzt, sollte gesichert werden, enthält keine veränderlichen Daten!
+  - certbot: Wird aktiv genutzt, sollte gesichert werden, enthält keine veränderlichen Daten!
   - pocket-id: Wird aktiv genutzt, sollte gesichert werden!
+  - dp-tmate: Wird aktiv genutzt, sollte gesichert werden, enthält keine veränderlichen Daten!
 - Sichern der Daten außerhalb der Container
   - hetzner-de-ryzen:/home/uli/shared-letsencrypt ... enthält die Zertifikate; sollte gesichert werden; Platzbedarf: SEHR gering
 
