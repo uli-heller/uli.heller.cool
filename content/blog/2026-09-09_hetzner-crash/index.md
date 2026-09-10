@@ -61,11 +61,11 @@ Er ist aktuell "oben", damit man ihn schnell finden kann.
      - 733M	dp-tmate
      - 834M	pocket-id
      - 969M	daemons-point-com-static
+     - 1020M	dp-ldap-2204 (vor Bereinigung: 4.1G)
      - 1.7G	dp-share
      - 1.8G	dp-dropzone
      - 2.4G	anwesenheit
      - 2.7G	legacy-kimai
-     - 4.9G	dp-ldap-2204
      - 4.9G	dp-roundcube-2204
      - 6.1G	dptools
      - 8.9G	dp-paperless-ngx
@@ -87,27 +87,27 @@ Er ist aktuell "oben", damit man ihn schnell finden kann.
 Fortschrittstabelle
 -------------------
 
-Größe Helsinki|Container               |UID root fs|Umzug notwendig|Erledigt?|Größe Hetzner-de-ryzen
---------------|------------------------|-----------|---------------|---------|----------------------
-733M          |dp-tmate                |1507328    |Ja             |Ja       |733M                  
-834M          |pocket-id               |0          |Ja             |Ja       |843M                  
-969M          |daemons-point-com-static|1114112    |Ja             |Nein     |-                     
-1.7G          |dp-share                |1769472    |Ja             |Nein     |-                     
-1.8G          |dp-dropzone             |0          |Ja             |Nein     |-                     
-2.4G          |anwesenheit             |1966080    |Ja             |Nein     |-                     
-2.7G          |legacy-kimai            |0          |Ja             |Nein     |-                     
-4.9G          |dp-ldap-2204            |0          |Ja             |Nein     |-                     
-4.9G          |dp-roundcube-2204       |0          |Ja             |Nein     |-                     
-6.1G          |dptools                 |1638400    |Ja             |Nein     |-                     
-8.9G          |dp-paperless-ngx        |1000       |Ja             |Nein     |-                     
-21G           |dp-zammad-2004          |0          |Ja             |Nein     |-                     
-35G           |dp-gitea                |1900544    |Ja             |Nein     |-                     
-39G           |dp-dovecot-2204         |0          |Ja             |Nein     |-                     
-111G          |dprepo                  |1048576    |Ja             |Nein     |-                     
-661M          |ubuntu-2604             |0          |Nein           |Nein     |-                     
-686M          |debian-bookworm         |0          |Nein           |Nein     |-                     
-721M          |ubuntu-2204             |1000       |Nein           |Nein     |-                     
-759M          |ubuntu-2004             |786432     |Nein           |Nein     |-                     
+Größe Helsinki|Container               |UID root fs|Umzug notwendig|Erledigt?|Größe Hetzner-de-ryzen|Anmerkung
+--------------|------------------------|-----------|---------------|---------|----------------------|---------
+733M          |dp-tmate                |1507328    |Ja             |Ja       |733M                  |
+834M          |pocket-id               |0          |Ja             |Ja       |843M                  |
+969M          |daemons-point-com-static|1114112    |Ja             |Nein     |-                     |
+1020M         |dp-ldap-2204            |0          |Ja             |Nein     |-                     |4.1G vor "journalctl --vacuum-time=14d"
+1.7G          |dp-share                |1769472    |Ja             |Nein     |-                     |
+1.5G          |dp-dropzone             |0          |Ja             |Nein     |-                     |1.8G vor "journalctl --vacuum-time=14d"
+1.3G          |anwesenheit             |1966080    |Ja             |Nein     |-                     |2.4G vor "journalctl --vacuum-time=14d"
+1.6G          |legacy-kimai            |0          |Ja             |Nein     |-                     |2.7G vor "journalctl --vacuum-time=14d"
+2.0G          |dp-roundcube-2204       |0          |Ja             |Nein     |-                     |4.9G vor "journalctl --vacuum-time=14d"
+6.1G          |dptools                 |1638400    |Ja             |Nein     |-                     |
+7.0G          |dp-paperless-ngx        |1000       |Ja             |Nein     |-                     |8.9G vor "journalctl --vacuum-time=14d"
+21G           |dp-zammad-2004          |0          |Ja             |Nein     |-                     |
+35G           |dp-gitea                |1900544    |Ja             |Nein     |-                     |
+38G           |dp-dovecot-2204         |0          |Ja             |Nein     |-                     |39G vor "journalctl --vacuum-time=14d"
+111G          |dprepo                  |1048576    |Ja             |Ja       |-                     |
+661M          |ubuntu-2604             |0          |Nein           |Nein     |-                     |
+686M          |debian-bookworm         |0          |Nein           |Nein     |-                     |
+721M          |ubuntu-2204             |1000       |Nein           |Nein     |-                     |
+759M          |ubuntu-2004             |786432     |Nein           |Nein     |-                     |
 
 Sichtung
 --------
@@ -727,6 +727,22 @@ test "${OLD_UID} ${OLD_GID}" != "0 0" && {
 incus start "${CONTAINER}"
 ```
 
+Danach:
+
+- apache2.yaml erweitern um dprepo
+- Zertifikate für "dprepo.daemons-point.com" ablegen analog to "login.daemons-point.com"
+
+Test ohne umgestelltes DNS:
+
+- OPENSSL: `openssl s_client -connect 49.12.86.41:443 -servername ://dprepo.daemons-point.com -showcerts </dev/null`
+  ... muß die ganze Zertifikatskette anzeigen
+- CURL: `curl -v --resolve dprepo.daemons-point.com:443:49.12.86.41 https://dprepo.daemons-point.com`
+  ... darf keine Zertifikatsfehler melden
+
+DNS anpassen:
+- Alt: `dprepo	IN	CNAME	helsinki.daemons-point.com.`
+- Neu: `dprepo	IN	CNAME	hetzner-de-ryzen.daemons-point.com.`
+
 Notwendige Nacharbeiten
 -----------------------
 
@@ -734,6 +750,7 @@ Notwendige Nacharbeiten
 
 - Wir müssen sicherstellen, dass alle Hetzner-Rechner
   bei Plattenstörungen irgendwie Alarm schlagen!
+- /var/log/journal dauerhaft begrenzen - /etc/systemd/journald.conf
 - dptools korrigieren - tmate!
 - Einrichten von Sicherungen der Container
   - apt-cacher-ng: Wird aktiv genutzt, muß aus meiner Sicht nicht (zwingend) gesichert werden!
@@ -755,11 +772,11 @@ dp-zammad-2004 | login.daemons-point.com | 443        | Nein    | Nein
 
 #### Eingehend
 
-Port | Nach    | Nach-Port
------|---------|----------
-80   | certbot | 8080
-443  | apache2 | 443
-
+Port  | Nach     | Nach-Port
+------|----------|----------
+80    | certbot  | 8080
+443   | apache2  | 443
+10022 | dp-tmate | 10022
 Links
 -----
 
