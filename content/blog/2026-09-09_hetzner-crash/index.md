@@ -581,9 +581,10 @@ Kurze Sichtung:
 - iptables
 - Typ: -t nat
 - Chain: LXD_NAT_POSTROUTING
-- Source: 10.2.110.12 - dp-zammad-2004
+- Source: 10.2.110.12 - dp-zammad-2004, 10.2.110.59 - dp-gitea 
 - Destination: login.daemons-point.com, port 443
-- Kommando: `iptables -t nat -A LXD_NAT_POSTROUTING -j MASQUERADE -s 10.2.110.12 -p tcp --destination login.daemons-point.com --dport 443`
+- Kommando für Zammad:  `iptables -t nat -A LXD_NAT_POSTROUTING -j MASQUERADE -s 10.2.110.12 -p tcp --destination login.daemons-point.com --dport 443`
+- Kommando für Forgejo: `iptables -t nat -A LXD_NAT_POSTROUTING -j MASQUERADE -s 10.2.110.59 -p tcp --destination login.daemons-point.com --dport 443`
 
 Nochmaliger Verbindungstest:
 
@@ -665,6 +666,8 @@ Test: Klappt's vom Arbeitsplatzrechner aus?
 Notwendige Nacharbeiten
 -----------------------
 
+### Allgemeine Aktionen
+
 - Wir müssen sicherstellen, dass alle Hetzner-Rechner
   bei Plattenstörungen irgendwie Alarm schlagen!
 - Einrichten von Sicherungen der Container
@@ -675,6 +678,22 @@ Notwendige Nacharbeiten
   - dp-tmate: Wird aktiv genutzt, sollte gesichert werden, enthält keine veränderlichen Daten!
 - Sichern der Daten außerhalb der Container
   - hetzner-de-ryzen:/home/uli/shared-letsencrypt ... enthält die Zertifikate; sollte gesichert werden; Platzbedarf: SEHR gering
+
+### Notwendige Netzwerk-Verbindungen
+
+#### Ausgehend
+
+Von            | Nach                    | Port       | Ansible | lxd-iptables-postrouting.conf
+---------------|-------------------------|------------|---------|------------------------------
+dp-gitea       | login.daemons-point.com | 443        | Nein    | Nein
+dp-zammad-2004 | login.daemons-point.com | 443        | Nein    | Nein
+
+#### Eingehend
+
+Port | Nach    | Nach-Port
+-----|---------|----------
+80   | certbot | 8080
+443  | apache2 | 443
 
 Links
 -----
