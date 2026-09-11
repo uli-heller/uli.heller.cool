@@ -85,6 +85,8 @@ Er ist aktuell "oben", damit man ihn schnell finden kann.
 6. Umzug "dp-tmate" - geht ohne DNS-Änderungen
 7. Umzug "dprepo" - keine externen Abhängigkeiten; notwendig für die Arbeitsplatz-Aktualisierung
 8. Umzug "dp-gitea" - notwendig für neue DPTOOLS-Versionen
+9. Umzug "anwesenheit" - notwendig für abwesenheit.md
+10. Umzug "dptools" - notwendig für rot/grün/gelb
 
 Fortschrittstabelle
 -------------------
@@ -97,10 +99,10 @@ Größe Helsinki|Container               |UID root fs|Umzug notwendig|Erledigt?|
 1020M         |dp-ldap-2204            |0          |Ja             |Nein     |-                     |4.1G vor "journalctl --vacuum-time=14d"
 1.7G          |dp-share                |1769472    |Ja             |Nein     |-                     |
 1.5G          |dp-dropzone             |0          |Ja             |Nein     |-                     |1.8G vor "journalctl --vacuum-time=14d"
-1.3G          |anwesenheit             |1966080    |Ja             |Nein     |-                     |2.4G vor "journalctl --vacuum-time=14d"
+1.3G          |anwesenheit             |1966080    |Ja             |Ja       |-                     |2.4G vor "journalctl --vacuum-time=14d"
 1.6G          |legacy-kimai            |0          |Ja             |Nein     |-                     |2.7G vor "journalctl --vacuum-time=14d"
 2.0G          |dp-roundcube-2204       |0          |Ja             |Nein     |-                     |4.9G vor "journalctl --vacuum-time=14d"
-6.1G          |dptools                 |1638400    |Ja             |Nein     |-                     |
+6.1G          |dptools                 |1638400    |Ja             |Ja       |-                     |
 7.0G          |dp-paperless-ngx        |1000       |Ja             |Nein     |-                     |8.9G vor "journalctl --vacuum-time=14d"
 21G           |dp-zammad-2004          |0          |Ja             |Nein     |-                     |
 35G           |dp-gitea                |1900544    |Ja             |Ja       |-                     |
@@ -882,23 +884,160 @@ Damit auf hetzner-de-ryzen:
   EOF
   ```
 
+anwesenheit
+-----------
+
+Ich gehe vor gemäß Beschreibung von "dp-gitea".
+
+Hier die korrigierte und angepasste Zusammenfassung:
+
+```
+# Gemini - Schritt 1
+# helsinki
+LXD_PATH=/lxd
+CONTAINER=anwesenheit
+mkdir -p "${LXD_PATH}/containers-snapshots/${CONTAINER}"
+btrfs subvolume snapshot -r "${LXD_PATH}/containers/${CONTAINER}" "${LXD_PATH}/containers-snapshots/${CONTAINER}/trx_hetzner-de-ryzen_$(date +%Y%m%d-%H%M%S)"
+
+# Gemini - Schritt 2 und 3 kombiniert
+# hetzner-de-ryzen
+INCUS_PATH=/incus
+LXD_PATH=/lxd
+CONTAINER=anwesenheit
+incus copy ubuntu-2604 "${CONTAINER}"
+incus stop -f "${CONTAINER}" 2>/dev/null
+rm -rf "${INCUS_PATH}/containers/${CONTAINER}/rootfs/"*
+time ssh  95.216.23.95 "tar --numeric-owner -czpf - -C \"${LXD_PATH}/containers-snapshots/${CONTAINER}/trx_hetzner-de-ryzen_\"*/rootfs/ ."\
+  |tar --numeric-owner -xzpvf - -C "${INCUS_PATH}/containers/${CONTAINER}/rootfs/"
+
+# "manchmal" müssen die UIDs/GIDs angepasst werden
+OLD_UID="$(stat --format="%u" "${INCUS_PATH}/containers/${CONTAINER}/rootfs")"
+OLD_GID="$(stat --format="%g" "${INCUS_PATH}/containers/${CONTAINER}/rootfs")"
+test "${OLD_UID} ${OLD_GID}" != "0 0" && {
+  /home/uli/bin/incus/incus-fuidshift.sh -r -u "0:${OLD_UID}" -g "0:${OLD_GID}" "${INCUS_PATH}/containers/${CONTAINER}"
+}
+
+# Potentielle Start-Probleme lösen
+(
+  cd "${INCUS_PATH}/containers/${CONTAINER}/rootfs"
+  rm  var/lib/dbus/machine-id
+  ln -s ../../../etc/machine-id var/lib/dbus/machine-id
+)
+
+/home/uli/bin/incus/incus-nat.sh "${CONTAINER}"
+incus start "${CONTAINER}"
+```
+
+### sshtunnel einrichten auf hetzner-de-ryzen
+
+Aktionen auf "hetzner-de-ryzen":
+
+- Nutzer" sshtunnel" anlegen: `adduser sshtunnel` (nicht notwendig, gibt es bereits)
+- Datei "~sshtunnel/.ssh/authorized_keys" korrigieren
+  - "steffenm-solokey_notouch" weg
+  - "smeyer@soeren-z400" weg
+  - "tunnel" weg
+  - "anwesenheit-aenderungen@anwesenheit" hinzufügen
+```
+
+### DNS einrichten
+
+Hinzufügen:
+
+- Typ: CNAME
+- Name: anwesenheit-hooks
+- Alias: hetzner-de-ryzen.daemons-point.com.
+
+### CERTBOT erweitern
+
+- anwesenheit-hooks.daemons-point.com
+
+### APACHE2 erweitern
+
+- Weiterleitung anwesenheit-hooks.daemons-point.com -> anwesenheit:9000
+
+### Offene TODOs
+
+- Klappen die Webhooks?
+- Braucht's SSH-Zugriffe EINGEHEND AUF "anwesenheit"?
+- Braucht's SSH-Zugriffe ABGEHEND VON "anwesenheit"?
+
+dptools
+-------
+
+Ich gehe vor gemäß Beschreibung von "anwesenheit".
+
+Hier die korrigierte und angepasste Zusammenfassung:
+
+```
+# Gemini - Schritt 1
+# helsinki
+LXD_PATH=/lxd
+CONTAINER=dptools
+mkdir -p "${LXD_PATH}/containers-snapshots/${CONTAINER}"
+btrfs subvolume snapshot -r "${LXD_PATH}/containers/${CONTAINER}" "${LXD_PATH}/containers-snapshots/${CONTAINER}/trx_hetzner-de-ryzen_$(date +%Y%m%d-%H%M%S)"
+
+# Gemini - Schritt 2 und 3 kombiniert
+# hetzner-de-ryzen
+INCUS_PATH=/incus
+LXD_PATH=/lxd
+CONTAINER=dptools
+incus copy ubuntu-2604 "${CONTAINER}"
+incus stop -f "${CONTAINER}" 2>/dev/null
+rm -rf "${INCUS_PATH}/containers/${CONTAINER}/rootfs/"*
+time ssh  95.216.23.95 "tar --numeric-owner -czpf - -C \"${LXD_PATH}/containers-snapshots/${CONTAINER}/trx_hetzner-de-ryzen_\"*/rootfs/ ."\
+  |tar --numeric-owner -xzpvf - -C "${INCUS_PATH}/containers/${CONTAINER}/rootfs/"
+
+# "manchmal" müssen die UIDs/GIDs angepasst werden
+OLD_UID="$(stat --format="%u" "${INCUS_PATH}/containers/${CONTAINER}/rootfs")"
+OLD_GID="$(stat --format="%g" "${INCUS_PATH}/containers/${CONTAINER}/rootfs")"
+test "${OLD_UID} ${OLD_GID}" != "0 0" && {
+  /home/uli/bin/incus/incus-fuidshift.sh -r -u "0:${OLD_UID}" -g "0:${OLD_GID}" "${INCUS_PATH}/containers/${CONTAINER}"
+}
+
+# Potentielle Start-Probleme lösen
+(
+  cd "${INCUS_PATH}/containers/${CONTAINER}/rootfs"
+  rm  var/lib/dbus/machine-id
+  ln -s ../../../etc/machine-id var/lib/dbus/machine-id
+)
+
+/home/uli/bin/incus/incus-nat.sh "${CONTAINER}"
+incus start "${CONTAINER}"
+```
+
 Notwendige Nacharbeiten
 -----------------------
 
 ### Allgemeine Aktionen
 
+#### Offen
+
 - Wir müssen sicherstellen, dass alle Hetzner-Rechner
   bei Plattenstörungen irgendwie Alarm schlagen!
 - /var/log/journal dauerhaft begrenzen - /etc/systemd/journald.conf
-- dptools korrigieren - tmate!
 - Einrichten von Sicherungen der Container
   - apt-cacher-ng: Wird aktiv genutzt, muß aus meiner Sicht nicht (zwingend) gesichert werden!
   - apache2: Wird aktiv genutzt, sollte gesichert werden, enthält keine veränderlichen Daten!
   - certbot: Wird aktiv genutzt, sollte gesichert werden, enthält keine veränderlichen Daten!
   - pocket-id: Wird aktiv genutzt, sollte gesichert werden!
   - dp-tmate: Wird aktiv genutzt, sollte gesichert werden, enthält keine veränderlichen Daten!
+  - dprepo: Wird aktiv genutzt, unklar!
+  - dp-gitea: Wird aktiv genutzt, sollte gesichert werden!
 - Sichern der Daten außerhalb der Container
   - hetzner-de-ryzen:/home/uli/shared-letsencrypt ... enthält die Zertifikate; sollte gesichert werden; Platzbedarf: SEHR gering
+- NAT bei den meisten Containern deaktivieren, nur freigegebene Verbindungen zulassen
+- BLOCKLIST auf Host einrichten
+- Sichtung und Korrektur Container "anwesenheit" und Nutzer "sshtunnel"
+  - Braucht's sshtunnel/tunnel?
+  - Braucht's sshtunnel/anwesenheit-aenderungen@anwesenheit
+  - Funkioniert der Container?
+  - https://daemons-point.com/hooks -> https://anwesenheit-hooks.daemons-point.com
+  - Gitea - Webhook anpassen für "anwesenheit"!
+
+#### Erledigt
+
+- dptools korrigieren - tmate!
 
 ### Notwendige Netzwerk-Verbindungen
 
