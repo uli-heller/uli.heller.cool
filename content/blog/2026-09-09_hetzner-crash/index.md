@@ -87,6 +87,7 @@ Er ist aktuell "oben", damit man ihn schnell finden kann.
 8. Umzug "dp-gitea" - notwendig für neue DPTOOLS-Versionen
 9. Umzug "anwesenheit" - notwendig für abwesenheit.md
 10. Umzug "dptools" - notwendig für rot/grün/gelb
+11. Umzug "dp-ldap-2204" - notwendig für dp-gitea - "Neuanmeldung" via PocketID geht nicht ohne
 
 Fortschrittstabelle
 -------------------
@@ -96,7 +97,7 @@ Größe Helsinki|Container               |UID root fs|Umzug notwendig|Erledigt?|
 733M          |dp-tmate                |1507328    |Ja             |Ja       |733M                  |
 834M          |pocket-id               |0          |Ja             |Ja       |843M                  |
 969M          |daemons-point-com-static|1114112    |Ja             |Nein     |-                     |
-1020M         |dp-ldap-2204            |0          |Ja             |Nein     |-                     |4.1G vor "journalctl --vacuum-time=14d"
+1020M         |dp-ldap-2204            |0          |Ja             |Ja       |-                     |4.1G vor "journalctl --vacuum-time=14d"
 1.7G          |dp-share                |1769472    |Ja             |Nein     |-                     |
 1.5G          |dp-dropzone             |0          |Ja             |Nein     |-                     |1.8G vor "journalctl --vacuum-time=14d"
 1.3G          |anwesenheit             |1966080    |Ja             |Ja       |-                     |2.4G vor "journalctl --vacuum-time=14d"
@@ -1026,6 +1027,62 @@ dptools:
 systemctl stop presence-backend
 ```
 
+dp-ldap-2204
+------------
+
+Ich gehe vor gemäß Beschreibung von "dptools".
+
+Hier die korrigierte und angepasste Zusammenfassung:
+
+```
+# Gemini - Schritt 1
+# helsinki
+LXD_PATH=/lxd
+CONTAINER=dp-ldap-2204
+mkdir -p "${LXD_PATH}/containers-snapshots/${CONTAINER}"
+btrfs subvolume snapshot -r "${LXD_PATH}/containers/${CONTAINER}" "${LXD_PATH}/containers-snapshots/${CONTAINER}/trx_hetzner-de-ryzen_$(date +%Y%m%d-%H%M%S)"
+
+# Gemini - Schritt 2 und 3 kombiniert
+# hetzner-de-ryzen
+INCUS_PATH=/incus
+LXD_PATH=/lxd
+CONTAINER=dp-ldap-2204
+incus copy ubuntu-2604 "${CONTAINER}"
+incus stop -f "${CONTAINER}" 2>/dev/null
+rm -rf "${INCUS_PATH}/containers/${CONTAINER}/rootfs/"*
+time ssh  95.216.23.95 "tar --numeric-owner -czpf - -C \"${LXD_PATH}/containers-snapshots/${CONTAINER}/trx_hetzner-de-ryzen_\"*/rootfs/ ."\
+  |tar --numeric-owner -xzpvf - -C "${INCUS_PATH}/containers/${CONTAINER}/rootfs/"
+
+# "manchmal" müssen die UIDs/GIDs angepasst werden
+OLD_UID="$(stat --format="%u" "${INCUS_PATH}/containers/${CONTAINER}/rootfs")"
+OLD_GID="$(stat --format="%g" "${INCUS_PATH}/containers/${CONTAINER}/rootfs")"
+test "${OLD_UID} ${OLD_GID}" != "0 0" && {
+  /home/uli/bin/incus/incus-fuidshift.sh -r -u "0:${OLD_UID}" -g "0:${OLD_GID}" "${INCUS_PATH}/containers/${CONTAINER}"
+}
+
+# Potentielle Start-Probleme lösen
+(
+  cd "${INCUS_PATH}/containers/${CONTAINER}/rootfs"
+  rm  var/lib/dbus/machine-id
+  ln -s ../../../etc/machine-id var/lib/dbus/machine-id
+)
+
+/home/uli/bin/incus/incus-nat.sh "${CONTAINER}"
+incus start "${CONTAINER}"
+```
+
+### dp-gitea anpassen
+
+- Anmelden an der Web-Oberfläche als Administrator
+- Administration (oben rechts unter dem Personennamen)
+- Identität und Zugriff
+- Authentifizierungsquellen
+- DPLDAP - bearbeiten
+- Host
+  - von:  dp-ldap-2204.lxd
+  - nach: dp-ldap-2204.hostonly.domain
+- Aktualisieren
+
 Notwendige Nacharbeiten
 -----------------------
 
@@ -1035,7 +1092,6 @@ Notwendige Nacharbeiten
 
 - Wir müssen sicherstellen, dass alle Hetzner-Rechner
   bei Plattenstörungen irgendwie Alarm schlagen!
-- /var/log/journal dauerhaft begrenzen - /etc/systemd/journald.conf
 - Einrichten von Sicherungen der Container
   - apt-cacher-ng: Wird aktiv genutzt, muß aus meiner Sicht nicht (zwingend) gesichert werden!
   - apache2: Wird aktiv genutzt, sollte gesichert werden, enthält keine veränderlichen Daten!
@@ -1046,8 +1102,11 @@ Notwendige Nacharbeiten
   - dp-gitea: Wird aktiv genutzt, sollte gesichert werden!
 - Sichern der Daten außerhalb der Container
   - hetzner-de-ryzen:/home/uli/shared-letsencrypt ... enthält die Zertifikate; sollte gesichert werden; Platzbedarf: SEHR gering
+- /var/log/journal dauerhaft begrenzen - /etc/systemd/journald.conf
 - NAT bei den meisten Containern deaktivieren, nur freigegebene Verbindungen zulassen
 - BLOCKLIST auf Host einrichten
+- Sichtung Verwendung von dp-ldap-2204
+  - Einbindung anpassen - bei dp-gitea bereits erledigt
 - Sichtung und Korrektur Container "anwesenheit" und Nutzer "sshtunnel"
   - Braucht's sshtunnel/tunnel?
   - Braucht's sshtunnel/anwesenheit-aenderungen@anwesenheit
