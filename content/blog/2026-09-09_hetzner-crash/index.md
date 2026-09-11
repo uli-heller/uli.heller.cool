@@ -956,6 +956,18 @@ Hinzufügen:
 
 - Weiterleitung anwesenheit-hooks.daemons-point.com -> anwesenheit:9000
 
+### GITEA anpassen
+
+- Projekt "anwesenheit"
+- Oben rechts: Einstellungen
+- [Webhooks](https://gitea.daemons-point.com/dp-team/anwesenheit/settings/hooks)
+- IST: https://daemons-point.com/hooks/anwesenheit
+  - Ziel-URL: https://daemons-point.com/hooks/anwesenheit
+- SOLL: 
+  - Ziel-URL: https://anwesenheit-hooks.daemons-point.com/hooks/anwesenheit
+- Webhook aktualisieren
+- Test - klappen die Mails beim Ändern von "abwesenheit.md"?
+
 ### Offene TODOs
 
 - Klappen die Webhooks?
@@ -1006,6 +1018,14 @@ test "${OLD_UID} ${OLD_GID}" != "0 0" && {
 incus start "${CONTAINER}"
 ```
 
+### Dauer-Mails abschalten
+
+dptools:
+
+```
+systemctl stop presence-backend
+```
+
 Notwendige Nacharbeiten
 -----------------------
 
@@ -1033,7 +1053,10 @@ Notwendige Nacharbeiten
   - Braucht's sshtunnel/anwesenheit-aenderungen@anwesenheit
   - Funkioniert der Container?
   - https://daemons-point.com/hooks -> https://anwesenheit-hooks.daemons-point.com
-  - Gitea - Webhook anpassen für "anwesenheit"!
+  - ERLEDIGT - Gitea - Webhook anpassen für "anwesenheit"!
+  - Gitea - Webhook - funktioniert nicht, die Benachrichtigungs-Mail sieht KO aus!
+- Bereinigung Apache2-Site "daemons-point.com":
+  - /hooks rauswerfen -> ersetzt durch https://anwesenheit-hooks.daemons-point.com
 
 #### Erledigt
 
