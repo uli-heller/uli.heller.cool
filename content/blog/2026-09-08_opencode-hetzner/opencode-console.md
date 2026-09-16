@@ -1,3 +1,10 @@
++++
+title = "OpenCode Console"
+date = 2026-09-08
+
+outputs = ["html"]
++++
+
 # opencode console — vollständige Ein- und Ausgaben
 
 **Datum:** 2026-09-08

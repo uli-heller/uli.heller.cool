@@ -1,3 +1,10 @@
++++
+title = "Copilot Console"
+date = 2026-09-08
+
+outputs = ["html"]
++++
+
 # Copilot CLI Session Transcript
 
 ## User
