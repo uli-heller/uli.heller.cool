@@ -46,8 +46,8 @@ btrfs subvolume snapshot -r "${LXD_PATH}/containers/${CONTAINER}" "${LXD_PATH}/c
 INCUS_PATH=/incus
 LXD_PATH=/lxd
 CONTAINER=anwesenheit
-incus copy ubuntu-2604 "${CONTAINER}"
-incus stop -f "${CONTAINER}" 2>/dev/null
+
+incus create "${CONTAINER}" --empty
 rm -rf "${INCUS_PATH}/containers/${CONTAINER}/rootfs/"*
 time ssh  95.216.23.95 "tar --numeric-owner -czpf - -C \"${LXD_PATH}/containers-snapshots/${CONTAINER}/trx_hetzner-de-ryzen_\"*/rootfs/ ."\
   |tar --numeric-owner -xzpvf - -C "${INCUS_PATH}/containers/${CONTAINER}/rootfs/"
@@ -171,4 +171,5 @@ Getestet mit
 Historie
 --------
 
+- 2026-09-16: Verwende "incus create ... --empty"
 - 2026-09-11: Erste Version
