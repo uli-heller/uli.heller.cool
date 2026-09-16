@@ -129,5 +129,6 @@ Getestet mit
 Historie
 --------
 
+- 2026-09-16: Einbindung von opencode-console.md und copilot-console.md korrigiert
 - 2026-09-09: Vergleich mit Copilot aufgenommen, Verweise auf *-console.md korrigiert
 - 2026-09-08: Erste Version
