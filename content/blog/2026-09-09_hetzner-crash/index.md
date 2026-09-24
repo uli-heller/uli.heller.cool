@@ -969,6 +969,33 @@ Hinzufügen:
 - Webhook aktualisieren
 - Test - klappen die Mails beim Ändern von "abwesenheit.md"?
 
+### SSH-Schlüssel anpassen
+
+Fehlermeldung ist sichtbar in /home/anwesenheit-aenderungen/update.log!
+
+```
+# su -l anwesenheit-aenderungen
+
+$ ssh gitea.daemons-point.com
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@    WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!     @
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+IT IS POSSIBLE THAT SOMEONE IS DOING SOMETHING NASTY!
+Someone could be eavesdropping on you right now (man-in-the-middle attack)!
+It is also possible that a host key has just been changed.
+...
+
+$ ssh-keygen -f "/home/anwesenheit-aenderungen/.ssh/known_hosts" -R "gitea.daemons-point.com"
+...
+
+$ ssh gitea.daemons-point.com
+The authenticity of host 'gitea.daemons-point.com (49.12.86.41)' can't be established.
+ED25519 key fingerprint is SHA256:OCPskrXOrWxbrkr8zIcSmxTPr8DmR2rd6dN3xJbVtWM.
+This key is not known by any other names
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+...
+```
+
 ### Offene TODOs
 
 - Klappen die Webhooks?
@@ -1019,12 +1046,36 @@ test "${OLD_UID} ${OLD_GID}" != "0 0" && {
 incus start "${CONTAINER}"
 ```
 
+
 ### Dauer-Mails abschalten
 
 dptools:
 
 ```
 systemctl stop presence-backend
+```
+
+#### SSH-Zugriffe
+
+Notwendige Änderungen auf hetzner-de-ryzen:
+
+- Nutzer dptools anlegen: `adduser dptools`
+  Kennwort liegt in KeepassXC
+- Verzeichnis /home/dptools/.ssh übernehmen von "helsinki"
+- Skript /usr/local/bin/forward-to-dptools.sh übernehmen von "helsinki"
+- Datei /var/log/forward-to-dptools.csv anlegen: `touch /var/log/forward-to-dptools.csv; chown dptools:dptools /var/log/forward-to-dptools.csv`
+- Datei /etc/logrotate.d/forward-to-dptools übernehmen von "helsinki"
+
+### Dauer-Mails anschalten
+
+dptools:
+
+```
+systemctl start presence-backend
+systemctl status presence-backend
+  # Als "dptools":
+  # ssh-keygen -f "/home/dptools/.ssh/known_hosts" -R "gitea.daemons-point.com"
+  # ssh gitea.daemons-point.com
 ```
 
 dp-ldap-2204
