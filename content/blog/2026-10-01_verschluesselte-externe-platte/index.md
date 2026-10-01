@@ -2,8 +2,8 @@
 date = '2026-10-01'
 draft = false
 title = 'Linux: Externen Datzenträger automatisch entschlüsseln'
-categories = [ 'LUKS' ]
-tags = [ 'linux', 'ubuntu' ]
+categories = [ 'Verschlüsselung' ]
+tags = [ 'crypto', 'linux', 'ubuntu' ]
 +++
 
 <!--
