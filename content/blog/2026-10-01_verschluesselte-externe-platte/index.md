@@ -123,16 +123,16 @@ Varianten:
 # lsblk -f
 NAME                                      FSTYPE            FSVER    LABEL             UUID                                   FSAVAIL FSUSE% MOUNTPOINTS
 ...
-sda                                       linux_raid_member 1.2      ulicsl:0          8a5816c3-efb2-4cf3-2556-372cfb3be138
+sda                                       linux_raid_member 1.2      ulicsl:0          8fb4f416-e514-4d39-84d6-1e7d21aaaaaa
 └─md127                                   crypto_LUKS       2                          c894d62f-2556-4360-81c8-2f723d169d6e
   └─terramaster                           LVM2_member       LVM2 001                   MeLLZ4-RrYx-J0VK-tHR5-NUAC-wzZB-hJUUUU
     └─terramaster--vg-terramaster--data--lv
-                                          btrfs                      terrramaster-data ac09c648-b10a-4232-a6f1-18884ba5d587      3,9T     3% /terramaster-data
-sdb                                       linux_raid_member 1.2      ulicsl:0          8a5816c3-efb2-4cf3-2556-372cfb3be138
+                                          btrfs                      terrramaster-data e1c97022-d46e-468b-8b47-0fe347666666      3,9T     3% /terramaster-data
+sdb                                       linux_raid_member 1.2      ulicsl:0          8fb4f416-e514-4d39-84d6-1e7d21aaaaaa
 └─md127                                   crypto_LUKS       2                          c894d62f-2556-4360-81c8-2f723d169d6e
   └─terramaster                           LVM2_member       LVM2 001                   MeLLZ4-RrYx-J0VK-tHR5-NUAC-wzZB-hJUUUU
     └─terramaster--vg-terramaster--data--lv
-                                          btrfs                      terrramaster-data ac09c648-b10a-4232-a6f1-18884ba5d587      3,9T     3% /terramaster-data
+                                          btrfs                      terrramaster-data e1c97022-d46e-468b-8b47-0fe347666666      3,9T     3% /terramaster-data
 ...
 ```
 
