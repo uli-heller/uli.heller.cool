@@ -1,14 +1,14 @@
 +++
 date = '2026-10-01'
 draft = false
-title = 'Linux: Externen Datzenträger automatisch entschlüsseln'
+title = 'Linux: Externen Datenträger automatisch entschlüsseln'
 categories = [ 'Verschlüsselung' ]
 tags = [ 'crypto', 'linux', 'ubuntu' ]
 +++
 
 <!--
-Linux: Externen Datzenträger automatisch entschlüsseln
-======================================================
+Linux: Externen Datenträger automatisch entschlüsseln
+=====================================================
 -->
 
 Bei meinem Heimrechner habe ich externe Festplatten,
