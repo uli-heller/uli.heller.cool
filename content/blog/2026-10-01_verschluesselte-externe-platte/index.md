@@ -55,13 +55,13 @@ Ausgangslage
 ```
 $ lsblk
 NAME                                        MAJ:MIN RM   SIZE RO TYPE  MOUNTPOINTS
-sda                                           8:0    0  10,9T  0 disk  
-└─md127                                       9:127  0  10,9T  0 raid1 
-  └─terramaster                             252:2    0  10,9T  0 crypt 
+sda                                           8:0    0  10,9T  0 disk
+└─md127                                       9:127  0  10,9T  0 raid1
+  └─terramaster                             252:2    0  10,9T  0 crypt
     └─terramaster--vg-terramaster--data--lv 252:3    0     4T  0 lvm   /terramaster-data
-sdb                                           8:16   0  10,9T  0 disk  
-└─md127                                       9:127  0  10,9T  0 raid1 
-  └─terramaster                             252:2    0  10,9T  0 crypt 
+sdb                                           8:16   0  10,9T  0 disk
+└─md127                                       9:127  0  10,9T  0 raid1
+  └─terramaster                             252:2    0  10,9T  0 crypt
     └─terramaster--vg-terramaster--data--lv 252:3    0     4T  0 lvm   /terramaster-data
 ```
 
@@ -123,25 +123,25 @@ Varianten:
 # lsblk -f
 NAME                                      FSTYPE            FSVER    LABEL             UUID                                   FSAVAIL FSUSE% MOUNTPOINTS
 ...
-sda                                       linux_raid_member 1.2      ulicsl:0          8a5816c3-efb2-4cf3-2556-372cfb3be138                  
-└─md127                                   crypto_LUKS       2                          0ecc547b-b406-4e09-b03c-ae2dd43ba462                  
-  └─terramaster                           LVM2_member       LVM2 001                   g8qUjr-X6Hy-JZwJ-jvYc-GRbm-YdHj-jHonrD                
+sda                                       linux_raid_member 1.2      ulicsl:0          8a5816c3-efb2-4cf3-2556-372cfb3be138
+└─md127                                   crypto_LUKS       2                          c894d62f-2556-4360-81c8-2f723d169d6e
+  └─terramaster                           LVM2_member       LVM2 001                   g8qUjr-X6Hy-JZwJ-jvYc-GRbm-YdHj-jHonrD
     └─terramaster--vg-terramaster--data--lv
                                           btrfs                      terrramaster-data ac09c648-b10a-4232-a6f1-18884ba5d587      3,9T     3% /terramaster-data
-sdb                                       linux_raid_member 1.2      ulicsl:0          8a5816c3-efb2-4cf3-2556-372cfb3be138                  
-└─md127                                   crypto_LUKS       2                          0ecc547b-b406-4e09-b03c-ae2dd43ba462                  
-  └─terramaster                           LVM2_member       LVM2 001                   g8qUjr-X6Hy-JZwJ-jvYc-GRbm-YdHj-jHonrD                
+sdb                                       linux_raid_member 1.2      ulicsl:0          8a5816c3-efb2-4cf3-2556-372cfb3be138
+└─md127                                   crypto_LUKS       2                          c894d62f-2556-4360-81c8-2f723d169d6e
+  └─terramaster                           LVM2_member       LVM2 001                   g8qUjr-X6Hy-JZwJ-jvYc-GRbm-YdHj-jHonrD
     └─terramaster--vg-terramaster--data--lv
                                           btrfs                      terrramaster-data ac09c648-b10a-4232-a6f1-18884ba5d587      3,9T     3% /terramaster-data
 ...
 ```
 
-Die gesuchte UUID ist "0ecc547b-b406-4e09-b03c-ae2dd43ba462".
+Die gesuchte UUID ist "c894d62f-2556-4360-81c8-2f723d169d6e".
 
 ### Schlüsseldatei aktivieren
 
 ```
-# UUID=0ecc547b-b406-4e09-b03c-ae2dd43ba462
+# UUID=c894d62f-2556-4360-81c8-2f723d169d6e
 # KEY_FILE=/etc/luks-keys/terramaster.key
 # cryptsetup luksAddKey "/dev/disk/by-uuid/${UUID}" "${KEY_FILE}"
 Enter any existing passphrase: (manuelles-entschlüsselungskennwort-eintippen)
@@ -150,7 +150,7 @@ Enter any existing passphrase: (manuelles-entschlüsselungskennwort-eintippen)
 ### Automatische Entschlüsselung aktivieren
 
 ```
-# UUID=0ecc547b-b406-4e09-b03c-ae2dd43ba462
+# UUID=c894d62f-2556-4360-81c8-2f723d169d6e
 # KEY_FILE=/etc/luks-keys/terramaster.key
 # echo >>/etc/crypttab "terramaster UUID=${UUID} ${KEY_FILE} luks,nofail"
 ```
@@ -159,7 +159,7 @@ Meine /etc/crypttab:
 
 ```
 # <target name>	<source device>		<key file>	<options>
-terramaster UUID=0ecc547b-b406-4e09-b03c-ae2dd43ba462 /etc/luks-keys/terramaster.key luks,nofail
+terramaster UUID=c894d62f-2556-4360-81c8-2f723d169d6e /etc/luks-keys/terramaster.key luks,nofail
 ```
 
 ### Automatisches Einbinden
