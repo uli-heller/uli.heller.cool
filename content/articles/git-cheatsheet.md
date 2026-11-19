@@ -56,8 +56,40 @@ git merge --strategy-option theirs (other-branch)
 
 Quelle: [StackOverflow - Resolve Git merge conflicts in favor of their changes during a pull](https://stackoverflow.com/a/10697551)
 
+Große Dateien in der Git-Historie finden
+----------------------------------------
+
+Anzeige der 20 größten Dateien:
+
+```
+git rev-list --objects --all \
+  | git cat-file --batch-check='%(objecttype) %(objectname) %(objectsize) %(rest)' \
+  | awk '/^blob / {print $3, $4}' \
+  | sort -nr \
+  | head -n 20
+```
+
+Verzeichnisse oder Dateien aus der Git-Historie löschen
+-------------------------------------------------------
+
+"git filter-repo" funktioniert nur bei frischen Clones:
+
+```
+git clone --no-local (repo-url) temp-repo
+cd temp-repo
+git filter-repo --invert-paths --path pfad/zum/verzeichnis/
+git filter-repo --invert-paths --path pfad/zur/datei
+git reflog expire --expire=now --all && git gc --prune=now --aggressive
+git remote add origin (repo-url)
+git push origin --force --all
+git push origin --force --tags
+cd ..
+rm -rf temp-repo
+```
+
 Historie
 --------
 
+- 2026-11-19: Große Dateien und Git-Historie
 - 2026-08-24: Merge
 - 2025-09-09: Erste Version
