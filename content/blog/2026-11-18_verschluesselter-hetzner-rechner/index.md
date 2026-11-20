@@ -73,11 +73,11 @@ Someone could be eavesdropping on you right now (man-in-the-middle attack)!
 Nach deren Beseitigung klappt die Anmeldung im Rettungssystem
 mittels SSH-Schlüssel.
 
-Installation Minimal-Ubuntu
----------------------------
+Installation Basis-Ubuntu
+-------------------------
 
-Zuerst installieren wir ein Minimal-Ubuntu.
-Das Minimal-Ubuntu läuft ohne Verschlüsselung und
+Zuerst installiere ich ein Basis-Ubuntu.
+Das Basis-Ubuntu läuft ohne Verschlüsselung und
 wird später in die verschlüsselten Plattenbereiche
 umkopiert.
 
@@ -163,7 +163,7 @@ Running unattended installimage installation ...
 rescue:/# reboot
 ```
 
-### Anmelden am Minimal-Ubuntu
+### Anmelden am Basis-Ubuntu
 
 ```
 desktop:~$ ssh-keygen -f "/home/uli/.ssh/known_hosts" -R 95.216.23.95
@@ -629,4 +629,5 @@ Links
 Historie
 --------
 
+- 2026-11-20: Minimal-Ubuntu umbenannt zu Basis-Ubuntu
 - 2026-11-18: Erste Version
