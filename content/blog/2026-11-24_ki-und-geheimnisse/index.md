@@ -63,9 +63,47 @@ Die Umgebung sieht dann so aus:
 
 ![GIT-Geheimnisse](git-geheimnisse.png)
 
-Grundsätzlicher Ablauf
-----------------------
+Ergänzung um KI-Agenten
+-----------------------
 
+Eine gängige Praxis ist die Erweiterung von vorigem Arbeitsablauf
+um einen KI-Agenten:
+
+![Ergänzung um KI-Agent](git-ki-agent.png)
+
+Er wird entweder per Kommandozeile gestartet oder innerhalb der Entwicklungsumgebung.
+Typischerweise hat er Zugriff auf das Arbeitsverzeichnis und damit "sieht" er auch
+quasi alle Geheimnisse. Das ist aus verschiedenen Gründen potentiell ein Problem:
+
+- Manche KI-Nutzungspläne nutzen alle verfügbaren Daten zur Erweiterung/zum Training der
+  zugrunde liegenden KI-Modelle. Das bedeutet letztlich, dass die Geheimnisse
+  in neueren Versionen des Modelles landen und damit potentiell anderen Nutzern
+  zur Verfügung stehen können
+
+- Auch ohne Training-Verwendung gibt es Berichte von Geheimnissen, die nach
+  Übermittlung an eine KI-Infrastruktur "ausgenutzt" werden - siehe
+  [arsTechnica - Researcher plants 2m canaries into the AI supply chain. A privacy disaster surfaced.](https://arstechnica.com/security/2026/11/a-leaky-ai-supply-chain-is-exposing-secret-user-data-at-an-alarming-rate/)
+  und [dragos - Three breaches, endless leaks: Your AI supply chain needs canaries](https://www.dragos.com/blog/ai-supply-chain-security-canary-tokens#how-do-canary-tokens-detect-prompt-leaks)
+
+Also: Geheimnisse und KI-Infrastruktur müssen strikt getrennt werden!
+
+Zusätzlich gibt es auch ein Problem mit Umgebungsmodifikationen:
+COPILOT führt bei der Ermittlung von Problemlösungen immer mal wieder
+Kommandos in seiner Laufzeitumgebung aus. Bei der Nutzung im letzten Team
+waren das sehr häufig kleine Python-Skripts, die üblicherweise vor der
+Ausführung gesichtet und freigegeben werden müssen. Leider ist dies
+oftmals sehr lästig, besonders, wenn man die Python-Skripts nicht
+versteht. Dann ist es naheliegend, Python-Skript-Ausführung einfach
+generell freizugeben, was im Endeffekt bedeutet, dass man quasi seinen
+Benutzer für COPILOT frei gibt und später nicht mehr so richtig nachvollziehen
+kann, welche Änderungen COPILOT durchgeführt hat.
+
+Bei OPENCODE habe ich noch deutlich aggressiveres Verhalten beobachtet.
+OPENCODE hat bei mir in einer Testumgebung ohne Rückfrage Zusatztools
+installiert. Für die Problemlösung durchaus förderlich, für den Zustand
+der Testumgebung eher nicht.
+
+Also: Die übliche Laufzeitumgebung und der KI-Agent müssen strikt getrennt werden!
 
 Versionen
 ---------
@@ -76,6 +114,8 @@ Links
 -----
 
 - [Spring Cloud Config - Encryption and Decryption](https://docs.spring.io/spring-cloud-config/reference/server/encryption-and-decryption.html)
+- [arsTechnica - Researcher plants 2m canaries into the AI supply chain. A privacy disaster surfaced.](https://arstechnica.com/security/2026/11/a-leaky-ai-supply-chain-is-exposing-secret-user-data-at-an-alarming-rate/)
+- [dragos - Three breaches, endless leaks: Your AI supply chain needs canaries](https://www.dragos.com/blog/ai-supply-chain-security-canary-tokens#how-do-canary-tokens-detect-prompt-leaks)
 
 Historie
 --------
