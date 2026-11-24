@@ -105,6 +105,13 @@ der Testumgebung eher nicht.
 
 Also: Die übliche Laufzeitumgebung und der KI-Agent müssen strikt getrennt werden!
 
+COPILOT hat einen eingebauten Trennmechanismus: Die Sandbox. Diese kann
+man aktivieren und sie schottet dann den Agenten vom Restsystem ab.
+Mir persönlich ist das zu unsicher. Für mich ist nicht klar, wie durchlässig
+diese Abschottung ist und ob COPILOT sie nicht irgendwie deaktivieren oder
+umgehen kann. Ich verwende lieber meine eigene Trennung - gerne auch zusätzlich
+zur eingebauten Sandbox!
+
 Versionen
 ---------
 
