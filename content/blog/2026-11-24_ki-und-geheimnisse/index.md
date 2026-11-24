@@ -59,12 +59,43 @@ Die Umgebung sieht dann so aus:
   Die Werte der geheimen Parameter sind verschlüsselt
 - Der zur Entschlüsselung notwendige ENCRYPT_KEY liegt nur im lokalen Arbeitsverzeichnis
   (oder steht anderweitig auf dem Arbeitsplatzrechner zur Verfügung)
-- In GitHub liegt eine Datei "secret.key", die komplett verschlüsselt ist
+- In GitHub liegt eine Datei "Uli_DEV.pem", die komplett verschlüsselt ist
 
 ![GIT-Geheimnisse](git-geheimnisse.png)
 
-Ergänzung um KI-Agenten
------------------------
+### Beispiel ".env.example"
+
+```
+# GitLab Personal Access Token (api scope)
+# Generate at: https://gitlab.heller.cool/-/user_settings/personal_access_tokens
+GITLAB_PERSONAL_ACCESS_TOKEN=your-token-here
+GITLAB_API_URL=https://gitlab.heller.cool/api/v4
+
+# Jira Personal Access Token
+# Generate at: https://jira.heller.cool/jira/secure/ViewProfile.jspa
+JIRA_PERSONAL_TOKEN=your-token-here
+
+# Confluence Personal Access Token
+# Generate at: https://confluence.heller.cool/confluence/secure/ViewProfile.jspa
+CONFLUENCE_PERSONAL_TOKEN=your-token-here
+```
+
+### Beispiel "application.properties"
+
+```
+database.user=mongodb-uli
+database.password={cipher}23f269d24d7b32...143
+```
+
+### Beispiel "Uli_DEV.pem"
+
+```
+^@GITCRYPT^@<87><D1>...
+(binärer Datenmüll)
+```
+
+Ergänzung um einen KI-Agenten
+-----------------------------
 
 Eine gängige Praxis ist die Erweiterung von vorigem Arbeitsablauf
 um einen KI-Agenten:
@@ -111,6 +142,84 @@ Mir persönlich ist das zu unsicher. Für mich ist nicht klar, wie durchlässig
 diese Abschottung ist und ob COPILOT sie nicht irgendwie deaktivieren oder
 umgehen kann. Ich verwende lieber meine eigene Trennung - gerne auch zusätzlich
 zur eingebauten Sandbox!
+
+Konsequenzen aus fehlender Trennung
+-----------------------------------
+
+Angenommen, ich habe auf meinem Entwicklungsrechner einen KI-Agenten
+gemäß obiger Beschreibung verwendet, dann würde ich persönlich diese
+Aktionen für angebracht halten:
+
+1. MUSS - Komplettsichtung des Rechners in Hinblick auf unerwünschte Änderungen
+   - Pakete eingespielt/gelöscht
+   - Konfigurationsanpassungen
+
+2. MUSS - Ermittlung und Änderung aller Geheimnisse aus dem betreffenden Entwicklungsprojekt
+   - Die Geheimnisse sind potentiell an die KI-Infrastruktur übergeben worden
+     und damit nicht mehr vertrauenswürdig
+
+3. OPTIONAL - Ermittlung und Änderung aller Geheimnisse auf meinem Entwicklungsrechner
+   - OPENCODE "verlässt" teilweise den Projektordner und erlangt damit Zugriff
+     auf "umgebende" Dateien
+   - Damit sind auch "umgebende" Geheimnisse potentiell an die KI-Infrastruktur übergeben worden
+     und nicht mehr vertrauenswürdig
+
+4. EHER NICHT - Wenn ich im "Paranoid-Modus" bin, dann sperre ich auch alle lokal abliegenden SSH-Schlüssel
+   - Ich verwende nicht-triviale Passphrases für meine SSH-Schlüssel
+   - Die Schlüsseldateien könnten "entwischt" sein und dann mit "brute force"-Methoden geknackt werden
+   - Ist eine sehr theoretische Mißbrauchsmöglichkeit, praktisch wohl eher irrelevant
+
+5. EHER NICHT - Wenn ich im "Paranoid-Modus" bin, dann ändere ich auch alle Kennworte/Schlüssel, die in lokal
+   vorhandenen Kennwortverwaltungen abliegen (bspw. KeePass, KeePassXC, Bitwarden, ...)
+   - Die Kennwort-Datenbank könnte "entwischt" sein
+   - Eine zugehörige Schlüsseldatei ebenso
+   - Trotz nicht-trivialem Kennwort für die Kennwortverwaltung könnte diese mit "brute force"-Methoden geknackt werden
+   - Ist eine sehr theoretische Mißbrauchsmöglichkeit, praktisch wohl eher irrelevant
+
+6. EHER NICHT - Neuaufsetzen des Rechners
+   - Die Komplettsichtung kann keine absolute Sicherheit geben - möglicherweise werden kritische Änderungen übersehen
+   - Neuaufsetzen ist aufwändig
+
+Die mit MUSS gekennzeichneten Aktionen würde ich persönlich auf jeden Fall durchführen,
+die OPTIONAL-Aktion ziemlich wahrscheinlich und die EHER NICHT-Aktionen etwas
+abhängig vom Einsatzzweck und von der Dauer der Nutzung.
+
+KI-Agent mit Sandbox
+--------------------
+
+Ich persönlich verwende KI-Agenten ausschliesslich in einer Sandbox.
+Der Ablauf ist grob so:
+
+- Lokale Entwicklungsumgebung aufgesetzt wie üblich
+- Leeren Container mit Internet-Zugriff erstellt
+- KI-Agent im Container installiert
+- Kopie des lokalen Checkouts im Container verfügbar gemacht
+
+Der KI-Agent hat nun nur Zugriff auf die unkritischen
+Quelltexte. Geheimnisse kennt er nicht.
+
+![KI-Agent mit Sandbox](simple-sandbox.png)
+
+Was klappt gut?
+
+- KI-Agent kennt keine Geheimnisse
+- KI-Agent hat keinen Zugriff auf meinen Arbeitsplatzrechner
+- Umgebung für den KI-Agenten ist schnell aufgesetzt (weniger als 5 Minuten)
+- Umgebung für den KI-Agenten kann schnell zurückgesetzt werden - mittels
+  Container-Snapshot ist das eine Sache von wenigen Sekunden
+- KI-Agent "kennt" den Quelltext des Entwicklungsprojektes und kann Verbesserungen vorschlagen
+- KI-Agent "kennt" die Konfigurationsdateien von SpringBoot-Anwendungen und
+  kann Verbesserungen vorschlagen (Geheimnisse in den Dateien sind verschlüsselt, Rest nicht)
+
+Wo gibt es noch Verbesserungspotential?
+
+- Ungefilterter Zugriff auf's Internet
+- Kein Zugriff auf gesicherte Internet-Seiten
+- (Fast) Kein Zugriff auf die Entwicklungsumgebung
+- Konfigurationsdateien von Nicht-SpringBoot-Anwendungen sind problematisch. Sie sind
+  entweder komplett verschlüsselt oder fehlen! Damit sind sie quasi unsichtbar für den KI-Agenten
+
+Das Verbesserungspotential werde ich in Folgeartikeln heben!
 
 Versionen
 ---------
